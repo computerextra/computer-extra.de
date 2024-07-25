@@ -23,7 +23,7 @@ export default function useAngebote(): {
   useEffect(() => {
     async function x() {
       setIsLoading(true);
-      const data = await axios.get(HOSTNAME + "/php/api/angebote.php");
+      const data = await axios.get(HOSTNAME + "/php/angebote.php");
       if (data == null) return;
       if (!data.data) return;
       const angebot: Angebot[] = [];

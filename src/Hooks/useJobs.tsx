@@ -23,7 +23,7 @@ export default function useJobs(): {
   useEffect(() => {
     async function x() {
       setIsLoading(true);
-      const data = await axios.get(HOSTNAME + "/php/api/jobs.php");
+      const data = await axios.get(HOSTNAME + "/php/jobs.php");
       if (data == null) return;
       if (!data.data) return;
       const jobs: Job[] = [];

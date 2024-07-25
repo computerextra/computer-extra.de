@@ -29,7 +29,7 @@ export default function useMitarbeiter(): {
   useEffect(() => {
     async function x() {
       setIsLoading(true);
-      const data = await axios.get(HOSTNAME + "/php/api/mitarbeiter.php");
+      const data = await axios.get(HOSTNAME + "/php/mitarbeiter.php");
       if (data == null) return;
       if (!data.data) return;
       const tmp: Mitarbeiter[] = [];

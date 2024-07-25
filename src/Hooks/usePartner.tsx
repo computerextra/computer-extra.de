@@ -24,7 +24,7 @@ export default function usePartner(): {
   useEffect(() => {
     async function x() {
       setIsLoading(true);
-      const data = await axios.get(HOSTNAME + "/php/api/partner.php");
+      const data = await axios.get(HOSTNAME + "/php/partner.php");
       if (data == null) return;
       if (!data.data) return;
       setPartner(data.data);
