@@ -25,12 +25,6 @@ export default function Footer() {
           </NavLink>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
-          <NavLink
-            className="hover:underline focus:underline"
-            to="/Bankverbindung"
-          >
-            Bankverbindung
-          </NavLink>
           <NavLink className="hover:underline focus:underline" to="/Kontakt">
             Kontakt
           </NavLink>

@@ -82,12 +82,7 @@ import {
       title: "Auftragsverarbeitung",
       show: false,
     },
-    {
-      path: "/Bankverbindung",
-      element: Bankverbindung,
-      title: "Bankverbindung",
-      show: false,
-    },
+   
     {
       path: "/Datenschutz",
       element: Datenschutz,
