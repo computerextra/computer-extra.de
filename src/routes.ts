@@ -1,7 +1,6 @@
 import {
     AGB,
     Auftragsverarbeitung,
-    Bankverbindung,
     Datenschutz,
     Erfolg,
     Fehler,
