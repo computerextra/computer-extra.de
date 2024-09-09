@@ -26,7 +26,7 @@ const BewerbungsSchema = yup.object({
 function Input(
   props: UseControllerProps<yup.InferType<typeof BewerbungsSchema>> & {
     className?: string;
-  }
+  },
 ) {
   const { field, fieldState } = useController(props);
 
@@ -60,9 +60,14 @@ export default function JobSection({ job }: { job: string }) {
   const { firstAscii, secondAscii, CheckResult } = useFormChallenge();
   const [Eingabe, setEingabe] = useState("");
   const [Fehler, setFehler] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (values: yup.InferType<typeof BewerbungsSchema>) => {
-    if (Eingabe == "" || Eingabe.length < 1) return;
+    setLoading(true);
+    if (Eingabe == "" || Eingabe.length < 1) {
+      setLoading(false);
+      return;
+    }
     if (CheckResult(Eingabe)) {
       const form = new FormData();
       form.append("Name", values.Name);
@@ -71,11 +76,11 @@ export default function JobSection({ job }: { job: string }) {
       form.append("Job", values.Job);
       form.append(
         "Lebenslauf",
-        (document.querySelector("#Lebenslauf") as HTMLFormElement).files[0]
+        (document.querySelector("#Lebenslauf") as HTMLFormElement).files[0],
       );
       form.append(
         "Anschreiben",
-        (document.querySelector("#Anschreiben") as HTMLFormElement).files[0]
+        (document.querySelector("#Anschreiben") as HTMLFormElement).files[0],
       );
       const res = await axios.post(HOSTNAME + "/php/mail.php", form, {
         headers: {
@@ -312,6 +317,7 @@ export default function JobSection({ job }: { job: string }) {
             <p className="text-red-500 text-xl">Fehlerhaftes Ergebnis</p>
           )}
           <button
+            disabled={loading}
             type="submit"
             className="relative px-10 py-5 overflow-hidden font-medium text-gray-600 bg-gray-100 border border-gray-100 rounded-lg shadow-inner group w-full"
           >
@@ -321,7 +327,7 @@ export default function JobSection({ job }: { job: string }) {
             <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
             <span className="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
             <span className="relative transition-colors duration-300 delay-200 group-hover:text-white ease">
-              Bewerben
+              {loading ? "Bitte Warten ..." : "Bewerben"}
             </span>
           </button>
         </form>
