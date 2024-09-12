@@ -15,6 +15,7 @@ import {
     PartnerPage,
     TeamPage,
   } from "./Pages";
+import Termine from "./Pages/Termine";
   
   type RouteProps = {
     path: string;
@@ -117,6 +118,12 @@ import {
       element: OEM,
       title: "OEM",
       show: false,
+    },
+    {
+      path: "/termin",
+      element: Termine,
+      title: "Termine",
+      show: false
     },
     {
       path: "*",

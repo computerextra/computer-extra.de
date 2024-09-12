@@ -828,7 +828,57 @@ export default function Datenschutz() {
             abgerufen werden.
           </p>
           <h2 className="font-medium text-2xl mb-2 mt-5">
-            11. Rechtsgrundlage der Verarbeitung
+            11. Datenschutzbestimmungen zu Einsatz und verwendung von Nextcloud
+          </h2>
+          <p className="py-1">
+            Innerhalb unseres Terminplanungstools setzen wir auf einen
+            Cloudspeicher basierend auf Nextcloud. Die Verarbeitung Ihrer Daten
+            erfolgt zu folgndenden Zwecken:
+            <ul>
+              <li>Verwaltung Ihrer Termine</li>
+              <li>Erstellung von Terminplans</li>
+            </ul>
+          </p>
+          <h3>
+            Erhebung personenbezogener Daten bei der Nutzung von Nextcloud
+          </h3>
+          <p className="py-1">
+            Erhoben werden Name, Email Adresse und Telefonnummer.
+          </p>
+          <h3>Speicherung von Cookies</h3>
+          <p className="py-1">
+            Der Cloudspeicherdienst (basierend auf Nextcloud) speichert nur
+            Cookies, die für das ordnungsgemäße Funktionieren des Diesnstes
+            selber erforderlich sind. Alle Cookies kommen direkt von dem von uns
+            betriebenen Cloudserver, es werden keine Cookies von Drittanbietern
+            an Ihr System gesendet. <br />
+            Durch den Cloudspeicherdienst (basierend auf Nextcloud) gespeicherte
+            Cookies:
+            <ul>
+              <li>
+                Session-Cookies: Sitzungs-ID, Secret Token (wird zur
+                Entschlüsselung der Sitzung aug dem Server verwendet.)
+              </li>
+              <li>
+                SameSite-Cookis: Es werden keine nutzerbezogenen Daten
+                gespeichert, alle SameSite-Cookies sind für alle Nutzer auf
+                allen Instanzen gleich.
+              </li>
+              <li>
+                Remember-Me-Cookies: Benutzererkennung (user-id), ursprüngliche
+                Sitzungs-ID, Erinnerungs-Token
+              </li>
+            </ul>
+            SameSite-Cookies werden verwendet, um festzustellen, wie eine
+            Anfrage den Cloudspeicherdienst-Server erreicht. Sie werden
+            verwendet, um CSRF-Angriffe zu verhindern. In diesen Cookies werden
+            keine indentifizierbaren Informationen gespeichert. Die übrigen
+            Cookies werden ausschließlich dazu verwendet, den Benutzer im System
+            zu identifizieren.
+          </p>
+
+          <h2 className="font-medium text-2xl mb-2 mt-5">
+            12. Rechtsgrundlage der Verarbeitung
           </h2>
           <p className="py-1">
             Art. 6 I lit. a DS-GVO dient unserem Unternehmen als Rechtsgrundlage
@@ -868,7 +918,7 @@ export default function Datenschutz() {
             Verantwortlichen ist (Erwägungsgrund 47 Satz 2 DS-GVO).
           </p>
           <h2 className="font-medium text-2xl mb-2 mt-5">
-            12. Berechtigte Interessen an der Verarbeitung, die von dem
+            13. Berechtigte Interessen an der Verarbeitung, die von dem
             Verantwortlichen oder einem Dritten verfolgt werden
           </h2>
           <p className="py-1">
@@ -878,7 +928,7 @@ export default function Datenschutz() {
             Mitarbeiter und unserer Anteilseigner.
           </p>
           <h2 className="font-medium text-2xl mb-2 mt-5">
-            13. Dauer, für die die personenbezogenen Daten gespeichert werden
+            14. Dauer, für die die personenbezogenen Daten gespeichert werden
           </h2>
           <p className="py-1">
             Das Kriterium für die Dauer der Speicherung von personenbezogenen
@@ -888,7 +938,7 @@ export default function Datenschutz() {
             erforderlich sind.
           </p>
           <h2 className="font-medium text-2xl mb-2 mt-5">
-            14. Gesetzliche oder vertragliche Vorschriften zur Bereitstellung
+            15. Gesetzliche oder vertragliche Vorschriften zur Bereitstellung
             der personenbezogenen Daten; Erforderlichkeit für den
             Vertragsabschluss; Verpflichtung der betroffenen Person, die
             personenbezogenen Daten bereitzustellen; mögliche Folgen der
@@ -917,7 +967,7 @@ export default function Datenschutz() {
             Nichtbereitstellung der personenbezogenen Daten hätte.
           </p>
           <h2 className="font-medium text-2xl mb-2 mt-5">
-            15. Bestehen einer automatisierten Entscheidungsfindung
+            16. Bestehen einer automatisierten Entscheidungsfindung
           </h2>
           <p className="py-1">
             Als verantwortungsbewusstes Unternehmen verzichten wir auf eine
