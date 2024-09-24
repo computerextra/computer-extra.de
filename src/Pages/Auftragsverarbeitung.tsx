@@ -11,7 +11,7 @@ const Werte = [
   },
   {
     Datei: "Anlage 1 - Technische- und Organisatorische Maßnahmen",
-    Stand: "01.11.2023",
+    Stand: "24.09.2024",
     Download: "ANLAGE_1_TOM.pdf",
   },
   {
