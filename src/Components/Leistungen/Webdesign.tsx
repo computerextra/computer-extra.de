@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import GradientHeader from "../GradientHeader";
 
@@ -36,14 +37,28 @@ const Referenzen: Referenz[] = [
 ];
 
 export default function Webdesign() {
+  const [showToolTip, setShowToolTip] = useState(false);
+  const [shownToolTip, setShownToolTip] = useState("");
+
+  const toggleToolTip = (tooltip: string) => {
+    setShownToolTip(tooltip);
+    setShowToolTip(!showToolTip);
+  };
+
+  const hideToolTips = () => {
+    setShowToolTip(false);
+    setShownToolTip("");
+  };
+
   return (
     <section className="w-full lg:w-[60%] mx-0 lg:mx-auto my-24" id="webdesign">
-      <GradientHeader paddingBottom="pb-2">Webdesign & Hosting</GradientHeader>
-      <p className="text-xl text-blue-700 font-semibold mt-0">
+      <GradientHeader paddingBottom="pb-2">
+        Webentwicklung & Hosting
+      </GradientHeader>
+      <p className="mt-0 text-xl font-semibold text-blue-700">
         Wir liefern innovative Konzepte für von modernen und optimierte
-        Webseiten (Webdesign) nach Ihren Wünschen, setzen diese für Sie um und
-        kümmern uns auf Wunsch auch um das Hosting der Webseite, Emails &
-        Domains.
+        Webseiten nach Ihren Wünschen, setzen diese für Sie um und kümmern uns
+        auf Wunsch auch um das Hosting der Webseite, Emails & Domains.
       </p>
       <div className="grid grid-cols-1 gap-10 my-16">
         <p className="text-xl">
@@ -51,7 +66,7 @@ export default function Webdesign() {
           technisch hochwertige Webseiten - perfekt optimiert auf Ihr Projekt.
         </p>
         <div className="cList">
-          <ul className="grid gap-10 text-xl grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 leading-snug items-center">
+          <ul className="grid items-center grid-cols-1 gap-10 text-xl leading-snug md:grid-cols-2 2xl:grid-cols-4">
             <li>
               <span>Modernstes, individuelles Web-Design</span>
             </li>
@@ -59,7 +74,69 @@ export default function Webdesign() {
               <span>Mobilgeräte (Full Responsive)</span>
             </li>
             <li>
-              <span>Neueste Technik (HTML5, PHP, CSS3, usw.)</span>
+              <span>
+                Neueste Techniken <br />(
+                <div
+                  className="!p-0 !m-0 inline-block	"
+                  aria-label="tooltip-react"
+                  onMouseOver={() => toggleToolTip("react")}
+                  onFocus={() => toggleToolTip("react")}
+                  onMouseOut={hideToolTips}
+                >
+                  <div className="relative">
+                    React
+                    {showToolTip && shownToolTip == "react" && (
+                      <ToolTip text="React ist eine JavaScript-Programmbibliothek zur Erstellung von webbasierten Benutzeroberflächen." />
+                    )}
+                  </div>
+                </div>
+                ,{" "}
+                <div
+                  className="!p-0 !m-0 inline-block	"
+                  aria-label="tooltip-framer"
+                  onMouseOver={() => toggleToolTip("framer")}
+                  onFocus={() => toggleToolTip("framer")}
+                  onMouseOut={hideToolTips}
+                >
+                  <div className="relative">
+                    Framer-Motion
+                    {showToolTip && shownToolTip == "framer" && (
+                      <ToolTip text="Framer-Motion ist eine JavaScript-Programmbibliothek zur Erstellung von Animationen." />
+                    )}
+                  </div>
+                </div>
+                ,{" "}
+                <div
+                  className="!p-0 !m-0 inline-block	"
+                  aria-label="tooltip-tailwind"
+                  onMouseOver={() => toggleToolTip("tailwind")}
+                  onFocus={() => toggleToolTip("tailwind")}
+                  onMouseOut={hideToolTips}
+                >
+                  <div className="relative">
+                    TailwindCss
+                    {showToolTip && shownToolTip == "tailwind" && (
+                      <ToolTip text="TailwindCss ist eine OpenSource-CSS-Bibliothek. TailwindCss erstellt eine Reihe von nützlichen CSS Klassen." />
+                    )}
+                  </div>
+                </div>
+                ,{" "}
+                <div
+                  className="!p-0 !m-0 inline-block	"
+                  aria-label="tooltip-typescript"
+                  onMouseOver={() => toggleToolTip("typescript")}
+                  onFocus={() => toggleToolTip("typescript")}
+                  onMouseOut={hideToolTips}
+                >
+                  <div className="relative">
+                    TypeScript
+                    {showToolTip && shownToolTip == "typescript" && (
+                      <ToolTip text="TypeScript ist eine von Microsoft entwickelte Skriptsprache, die auf den Vorschlägen zum ECMAScript6-Standard basiert und statische Typisierung zu JavaScript hinzufügt." />
+                    )}
+                  </div>
+                </div>
+                , etc.)
+              </span>
             </li>
             <li>
               <span>Datenschutz geprüft (DSGVO)</span>
@@ -76,7 +153,7 @@ export default function Webdesign() {
           die Domain-Verwaltung für Sie.
         </p>
         <div className="cList">
-          <ul className="grid gap-10 text-xl grid-cols-1 md:grid-cols-2 2xl:grid-cols-5 leading-snug items-center">
+          <ul className="grid items-center grid-cols-1 gap-10 text-xl leading-snug md:grid-cols-2 2xl:grid-cols-5">
             <li>
               <span>Modernste Hosting-Technik</span>
             </li>
@@ -95,7 +172,7 @@ export default function Webdesign() {
           </ul>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 my-16">
+      <div className="grid grid-cols-1 gap-10 my-16 lg:grid-cols-2">
         <p className="text-xl">
           Bringen Sie Ihre Website auf die nächste Stufe. Steigern Sie
           Online-Sichtbarkeit & Geschäftserfolg! Jetzt unverbindlich von
@@ -110,20 +187,20 @@ export default function Webdesign() {
           <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
           <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
           <span className="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
-          <span className="relative h-full w-full flex items-center justify-center text-2xl transition-colors duration-300 delay-200 group-hover:text-white ease">
+          <span className="relative flex items-center justify-center w-full h-full text-2xl transition-colors duration-300 delay-200 group-hover:text-white ease">
             Schreiben Sie uns
           </span>
         </NavLink>
       </div>
-      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 my-16">
+      <div className="grid gap-10 my-16 md:grid-cols-2 xl:grid-cols-3">
         {Referenzen.sort((a, b) => a.Kunde.localeCompare(b.Kunde)).map(
           (Referenz, idx) => (
             <div
-              className="flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden hover:scale-105 grayscale hover:grayscale-0 transition-all duration-300 ease-in-out"
+              className="flex flex-col overflow-hidden transition-all duration-300 ease-in-out bg-white border border-gray-200 rounded-lg shadow-sm hover:scale-105 grayscale hover:grayscale-0"
               key={idx}
             >
               <NavLink
-                className="flex-1 w-full inline-flex flex-col items-center justify-center"
+                className="inline-flex flex-col items-center justify-center flex-1 w-full"
                 to={Referenz.Link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -139,9 +216,9 @@ export default function Webdesign() {
                   }}
                   width="400"
                 />
-                <div className="p-4 flex-1 flex flex-col justify-center text-center">
+                <div className="flex flex-col justify-center flex-1 p-4 text-center">
                   <h3 className="text-xl font-bold">{Referenz.Kunde}</h3>
-                  <p className="text-base text-gray-500 mt-1">
+                  <p className="mt-1 text-base text-gray-500">
                     {Referenz.Link.replace("https://", "")
                       .replace("www.", "")
                       .replace(/\/$/, "")}
@@ -153,5 +230,13 @@ export default function Webdesign() {
         )}
       </div>
     </section>
+  );
+}
+
+function ToolTip({ text }: { text: string }) {
+  return (
+    <div className="absolute z-[10000] p-4 font-normal text-white rounded-md bg-slate-900/100">
+      {text}
+    </div>
   );
 }
