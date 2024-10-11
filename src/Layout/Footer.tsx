@@ -28,7 +28,7 @@ export default function Footer() {
           <NavLink className="hover:underline focus:underline" to="/Kontakt">
             Kontakt
           </NavLink>
-          <NavLink className="hover:underline focus:underline" to="/Kontakt">
+          <NavLink className="hover:underline focus:underline" to="/Termin">
             Termin
           </NavLink>
         </div>
