@@ -1,5 +1,6 @@
 import { AnimatePresence, Variants, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 type Props = {
   children: string | JSX.Element | JSX.Element[];
@@ -23,11 +24,11 @@ export default function StartLayout({ children }: Props) {
         loop
         playsInline
         src="/videos/bg.mp4"
-        className="absolute min-w-full object-cover min-h-screen top-0 left-0 right-0 z-10 invert grayscale"
+        className="absolute top-0 left-0 right-0 z-10 object-cover min-w-full min-h-screen invert grayscale"
       />
-      <div className="w-full min-h-screen bg-blue-600/50 relative z-20">
+      <div className="relative z-20 w-full min-h-screen bg-blue-600/50">
         <div className="min-h-[75vh] ps-5 pe-5 flex flex-col justify-center w-full mx-2 lg:pt-[10vh]  lg:mx-0 lg:ps-[20%] lg:pe-0">
-          <h1 className="text-3xl lg:text-5xl text-slate-100 font-bold uppercase max-w-fit rounded-xl px-10 pt-3 py-0 md:py-4">
+          <h1 className="px-10 py-0 pt-3 text-3xl font-bold uppercase lg:text-5xl text-slate-100 max-w-fit rounded-xl md:py-4">
             Computer Extra bietet&nbsp;
             <br className="2xl:hidden" />
             <AnimatedText />
@@ -47,6 +48,12 @@ export default function StartLayout({ children }: Props) {
               Montag - Freitag: 09:00 - 18:00 | Samstag - Sonntag: geschlossen
             </p>
           </div>
+          <NavLink
+            to="/Termin"
+            className="hover:scale-105 hover:bg-blue-900 focus:bg-blue-900 hover:underline focus:underline transition-all ease-in-out duration-100 text-xl lg:text-2xl font-bold text-slate-100 mt-3 md:mt-[5rem] w-full lg:w-[50%] max-w-fit rounded-xl px-10 md:py-4 bg-blue-900/70"
+          >
+            Jetzt einen Telekom Beratungstermin buchen
+          </NavLink>
         </div>
         <div className="overflow-hidden">
           <svg
@@ -86,8 +93,8 @@ export default function StartLayout({ children }: Props) {
             </g>
           </svg>
         </div>
-        <div className="w-full bg-white pt-5">
-          <div className="w-11/12 mx-auto rounded-t-xl pt-10">{children}</div>
+        <div className="w-full pt-5 bg-white">
+          <div className="w-11/12 pt-10 mx-auto rounded-t-xl">{children}</div>
         </div>
       </div>
     </>

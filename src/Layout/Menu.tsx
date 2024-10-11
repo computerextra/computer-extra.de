@@ -10,7 +10,7 @@ export default function Menu() {
   return (
     <>
       {/* Normal Navigation */}
-      <div className="hidden lg:block fixed z-50 top-0 w-full">
+      <div className="fixed top-0 z-50 hidden w-full lg:block">
         <nav
           className={`flex max-w-[65%]  mx-auto mt-10 px-6 py-5 duration-500 transition-all ${
             isScrolled ? "bg-white/80 rounded-2xl ring-2" : "border-b"
@@ -25,7 +25,7 @@ export default function Menu() {
               CE
             </h1>
           </NavLink>
-          <ul className="flex gap-8 w-full justify-center uppercase focus:underline">
+          <ul className="flex justify-center w-full gap-8 uppercase focus:underline">
             {routes.map(
               (route, idx) =>
                 route.show && (

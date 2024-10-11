@@ -11,7 +11,10 @@ export default function Termine() {
   useAnalytics("Termine");
   return (
     <AnimationLayout>
-      <MainLayout title="Termin" subtitle="Buchen Sie sich einen Termin">
+      <MainLayout
+        title="Telekom Beratung"
+        subtitle="Buchen Sie sich einen Telekom Beratungtermin"
+      >
         <div className="w-full lg:w-[60%] mx-0 lg:mx-auto my-24 flex items-center">
           <a
             href="https://termine.computer-extra.de/index.php/apps/appointments/pub/A49CtDrQGCG1Gccq/form"

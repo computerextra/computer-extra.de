@@ -9,7 +9,7 @@ import {
 export default function Footer() {
   return (
     <div className={`w-full bg-slate-700 pb-[50px] md:pb-0`}>
-      <div className="grid grid-cols-1 lg:grid-cols-3 text-slate-200 gap-4 items-center py-10">
+      <div className="grid items-center grid-cols-1 gap-4 py-10 lg:grid-cols-3 text-slate-200">
         <div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center">
           <NavLink className="hover:underline focus:underline" to="/Impressum">
             Impressum
@@ -27,6 +27,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
           <NavLink className="hover:underline focus:underline" to="/Kontakt">
             Kontakt
+          </NavLink>
+          <NavLink className="hover:underline focus:underline" to="/Kontakt">
+            Termin
           </NavLink>
         </div>
         <div className="grid grid-cols-4 justify-items-center lg:justify-items-start">
@@ -60,7 +63,7 @@ export default function Footer() {
           </NavLink>
         </div>
       </div>
-      <div className="text-slate-200 text-center w-full font-thin text-sm">
+      <div className="w-full text-sm font-thin text-center text-slate-200">
         &copy; {new Date().getFullYear()} - Computer Extra GmbH - Designed by
         Johannes Kirchner
       </div>
