@@ -78,6 +78,11 @@ const urls = [
     changefreq: "daily",
     priority: 1,
   },
+  {
+    url: "/Termin",
+    changefreq: "daily",
+    priority: 1,
+  }
 ];
 
 async function generateSitemap() {
