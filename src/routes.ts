@@ -15,6 +15,7 @@ import {
   PartnerPage,
   TeamPage,
 } from "./Pages";
+import DatenschutzNext from "./Pages/DatenschutzNext";
 import Termine from "./Pages/Termine";
 
 type RouteProps = {
@@ -128,6 +129,12 @@ const routes: RouteProps[] = [
     path: "/termin",
     element: Termine,
     title: "Termine",
+    show: false,
+  },
+  {
+    path: "/DatenschutzNextCloud",
+    element: DatenschutzNext,
+    title: "Datenschutz NextCloud",
     show: false,
   },
   {
