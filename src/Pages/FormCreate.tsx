@@ -146,10 +146,6 @@ function PrivateForm({ auswahl }: { auswahl: "MS" | "Apple" | "Google" }) {
   const [clicked, setClicked] = useState(false);
 
   const onSubmit = async (values: yup.InferType<typeof privateFormSchema>) => {
-    if (clicked) {
-      pdfFromReact(".element-to-print", "Formular", "p", true, true);
-      return;
-    }
     const props: TemplateProps = {
       version: auswahl,
       ...values,
@@ -293,12 +289,25 @@ function PrivateForm({ auswahl }: { auswahl: "MS" | "Apple" | "Google" }) {
           </div>
         </div>
         <div className="text-center">
-          <button
-            type="submit"
-            className="w-full px-6 py-3 text-white bg-blue-800 rounded-md font-xl sm:mb-0"
-          >
-            {clicked ? "Formular Herunterladen" : "Formular Generieren"}
-          </button>
+          {clicked ? (
+            <>
+              <button
+                onClick={() =>
+                  pdfFromReact(".element-to-print", "Formular", "p", true, true)
+                }
+                className="w-full px-6 py-3 text-white bg-green-800 rounded-md font-xl sm:mb-0"
+              >
+                Formular Anzeigen
+              </button>
+            </>
+          ) : (
+            <button
+              type="submit"
+              className="w-full px-6 py-3 text-white bg-blue-800 rounded-md font-xl sm:mb-0"
+            >
+              Formular Generieren
+            </button>
+          )}
         </div>
       </form>
       <div className="sr-only">
@@ -318,10 +327,6 @@ function BusinessForm() {
   const [clicked, setClicked] = useState(false);
 
   const onSubmit = async (values: yup.InferType<typeof businessFormSchema>) => {
-    if (clicked) {
-      pdfFromReact(".element-to-print", "Formular", "p", true, true);
-      return;
-    }
     // Generate PDF
     const props: TemplateProps = {
       version: "MSBusi",
@@ -466,12 +471,25 @@ function BusinessForm() {
           </div>
         </div>
         <div className="text-center">
-          <button
-            type="submit"
-            className="w-full px-6 py-3 text-white bg-blue-800 rounded-md font-xl sm:mb-0"
-          >
-            {clicked ? "Formular Herunterladen" : "Formular Generieren"}
-          </button>
+          {clicked ? (
+            <>
+              <button
+                onClick={() =>
+                  pdfFromReact(".element-to-print", "Formular", "p", true, true)
+                }
+                className="w-full px-6 py-3 text-white bg-green-800 rounded-md font-xl sm:mb-0"
+              >
+                Formular Anzeigen
+              </button>
+            </>
+          ) : (
+            <button
+              type="submit"
+              className="w-full px-6 py-3 text-white bg-blue-800 rounded-md font-xl sm:mb-0"
+            >
+              Formular Generieren
+            </button>
+          )}
         </div>
       </form>
       {/* <div className="sr-only"> */}
