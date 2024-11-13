@@ -4,6 +4,7 @@ import GradientHeader from "../Components/GradientHeader";
 import useAnalytics from "../Hooks/useAnalytics";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
+import { ExternalLink } from "../Components/Logos";
 
 export default function Termine() {
   useTitle("Termine");
@@ -15,8 +16,8 @@ export default function Termine() {
         subtitle="Buchen Sie sich einen Telekom Beratungtermin"
       >
         <div className="w-full lg:w-[60%] mx-0 lg:mx-auto my-24 flex items-center">
-          {/* <a
-            href="https://termine.computer-extra.de/index.php/apps/appointments/pub/A49CtDrQGCG1Gccq/form"
+          <a
+            href="https://my.meetergo.com/comp_ex/beratung"
             target="_blank"
             className="relative px-10 py-5 overflow-hidden font-medium text-gray-600 bg-gray-100 border border-gray-100 rounded-lg shadow-inner group"
           >
@@ -28,8 +29,8 @@ export default function Termine() {
             <span className="relative transition-colors duration-300 delay-200 group-hover:text-white ease">
               Jetzt einen Termin buchen* <ExternalLink />
             </span>
-          </a> */}
-          <p className="text-2xl">
+          </a>
+          {/* <p className="text-2xl">
             Leider ist es uns aus technischen Gründen nicht möglich, unser
             Termin Buchungstool anzubieten. Bitte rufen Sie uns für eine
             Terminabsprache unter der{" "}
@@ -40,15 +41,14 @@ export default function Termine() {
               0561 / 60144 - 0
             </a>{" "}
             an.
-          </p>
+          </p> */}
         </div>
 
         <section className="w-full lg:w-[60%] mx-0 lg:mx-auto my-24 ">
           <GradientHeader>* Informationen</GradientHeader>
           <p className="text-lg">
-            Bitte beachten Sie, dass die verlinkte Seite Cookies setzt. Diese
-            sind technisch Notwendig, sodass kein "Cookiebanner" benötigt wird.
-            Weitere Informationen finden Sie in unserer{" "}
+            Bitte beachten Sie, dass die verlinkte Seite auf ein externes
+            Unternehmen verlinkt. Weitere Informationen finden Sie in unserer{" "}
             <NavLink className="text-blue-600 underline" to="/Datenschutz">
               Datenschutzerklärung
             </NavLink>
