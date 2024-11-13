@@ -16,6 +16,7 @@ import {
   TeamPage,
 } from "./Pages";
 import DatenschutzNext from "./Pages/DatenschutzNext";
+import FormCreate from "./Pages/FormCreate";
 import Termine from "./Pages/Termine";
 
 type RouteProps = {
@@ -135,6 +136,12 @@ const routes: RouteProps[] = [
     path: "/DatenschutzNextCloud",
     element: DatenschutzNext,
     title: "Datenschutz NextCloud",
+    show: false,
+  },
+  {
+    path: "/Formulare",
+    element: FormCreate,
+    title: "Formular Generator",
     show: false,
   },
   {

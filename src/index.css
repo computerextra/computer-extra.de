@@ -408,3 +408,8 @@
 .close:hover span {
   width: 15px;
 }
+
+.element-for-print {
+  /* width: 600px; */
+  /* min-height: 840px; */
+}
