@@ -92,7 +92,7 @@ export default function FormCreate() {
     <AnimationLayout>
       <MainLayout
         title="Formular Generator"
-        subtitle="Hiermit können PDF Formulare für Online Konten generiert werden"
+        subtitle="Hiermit können PDF Formulare für Online-Konten generiert werden."
       >
         <div className="max-w-6xl p-5 card h-fit md:p-12" id="form">
           {auswahl == null && (
@@ -137,7 +137,7 @@ export default function FormCreate() {
 }
 
 function PrivateForm({ auswahl }: { auswahl: "MS" | "Apple" | "Google" }) {
-  const { handleSubmit, control } = useForm({
+  const { handleSubmit, control, reset } = useForm({
     defaultValues: {},
     mode: "onChange",
     resolver: yupResolver(privateFormSchema),
@@ -156,7 +156,15 @@ function PrivateForm({ auswahl }: { auswahl: "MS" | "Apple" | "Google" }) {
 
   return (
     <>
-      <form id="FormGen" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        id="FormGen"
+        onSubmit={handleSubmit(onSubmit)}
+        onReset={() => {
+          setClicked(false);
+          setProps(undefined);
+          reset();
+        }}
+      >
         <div className="mb-6">
           <div className="mx-0:mbb-1 sm:mb-4">
             {/* Vorname */}
@@ -290,7 +298,7 @@ function PrivateForm({ auswahl }: { auswahl: "MS" | "Apple" | "Google" }) {
         </div>
         <div className="text-center">
           {clicked ? (
-            <>
+            <div className="grid grid-cols-2 gap-6">
               <button
                 onClick={() =>
                   pdfFromReact(".element-to-print", "Formular", "p", true, true)
@@ -299,7 +307,13 @@ function PrivateForm({ auswahl }: { auswahl: "MS" | "Apple" | "Google" }) {
               >
                 Formular Anzeigen
               </button>
-            </>
+              <button
+                type="reset"
+                className="w-full px-6 py-3 text-white bg-red-800 rounded-md font-xl sm:mb-0"
+              >
+                Zurücksetzen
+              </button>
+            </div>
           ) : (
             <button
               type="submit"
@@ -318,7 +332,7 @@ function PrivateForm({ auswahl }: { auswahl: "MS" | "Apple" | "Google" }) {
 }
 
 function BusinessForm() {
-  const { handleSubmit, control } = useForm({
+  const { handleSubmit, control, reset } = useForm({
     defaultValues: {},
     mode: "onChange",
     resolver: yupResolver(businessFormSchema),
@@ -338,7 +352,15 @@ function BusinessForm() {
 
   return (
     <>
-      <form id="FormGenBusiness" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        id="FormGenBusiness"
+        onSubmit={handleSubmit(onSubmit)}
+        onReset={() => {
+          setClicked(false);
+          setProps(undefined);
+          reset();
+        }}
+      >
         <div className="mb-6">
           <div className="mx-0:mbb-1 sm:mb-4">
             {/* Firmenname */}
@@ -472,7 +494,7 @@ function BusinessForm() {
         </div>
         <div className="text-center">
           {clicked ? (
-            <>
+            <div className="grid grid-cols-2 gap-6">
               <button
                 onClick={() =>
                   pdfFromReact(".element-to-print", "Formular", "p", true, true)
@@ -481,7 +503,13 @@ function BusinessForm() {
               >
                 Formular Anzeigen
               </button>
-            </>
+              <button
+                type="reset"
+                className="w-full px-6 py-3 text-white bg-red-800 rounded-md font-xl sm:mb-0"
+              >
+                Zurücksetzen
+              </button>
+            </div>
           ) : (
             <button
               type="submit"
