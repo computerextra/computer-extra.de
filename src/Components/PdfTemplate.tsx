@@ -29,8 +29,8 @@ const Texte = [
           vollständig und richtig sind. Ich bin mir darüber im Klaren, dass alle
           benötigten Daten und alle nötigen Bestätigungen an Microsoft Corp.
           übermittelt werden und dass Microsoft diese Daten auf ihren Servern
-          eigenverantwortlich speichert. Des weiteren akzeptieren ich den MCA
-          (Microsoft Kundenvertrag). Auf verlangen wird mir dieser in
+          eigenverantwortlich speichert. Des weiteren akzeptiere ich den MCA
+          (Microsoft Kundenvertrag). Auf Verlangen wird mir dieser in
           Schriftform vorgelegt.
         </p>
         <p className="py-2">
