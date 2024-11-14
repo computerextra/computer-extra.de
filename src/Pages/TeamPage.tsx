@@ -27,6 +27,9 @@ export default function TeamPage() {
     const sl = Mitarbeiter.filter((m) => m.Abteilung == "Standortleitung").sort(
       sortBy("name")
     );
+    const admin = Mitarbeiter.filter(
+      (m) => m.Abteilung == "Administration"
+    ).sort(sortBy("name"));
     const vt = Mitarbeiter.filter((m) => m.Abteilung == "Vertrieb").sort(
       sortBy("name")
     );
@@ -46,7 +49,17 @@ export default function TeamPage() {
       sortBy("name")
     );
 
-    setMitarbeiter([...gf, ...sl, ...vt, ...ad, ...tk, ...sv, ...bh, ...az]);
+    setMitarbeiter([
+      ...gf,
+      ...sl,
+      ...admin,
+      ...vt,
+      ...ad,
+      ...tk,
+      ...sv,
+      ...bh,
+      ...az,
+    ]);
   }, [Mitarbeiter]);
 
   return (
@@ -160,7 +173,7 @@ const Overlay = ({
           onClick={(e) => e.stopPropagation()}
         >
           <div
-            className="close absolute right-2 top-2"
+            className="absolute close right-2 top-2"
             onClick={() => setShow(false)}
           >
             <span></span>
@@ -178,7 +191,7 @@ const Overlay = ({
           </div>
           <div className="px-6">
             <div className="flex flex-wrap justify-center">
-              <div className="w-full flex justify-center">
+              <div className="flex justify-center w-full">
                 <div className="relative">
                   <img
                     src={getImageUrl()}
@@ -186,7 +199,7 @@ const Overlay = ({
                   />
                 </div>
               </div>
-              <div className="w-full text-center mt-20">
+              <div className="w-full mt-20 text-center">
                 <div
                   className={`grid grid-cols-${
                     Ma.focus.length <= 2 ? Ma.focus.length : "2"
@@ -202,21 +215,21 @@ const Overlay = ({
                 </div>
               </div>
             </div>
-            <div className="text-center mt-2">
-              <h3 className="text-2xl text-slate-700 font-bold leading-normal mb-1">
+            <div className="mt-2 text-center">
+              <h3 className="mb-1 text-2xl font-bold leading-normal text-slate-700">
                 {Ma.name}
               </h3>
-              <div className="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
+              <div className="mt-0 mb-2 text-xs font-bold uppercase text-slate-400">
                 {Ma.Abteilung}
               </div>
             </div>
-            <div className="mt-6 py-6 border-t border-slate-200 text-center">
+            <div className="py-6 mt-6 text-center border-t border-slate-200">
               <div className="flex flex-wrap justify-center">
                 <div className="w-full px-4">
-                  <p className="font-light leading-relaxed text-slate-600 mb-4">
+                  <p className="mb-4 font-light leading-relaxed text-slate-600">
                     Mail: {getMail(Ma.name)}
                   </p>
-                  <p className="font-light leading-relaxed text-slate-600 mb-4">
+                  <p className="mb-4 font-light leading-relaxed text-slate-600">
                     Telefon:{" "}
                     <a className="underline" href="tel:0561601440">
                       0561 / 60 144 0
