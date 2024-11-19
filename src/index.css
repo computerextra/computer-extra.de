@@ -414,3 +414,24 @@
   /* width: 600px; */
   /* min-height: 840px; */
 }
+
+.datenschutz {
+  h2 {
+    @apply font-semibold text-2xl py-4;
+  }
+  h3 {
+    @apply font-medium text-xl py-2;
+  }
+  p {
+    @apply py-2;
+  }
+  ul {
+    @apply list-disc ps-10;
+  }
+  a {
+    @apply underline text-blue-500;
+  }
+  ol {
+    @apply list-decimal ps-10;
+  }
+}
