@@ -435,3 +435,15 @@
     @apply list-decimal ps-10;
   }
 }
+
+.impressum {
+  h2 {
+    @apply font-semibold text-2xl py-4;
+  }
+  p {
+    @apply py-2;
+  }
+  a {
+    @apply underline text-blue-500;
+  }
+}
