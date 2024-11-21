@@ -17,6 +17,11 @@ import {
 } from "./Pages";
 import DatenschutzNext from "./Pages/DatenschutzNext";
 import FormCreate from "./Pages/FormCreate";
+import AllPrivate from "./Pages/Forms/AllPrivate";
+import Apple from "./Pages/Forms/Apple";
+import Google from "./Pages/Forms/Google";
+import MicrosoftBusiness from "./Pages/Forms/MicrosoftBusienss";
+import MicrosoftPrivat from "./Pages/Forms/MicrosoftPrivat";
 import Termine from "./Pages/Termine";
 
 type RouteProps = {
@@ -141,7 +146,37 @@ const routes: RouteProps[] = [
   {
     path: "/Formulare",
     element: FormCreate,
-    title: "Formular Generator",
+    title: "Datenschutz Formulare",
+    show: false,
+  },
+  {
+    path: "/Formulare/MicrosoftPrivat",
+    element: MicrosoftPrivat,
+    title: "Microsoft Privat Konto Formular",
+    show: false,
+  },
+  {
+    path: "/Formulare/MicrosoftBusiness",
+    element: MicrosoftBusiness,
+    title: "Microsoft Geschäfts Konto Formular",
+    show: false,
+  },
+  {
+    path: "/Formulare/Apple",
+    element: Apple,
+    title: "Apple ID Formular",
+    show: false,
+  },
+  {
+    path: "/Formulare/Google",
+    element: Google,
+    title: "Google Konto Formular",
+    show: false,
+  },
+  {
+    path: "/Formulare/Alle",
+    element: AllPrivate,
+    title: "Alle Konten Formular",
     show: false,
   },
   {
