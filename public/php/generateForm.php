@@ -12,10 +12,14 @@ $Version = $_POST["Version"];
 $Vorname = $_POST["Vorname"];
 $Nachname = $_POST["Nachname"];
 $Email = $_POST["Email"];
+$Ort = $_POST["Ort"];
 
 // Private Exclusive
-$EmailPasswort = $_POST["EmailPasswort"];
-$Geburtstag = $_POST["Geburtstag"];
+$GeburtstagPort = $_POST["Geburtstag"];
+$Geburtstag = explode("-", $GeburtstagPort);
+$Tag = $Geburtstag[2];
+$Monat = $Geburtstag[1];
+$Jahr = $Geburtstag[0];
 $Geschlecht = $_POST["Geschlecht"];
 $Mobil = $_POST["Mobil"];
 
@@ -23,7 +27,6 @@ $Mobil = $_POST["Mobil"];
 $Firmenname = $_POST["Firmenname"];
 $Anschrift = $_POST["Anschrift"];
 $Plz = $_POST["Plz"];
-$Ort = $_POST["Ort"];
 $Telefon = $_POST["Telefon"];
 
 
@@ -83,6 +86,8 @@ $google_footer = "<p>
           zusätzlich durch uns DS-GVO konform auf unseren Servern gespeichert.
         </p>";
 
+$Heute = date("d.m.Y");
+
 switch ($Version) {
     case "MS": {
         $header = "Microsoft Konto";
@@ -120,7 +125,7 @@ switch ($Version) {
 
 function getBody($header, $footer)
 {
-    global $Vorname, $Nachname, $Email, $EmailPasswort, $Geburtstag, $Geschlecht, $Mobil;
+    global $Vorname, $Nachname, $Email, $EmailPasswort, $Tag, $Monat, $Jahr, $Geschlecht, $Mobil, $Ort, $Heute;
     return '<h1 style="text-align: center; ">' . nl2br($header) . "</h1>
     <br />
     <br />
@@ -139,13 +144,9 @@ function getBody($header, $footer)
             <td>Email</td>
             <td>$Email</td>
         </tr>
-         <tr>
-            <td>Email Passwort</td>
-            <td>$EmailPasswort</td>
-        </tr>
         <tr>
-            <td>Geburtstag</td>
-            <td>$Geburtstag[2].$Geburtstag[1].$Geburtstag[0]</td>
+            <td>Geburtstag:</td>
+            <td>$Tag.$Monat.$Jahr</td>
         </tr>
          <tr>
             <td>Geschlecht</td>
@@ -159,7 +160,6 @@ function getBody($header, $footer)
             <td>Mobil</td>
             <td>$Mobil</td>
         </tr>
-
     </table>
     <br />
     <br />
@@ -168,12 +168,12 @@ function getBody($header, $footer)
     <p>" . nl2br($footer) . "</p>
     <table>
         <tr>
-            <td>_______________________</td>
+            <td>$Ort, $Heute</td>
             <td>_______________________</td>
         </tr>
         <tr>
             <td>Ort, Datum</td>
-            <td>Unterschrift</td>   
+            <td>Unterschrift / Firmenstempel</td>   
         </tr>
     </table>
     ";
@@ -224,7 +224,7 @@ if (!is_array($header) && $Version != "MSBusi") {
     <p>" . nl2br($footer) . "</p>
     <table>
         <tr>
-            <td>_______________________</td>
+            <td>$Ort, $Heute</td>
             <td>_______________________</td>
         </tr>
         <tr>

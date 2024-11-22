@@ -15,24 +15,14 @@ import {
 } from "../../Components/Form/Form";
 import { Input } from "../../Components/Form/Input";
 import { Button } from "../../Components/Form/Button";
-
-const formSchema = z.object({
-  Firmenname: z.string(),
-  Vorname: z.string(),
-  Nachname: z.string(),
-  Anschrift: z.string(),
-  Plz: z.number().min(5).max(5),
-  Ort: z.string(),
-  Email: z.string().email(),
-  Telefon: z.string(),
-});
+import { businessFormSchema } from "./formSchema";
 
 export default function MicrosoftBusiness() {
   useTitle("Microsoft Business Konto");
   useAnalytics("Microsoft-Business-Formular");
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof businessFormSchema>>({
+    resolver: zodResolver(businessFormSchema),
   });
 
   return (
@@ -55,6 +45,7 @@ export default function MicrosoftBusiness() {
           <div className="container mx-auto mt-10 text-start">
             <Form {...form}>
               <form
+                target="_blank"
                 action="https://computer-extra.de/php/generateForm.php"
                 encType="multipart/form-data"
                 method="POST"
@@ -74,7 +65,7 @@ export default function MicrosoftBusiness() {
                     <FormItem>
                       <FormLabel>Firmenname</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input required {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -88,7 +79,7 @@ export default function MicrosoftBusiness() {
                       <FormItem>
                         <FormLabel>Vorname Geschäfstführung</FormLabel>
                         <FormControl>
-                          <Input {...field} />
+                          <Input required {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -101,7 +92,7 @@ export default function MicrosoftBusiness() {
                       <FormItem>
                         <FormLabel>Nachname Geschäftsführung</FormLabel>
                         <FormControl>
-                          <Input {...field} />
+                          <Input required {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -115,7 +106,7 @@ export default function MicrosoftBusiness() {
                     <FormItem>
                       <FormLabel>Straße und Hausnummer</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input required {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -129,7 +120,13 @@ export default function MicrosoftBusiness() {
                       <FormItem>
                         <FormLabel>Postleitzahl</FormLabel>
                         <FormControl>
-                          <Input {...field} />
+                          <Input
+                            type="number"
+                            minLength={5}
+                            maxLength={5}
+                            required
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -142,7 +139,7 @@ export default function MicrosoftBusiness() {
                       <FormItem>
                         <FormLabel>Ort</FormLabel>
                         <FormControl>
-                          <Input {...field} />
+                          <Input required {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -156,7 +153,7 @@ export default function MicrosoftBusiness() {
                     <FormItem>
                       <FormLabel>Kontakt E-Mail-Adresse</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input type="email" required {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -169,7 +166,7 @@ export default function MicrosoftBusiness() {
                     <FormItem>
                       <FormLabel>Telefonnummer</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input required {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
