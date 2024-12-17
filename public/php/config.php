@@ -14,6 +14,10 @@ define("MYSQL_USER_CMS", $_ENV["MYSQL_USER_CMS"]);
 define("MYSQL_PASS_CMS", $_ENV["MYSQL_PASS_CMS"]);
 define("MYSQL_DB_CMS", $_ENV["MYSQL_DB_CMS"]);
 
+define("MYSQL_Datenschutz_DB", $_ENV["MYSQL_Datenschutz_DB"]);
+define("MYSQL_Datenschutz_USER", $_ENV["MYSQL_Datenschutz_USER"]);
+define("MYSQL_Datenschutz_PASS", $_ENV["MYSQL_Datenschutz_PASS"]);
+
 define("SMTP_SERVER", $_ENV["SMTP_SERVER"]);
 define("SMTP_PORT", $_ENV["SMTP_PORT"]);
 define("SMTP_USER", $_ENV["SMTP_USER"]);
