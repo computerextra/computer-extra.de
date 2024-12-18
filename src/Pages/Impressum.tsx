@@ -9,7 +9,7 @@ export default function Impressum() {
   useAnalytics("Impressum");
   return (
     <AnimationLayout>
-      <MainLayout title="Impressum" subtitle="Angaben gemäß § 5 TMG">
+      <MainLayout title="Impressum" subtitle="">
         <div className="text-xl impressum">
           <ImpressumText />
         </div>
