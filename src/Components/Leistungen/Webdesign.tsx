@@ -172,6 +172,99 @@ export default function Webdesign() {
           </ul>
         </div>
       </div>
+      <div>
+        <p className="mb-5 text-xl">Unsere Demoseiten</p>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
+          <div className="flex flex-col overflow-hidden transition-all duration-300 ease-in-out bg-white border border-gray-200 rounded-lg shadow-sm hover:scale-105 grayscale hover:grayscale-0">
+            <NavLink
+              className="inline-flex flex-col items-center justify-center flex-1 w-full"
+              to="https://computerextra.github.io/demo-single-page/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                alt="Screenshot"
+                className="object-cover"
+                height="200"
+                src="/Images/Mocks/singlpage.webp"
+                style={{
+                  aspectRatio: "400/200",
+                  objectFit: "cover",
+                }}
+                width="400"
+              />
+              <div className="flex flex-col justify-center flex-1 p-4 text-center">
+                <h3 className="text-xl font-bold">Static-Single-Page</h3>
+                <p>Mit statischen Inhalten</p>
+                <p>ab 140€* netto</p>
+                <p className="mt-1 text-base text-gray-500">
+                  computerextra.github.io/demo-single-page
+                </p>
+              </div>
+            </NavLink>
+          </div>
+          <div className="flex flex-col overflow-hidden transition-all duration-300 ease-in-out bg-white border border-gray-200 rounded-lg shadow-sm hover:scale-105 grayscale hover:grayscale-0">
+            <NavLink
+              className="inline-flex flex-col items-center justify-center flex-1 w-full"
+              to="https://computerextra.github.io/demo-single-page/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                alt="Screenshot"
+                className="object-cover"
+                height="200"
+                // TODO: Change
+                src="/Images/Mocks/singlpage.webp"
+                style={{
+                  aspectRatio: "400/200",
+                  objectFit: "cover",
+                }}
+                width="400"
+              />
+              <div className="flex flex-col justify-center flex-1 p-4 text-center">
+                <h3 className="text-xl font-bold">Static-Multi-Page</h3>
+                <p>Mit statischen Inhalten</p>
+                <p></p>
+                <p className="mt-1 text-base text-gray-500">
+                  Noch im aufbau
+                  {/* https://computerextra.github.io/demo-multi-page/ */}
+                </p>
+              </div>
+            </NavLink>
+          </div>
+          <div className="flex flex-col overflow-hidden transition-all duration-300 ease-in-out bg-white border border-gray-200 rounded-lg shadow-sm hover:scale-105 grayscale hover:grayscale-0">
+            <NavLink
+              className="inline-flex flex-col items-center justify-center flex-1 w-full"
+              to="https://computerextra.github.io/demo-single-page/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                alt="Screenshot"
+                className="object-cover"
+                height="200"
+                // TODO: Change
+                src="/Images/Mocks/singlpage.webp"
+                style={{
+                  aspectRatio: "400/200",
+                  objectFit: "cover",
+                }}
+                width="400"
+              />
+              <div className="flex flex-col justify-center flex-1 p-4 text-center">
+                <h3 className="text-xl font-bold">Dynamic-Multi-Page</h3>
+                <p>Mit dynamischen Inhalten aus Datenbanken</p>
+                <p></p>
+                <p className="mt-1 text-base text-gray-500">
+                  Noch im aufbau
+                  {/* demo.computer-extra.de */}
+                </p>
+              </div>
+            </NavLink>
+          </div>
+        </div>
+      </div>
       <div className="grid grid-cols-1 gap-10 my-16 lg:grid-cols-2">
         <p className="text-xl">
           Bringen Sie Ihre Website auf die nächste Stufe. Steigern Sie

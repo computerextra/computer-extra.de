@@ -87,7 +87,7 @@ export default function DatenschutzText() {
       <p>
         Johannes Kirchner
         <br />
-        Telefon: 0561 / 60144 - 121
+        Telefon: 0561 / 60144 - 122
         <br />
         Telefax: 0561 / 60144 - 199
         <br />
