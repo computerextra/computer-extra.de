@@ -264,6 +264,11 @@ export default function Webdesign() {
             </NavLink>
           </div>
         </div>
+        <small className="text-xs font-medium leading-none text-muted-foreground">
+          * Der Umfang aller angebotenen Dienstleistungen ist ein Schätzwert,
+          der sich aufgrund unserer Erfahrung ergeben hat. Berechnet wird die
+          tatsächlich erbrachte Dienstleistung.
+        </small>
       </div>
       <div className="grid grid-cols-1 gap-10 my-16 lg:grid-cols-2">
         <p className="text-xl">
