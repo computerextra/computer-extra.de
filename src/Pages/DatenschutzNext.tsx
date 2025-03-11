@@ -96,7 +96,7 @@ export default function DatenschutzNext() {
             <h2>3. Datenschutzbeauftragter</h2>
             <p>Den Datenschutzbeauftragten erreichen Sie wie folgt:</p>
             <p>Johannes Kirchner</p>
-            <p>Telefon: 0561 / 60144 - 121</p>
+            <p>Telefon: 0561 / 60144 - 122</p>
             <p>Telefax: 0561 / 60144 - 199</p>
             <p></p>E-Mail:{" "}
             <a href="mailto:johannes.kirchner@computer-extra.de">
