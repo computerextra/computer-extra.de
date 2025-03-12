@@ -20,7 +20,7 @@ const AusbildungsSchema = yup.object({
 function AusbildungInput(
   props: UseControllerProps<yup.InferType<typeof AusbildungsSchema>> & {
     className?: string;
-  }
+  },
 ) {
   const { field, fieldState } = useController(props);
 
@@ -71,16 +71,16 @@ export default function AusbildungsSection() {
       form.append("Job", values.Job);
       form.append(
         "Lebenslauf",
-        (document.querySelector("#Lebenslauf") as HTMLFormElement).files[0]
+        (document.querySelector("#Lebenslauf") as HTMLFormElement).files[0],
       );
       form.append(
         "Anschreiben",
-        (document.querySelector("#Anschreiben") as HTMLFormElement).files[0]
+        (document.querySelector("#Anschreiben") as HTMLFormElement).files[0],
       );
       form.append(
         "Ausbildung",
         (document.querySelector("#Ausbildung_Selection") as HTMLSelectElement)
-          .value
+          .value,
       );
 
       const res = await axios.post(HOSTNAME + "/php/mail.php", form, {
@@ -341,9 +341,9 @@ export default function AusbildungsSection() {
                   <option value="IT-System-Management">
                     Kaufmann/-frau für IT-System-Management
                   </option>
-                  <option value="Lagerlogistik">
-                    Fachkraft für Lagerlogistik
-                  </option>
+                  {/* <option value="Lagerlogistik"> */}
+                  {/*   Fachkraft für Lagerlogistik */}
+                  {/* </option> */}
                 </select>
               </div>
               <div className="mx-0 mb-1 sm:mb-4">
