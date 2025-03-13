@@ -21,7 +21,10 @@ Header set Cache-Control "public, max-age=7200, must-revalidate"
 </IfModule>
  
 GeoIPEnable On
+SetEnvIf GEOIP_CONTINENT_CODE AF BlockContinent
+SetEnvIf GEOIP_CONTINENT_CODE AN BlockContinent
 SetEnvIf GEOIP_CONTINENT_CODE AS BlockContinent
 SetEnvIf GEOIP_CONTINENT_CODE NA BlockContinent
+SetEnvIf GEOIP_CONTINENT_CODE OC BlockContinent
 SetEnvIf GEOIP_CONTINENT_CODE SA BlockContinent
 Deny from env=BlockContinent
