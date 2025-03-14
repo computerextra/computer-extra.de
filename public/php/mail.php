@@ -62,9 +62,15 @@ if (isset($lebenslauf)) {
     move_uploaded_file($source, $destination);
 }
 
-// Check if IP is in Database
+// Get IP Adress
 $ip = $_SERVER['REMOTE_ADDR'];
 
+// Search for IP Adress
+$api = "http://ip-api.com/json";
+
+// Get Return from Api
+$json_return = file_get_contents("$api/$ip");
+$return_object = json_decode($json_return);
 
 $anschreiben = false;
 $lebenslauf  = false;
@@ -102,7 +108,7 @@ try {
         $mail->addAttachment('uploads/Lebenslauf.pdf');
     }
 
-    $body = 'IP: ' . $ip . '<br><br>Email von: ' . $data["Name"] . '<br>Mail: ' . $data["Mail"] . '<br>Telefon: ' . $data["Phone"] . '<br>Bewerbung als: ' . $data["Job"];
+    $body = 'IP: ' . $ip . '<br>Land: '. $return_object["country"] . '<br>Region: '. $return_object["regionName"] .'<br>Stadt: '. $return_object["city"] .'<br>ISP: '. $return_object["isp"] .'<br>Org: '.$return_object["org"] .'<br><br>Email von: ' . $data["Name"] . '<br>Mail: ' . $data["Mail"] . '<br>Telefon: ' . $data["Phone"] . '<br>Bewerbung als: ' . $data["Job"];
     if ($data["Job"] === "Ausbildung") {
         $body .= '<br>Ausbildung: ' . $data["Ausbildung"];
     }
