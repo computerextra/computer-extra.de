@@ -27,6 +27,8 @@ define("SMTP_FROM", $_ENV["SMTP_FROM"]);
 define("SMTP_TO_CONTACT", $_ENV["SMTP_TO_CONTACT"]);
 define("SMTP_TO_APPLICATION", $_ENV["SMTP_TO_APPLICATION"]);
 define("SMTP_BCC", $_ENV["SMTP_BCC"]);
+define('IPGEOLOCATION_API', $_ENV["IPGEOLOCATION_API"]);
+
 
 $servername = MYSQL_SERVER;
 $username = MYSQL_USER_CMS;

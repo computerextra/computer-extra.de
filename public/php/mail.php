@@ -64,13 +64,28 @@ if (isset($lebenslauf)) {
 
 // Get IP Adress
 $ip = $_SERVER['REMOTE_ADDR'];
+$strippedIp = trim($ip);
 
-// Search for IP Adress
-$api = "https://ipapi.co";
+$apiKey = IPGEOLOCATION_API;
 
-// Get Return from Api
-$json_return = file_get_contents("$api/$ip/json");
-$return_object = json_decode($json_return);
+$location = get_geolocation($apiKey, $strippedIp);
+$decodedLocation = json_decode($location, true);
+
+function get_geolocation($apiKey, $ip, $lang = "de", $fields = "*", $excludes = "") {
+        $url = "https://api.ipgeolocation.io/ipgeo?apiKey=".$apiKey."&ip=".$ip."&lang=".$lang."&fields=".$fields."&excludes=".$excludes;
+        $cURL = curl_init();
+
+        curl_setopt($cURL, CURLOPT_URL, $url);
+        curl_setopt($cURL, CURLOPT_HTTPGET, true);
+        curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($cURL, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Accept: application/json',
+            'User-Agent: '.$_SERVER['HTTP_USER_AGENT']
+        ));
+
+        return curl_exec($cURL);
+    }
 
 $anschreiben = false;
 $lebenslauf  = false;
@@ -108,7 +123,25 @@ try {
         $mail->addAttachment('uploads/Lebenslauf.pdf');
     }
 
-    $body = 'IP: ' . $ip . '<br>Land: '. $return_object["country_name"] . '<br>Region: '. $return_object["region"] .'<br>Stadt: '. $return_object["city"] . '<br>Org: '.$return_object["org"] .'<br><br>Email von: ' . $data["Name"] . '<br>Mail: ' . $data["Mail"] . '<br>Telefon: ' . $data["Phone"] . '<br>Bewerbung als: ' . $data["Job"];
+    $body = 'IP: ' . $ip . '<br>';
+    $body .= "<table><tr><th>Continent</th><th>Country</th><th>Organization</th><th>ISP</th><th>Is EU Member?</th></tr>";
+    $body .= "<tr>";
+    if ($decodedLocation["message"] != ""){
+        $body .= "<td>".$decodedLocation['message']."</td>";
+    }else {
+        $body .= "<td>".$decodedLocation['continent_name']." (".$decodedLocation['continent_code'].")</td>";
+        $body .= "<td>".$decodedLocation['country_name']." (".$decodedLocation['country_code2'].")</td>";
+        $body .= "<td>".$decodedLocation['organization']."</td>";
+        $body .= "<td>".$decodedLocation['isp']."</td>";
+        if ($decodedLocation['is_eu'] == true) {
+            $body .= "<td>Yes</td>";
+        } else {
+            $body .= "<td>No</td>";
+        }
+    }
+    $body .= "</tr>";
+    $body .= "</table>";
+	$body .= '<br><hr><br>Email von: ' . $data["Name"] . '<br>Mail: ' . $data["Mail"] . '<br>Telefon: ' . $data["Phone"] . '<br>Bewerbung als: ' . $data["Job"];
     if ($data["Job"] === "Ausbildung") {
         $body .= '<br>Ausbildung: ' . $data["Ausbildung"];
     }
