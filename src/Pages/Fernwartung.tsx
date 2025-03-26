@@ -31,12 +31,12 @@ export default function Fernwartung() {
       >
         <div className="bg-white min-h-[40vh]">
           {showWarning && (
-            <div className="order-2 lg:order-1 text-xl">
+            <div className="order-2 text-xl lg:order-1">
               <GradientHeader>
                 Folgenden Hinweis habe ich zur Kenntnis genommen:
               </GradientHeader>
-              <p className="text-xl font-bold py-2">
-                Mit ist bekannt, dass die Unterstützung kostenpflichtig ist!
+              <p className="py-2 text-xl font-bold">
+                Mir ist bekannt, dass die Unterstützung kostenpflichtig ist!
               </p>
               <p className="py-1">
                 Sofern keine anderweitigen individuellen Vereinbarungen gelten,
@@ -48,19 +48,19 @@ export default function Fernwartung() {
                 Im Rahmen der Fernwartung können Daten und Einstellungen auf
                 meinem Computer verändert werden. Der Supportmitarbeiter handelt
                 mit meinem Einverständnis. Des Weiteren gelten unsere{" "}
-                <NavLink className="underline text-blue-600" to="/AGB">
+                <NavLink className="text-blue-600 underline" to="/AGB">
                   AGB
                 </NavLink>
                 .
               </p>
               <p className="py-1">
                 Es werden personenbezogene Daten im Einklang mit unserer{" "}
-                <NavLink to="/Datenschutz" className="underline text-blue-600">
+                <NavLink to="/Datenschutz" className="text-blue-600 underline">
                   Datenschutzerklärung
                 </NavLink>{" "}
                 erhoben.
               </p>
-              <div className="w-full flex items-center my-5">
+              <div className="flex items-center w-full my-5">
                 <button
                   onClick={handleClick}
                   className="relative px-10 py-5 overflow-hidden font-medium text-gray-600 bg-gray-100 border border-gray-100 rounded-lg shadow-inner group"
@@ -79,8 +79,8 @@ export default function Fernwartung() {
           )}
 
           {showRest && (
-            <div className="order-2 lg:order-1 text-xl">
-              <div className="w-full flex items-center my-5">
+            <div className="order-2 text-xl lg:order-1">
+              <div className="flex items-center w-full my-5">
                 <button
                   onClick={handleShowHelp}
                   className="relative px-10 py-5 overflow-hidden font-medium text-gray-600 bg-gray-100 border border-gray-100 rounded-lg shadow-inner group"
@@ -135,7 +135,7 @@ function DownloadBtn() {
     navigator.userAgent.includes("iPhone") ||
     navigator.userAgent.includes("iPad");
   return (
-    <div className="w-full flex items-center my-5">
+    <div className="flex items-center w-full my-5">
       <a
         href={PCVisitLink}
         onClick={(e) => disabled && e.preventDefault()}
