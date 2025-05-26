@@ -172,7 +172,7 @@ export default function Webdesign() {
           </ul>
         </div>
       </div>
-      <div>
+      {/* <div>
         <p className="mb-5 text-xl">Unsere Demoseiten</p>
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           <div className="flex flex-col overflow-hidden transition-all duration-300 ease-in-out bg-white border border-gray-200 rounded-lg shadow-sm hover:scale-105 grayscale hover:grayscale-0">
@@ -214,7 +214,6 @@ export default function Webdesign() {
                 alt="Screenshot"
                 className="object-cover"
                 height="200"
-                // TODO: Change
                 src="/Images/Mocks/singlpage.webp"
                 style={{
                   aspectRatio: "400/200",
@@ -226,10 +225,7 @@ export default function Webdesign() {
                 <h3 className="text-xl font-bold">Static-Multi-Page</h3>
                 <p>Mit statischen Inhalten</p>
                 <p></p>
-                <p className="mt-1 text-base text-gray-500">
-                  Noch im aufbau
-                  {/* https://computerextra.github.io/demo-multi-page/ */}
-                </p>
+                <p className="mt-1 text-base text-gray-500">Noch im aufbau</p>
               </div>
             </NavLink>
           </div>
@@ -244,7 +240,6 @@ export default function Webdesign() {
                 alt="Screenshot"
                 className="object-cover"
                 height="200"
-                // TODO: Change
                 src="/Images/Mocks/singlpage.webp"
                 style={{
                   aspectRatio: "400/200",
@@ -256,10 +251,7 @@ export default function Webdesign() {
                 <h3 className="text-xl font-bold">Dynamic-Multi-Page</h3>
                 <p>Mit dynamischen Inhalten aus Datenbanken</p>
                 <p></p>
-                <p className="mt-1 text-base text-gray-500">
-                  Noch im aufbau
-                  {/* demo.computer-extra.de */}
-                </p>
+                <p className="mt-1 text-base text-gray-500">Noch im aufbau</p>
               </div>
             </NavLink>
           </div>
@@ -269,7 +261,7 @@ export default function Webdesign() {
           der sich aufgrund unserer Erfahrung ergeben hat. Berechnet wird die
           tatsächlich erbrachte Dienstleistung.
         </small>
-      </div>
+      </div> */}
       <div className="grid grid-cols-1 gap-10 my-16 lg:grid-cols-2">
         <p className="text-xl">
           Bringen Sie Ihre Website auf die nächste Stufe. Steigern Sie
