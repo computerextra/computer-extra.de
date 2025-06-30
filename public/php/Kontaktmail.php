@@ -20,67 +20,50 @@ $name = "";
 $email = "";
 $Nachricht = "";
 
-// Check if IP is in Database
-$ip = $_SERVER['REMOTE_ADDR'];
-// Connect to Database
-$mysqli = new mysqli(MYSQL_SERVER, MYSQL_USER_FILTER, MYSQL_PASS_FILTER, MYSQL_DB_FILTER);
-if ($mysqli->connect_errno) {
-  die("Verbindung fehlgeschlagen: " . $mysqli->connect_error);
+
+if (isset($_POST["Name"])) {
+  $name = $_POST["Name"];
 }
-$sql = "SELECT * FROM IP WHERE ip=?";
-$statement = $mysqli->prepare($sql);
-$statement->bind_param('s', $ip);
-$statement->execute();
-$result = $statement->get_result();
-if ($result->num_rows === 0) {
-  if (isset($_POST["Name"])) {
-    $name = $_POST["Name"];
-  }
 
-  if (isset($_POST["Email"])) {
-    $email = $_POST["Email"];
-    $ok2Send = true;
-  }
-  if (isset($_POST["Nachricht"])) {
-    $Nachricht = $_POST["Nachricht"];
-    $ok2Send = true;
-  }
+if (isset($_POST["Email"])) {
+  $email = $_POST["Email"];
+  $ok2Send = true;
+}
+if (isset($_POST["Nachricht"])) {
+  $Nachricht = $_POST["Nachricht"];
+  $ok2Send = true;
+}
 
-  if ($ok2Send) {
-    $mail = new PHPMailer(true); // Passing `true` enables exceptions
-    try {
-      $mail->setLanguage('de', '/PHPMailer/language/');
+if ($ok2Send) {
+  $mail = new PHPMailer(true); // Passing `true` enables exceptions
+  try {
+    $mail->setLanguage('de', '/PHPMailer/language/');
 
-      //Server settings
-      $mail->isSMTP(); // Set mailer to use SMTP
-      $mail->Host = SMTP_SERVER; // Specify main and backup SMTP servers
-      $mail->SMTPAuth = true; // Enable SMTP authentication
-      $mail->Username = SMTP_USER; // SMTP username
-      $mail->Password = SMTP_PASS; // SMTP password
-      $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
-      $mail->Port = SMTP_PORT; // TCP port to connect to
+    //Server settings
+    $mail->isSMTP(); // Set mailer to use SMTP
+    $mail->Host = SMTP_SERVER; // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true; // Enable SMTP authentication
+    $mail->Username = SMTP_USER; // SMTP username
+    $mail->Password = SMTP_PASS; // SMTP password
+    $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = SMTP_PORT; // TCP port to connect to
 
-      $mail->setFrom(SMTP_FROM, 'Kontaktformular');
-      $mail->addAddress(SMTP_TO_CONTACT);
-      $mail->addBCC(SMTP_BCC);
-      $mail->isHTML(true); // Set email format to HTML
+    $mail->setFrom(SMTP_FROM, 'Kontaktformular');
+    $mail->addAddress(SMTP_TO_CONTACT);
+    $mail->addBCC(SMTP_BCC);
+    $mail->isHTML(true); // Set email format to HTML
 
 
-      //Content
-      $mail->Subject = 'Ihre Anfrage';
-      $mail->CharSet = 'UTF-8';
-      $mail->Body = "<hr>SIE HABEN EINE KONTAKTANFRAGE ERHALTEN<hr><br><br>Nachfolgende die Details der Anfrage:<br><br><b>Name:</b> $name<br><b>Email:</b> $email<br><br><b>Nachricht:</b><br>$Nachricht";
-      $mail->send();
-      //DEBUG!!!!  echo "Mail send.";
-      echo (json_encode(["success" => true]));
-    } catch (Exception $e) {
-      echo (json_encode(["success" => false]));
-    }
-  } else {
+    //Content
+    $mail->Subject = 'Ihre Anfrage';
+    $mail->CharSet = 'UTF-8';
+    $mail->Body = "<hr>SIE HABEN EINE KONTAKTANFRAGE ERHALTEN<hr><br><br>Nachfolgende die Details der Anfrage:<br><br><b>Name:</b> $name<br><b>Email:</b> $email<br><br><b>Nachricht:</b><br>$Nachricht";
+    $mail->send();
+    //DEBUG!!!!  echo "Mail send.";
+    echo (json_encode(["success" => true]));
+  } catch (Exception $e) {
     echo (json_encode(["success" => false]));
   }
 } else {
-  while ($obj = $result->fetch_object()) {
-    echo (json_encode(["success" => false]));
-  }
+  echo (json_encode(["success" => false]));
 }

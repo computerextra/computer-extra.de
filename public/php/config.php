@@ -6,17 +6,9 @@ $dotenv->load();
 
 define("MYSQL_SERVER", $_ENV["MYSQL_SERVER"]);
 
-define("MYSQL_USER_FILTER", $_ENV["MYSQL_USER_FILTER"]);
-define("MYSQL_PASS_FILTER", $_ENV["MYSQL_PASS_FILTER"]);
-define("MYSQL_DB_FILTER", $_ENV["MYSQL_DB_FILTER"]);
-
 define("MYSQL_USER_CMS", $_ENV["MYSQL_USER_CMS"]);
 define("MYSQL_PASS_CMS", $_ENV["MYSQL_PASS_CMS"]);
 define("MYSQL_DB_CMS", $_ENV["MYSQL_DB_CMS"]);
-
-define("MYSQL_Datenschutz_DB", $_ENV["MYSQL_Datenschutz_DB"]);
-define("MYSQL_Datenschutz_USER", $_ENV["MYSQL_Datenschutz_USER"]);
-define("MYSQL_Datenschutz_PASS", $_ENV["MYSQL_Datenschutz_PASS"]);
 
 define("SMTP_SERVER", $_ENV["SMTP_SERVER"]);
 define("SMTP_PORT", $_ENV["SMTP_PORT"]);
