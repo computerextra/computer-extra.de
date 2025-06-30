@@ -38,15 +38,17 @@ export default function useMitarbeiter(): {
           short: string;
           image: string;
           tags: string;
-          focus: string;
+          focus?: string;
           Abteilung: string;
           sex: "m" | "w";
         }) => {
+          const focus = element.focus?.split(",");
+
           const m: Mitarbeiter = {
             name: element.name,
             short: element.short,
             image: element.image == "1" ? true : false,
-            focus: element.focus.split(","),
+            focus: focus ?? [],
             Abteilung: element.Abteilung,
             sex: element.sex,
           };
