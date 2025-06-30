@@ -6,7 +6,6 @@ export type Mitarbeiter = {
   name: string;
   short: string;
   image: boolean;
-  tags: string[];
   focus: string[];
   Abteilung: string;
   sex: "m" | "w";
@@ -47,7 +46,6 @@ export default function useMitarbeiter(): {
             name: element.name,
             short: element.short,
             image: element.image == "1" ? true : false,
-            tags: element.tags.split(","),
             focus: element.focus.split(","),
             Abteilung: element.Abteilung,
             sex: element.sex,
