@@ -39,13 +39,13 @@ const routes: RouteProps[] = [
     title: "Start",
     show: true,
   },
-  {
-    path: "https://shop.computer-extra.de/",
-    element: Leistungen,
-    title: "Shop",
-    show: true,
-    external: true,
-  },
+  // {
+  //   path: "https://shop.computer-extra.de/",
+  //   element: Leistungen,
+  //   title: "Shop",
+  //   show: true,
+  //   external: true,
+  // },
   {
     path: "/Leistungen",
     element: Leistungen,
