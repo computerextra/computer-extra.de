@@ -1,6 +1,7 @@
 export default function DatenschutzText() {
   return (
     <>
+      <h1>Datenschutzerklärung</h1>
       <h2>1. Einleitung</h2>
       <p>
         Mit den folgenden Informationen möchten wir Ihnen als "betroffener
@@ -38,60 +39,55 @@ export default function DatenschutzText() {
         sich gegen den unbefugten Zugang Dritter zu Ihren Daten zu schützen.
         Daher möchten wir Ihnen an dieser Stelle einige Hinweise zum sicheren
         Umgang mit Ihren Daten geben:
-      </p>
-      <ul>
-        <li>
-          Schützen Sie Ihren Account (Login, Nutzer- oder Kundenkonto) und Ihr
-          IT-System (Computer, Laptop, Tablet oder Mobile-Gerät) mit sicheren
-          Passwörtern.
-        </li>
-        <li>Nur Sie sollten Zugang zu den Passwörtern haben.</li>
-        <li>
-          Stellen Sie sicher, dass Sie Ihre Passwörter immer nur für einen
-          Account (Login, Nutzer- oder Kundenkonto) nutzen.
-        </li>
-        <li>
-          Verwenden Sie ein Passwort nicht für verschiedene Webseiten,
-          Anwendungen oder Online-Services.
-        </li>
-        <li>
-          Insbesondere bei der Nutzung von öffentlich zugänglichen oder
-          gemeinsam mit anderen Personen genutzten IT-Systemen gilt: Sie sollten
-          sich unbedingt nach jeder Anmeldung auf einer Webseite, einer
-          Anwendung oder einem Online-Service wieder abmelden.
-        </li>
-      </ul>
-      <p>
-        Passwörter sollten aus mindestens 12 Zeichen bestehen und so gewählt
-        werden, dass sie nicht leicht erraten werden können. Daher sollten sie
-        keine gängigen Wörter aus dem Alltag, den eigenen Namen oder Namen von
-        Verwandten, sondern Groß- und Kleinschreibung, Zahlen und Sonderzeichen
-        enthalten.
-      </p>
-      <h2>2. Verantwortlicher</h2>
-      <p>Verantwortlicher im Sinne der DS-GVO ist die:</p>
-      <p>
-        Computer Extra GmbH
-        <br />
-        Harleshäuser Str. 8, 34130 Kassel, Deutschland
-        <br />
-        Telefon: 0561/60144 - 0<br />
-        Telefax: 0561/60144 - 199
-        <br />
-        E-Mail:{" "}
-        <a href="mailto:info@computer-extra.de">info@computer-extra.de</a>
-      </p>
-      <p>Vertreter des Verantwortlichen: Christian Krauss</p>
-      <h2>3. Datenschutzbeauftragter</h2>
-      <p>Den Datenschutzbeauftragten erreichen Sie wie folgt:</p>
-      <p>
-        Johannes Kirchner
-        <br />
-        Telefon: 0561 / 60144 - 122
-        <br />
-        Telefax: 0561 / 60144 - 199
-        <br />
-        E-Mail:{" "}
+        <ul>
+          <li>
+            Schützen Sie Ihren Account (Login, Nutzer- oder Kundenkonto) und Ihr
+            IT-System (Computer, Laptop, Tablet oder Mobile-Gerät) mit sicheren
+            Passwörtern.
+          </li>
+          <li>Nur Sie sollten Zugang zu den Passwörtern haben.</li>
+          <li>
+            Stellen Sie sicher, dass Sie Ihre Passwörter immer nur für einen
+            Account (Login, Nutzer- oder Kundenkonto) nutzen.
+          </li>
+          <li>
+            Verwenden Sie ein Passwort nicht für verschiedene Webseiten,
+            Anwendungen oder Online-Services.
+          </li>
+          <li>
+            Insbesondere bei der Nutzung von öffentlich zugänglichen oder
+            gemeinsam mit anderen Personen genutzten IT-Systemen gilt: Sie
+            sollten sich unbedingt nach jeder Anmeldung auf einer Webseite,
+            einer Anwendung oder einem Online-Service wieder abmelden.
+          </li>
+        </ul>
+        <p>
+          Passwörter sollten aus mindestens 12 Zeichen bestehen und so gewählt
+          werden, dass sie nicht leicht erraten werden können. Daher sollten sie
+          keine gängigen Wörter aus dem Alltag, den eigenen Namen oder Namen von
+          Verwandten, sondern Groß- und Kleinschreibung, Zahlen und
+          Sonderzeichen enthalten.
+        </p>
+        <h2>2. Verantwortlicher</h2>
+        <p>Verantwortlicher im Sinne der DS-GVO ist die:</p>
+        <p>
+          Computer Extra GmbH
+          <br />
+          Harleshäuser Str. 8, 34130 Kassel, Deutschland
+        </p>
+        <p>Telefon: 0561/60144 - 0</p>
+        <p>Telefax: 0561/60144 - 199</p>
+        <p>
+          E-Mail:{" "}
+          <a href="mailto:info@computer-extra.de">info@computer-extra.de</a>
+        </p>
+        <p>Vertreter des Verantwortlichen: Christian Krauss</p>
+        <h2>3. Datenschutzbeauftragter</h2>
+        <p>Den Datenschutzbeauftragten erreichen Sie wie folgt:</p>
+        <p>Johannes Kirchner</p>
+        <p>Telefon: 0561 / 60144 - 122</p>
+        <p>Telefax: 0561 / 60144 - 199</p>
+        <p></p>E-Mail:{" "}
         <a href="mailto:johannes.kirchner@computer-extra.de">
           johannes.kirchner@computer-extra.de
         </a>
@@ -270,8 +266,46 @@ export default function DatenschutzText() {
         personenbezogenen Daten von Kindern und Jugendlichen an, sammeln diese
         nicht und geben sie nicht an Dritte weiter.
       </p>
-      <h2>6. Technik</h2>
-      <h3>6.1 SSL/TLS-Verschlüsselung</h3>
+      <h2>6. Übermittlung von Daten an Dritte</h2>
+      <p>
+        Eine Übermittlung Ihrer personenbezogenen Daten an Dritte zu anderen als
+        den im Folgenden aufgeführten Zwecken findet nicht statt.
+      </p>
+      <p>Wir geben Ihre personenbezogenen Daten nur an Dritte weiter, wenn:</p>
+      <ol>
+        <li>
+          Sie uns Ihre nach Art. 6 Abs. 1 lit. a) DS-GVO ausdrückliche
+          Einwilligung dazu erteilt haben,
+        </li>
+        <li>
+          die Weitergabe nach Art. 6 Abs. 1 lit. f) DS-GVO zur Wahrung unserer
+          berechtigten Interessen zulässig ist und kein Grund zur Annahme
+          besteht, dass Sie ein überwiegendes schutzwürdiges Interesse an der
+          Nichtweitergabe Ihrer Daten haben,
+        </li>
+        <li>
+          für den Fall, dass für die Weitergabe nach Art. 6 Abs. 1 lit. c)
+          DS-GVO eine gesetzliche Verpflichtung besteht, sowie
+        </li>
+        <li>
+          dies gesetzlich zulässig und nach Art. 6 Abs. 1 lit. b) DS-GVO für die
+          Abwicklung von Vertragsverhältnissen mit Ihnen erforderlich ist.
+        </li>
+      </ol>
+      <p>
+        Um Ihre Daten zu schützen und uns gegebenenfalls eine Datenübermittlung
+        in Drittländer (außerhalb der EU/des EWR) zu ermöglichen, haben wir
+        Vereinbarungen zur Auftragsverarbeitung auf Grundlage der
+        Standardvertragsklauseln der Europäischen Kommission abgeschlossen.
+        Sofern die Standardvertragsklauseln nicht ausreichen, um ein adäquates
+        Sicherheitsniveau herzustellen kann Ihre Einwilligung gemäß Art. 49 Abs.
+        1 lit. a) DS-GVO als Rechtsgrundlage für die Übermittlung in Drittländer
+        dienen. Dies gilt mitunter nicht bei einer Datenübermittlung in
+        Drittländer, für welche die Europäische Kommission einen
+        Angemessenheitsbeschluss gemäß Art. 45 DS-GVO ausgestellt hat.
+      </p>
+      <h2>7. Technik</h2>
+      <h3>7.1 SSL/TLS-Verschlüsselung</h3>
       <p>
         Diese Seite nutzt zur <b>Gewährleistung</b> der Sicherheit der
         Datenverarbeitung und zum Schutz der Übertragung vertraulicher Inhalte,
@@ -285,7 +319,7 @@ export default function DatenschutzText() {
         Wir setzen diese Technologie ein, um Ihre übermittelten Daten zu
         schützen.
       </p>
-      <h3>6.2 Datenerfassung beim Besuch der Internetseite</h3>
+      <h3>7.2 Datenerfassung beim Besuch der Internetseite</h3>
       <p>
         Bei der lediglich informatorischen Nutzung unserer Website, wenn Sie
         sich nicht registrieren oder uns anderweitig Informationen übermitteln
@@ -316,7 +350,6 @@ export default function DatenschutzText() {
         </li>
         <li>der Internet-Service-Provider des zugreifenden Systems.</li>
       </ol>
-
       <p>
         Bei der Nutzung dieser allgemeinen Daten und Informationen ziehen wir
         keine Rückschlüsse auf Ihre Person. Diese Informationen werden vielmehr
@@ -351,7 +384,7 @@ export default function DatenschutzText() {
         DS-GVO. Unser berechtigtes Interesse folgt aus oben aufgelisteten
         Zwecken zur Datenerhebung.
       </p>
-      <h3>6.3 Hosting durch All-Inkl</h3>
+      <h3>7.3 Hosting durch All-Inkl</h3>
       <p>
         Wir hosten unsere Website bei der ALL-INKL.COM - Neue Medien Münnich,
         Inh. René Münnich, Hauptstraße 68, 02742 Friedersdorf (im Weiteren
@@ -385,16 +418,69 @@ export default function DatenschutzText() {
           https://all-inkl.com/datenschutzinformationen/
         </a>
       </p>
-      <h2>7. Cookies</h2>
-      <h3>7.1 Es werden keine Cookies verwendet</h3>
+      <h2>8. Cookies</h2>
+      <h3>8.1 Hinweise zur Vermeidung von Cookies in gängigen Browsern</h3>
+      <p>
+        Über die Einstellungen Ihres verwendeten Browsers haben Sie jederzeit
+        die Möglichkeit Cookies zu löschen, nur ausgewählte Cookies zuzulassen
+        oder Cookies vollständig zu deaktivieren. Weitere Informationen erhalten
+        Sie auf den Support-Seiten der jeweiligen Anbieter:
+        <ul>
+          <li>
+            Chrome:{" "}
+            <a
+              href="https://support.google.com/chrome/answer/95647?tid=311178978"
+              rel="nofollow"
+              target="_blank"
+            >
+              https://support.google.com/chrome/answer/95647?tid=311178978
+            </a>
+            .
+          </li>
+          <li>
+            Safari:{" "}
+            <a
+              href="https://support.apple.com/de-at/guide/safari/sfri11471/mac?tid=311178978"
+              rel="nofollow"
+              target="_blank"
+            >
+              https://support.apple.com/de-at/guide/safari/sfri11471/mac?tid=311178978
+            </a>
+            .
+          </li>
+          <li>
+            Firefox:{" "}
+            <a
+              href="https://support.mozilla.org/de/kb/cookies-und-website-daten-in-firefox-loschen?tid=311178978"
+              target="_blank"
+              rel="nofollow"
+            >
+              https://support.mozilla.org/de/kb/cookies-und-website-daten-in-firefox-loschen?tid=311178978
+            </a>
+            .
+          </li>
+          <li>
+            Microsoft Edge:{" "}
+            <a
+              href="https://support.microsoft.com/de-de/microsoft-edge/cookies-in-microsoft-edge-l%C3%B6schen-63947406-40ac-c3b8-57b9-2a946a29ae09"
+              target="_blank"
+              rel="nofollow"
+            >
+              https://support.microsoft.com/de-de/microsoft-edge/cookies-in-microsoft-edge-l%C3%B6schen-63947406-40ac-c3b8-57b9-2a946a29ae09
+            </a>
+            .
+          </li>
+        </ul>
+      </p>
+      <h3>8.2 Es werden keine Cookies verwendet</h3>
       <p>
         Wir setzen auf unserer Internetseite weder technisch notwendige noch
         andere Formen von Cookies ein. Sie bekommen daher auch keinen
         Cookiehinweis zu sehen und es werden keine Einwilligungen zur Nutzung
         von Cookies eingeholt.
       </p>
-      <h2>8. Inhalte unserer Internetseite</h2>
-      <h3>8.1 Kontaktaufnahme / Kontaktformular</h3>
+      <h2>9. Inhalte unserer Internetseite</h2>
+      <h3>9.1 Kontaktaufnahme / Kontaktformular</h3>
       <p>
         Im Rahmen der Kontaktaufnahme mit uns (z.B. per Kontaktformular oder
         E-Mail) werden personenbezogene Daten erhoben. Welche Daten im Falle der
@@ -412,7 +498,7 @@ export default function DatenschutzText() {
         Sachverhalt abschließend geklärt ist und der Löschung keine gesetzlichen
         Aufbewahrungspflichten entgegenstehen.
       </p>
-      <h3>8.2 Bewerbungsmanagement / Stellenbörse</h3>
+      <h3>9.2 Bewerbungsmanagement / Stellenbörse</h3>
       <p>
         Wir erheben und verarbeiten die personenbezogenen Daten von Bewerbern
         zum Zwecke der Abwicklung des Bewerbungsverfahrens. Die Verarbeitung
@@ -424,7 +510,7 @@ export default function DatenschutzText() {
         übermittelten Daten zum Zwecke der Abwicklung des
         Beschäftigungsverhältnisses unter Beachtung der gesetzlichen
         Vorschriften gespeichert. Wird von uns kein Vertrag mit dem Bewerber
-        geschlossen, so werden die Bewerbungsunterlagen zwei Monate nach
+        geschlossen, so werden die Bewerbungsunterlagen sechs Monate nach
         Bekanntgabe der Absageentscheidung automatisch gelöscht, sofern einer
         Löschung keine sonstigen berechtigten Interessen unsererseits
         entgegenstehen. Ein sonstiges berechtigtes Interesse in diesem Sinne ist
@@ -435,7 +521,7 @@ export default function DatenschutzText() {
         Die Rechtsgrundlage der Verarbeitung Ihrer Daten ist Art. 6 Abs. 1 lit.
         b), 88 DS-GVO i.V.m. § 26 Abs. 1 BDSG.
       </p>
-      <h2>9. Unsere Aktivitäten in sozialen Netzwerken</h2>
+      <h2>10. Unsere Aktivitäten in sozialen Netzwerken</h2>
       <p>
         Damit wir mit Ihnen auch in sozialen Netzwerken kommunizieren und Sie
         über unsere Leistungen informieren können, sind wir dort mit eigenen
@@ -479,12 +565,21 @@ export default function DatenschutzText() {
         sozialen Netzwerken haben wir nachfolgend bei dem jeweiligen von uns
         eingesetzten Anbieter sozialer Netzwerke aufgeführt:
       </p>
-      <h3>9.1 Facebook</h3>
+      <h3>10.1 Facebook</h3>
       <p>
         (Mit-) Verantwortlicher für die Datenverarbeitung in Europa:
         <br />
         Meta Platforms Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour,
         Dublin 2, Irland
+      </p>
+      <p>
+        Meta (Facebook) kann, sofern kein Widerspruch erfolgt, Inhalte
+        volljähriger Nutzer aus der EU – z.B. Fotos, Beiträge oder Kommentare –
+        zur Schulung eigener KI-Modelle verarbeiten. Grundlage ist ein
+        berechtigtes Interesse gem. Art. 6 Abs. 1 lit. f) DS-GVO. Auf diese
+        spezifische Datenverarbeitung durch Meta haben wir als Unternehmen
+        keinen Einfluss. Nutzer können dem über ein Online-Formular auf den
+        Meta-Plattformen widersprechen.
       </p>
       <p>
         Datenschutzerklärung (Datenrichtlinie):
@@ -493,12 +588,21 @@ export default function DatenschutzText() {
           https://www.facebook.com/about/privacy
         </a>
       </p>
-      <h3>9.2 Instagram</h3>
+      <h3>10.2 Instagram</h3>
       <p>
         (Mit-) Verantwortlicher für die Datenverarbeitung in Deutschland:
         <br />
         Meta Platforms Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour,
         Dublin 2, Irland
+      </p>
+      <p>
+        Meta (Instagram) kann, sofern kein Widerspruch erfolgt, Inhalte
+        volljähriger Nutzer aus der EU – z.B. Fotos, Beiträge oder Kommentare –
+        zur Schulung eigener KI-Modelle verarbeiten. Auf diese spezifische
+        Datenverarbeitung durch Meta haben wir als Unternehmen keinen Einfluss.
+        Grundlage ist ein berechtigtes Interesse gem. Art. 6 Abs. 1 lit. f)
+        DS-GVO. Nutzer können dem über ein Online-Formular auf den
+        Meta-Plattformen widersprechen.
       </p>
       <p>
         Datenschutzerklärung (Datenrichtlinie):
@@ -507,7 +611,7 @@ export default function DatenschutzText() {
           https://instagram.com/legal/privacy/
         </a>
       </p>
-      <h3>9.3 LinkedIn</h3>
+      <h3>10.3 LinkedIn</h3>
       <p>
         (Mit-) Verantwortlicher für die Datenverarbeitung in Europa:
         <br />
@@ -520,50 +624,54 @@ export default function DatenschutzText() {
           https://www.linkedin.com/legal/privacy-policy
         </a>
       </p>
-      <h2>10. Webanalyse</h2>
-      <h3>10.1 Matomo</h3>
+      <h2>11. Webanalyse</h2>
+      <h3> 11.1 Posthog</h3>
       <p>
-        Wir haben auf dieser Internetseite die Komponente Matomo des Anbieters
-        InnoCraft Ltd., 150 Willis St, 6011 Wellington, Neuseeland, integriert.
-        Matomo ist ein Softwaretool zur Web-Analyse, also zur Erhebung, Sammlung
-        und Auswertung von Daten über das Verhalten von Besuchern von
-        Internetseiten. Es werden dabei unter anderem Daten darüber erfasst, von
-        welcher Internetseite eine betroffene Person auf eine Internetseite
-        gekommen ist (sogenannter Referrer), auf welche Unterseiten der
-        Internetseite zugegriffen oder wie oft und für welche Verweildauer eine
-        Unterseite betrachtet wurde. Dies wird zur Optimierung der Internetseite
-        und zur Kosten-Nutzen-Analyse von Internetwerbung eingesetzt.
+        Diese Website nutzt den Service “Posthog”. Anbieter ist die Posthog
+        Inc., 965 Mission Street, San Francisco, CA 94103, USA.
       </p>
+
       <p>
-        Die Software wird auf dem Server des für die Verarbeitung
-        Verantwortlichen betrieben, die datenschutzrechtlich sensiblen
-        Logdateien werden ausschließlich auf diesem Server gespeichert.
+        Wir nutzen Posthog, um das Nutzerverhalten bei der Nutzung unserer
+        Services besser nachvollziehen und um unser Angebot optimieren zu
+        können. Dabei kann Posthog Ihr Verhalten auf unserer Webseite
+        aufzeichnen und wiedergeben.
       </p>
-      <div className="rounded-lg">
-        <iframe
-          title="Matomo"
-          style={{
-            border: 0,
-            width: "100%",
-            maxWidth: 1200,
-            height: "auto",
-          }}
-          src="https://matomo.computer-extra.de/index.php?module=CoreAdminHome&action=optOut&language=de&backgroundColor=&fontColor=&fontSize=&fontFamily="
-        ></iframe>
-      </div>
+
       <p>
-        Diese Verarbeitungsvorgänge erfolgen ausschließlich bei Erteilung der
-        ausdrücklichen Einwilligung gemäß Art. 6 Abs. 1 lit. a) DS-GVO.
+        Für die Analyse der Softwarenutzung werden die IP-Adresse und
+        Informationen wie Zeitstempel, Klicks und Ihre Spracheinstellungen in
+        verkürzter Form erfasst und weiterverarbeitet, wodurch ein direkter
+        Personenbezug ausgeschlossen wird. Zudem werden die mittels PostHog
+        ermittelten statistischen Daten nicht mit anderen von uns erhobenen
+        Daten zusammengeführt.
       </p>
+
       <p>
-        Die Datenschutzbestimmungen von Matomo können Sie einsehen unter:{" "}
-        <a href="https://matomo.org/privacy/" rel="nofollow">
-          https://matomo.org/privacy/
-        </a>{" "}
-        abgerufen werden.
+        Die zeitlich begrenzte Verarbeitung und Speicherung dieser Daten findet
+        grundsätzlich innerhalb der EU statt. Sollte eine Datenübermittlung aus
+        der EU in Posthog’s AWS-Umgebung in den USA erforderlich sein, ist diese
+        auf die EU-Standardvertragsklauseln (SCC) gestützt. Details dazu finden
+        Sie hier:
+        <a href="https://docs.google.com/document/d/1reTUk6VTsTLo1ErNYn-Tdmj_ETo8QYNH6tNCaebDwpE/edit?usp=sharing">
+          Posthog EU Standard Contractual Clauses (SCCs)
+        </a>
       </p>
-      <h2>11. Plugins und andere Dienste</h2>
-      <h3> 11.1 meetergo</h3>
+
+      <p>
+        Die Benutzung erfolgt auf Grund unseres berechtigten Interesses nach
+        Art. 6 Abs. 1 S. 1 lit. f DSGVO zur Analyse und Optimierung unserer
+        Online-Angebote. Dies dient dem wirtschaftlichen Betrieb unserer
+        Webseite/App und verbessert das Nutzererlebnis.
+      </p>
+
+      <p>
+        Weitere Informationen können in der Datenschutzerklärung von Posthog
+        eingesehen werden:
+        <a href="https://posthog.com/privacy">https://posthog.com/privacy</a>
+      </p>
+      <h2>12. Plugins und andere Dienste</h2>
+      <h3> 12.1 meetergo</h3>
       <p>
         Wir haben meetergo auf dieser Webseite eingebunden. Anbieter ist die
         meetergo GmbH, Hauptstr. 44, 40789 Monheim am Rhein (nachfolgend
@@ -582,38 +690,38 @@ export default function DatenschutzText() {
         auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 1 lit. a;
         die Einwilligung ist jederzeit widerrufbar
       </p>
-      <h2>12. Ihre Rechte als betroffene Person</h2>
-      <h3>12.1 Recht auf Bestätigung</h3>
+      <h2>13. Ihre Rechte als betroffene Person</h2>
+      <h3>13.1 Recht auf Bestätigung</h3>
       <p>
         Sie haben das Recht, von uns eine Bestätigung darüber zu verlangen, ob
         Sie betreffende personenbezogene Daten verarbeitet werden.
       </p>
-      <h3>12.2 Recht auf Auskunft Art. 15 DS-GVO</h3>
+      <h3>13.2 Recht auf Auskunft Art. 15 DS-GVO</h3>
       <p>
         Sie haben das Recht, jederzeit von uns unentgeltliche Auskunft über die
         zu Ihrer Person gespeicherten personenbezogenen Daten sowie eine Kopie
         dieser Daten nach Maßgabe der gesetzlichen Bestimmungen zu erhalten.
       </p>
-      <h3>12.3 Recht auf Berichtigung Art. 16 DS-GVO</h3>
+      <h3>13.3 Recht auf Berichtigung Art. 16 DS-GVO</h3>
       <p>
         Sie haben das Recht, die Berichtigung Sie betreffender unrichtiger
         personenbezogener Daten zu verlangen. Ferner steht Ihnen das Recht zu,
         unter Berücksichtigung der Zwecke der Verarbeitung, die
         Vervollständigung unvollständiger personenbezogener Daten zu verlangen.
       </p>
-      <h3>12.4 Löschung Art. 17 DS-GVO</h3>
+      <h3>13.4 Löschung Art. 17 DS-GVO</h3>
       <p>
         Sie haben das Recht, von uns zu verlangen, dass die Sie betreffenden
         personenbezogenen Daten unverzüglich gelöscht werden, sofern einer der
         gesetzlich vorgesehenen Gründe zutrifft und soweit die Verarbeitung bzw.
         Speicherung nicht erforderlich ist.
       </p>
-      <h3>12.5 Einschränkung der Verarbeitung Art. 18 DS-GVO</h3>
+      <h3>13.5 Einschränkung der Verarbeitung Art. 18 DS-GVO</h3>
       <p>
         Sie haben das Recht, von uns die Einschränkung der Verarbeitung zu
         verlangen, wenn eine der gesetzlichen Voraussetzungen gegeben ist.
       </p>
-      <h3>12.6 Datenübertragbarkeit Art. 20 DS-GVO</h3>
+      <h3>13.6 Datenübertragbarkeit Art. 20 DS-GVO</h3>
       <p>
         Sie haben das Recht, die Sie betreffenden personenbezogenen Daten,
         welche uns durch Sie bereitgestellt wurden, in einem strukturierten,
@@ -636,8 +744,8 @@ export default function DatenschutzText() {
         machbar ist und sofern hiervon nicht die Rechte und Freiheiten anderer
         Personen beeinträchtigt werden.
       </p>
-      <div style={{ border: "2px solid black" }}>
-        <h3>12.7 Widerspruch Art. 21 DS-GVO</h3>
+      <div style={{ border: "2px solid black;" }}>
+        <h3>13.7 Widerspruch Art. 21 DS-GVO</h3>
         <p>
           Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen
           Situation ergeben, jederzeit gegen die Verarbeitung Sie betreffender
@@ -682,20 +790,20 @@ export default function DatenschutzText() {
           denen technische Spezifikationen verwendet werden.
         </p>
       </div>
-      <h3>12.8 Widerruf einer datenschutzrechtlichen Einwilligung</h3>
+      <h3>13.8 Widerruf einer datenschutzrechtlichen Einwilligung</h3>
       <p>
         Sie haben das Recht, eine Einwilligung zur Verarbeitung
         personenbezogener Daten jederzeit mit Wirkung für die Zukunft zu
         widerrufen.
       </p>
-      <h3>12.9 Beschwerde bei einer Aufsichtsbehörde</h3>
+      <h3>13.9 Beschwerde bei einer Aufsichtsbehörde</h3>
       <p>
         Sie haben das Recht, sich bei einer für Datenschutz zuständigen
         Aufsichtsbehörde über unsere Verarbeitung personenbezogener Daten zu
         beschweren.
       </p>
       <h2>
-        13. Routinemäßige Speicherung, Löschung und Sperrung von
+        14. Routinemäßige Speicherung, Löschung und Sperrung von
         personenbezogenen Daten
       </h2>
       <p>
@@ -709,17 +817,17 @@ export default function DatenschutzText() {
         Speicherfrist ab, werden die personenbezogenen Daten routinemäßig und
         entsprechend den gesetzlichen Vorschriften gesperrt oder gelöscht.
       </p>
-      <h2>14. Dauer der Speicherung von personenbezogenen Daten</h2>
+      <h2>15. Dauer der Speicherung von personenbezogenen Daten</h2>
       <p>
         Das Kriterium für die Dauer der Speicherung von personenbezogenen Daten
         ist die jeweilige gesetzliche Aufbewahrungsfrist. Nach Ablauf der Frist
         werden die entsprechenden Daten routinemäßig gelöscht, sofern sie nicht
         mehr zur Vertragserfüllung oder Vertragsanbahnung erforderlich sind.
       </p>
-      <h2>15. Aktualität und Änderung der Datenschutzerklärung</h2>
+      <h2>16. Aktualität und Änderung der Datenschutzerklärung</h2>
       <p>
-        Diese Datenschutzerklärung ist aktuell gültig und hat den Stand:
-        November 2024.
+        Diese Datenschutzerklärung ist aktuell gültig und hat den Stand: Juli
+        2025.
       </p>
       <p>
         Durch die Weiterentwicklung unserer Internetseiten und Angebote oder
