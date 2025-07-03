@@ -1,6 +1,5 @@
 import { Suspense, lazy } from "react";
 import AnimationLayout from "../Components/AnimationLayout";
-import useAnalytics from "../Hooks/useAnalytics";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
 
@@ -30,7 +29,6 @@ const Datenrettung = lazy(
 
 export default function Leistungen() {
   useTitle("Leistungen");
-  useAnalytics("Leistungen");
   return (
     <AnimationLayout>
       <MainLayout
@@ -98,7 +96,7 @@ function NavigationButton({ text, to }: { text: string; to: string }) {
       <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
       <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
       <span className="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
-      <span className="relative h-full w-full flex items-center justify-center text-2xl transition-colors duration-300 delay-200 group-hover:text-white ease text-center">
+      <span className="relative flex items-center justify-center w-full h-full text-2xl text-center transition-colors duration-300 delay-200 group-hover:text-white ease">
         {text}
       </span>
     </div>

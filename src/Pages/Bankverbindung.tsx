@@ -1,5 +1,4 @@
 import AnimationLayout from "../Components/AnimationLayout";
-import useAnalytics from "../Hooks/useAnalytics";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
 
@@ -28,7 +27,6 @@ const Werte = [
 
 export default function Bankverbindung() {
   useTitle("Bankverbindung");
-  useAnalytics("Bankverbindung");
   return (
     <AnimationLayout>
       <MainLayout title="Bankverbindung" subtitle="">
@@ -37,17 +35,17 @@ export default function Bankverbindung() {
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full lg:py-2 sm:px-6 lg:px-8">
                 <div className="overflow-hidden">
-                  <table className="min-w-full text-left lg:text-xl font-light text-surface ">
+                  <table className="min-w-full font-light text-left lg:text-xl text-surface ">
                     <tbody>
                       {Werte.map((x, idx) => (
                         <tr
-                          className="border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-neutral-100 "
+                          className="transition duration-300 ease-in-out border-b border-neutral-200 hover:bg-neutral-100 "
                           key={idx}
                         >
-                          <td className="whitespace-nowrap px-6 lg:py-4 font-medium">
+                          <td className="px-6 font-medium whitespace-nowrap lg:py-4">
                             {x.x}
                           </td>
-                          <td className="whitespace-nowrap px-6 lg:py-4">
+                          <td className="px-6 whitespace-nowrap lg:py-4">
                             {x.y}
                           </td>
                         </tr>

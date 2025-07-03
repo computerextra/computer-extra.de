@@ -1,11 +1,9 @@
 import AnimationLayout from "../Components/AnimationLayout";
-import useAnalytics from "../Hooks/useAnalytics";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
 
 export default function AGB() {
   useTitle("AGB");
-  useAnalytics("AGB");
   return (
     <AnimationLayout>
       <MainLayout
@@ -13,7 +11,7 @@ export default function AGB() {
         subtitle="Der Firma Computer Extra GmbH, im Folgenden Verkäufer genannt."
       >
         <div className="text-xl">
-          <h2 className="font-medium text-xl mb-2 mt-5">
+          <h2 className="mt-5 mb-2 text-xl font-medium">
             1. Umfang der Lieferungen und Leistungen
           </h2>
           <p className="py-1">
@@ -46,7 +44,7 @@ export default function AGB() {
             hingewiesen, dass alle Daten in Bezug auf die Verkaufsabwicklung und
             statistische Auswertung der Datenverarbeitung unterliegen.
           </p>
-          <h2 className="font-medium text-xl mb-2 mt-5">
+          <h2 className="mt-5 mb-2 text-xl font-medium">
             2. Preise und Zahlungsbedingungen
           </h2>
           <p className="py-1">
@@ -83,7 +81,7 @@ export default function AGB() {
             aufgegeben werden. Der Verkäufer behält sich vor, Anzahlungen zu
             verlangen.
           </p>
-          <h2 className="font-medium text-xl mb-2 mt-5">
+          <h2 className="mt-5 mb-2 text-xl font-medium">
             3. Eigentumsvorbehalt
           </h2>
           <p className="py-1">
@@ -114,7 +112,7 @@ export default function AGB() {
             sich auf von und gelieferte Ware beziehen, werden an uns abgetreten.
             Diese Abtretung wird von und angenommen.
           </p>
-          <h2 className="font-medium text-xl mb-2 mt-5">
+          <h2 className="mt-5 mb-2 text-xl font-medium">
             4. Lieferung, Abnahme und Abnahmeverzug
           </h2>
           <p className="py-1">
@@ -162,7 +160,7 @@ export default function AGB() {
             digitaler Software sowie Produktschlüssel zur Freischaltung von
             Software ist grundsätzlich ausgeschlossen.
           </p>
-          <h2 className="font-medium text-xl mb-2 mt-5">5. Rücksendungen</h2>
+          <h2 className="mt-5 mb-2 text-xl font-medium">5. Rücksendungen</h2>
           <p className="py-1">
             Rücksendungen und der Austausch von Waren bedürfen der vorherigen
             Zustimmung des Verkäufers. Arbeitsspeicher und Prozessoren sind vom
@@ -182,7 +180,7 @@ export default function AGB() {
             weitergehender Ansprüche wegen Beschädigung und übermäßiger Nutzung
             des Gegenstandes behält sich der Verkäufer vor.
           </p>
-          <h2 className="font-medium text-xl mb-2 mt-5">
+          <h2 className="mt-5 mb-2 text-xl font-medium">
             6. Gewährleistung und Haftung
           </h2>
           <p className="py-1">
@@ -230,7 +228,7 @@ export default function AGB() {
             Abfahrt des Servicepersonals zu dessen Lasten. Softwareprodukte sind
             vom Umtausch generell ausgeschlossen.
           </p>
-          <h2 className="font-medium text-xl mb-2 mt-5">
+          <h2 className="mt-5 mb-2 text-xl font-medium">
             7. Reparaturbedingungen (außerhalb der Gewährleistung)
           </h2>
           <p className="py-1">
@@ -248,7 +246,7 @@ export default function AGB() {
             Eintreffen der Ware am Bestimmungsort zulässig. Kostenpflichtige
             Reparaturen werden nur gegen Barzahlung/Nachnahme durchgeführt.
           </p>
-          <h2 className="font-medium text-xl mb-2 mt-5">8. Gerichtsstand</h2>
+          <h2 className="mt-5 mb-2 text-xl font-medium">8. Gerichtsstand</h2>
           <p className="py-1">
             Alleiniger Gerichtsstand und Erfüllungsort ist, wenn der Käufer
             Vollkaufmann ist, bei allen aus der Geschäftsbeziehung mittelbar
@@ -256,7 +254,7 @@ export default function AGB() {
             Verkäufers der Hauptsitz oder der Sitz der Niederlassung des
             Verkäufers. Dür die vertraglichen Beziehungen gilt deutsches Recht.
           </p>
-          <h2 className="font-medium text-xl mb-2 mt-5">
+          <h2 className="mt-5 mb-2 text-xl font-medium">
             9. Verbindlichkeit des Vertrages
           </h2>
           <p className="py-1">

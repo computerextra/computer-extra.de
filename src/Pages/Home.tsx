@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import AnimationLayout from "../Components/AnimationLayout";
-import useAnalytics from "../Hooks/useAnalytics";
 import useTitle from "../Hooks/useTitle";
 import StartLayout from "../Layout/StartLayout";
 
@@ -14,7 +13,6 @@ const PartnerSection = lazy(() => import("../Components/Home/PartnerSection"));
 
 export default function Home() {
   useTitle();
-  useAnalytics("Home");
 
   return (
     <AnimationLayout>

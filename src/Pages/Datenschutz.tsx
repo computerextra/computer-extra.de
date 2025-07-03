@@ -1,13 +1,11 @@
 import { NavLink } from "react-router-dom";
 import AnimationLayout from "../Components/AnimationLayout";
-import useAnalytics from "../Hooks/useAnalytics";
+import DatenschutzText from "../Components/DatenschutzText";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
-import DatenschutzText from "../Components/DatenschutzText";
 
 export default function Datenschutz() {
   useTitle("Datenschutzerklärung");
-  useAnalytics("Datenschutzerklärung");
   return (
     <AnimationLayout>
       <MainLayout title="Datenschutz&shy;erklärung" subtitle="">

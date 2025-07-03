@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import sortBy from "sort-by";
 import AnimationLayout from "../Components/AnimationLayout";
 import LoadingSpinner from "../Components/LoadingSpinner";
-import useAnalytics from "../Hooks/useAnalytics";
 import useMitarbeiter, { Mitarbeiter } from "../Hooks/useMitarbeiter";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
 
 export default function TeamPage() {
   useTitle("Team");
-  useAnalytics("Team");
   const { Mitarbeiter, mitarbeiterIsLoading } = useMitarbeiter();
   const [SortierteMitarbeiter, setMitarbeiter] = useState<
     Mitarbeiter[] | undefined

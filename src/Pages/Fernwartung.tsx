@@ -4,13 +4,11 @@ import AnimationLayout from "../Components/AnimationLayout";
 import HelpWindow from "../Components/Fernwartung/HelpWindow";
 import GradientHeader from "../Components/GradientHeader";
 import { DL_VALUE, PCVisitLink } from "../config";
-import useAnalytics from "../Hooks/useAnalytics";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
 
 export default function Fernwartung() {
   useTitle("Fernwartung");
-  useAnalytics("Fernwartung");
   const [showRest, setShowRest] = useState(false);
   const [showWarning, setShowWarning] = useState(true);
   const [showHelp, setShowHelp] = useState(false);

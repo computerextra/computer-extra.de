@@ -28,3 +28,5 @@ public/php/.env
 
 public/sitemap.xml
 public/php/uploads/*.pdf
+
+.env

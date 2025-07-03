@@ -1,11 +1,9 @@
 import AnimationLayout from "../Components/AnimationLayout";
-import useAnalytics from "../Hooks/useAnalytics";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
 
 export default function DatenschutzNext() {
   useTitle("Datenschutzerklärung NextCloud");
-  useAnalytics("Datenschutzerklärung NextCloud");
   return (
     <AnimationLayout>
       <MainLayout title="Datenschutz&shy;erklärung Next&shy;Cloud" subtitle="">

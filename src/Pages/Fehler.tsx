@@ -1,11 +1,9 @@
 import AnimationLayout from "../Components/AnimationLayout";
-import useAnalytics from "../Hooks/useAnalytics";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
 
 export default function Erfolg() {
   useTitle("Fehler");
-  useAnalytics("Fehler");
   return (
     <AnimationLayout>
       <MainLayout title="Fehler" subtitle="Da hat etwas nicht funktioniert!">

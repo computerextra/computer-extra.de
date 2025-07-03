@@ -1,12 +1,10 @@
 import AnimationLayout from "../../Components/AnimationLayout";
-import useAnalytics from "../../Hooks/useAnalytics";
 import useTitle from "../../Hooks/useTitle";
 import MainLayout from "../../Layout/MainLayout";
 import PrivateForm from "./PrivateForm";
 
 export default function Apple() {
   useTitle("Apple ID");
-  useAnalytics("Apple-Formular");
 
   return (
     <AnimationLayout>

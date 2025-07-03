@@ -2,14 +2,12 @@ import { NavLink } from "react-router-dom";
 import sortBy from "sort-by";
 import AnimationLayout from "../Components/AnimationLayout";
 import LoadingSpinner from "../Components/LoadingSpinner";
-import useAnalytics from "../Hooks/useAnalytics";
 import usePartner from "../Hooks/usePartner";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
 
 export default function PartnerPage() {
   useTitle("Partner");
-  useAnalytics("Partner");
   const { Partner, partnerIsLoading } = usePartner();
 
   return (
@@ -22,7 +20,7 @@ export default function PartnerPage() {
           {partnerIsLoading ? (
             <LoadingSpinner />
           ) : (
-            <div className="grid justify-items-center grid-cols-2 lg:grid-cols-5 gap-10 mb-10">
+            <div className="grid grid-cols-2 gap-10 mb-10 justify-items-center lg:grid-cols-5">
               {Partner?.sort(sortBy("name")).map((p, idx) => {
                 return (
                   <NavLink key={p.id + idx} to={p.link} target="_blank">

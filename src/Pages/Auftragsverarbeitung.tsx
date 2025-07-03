@@ -1,5 +1,4 @@
 import AnimationLayout from "../Components/AnimationLayout";
-import useAnalytics from "../Hooks/useAnalytics";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
 
@@ -34,7 +33,6 @@ const Werte = [
 
 export default function Auftragsverarbeitung() {
   useTitle("Auftragsdatenverarbeitungsvertrag");
-  useAnalytics("Auftragsdatenverarbeitungsvertrag");
   return (
     <AnimationLayout>
       <MainLayout
@@ -46,25 +44,25 @@ export default function Auftragsverarbeitung() {
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                 <div className="overflow-hidden">
-                  <table className="min-w-full text-left lg:text-xl font-light text-surface ">
+                  <table className="min-w-full font-light text-left lg:text-xl text-surface ">
                     <tbody>
                       {Werte.map((x, idx) => (
                         <tr
-                          className="border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-neutral-100"
+                          className="transition duration-300 ease-in-out border-b border-neutral-200 hover:bg-neutral-100"
                           key={idx}
                         >
-                          <td className="md:whitespace-nowrap px-6 lg:py-4 font-medium">
+                          <td className="px-6 font-medium md:whitespace-nowrap lg:py-4">
                             {x.Datei}
                           </td>
-                          <td className="whitespace-nowrap px-6 lg:py-4">
+                          <td className="px-6 whitespace-nowrap lg:py-4">
                             {x.Stand}
                           </td>
-                          <td className="whitespace-nowrap px-6 lg:py-4">
-                            <div className="w-full flex items-center my-5">
+                          <td className="px-6 whitespace-nowrap lg:py-4">
+                            <div className="flex items-center w-full my-5">
                               <a
                                 href={"/data/avv/" + x.Download}
                                 target="_blank"
-                                className="relative px-10 lg:py-5 overflow-hidden font-medium text-gray-600 bg-gray-100 border border-gray-100 rounded-lg shadow-inner group"
+                                className="relative px-10 overflow-hidden font-medium text-gray-600 bg-gray-100 border border-gray-100 rounded-lg shadow-inner lg:py-5 group"
                               >
                                 <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-gray-600 group-hover:w-full ease"></span>
                                 <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-gray-600 group-hover:w-full ease"></span>

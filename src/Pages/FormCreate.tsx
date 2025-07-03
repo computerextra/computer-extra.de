@@ -1,13 +1,11 @@
+import { NavLink } from "react-router-dom";
 import AnimationLayout from "../Components/AnimationLayout";
-import useAnalytics from "../Hooks/useAnalytics";
+import GradientHeader from "../Components/GradientHeader";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
-import GradientHeader from "../Components/GradientHeader";
-import { NavLink } from "react-router-dom";
 
 export default function FormCreate() {
   useTitle("Formular Generator");
-  useAnalytics("Formular Generator");
 
   return (
     <AnimationLayout>

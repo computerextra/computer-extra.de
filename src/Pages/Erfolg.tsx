@@ -1,11 +1,9 @@
 import AnimationLayout from "../Components/AnimationLayout";
-import useAnalytics from "../Hooks/useAnalytics";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
 
 export default function Erfolg() {
   useTitle("Erfolg");
-  useAnalytics("Erfolg");
   return (
     <AnimationLayout>
       <MainLayout title="Erfolg" subtitle="">

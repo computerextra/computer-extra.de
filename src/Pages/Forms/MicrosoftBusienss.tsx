@@ -1,10 +1,8 @@
-import { useForm } from "react-hook-form";
-import AnimationLayout from "../../Components/AnimationLayout";
-import useAnalytics from "../../Hooks/useAnalytics";
-import useTitle from "../../Hooks/useTitle";
-import MainLayout from "../../Layout/MainLayout";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import AnimationLayout from "../../Components/AnimationLayout";
+import { Button } from "../../Components/Form/Button";
 import {
   Form,
   FormControl,
@@ -14,12 +12,12 @@ import {
   FormMessage,
 } from "../../Components/Form/Form";
 import { Input } from "../../Components/Form/Input";
-import { Button } from "../../Components/Form/Button";
+import useTitle from "../../Hooks/useTitle";
+import MainLayout from "../../Layout/MainLayout";
 import { businessFormSchema } from "./formSchema";
 
 export default function MicrosoftBusiness() {
   useTitle("Microsoft Business Konto");
-  useAnalytics("Microsoft-Business-Formular");
 
   const form = useForm<z.infer<typeof businessFormSchema>>({
     resolver: zodResolver(businessFormSchema),

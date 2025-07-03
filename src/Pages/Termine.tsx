@@ -1,14 +1,12 @@
 import { NavLink } from "react-router-dom";
 import AnimationLayout from "../Components/AnimationLayout";
 import GradientHeader from "../Components/GradientHeader";
-import useAnalytics from "../Hooks/useAnalytics";
+import { ExternalLink } from "../Components/Logos";
 import useTitle from "../Hooks/useTitle";
 import MainLayout from "../Layout/MainLayout";
-import { ExternalLink } from "../Components/Logos";
 
 export default function Termine() {
   useTitle("Termine");
-  useAnalytics("Termine");
   return (
     <AnimationLayout>
       <MainLayout
