@@ -4,7 +4,16 @@ import GradientHeader from "./GradientHeader";
 
 export default function AngebotsCard({ Angebot }: { Angebot: Angebot }) {
   const getDate = (date: string) => {
-    return new Date(date).toLocaleDateString("de-DE", {
+    const d = new Date(date);
+    return new Date(
+      d.getFullYear(),
+      d.getMonth(),
+      d.getDate(),
+      d.getHours() + 2,
+      d.getMinutes(),
+      d.getSeconds(),
+      d.getMilliseconds()
+    ).toLocaleDateString("de-DE", {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -34,7 +43,7 @@ export default function AngebotsCard({ Angebot }: { Angebot: Angebot }) {
         <GradientHeader fontSize="text-xl" paddingBottom="pb-2">
           {Angebot.title}
         </GradientHeader>
-        <p className="text-gray-700 text-base">{Angebot.subtitle || <br />}</p>
+        <p className="text-base text-gray-700">{Angebot.subtitle || <br />}</p>
       </div>
       <div className="px-6 pt-4 pb-2 text-sm">
         Gültig: <br />
