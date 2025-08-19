@@ -1,42 +1,44 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import useReferenzen from "../../Hooks/useReferenzen";
 import GradientHeader from "../GradientHeader";
 
-type Referenz = {
-  Kunde: string;
-  Link: string;
-  Bild: string;
-};
+// type Referenz = {
+//   Kunde: string;
+//   Link: string;
+//   Bild: string;
+// };
 
-const Referenzen: Referenz[] = [
-  {
-    Kunde: "Brand GmbH",
-    Link: "https://www.container-brand.de/",
-    Bild: "brand.webp",
-  },
-  {
-    Kunde: "Citron & Schmitz Immobilien Service GmbH",
-    Link: "https://www.citron-schmitz.de/",
-    Bild: "citron.webp",
-  },
-  {
-    Kunde: "Green Building Solutions GmbH",
-    Link: "https://www.gbs-ing.de/",
-    Bild: "GBS.webp",
-  },
-  {
-    Kunde: "Kramer, Linge + Partner",
-    Link: "https://www.kramer-linge.de/",
-    Bild: "Kramer.webp",
-  },
-  {
-    Kunde: "K&P Bauphysik GmbH",
-    Link: "https://www.kp-bauphysik.de/",
-    Bild: "KuP.webp",
-  },
-];
+// const Referenzen: Referenz[] = [
+//   {
+//     Kunde: "Brand GmbH",
+//     Link: "https://www.container-brand.de/",
+//     Bild: "brand.webp",
+//   },
+//   {
+//     Kunde: "Citron & Schmitz Immobilien Service GmbH",
+//     Link: "https://www.citron-schmitz.de/",
+//     Bild: "citron.webp",
+//   },
+//   {
+//     Kunde: "Green Building Solutions GmbH",
+//     Link: "https://www.gbs-ing.de/",
+//     Bild: "GBS.webp",
+//   },
+//   {
+//     Kunde: "Kramer, Linge + Partner",
+//     Link: "https://www.kramer-linge.de/",
+//     Bild: "Kramer.webp",
+//   },
+//   {
+//     Kunde: "K&P Bauphysik GmbH",
+//     Link: "https://www.kp-bauphysik.de/",
+//     Bild: "KuP.webp",
+//   },
+// ];
 
 export default function Webdesign() {
+  const { Referenzen, referenzIsLoading } = useReferenzen();
   const [showToolTip, setShowToolTip] = useState(false);
   const [shownToolTip, setShownToolTip] = useState("");
 
@@ -283,15 +285,15 @@ export default function Webdesign() {
         </NavLink>
       </div>
       <div className="grid gap-10 my-16 md:grid-cols-2 xl:grid-cols-3">
-        {Referenzen.sort((a, b) => a.Kunde.localeCompare(b.Kunde)).map(
-          (Referenz, idx) => (
+        {!referenzIsLoading &&
+          Referenzen?.map((Referenz, idx) => (
             <div
               className="flex flex-col overflow-hidden transition-all duration-300 ease-in-out bg-white border border-gray-200 rounded-lg shadow-sm hover:scale-105 grayscale hover:grayscale-0"
               key={idx}
             >
               <NavLink
                 className="inline-flex flex-col items-center justify-center flex-1 w-full"
-                to={Referenz.Link}
+                to={Referenz.Webseite}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -299,7 +301,7 @@ export default function Webdesign() {
                   alt="Screenshot"
                   className="object-cover"
                   height="200"
-                  src={"/Images/Mocks/" + Referenz.Bild}
+                  src={Referenz.Bild}
                   style={{
                     aspectRatio: "400/200",
                     objectFit: "cover",
@@ -307,17 +309,16 @@ export default function Webdesign() {
                   width="400"
                 />
                 <div className="flex flex-col justify-center flex-1 p-4 text-center">
-                  <h3 className="text-xl font-bold">{Referenz.Kunde}</h3>
+                  <h3 className="text-xl font-bold">{Referenz.Name}</h3>
                   <p className="mt-1 text-base text-gray-500">
-                    {Referenz.Link.replace("https://", "")
+                    {Referenz.Webseite.replace("https://", "")
                       .replace("www.", "")
                       .replace(/\/$/, "")}
                   </p>
                 </div>
               </NavLink>
             </div>
-          )
-        )}
+          ))}
       </div>
     </section>
   );

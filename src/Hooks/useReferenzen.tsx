@@ -10,7 +10,10 @@ export type Referenz = {
   Online: boolean;
 };
 
-export default function useReferenzen() {
+export default function useReferenzen(): {
+  Referenzen: Referenz[] | undefined;
+  referenzIsLoading: boolean;
+} {
   const [Referenzen, setReferenzen] = useState<Referenz[] | undefined>(
     undefined
   );
