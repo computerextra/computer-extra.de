@@ -10,6 +10,8 @@ export type Referenz = {
   Online: boolean;
 };
 
+// TODO: forEach is not a function... ???
+
 export default function useReferenzen(): {
   Referenzen: Referenz[] | undefined;
   referenzIsLoading: boolean;
