@@ -20,7 +20,7 @@ export default function useReferenzen(): {
   const [referenzIsLoading, setIsloadin] = useState(false);
 
   useEffect(() => {
-    (async () => {
+    async function y() {
       setIsloadin(true);
       const data = await axios.get<
         {
@@ -43,7 +43,8 @@ export default function useReferenzen(): {
       });
       setReferenzen(referenzen);
       setIsloadin(false);
-    })();
+    }
+    void y();
   }, []);
 
   return { Referenzen, referenzIsLoading };

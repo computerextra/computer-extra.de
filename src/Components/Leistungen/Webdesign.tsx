@@ -3,40 +3,6 @@ import { NavLink } from "react-router-dom";
 import useReferenzen from "../../Hooks/useReferenzen";
 import GradientHeader from "../GradientHeader";
 
-// type Referenz = {
-//   Kunde: string;
-//   Link: string;
-//   Bild: string;
-// };
-
-// const Referenzen: Referenz[] = [
-//   {
-//     Kunde: "Brand GmbH",
-//     Link: "https://www.container-brand.de/",
-//     Bild: "brand.webp",
-//   },
-//   {
-//     Kunde: "Citron & Schmitz Immobilien Service GmbH",
-//     Link: "https://www.citron-schmitz.de/",
-//     Bild: "citron.webp",
-//   },
-//   {
-//     Kunde: "Green Building Solutions GmbH",
-//     Link: "https://www.gbs-ing.de/",
-//     Bild: "GBS.webp",
-//   },
-//   {
-//     Kunde: "Kramer, Linge + Partner",
-//     Link: "https://www.kramer-linge.de/",
-//     Bild: "Kramer.webp",
-//   },
-//   {
-//     Kunde: "K&P Bauphysik GmbH",
-//     Link: "https://www.kp-bauphysik.de/",
-//     Bild: "KuP.webp",
-//   },
-// ];
-
 export default function Webdesign() {
   const { Referenzen, referenzIsLoading } = useReferenzen();
   const [showToolTip, setShowToolTip] = useState(false);
