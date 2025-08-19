@@ -22,25 +22,25 @@ export default function useReferenzen(): {
   useEffect(() => {
     (async () => {
       setIsloadin(true);
-      const data = await axios(HOSTNAME + "/php/referenzen.php");
-      if (data == null) return;
-      if (!data.data) return;
-      const referenzen: Referenz[] = [];
-      data.data.forEach(
-        (d: {
+      const data = await axios.get<
+        {
           id: string;
           Name: string;
           Webseite: string;
           Bild: string;
           Online: string;
-        }) => {
-          const x: Referenz = {
-            ...d,
-            Online: d.Online == "1" ? true : false,
-          };
-          referenzen.push(x);
-        }
-      );
+        }[]
+      >(HOSTNAME + "/php/referenzen.php");
+      if (data == null) return;
+      if (!data.data) return;
+      const referenzen: Referenz[] = [];
+      data.data.forEach((d) => {
+        const x: Referenz = {
+          ...d,
+          Online: d.Online == "1" ? true : false,
+        };
+        referenzen.push(x);
+      });
       setReferenzen(referenzen);
       setIsloadin(false);
     })();
