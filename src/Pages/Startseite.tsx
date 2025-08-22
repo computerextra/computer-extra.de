@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Words = [
   "Hardware",
@@ -18,7 +18,7 @@ export default function Startseite() {
   };
 
   return (
-    <React.Fragment>
+    <div>
       <video
         ref={videoRef}
         src="/videos/bg.mp4"
@@ -26,10 +26,10 @@ export default function Startseite() {
         loop
         onCanPlay={setPlayBack}
         muted
-        className="fixed inset-0 w-full h-full object-cover"
+        className="fixed z-[-2] inset-0 w-full h-full object-cover"
       />
-      <div className="fixed inset-0 flex flex-col items-center justify-center text-center bg-black/85">
-        <h1 className="text-4xl font-bold text-white shadow-lg text-start w-[500px]">
+      <div className="fixed inset-0 flex flex-col items-center justify-center text-center bg-black/85 z-[-1]">
+        <h1 className="text-4xl font-bold text-white shadow-lg text-start w-xl">
           <span className="font-envision">Computer Extra</span> <br />
           bietet{" "}
           <Typewriter
@@ -42,15 +42,29 @@ export default function Startseite() {
           <br />
           der Extraklasse.
         </h1>
-        <p>
+        <p className="w-xl text-start mt-5 text-white">
           Ob IT-Infrastruktur, Security oder Kommunikation, Computer Extra hat
           die passenden Produkte und Services verfügbar. Privat-, Office- und
           Gaming-PCs werden direkt auf die Bedürfnisse der Kunden zugeschnitten.
           Die exklusive Partnerschaft mit der Telekom für Business- und
           Privattarife runden das Gesamtpaket ab.
         </p>
+        <p className="w-xl text-start mt-5 text-white">
+          <span className="text-xl">Öffnungszeiten</span>
+          <br />
+          <table>
+            <tr>
+              <td>Montag bis Freitag</td>
+              <td className="ps-2">09:00 - 18:00 Uhr</td>
+            </tr>
+            <tr>
+              <td>Samstag und Sonntag</td>
+              <td className="ps-2">Geschlossen</td>
+            </tr>
+          </table>
+        </p>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 
