@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { Calendar } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router";
 
 const Words = [
   "Hardware",
@@ -29,7 +31,7 @@ export default function Startseite() {
         muted
         className="fixed z-[-2] inset-0 w-full h-full object-cover"
       />
-      <div className="fixed inset-0 flex flex-col items-center justify-center text-center bg-black/85 z-[-1]">
+      <div className="fixed inset-0 flex flex-col items-center justify-center text-center bg-blue-900/85 z-[-1]">
         <h1 className="lg:text-4xl font-bold text-white shadow-lg lg:text-start lg:w-xl text-xl">
           <span className="font-envision">Computer Extra</span> <br />
           bietet{" "}
@@ -72,8 +74,11 @@ export default function Startseite() {
             </tbody>
           </table>
         </div>
-        <Button className="mt-10" variant={"outline"}>
-          Jetzt einen Beratungstermin vereinbaren
+        <Button className="mt-10" variant={"outline"} asChild>
+          <Link to="/Termin" className="flex items-center">
+            <Calendar className="h-4 w-4 text-black" />
+            Jetzt einen Beratungstermin vereinbaren
+          </Link>
         </Button>
       </div>
     </div>

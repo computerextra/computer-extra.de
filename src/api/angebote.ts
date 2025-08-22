@@ -8,7 +8,7 @@ const Angebot = z.object({
   link: z.string(),
   image: z.string(),
   date_start: z.date(),
-  date_end: z.date(),
+  date_stop: z.date(),
   anzeigen: z.boolean(),
 });
 

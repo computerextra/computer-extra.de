@@ -19,6 +19,11 @@ const Links = [
     inMain: true,
   },
   {
+    to: "/Angebote",
+    label: "Angebote",
+    inMain: true,
+  },
+  {
     to: "/Leistungen",
     label: "Leistungen",
     inMain: true,
@@ -63,12 +68,17 @@ const Links = [
     label: "Datenschutz",
     inMain: false,
   },
+  {
+    to: "/AGB",
+    label: "AGB",
+    inMain: false,
+  },
 ];
 
 export default function Layout() {
   return (
     <div>
-      <div className="z-50">
+      <div className="z-50 ">
         <div className="container mx-auto mt-5 hidden lg:flex w-full items-center">
           <div className="w-full flex justify-center">
             <NavigationMenu viewport={false} className="bg-white rounded-2xl">
@@ -117,6 +127,11 @@ export default function Layout() {
                   <NavigationMenuContent>
                     <ul className="grid w-[300px] gap-4">
                       <li>
+                        <NavigationMenuLink asChild>
+                          <Link to="/AGB">
+                            <div className="font-medium">AGB</div>
+                          </Link>
+                        </NavigationMenuLink>
                         <NavigationMenuLink asChild>
                           <Link to="/Impressum">
                             <div className="font-medium">Impressum</div>
@@ -180,7 +195,7 @@ export default function Layout() {
           </Button>
         </div>
       </div>
-      <div className="container mx-auto mt-2">
+      <div className="container mx-auto mt-10 text-white">
         <Outlet />
       </div>
     </div>

@@ -131,3 +131,11 @@
 @theme {
   --font-envision: "Envision";
 }
+
+h1 {
+  @apply scroll-m-20 text-center text-xl lg:text-4xl font-extrabold tracking-tight text-balance;
+}
+
+p {
+  @apply leading-7 [&:not(:first-child)]:mt-6 lg:text-xl;
+}
