@@ -1,21 +1,4 @@
-import SuperJSON from "superjson";
 import { apiRequest } from "./config";
-
-interface MitarbeiterApi {
-  id: string;
-  name: string;
-  short: string;
-  image: number;
-  sex: string;
-  focus: string;
-  abteilungId: string;
-}
-
-interface MitarbeiterApiResponse {
-  success: boolean;
-  data: Array<MitarbeiterApi>;
-  count: number;
-}
 
 export interface Mitarbeiter {
   id: string;
@@ -35,11 +18,9 @@ interface MitarbeiterResponse {
 
 export const fetchMitarbeiter =
   async (): Promise<MitarbeiterResponse | null> => {
-    const res = await apiRequest<MitarbeiterApiResponse>(
+    const res = await apiRequest<MitarbeiterResponse>(
       "/mitarbeiter.php",
       "GET"
     );
-    return (
-      SuperJSON.parse<MitarbeiterResponse>(JSON.stringify(res.data)) ?? null
-    );
+    return res ?? null;
   };

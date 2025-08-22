@@ -1,5 +1,4 @@
 import { apiRequest } from "./config";
-import superjson from "superjson";
 
 export interface Angebot {
   id: string;
@@ -12,23 +11,6 @@ export interface Angebot {
   anzeigen: boolean;
 }
 
-interface AngebotApi {
-  id: string;
-  title: string;
-  subtitle: string;
-  date_start: string;
-  date_end: string;
-  link: string;
-  image: string;
-  anzeigen: number;
-}
-
-interface AngebotApiResponse {
-  success: boolean;
-  data: Array<AngebotApi>;
-  count: number;
-}
-
 interface AngebotResponse {
   success: boolean;
   data: Array<Angebot>;
@@ -36,8 +18,6 @@ interface AngebotResponse {
 }
 
 export const fetchAngebote = async (): Promise<AngebotResponse | null> => {
-  const response = await apiRequest<AngebotApiResponse>("/angebote.php", "GET");
-  return (
-    superjson.parse<AngebotResponse>(JSON.stringify(response.data)) ?? null
-  );
+  const res = await apiRequest<AngebotResponse>("/angebote.php", "GET");
+  return res ?? null;
 };

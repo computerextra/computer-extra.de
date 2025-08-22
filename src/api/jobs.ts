@@ -1,17 +1,4 @@
-import SuperJSON from "superjson";
 import { apiRequest } from "./config";
-
-interface JobApi {
-  id: string;
-  name: string;
-  online: number;
-}
-
-interface JobApiResponse {
-  success: boolean;
-  data: Array<JobApi>;
-  count: number;
-}
 
 export interface Job {
   id: string;
@@ -26,6 +13,6 @@ interface JobResponse {
 }
 
 export const fetchJobs = async (): Promise<JobResponse | null> => {
-  const res = await apiRequest<JobApiResponse>("/jobs.php", "GET");
-  return SuperJSON.parse<JobResponse>(JSON.stringify(res.data)) ?? null;
+  const res = await apiRequest<JobResponse>("/jobs.php", "GET");
+  return res ?? null;
 };

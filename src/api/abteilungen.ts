@@ -1,17 +1,4 @@
-import SuperJSON from "superjson";
 import { apiRequest } from "./config";
-
-interface AbteilungApi {
-  id: string;
-  name: string;
-  idx: number;
-}
-
-interface AbteilungApiResponse {
-  success: boolean;
-  data: Array<AbteilungApi>;
-  count: number;
-}
 
 export interface Abteilung {
   id: string;
@@ -26,6 +13,7 @@ interface AbteilungResponse {
 }
 
 export const fetchAbteilungen = async (): Promise<AbteilungResponse | null> => {
-  const res = await apiRequest<AbteilungApiResponse>("/abteilungen.php", "GET");
-  return SuperJSON.parse<AbteilungResponse>(JSON.stringify(res.data)) ?? null;
+  const res = await apiRequest<AbteilungResponse>("/abteilungen.php", "GET");
+  console.log("Abteilungen", res);
+  return res ?? null;
 };
