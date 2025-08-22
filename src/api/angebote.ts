@@ -1,23 +1,28 @@
+import { z } from "zod";
 import { apiRequest } from "./config";
 
-export interface Angebot {
-  id: string;
-  title: string;
-  subtitle: string;
-  date_start: Date;
-  date_end: Date;
-  link: string;
-  image: string;
-  anzeigen: boolean;
-}
+const Angebot = z.object({
+  id: z.string(),
+  title: z.string(),
+  subtitle: z.string(),
+  link: z.string(),
+  image: z.string(),
+  date_start: z.date(),
+  date_end: z.date(),
+  anzeigen: z.boolean(),
+});
 
-interface AngebotResponse {
-  success: boolean;
-  data: Array<Angebot>;
-  count: number;
-}
+export type Angebot = z.infer<typeof Angebot>;
 
-export const fetchAngebote = async (): Promise<AngebotResponse | null> => {
-  const res = await apiRequest<AngebotResponse>("/angebote.php", "GET");
+const Response = z.object({
+  success: z.boolean(),
+  data: z.array(Angebot),
+  count: z.number().int(),
+});
+
+type Response = z.infer<typeof Response>;
+
+export const fetchAngebote = async (): Promise<Response | null> => {
+  const res = await apiRequest<Response>("/angebote.php", "GET");
   return res ?? null;
 };

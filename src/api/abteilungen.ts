@@ -1,19 +1,23 @@
+import { z } from "zod";
 import { apiRequest } from "./config";
 
-export interface Abteilung {
-  id: string;
-  name: string;
-  idx: number;
-}
+const Abteilung = z.object({
+  id: z.string(),
+  name: z.string(),
+  idx: z.number().int(),
+});
 
-interface AbteilungResponse {
-  success: boolean;
-  data: Array<Abteilung>;
-  count: number;
-}
+export type Abteilung = z.infer<typeof Abteilung>;
 
-export const fetchAbteilungen = async (): Promise<AbteilungResponse | null> => {
-  const res = await apiRequest<AbteilungResponse>("/abteilungen.php", "GET");
-  console.log("Abteilungen", res);
+const Response = z.object({
+  success: z.boolean(),
+  data: z.array(Abteilung),
+  count: z.number().int(),
+});
+
+type Response = z.infer<typeof Response>;
+
+export const fetchAbteilungen = async (): Promise<Response | null> => {
+  const res = await apiRequest<Response>("/abteilungen.php", "GET");
   return res ?? null;
 };

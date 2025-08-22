@@ -1,18 +1,23 @@
+import { z } from "zod";
 import { apiRequest } from "./config";
 
-export interface Job {
-  id: string;
-  name: string;
-  online: boolean;
-}
+const Job = z.object({
+  id: z.string(),
+  name: z.string(),
+  online: z.boolean(),
+});
 
-interface JobResponse {
-  success: boolean;
-  data: Array<Job>;
-  count: number;
-}
+export type Job = z.infer<typeof Job>;
 
-export const fetchJobs = async (): Promise<JobResponse | null> => {
-  const res = await apiRequest<JobResponse>("/jobs.php", "GET");
+const Response = z.object({
+  success: z.boolean(),
+  data: z.array(Job),
+  count: z.number().int(),
+});
+
+type Response = z.infer<typeof Response>;
+
+export const fetchJobs = async (): Promise<Response | null> => {
+  const res = await apiRequest<Response>("/jobs.php", "GET");
   return res ?? null;
 };

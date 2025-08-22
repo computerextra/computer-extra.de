@@ -1,20 +1,25 @@
+import { z } from "zod";
 import { apiRequest } from "./config";
 
-export interface Referenz {
-  id: string;
-  Name: string;
-  Webseite: string;
-  Bild: string;
-  Online: boolean;
-}
+const Referenz = z.object({
+  id: z.string(),
+  Name: z.string(),
+  Webseite: z.string(),
+  Bild: z.string(),
+  Online: z.boolean(),
+});
 
-interface ReferenzResponse {
-  success: boolean;
-  data: Array<Referenz>;
-  count: number;
-}
+export type Referenz = z.infer<typeof Referenz>;
 
-export const fetchReferenzen = async (): Promise<ReferenzResponse | null> => {
-  const res = await apiRequest<ReferenzResponse>("/referenzen.php", "GET");
+const Response = z.object({
+  success: z.boolean(),
+  data: z.array(Referenz),
+  count: z.number().int(),
+});
+
+type Response = z.infer<typeof Response>;
+
+export const fetchReferenzen = async (): Promise<Response | null> => {
+  const res = await apiRequest<Response>("/referenzen.php", "GET");
   return res ?? null;
 };

@@ -1,19 +1,24 @@
+import { z } from "zod";
 import { apiRequest } from "./config";
 
-export interface Partner {
-  id: string;
-  name: string;
-  link: string;
-  image: string;
-}
+const Partner = z.object({
+  id: z.string(),
+  name: z.string(),
+  link: z.string(),
+  image: z.string(),
+});
 
-interface PartnerResponse {
-  success: boolean;
-  data: Array<Partner>;
-  count: number;
-}
+export type Partner = z.infer<typeof Partner>;
 
-export const fetchPartner = async (): Promise<PartnerResponse | null> => {
-  const res = await apiRequest<PartnerResponse>("/partner.php", "GET");
+const Response = z.object({
+  success: z.boolean(),
+  data: z.array(Partner),
+  count: z.number().int(),
+});
+
+type Response = z.infer<typeof Response>;
+
+export const fetchPartner = async (): Promise<Response | null> => {
+  const res = await apiRequest<Response>("/partner.php", "GET");
   return res ?? null;
 };

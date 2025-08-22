@@ -1,26 +1,27 @@
+import { z } from "zod";
 import { apiRequest } from "./config";
 
-export interface Mitarbeiter {
-  id: string;
-  name: string;
-  short: string;
-  image: boolean;
-  sex: string;
-  focus: string;
-  abteilungId: string;
-}
+const Mitarbeiter = z.object({
+  id: z.string(),
+  name: z.string(),
+  short: z.string(),
+  image: z.boolean(),
+  sex: z.string(),
+  focus: z.string(),
+  abteilungId: z.string(),
+});
 
-interface MitarbeiterResponse {
-  success: boolean;
-  data: Array<Mitarbeiter>;
-  count: number;
-}
+export type Mitarbeiter = z.infer<typeof Mitarbeiter>;
 
-export const fetchMitarbeiter =
-  async (): Promise<MitarbeiterResponse | null> => {
-    const res = await apiRequest<MitarbeiterResponse>(
-      "/mitarbeiter.php",
-      "GET"
-    );
-    return res ?? null;
-  };
+const Response = z.object({
+  success: z.boolean(),
+  data: z.array(Mitarbeiter),
+  count: z.number().int(),
+});
+
+type Response = z.infer<typeof Response>;
+
+export const fetchMitarbeiter = async (): Promise<Response | null> => {
+  const res = await apiRequest<Response>("/mitarbeiter.php", "GET");
+  return res ?? null;
+};
