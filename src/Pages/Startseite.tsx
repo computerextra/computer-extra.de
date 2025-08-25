@@ -75,7 +75,7 @@ export default function Startseite() {
           </table>
         </div>
         <Button className="mt-10" variant={"outline"} asChild>
-          <Link to="/Termin" className="flex items-center">
+          <Link to="/Termin" className="flex items-center text-black">
             <Calendar className="h-4 w-4 text-black" />
             Jetzt einen Beratungstermin vereinbaren
           </Link>
