@@ -1,8 +1,9 @@
 import type { Angebot } from "@/api/angebote";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import useAngebote from "@/Hooks/useAngebote";
 import { cn } from "@/lib/utils";
+import { Clock } from "lucide-react";
 import { useEffect } from "react";
 
 export default function AngeboteSeite() {
@@ -14,12 +15,12 @@ export default function AngeboteSeite() {
   }, [Angebote]);
 
   return (
-    <>
-      <h1 className="text-center">Aktuelle Angebote</h1>
-      <p className="mt-2 text-lg text-center">
-        Hier finden Sie die neuesten Angebote und Aktionen.
+    <div className="container mt-4">
+      <h1 className="text-center">Unsere Angebote</h1>
+      <p className="max-w-2xl mx-auto mt-4 text-lg text-center md:text-xl text-slate-900/90">
+        Finden Sie das ideale Gerät für Ihre Anforderungen - Computer,
+        Notebooks, Smartphones und Verträge zu unschlagbaren Konditionen!
       </p>
-
       {isLoading ? (
         <p className="mt-10 text-3xl text-center">Bitte warten...</p>
       ) : (
@@ -29,47 +30,67 @@ export default function AngeboteSeite() {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
 function AngebotCard({ Angebot }: { Angebot: Angebot }) {
+  const isActive =
+    new Date() > new Date(Angebot.date_start) &&
+    new Date() < new Date(Angebot.date_stop);
+
   return (
-    <Card
-      key={Angebot.id}
-      className="overflow-hidden transition-all duration-300 group border-border bg-card hover:shadow-lg hover:-translate-y-1"
-    >
-      <div className="relative overflow-hidden">
-        <img
-          src={Angebot.image}
-          alt={Angebot.title}
-          className="object-cover w-full h-64 transition-transform duraion-300 grouo-hover:scale-105"
-        />
-      </div>
-      <CardContent className="p-4 space-y-3">
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold leading-tight text-card-foreground line-clamp-2">
-            {Angebot.title}
-          </h3>
-          <h4>{Angebot.subtitle}</h4>
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className={cn("text-xl font-bold text-primary")}>
-              Gültig von {new Date(Angebot.date_start).toLocaleDateString()} bis{" "}
-              {new Date(Angebot.date_stop).toLocaleDateString()}
+    <>
+      <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 group">
+        <div className="relative overflow-hidden h-max">
+          <img
+            // TODO: Link anpassen, wenn direkt auf API
+            src={"https://computer-extra.de/Images/Angebote/" + Angebot.image}
+            alt={Angebot.title}
+            className={cn(
+              "object-cover h-64 w-auto mx-auto transition-transform duration-300 group-hover:scale-105",
+              !isActive ? "grayscale" : "cursor-pointer"
+            )}
+            onClick={() => isActive && window.open(Angebot.link, "_blank")}
+          />
+          <div className="absolute flex items-center gap-1 px-3 py-1 rounded-full top-4 right-4 bg-primary/90 text-slate-100">
+            <Clock className="w-3 h-3" />
+            <span className="text-xs font-medium">
+              {new Date(Angebot.date_start).toLocaleDateString("de-DE", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "2-digit",
+              })}{" "}
+              -{" "}
+              {new Date(Angebot.date_stop).toLocaleDateString("de-DE", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "2-digit",
+              })}
             </span>
           </div>
         </div>
-        <Button
-          asChild
-          className="w-full font-medium bg-accent hover:bg-accent/90 text-accent-foreground"
-        >
-          <a href={Angebot.link} target="_blank" rel="noopener noreferrer">
-            Ansehen
-          </a>
-        </Button>
-      </CardContent>
-    </Card>
+
+        <CardHeader className="pb-3">
+          <CardTitle className="text-xl font-bold">{Angebot.title}</CardTitle>
+        </CardHeader>
+
+        <CardContent className="space-y-4">
+          {Angebot.subtitle}
+
+          {isActive ? (
+            <Button asChild variant={"default"} className="w-full font-medium">
+              <a href={Angebot.link} target="_blank" rel="noopener noreferrer">
+                Zum Angebot
+              </a>
+            </Button>
+          ) : (
+            <Button disabled variant={"default"} className="w-full font-medium">
+              Angebot abgelaufen
+            </Button>
+          )}
+        </CardContent>
+      </Card>
+    </>
   );
 }

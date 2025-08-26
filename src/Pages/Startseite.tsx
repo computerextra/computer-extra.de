@@ -73,7 +73,11 @@ export default function Startseite() {
             </tbody>
           </table>
         </div>
-        <Button className="mt-10" variant={"outline"} asChild>
+        <Button
+          className="mt-10 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
+          variant={"outline"}
+          asChild
+        >
           <Link to="/Termin" className="flex items-center text-black">
             <Calendar className="w-4 h-4 text-black" />
             Jetzt einen Beratungstermin vereinbaren
