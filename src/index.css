@@ -136,6 +136,10 @@ h1 {
   @apply scroll-m-20 text-center text-xl lg:text-4xl font-extrabold tracking-tight text-balance;
 }
 
+h2 {
+  @apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+}
+
 p {
   @apply leading-7 [&:not(:first-child)]:mt-6 lg:text-xl;
 }

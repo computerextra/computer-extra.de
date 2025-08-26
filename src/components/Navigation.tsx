@@ -179,23 +179,6 @@ export default function Navigation() {
           </NavigationMenu>
         </div>
       </div>
-      <div className="absolute top-0 right-0 hidden lg:block">
-        <a
-          href="tel:0561601440"
-          className={cn(
-            "flex items-center gap-2 pt-5 pe-10",
-            location.pathname === "/" ? "text-slate-100" : "text-slate-900"
-          )}
-        >
-          <Phone
-            className={cn(
-              "h-5 w-5 ms-2",
-              location.pathname === "/" ? "text-slate-100" : "text-slate-900"
-            )}
-          />{" "}
-          0561/601440
-        </a>
-      </div>
 
       {/* Mobile Menu */}
       <div className="flex justify-between w-full">
