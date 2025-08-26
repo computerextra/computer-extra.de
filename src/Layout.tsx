@@ -79,8 +79,8 @@ export default function Layout() {
   return (
     <div>
       <div className="z-50 ">
-        <div className="container mx-auto mt-5 hidden lg:flex w-full items-center">
-          <div className="w-full flex justify-center">
+        <div className="container items-center hidden w-full mx-auto mt-5  lg:flex">
+          <div className="flex justify-center w-full">
             <NavigationMenu viewport={false} className="bg-white rounded-2xl">
               <NavigationMenuList>
                 {Links.map((link, idx) => {
@@ -150,16 +150,16 @@ export default function Layout() {
             </NavigationMenu>
           </div>
         </div>
-        <div className="hidden lg:block absolute top-0 right-0">
+        <div className="absolute top-0 right-0 hidden lg:block">
           <a
             href="tel:0561601440"
-            className="flex items-center text-white gap-2 pt-5 pe-10"
+            className="flex items-center gap-2 pt-5 text-white pe-10"
           >
-            <Phone className="h-5 w-5 text-white ms-2" /> 0561/601440
+            <Phone className="w-5 h-5 text-white ms-2" /> 0561/601440
           </a>
         </div>
 
-        <div className="flex w-full justify-between">
+        <div className="flex justify-between w-full">
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -167,7 +167,7 @@ export default function Layout() {
                 size="icon"
                 className="rounded-full lg:hidden"
               >
-                <MenuIcon className="h-5 w-5 text-white" />
+                <MenuIcon className="w-5 h-5 text-white" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
@@ -188,14 +188,14 @@ export default function Layout() {
           <Button variant={"ghost"} className="lg:hidden" asChild>
             <a
               href="tel:0561601440"
-              className="flex items-center text-white gap-2"
+              className="flex items-center gap-2 text-white"
             >
-              <Phone className="h-5 w-5 text-white ms-2" /> 0561/601440
+              <Phone className="w-5 h-5 text-white ms-2" /> 0561/601440
             </a>
           </Button>
         </div>
       </div>
-      <div className="container mx-auto mt-10 text-white">
+      <div className="container mx-auto mt-10 text-white ">
         <Outlet />
       </div>
     </div>

@@ -19,7 +19,6 @@ export default function Startseite() {
     if (videoRef.current == null) return;
     videoRef.current.playbackRate = 0.5;
   };
-
   return (
     <div>
       <video
@@ -31,8 +30,8 @@ export default function Startseite() {
         muted
         className="fixed z-[-2] inset-0 w-full h-full object-cover"
       />
-      <div className="fixed inset-0 flex flex-col items-center justify-center text-center bg-blue-900/85 z-[-1]">
-        <h1 className="lg:text-4xl font-bold text-white shadow-lg lg:text-start lg:w-xl text-xl">
+      <div className="fixed inset-0 flex flex-col items-center justify-center text-center bg-blue-900/85  z-[-1]">
+        <h1 className="text-xl font-bold text-white shadow-lg lg:text-4xl lg:text-start lg:w-xl">
           <span className="font-envision">Computer Extra</span> <br />
           bietet{" "}
           <Typewriter
@@ -45,14 +44,14 @@ export default function Startseite() {
           <br />
           der Extraklasse.
         </h1>
-        <p className="lg:w-xl  lg:text-start mt-5 text-white">
+        <p className="mt-5 text-white lg:w-xl lg:text-start">
           Ob IT-Infrastruktur, Security oder Kommunikation, Computer Extra hat
           die passenden Produkte und Services verfügbar. Privat-, Office- und
           Gaming-PCs werden direkt auf die Bedürfnisse der Kunden zugeschnitten.
           Die exklusive Partnerschaft mit der Telekom für Business- und
           Privattarife runden das Gesamtpaket ab.
         </p>
-        <p className="lg:w-xl  text-center lg:text-start mt-5 text-white">
+        <p className="mt-5 text-center text-white lg:w-xl lg:text-start">
           <span className="text-xl">Öffnungszeiten</span>
           <br />
           <span className="lg:hidden">
@@ -60,7 +59,7 @@ export default function Startseite() {
             Samstag und Sonntag: Geschlossen
           </span>
         </p>
-        <div className="hidden lg:block text-white w-xl text-start">
+        <div className="hidden text-white lg:block w-xl text-start">
           <table>
             <tbody>
               <tr>
@@ -76,7 +75,7 @@ export default function Startseite() {
         </div>
         <Button className="mt-10" variant={"outline"} asChild>
           <Link to="/Termin" className="flex items-center text-black">
-            <Calendar className="h-4 w-4 text-black" />
+            <Calendar className="w-4 h-4 text-black" />
             Jetzt einen Beratungstermin vereinbaren
           </Link>
         </Button>
