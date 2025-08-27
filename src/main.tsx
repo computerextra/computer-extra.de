@@ -7,6 +7,7 @@ import AGB from "./Pages/AGB";
 import AngeboteSeite from "./Pages/Angebote";
 import Datenschutz from "./Pages/Datenschutz";
 import Impressum from "./Pages/Impressum";
+import PartnerPage from "./Pages/Partner";
 import Startseite from "./Pages/Startseite";
 
 createRoot(document.getElementById("root")!).render(
@@ -22,7 +23,6 @@ createRoot(document.getElementById("root")!).render(
             path="Webentwicklung"
             element={<div>Webentwicklung Page</div>}
           />
-          <Route path="Partner" element={<div>Partner Page</div>} />
           <Route
             path="PC-Konfiguration"
             element={<div>PC-Konfiguration Page</div>}
@@ -36,7 +36,7 @@ createRoot(document.getElementById("root")!).render(
           />
           <Route path="Datenrettung" element={<div>Datenrettung Page</div>} />
 
-          <Route path="Partner" element={<div>Partner Page</div>} />
+          <Route path="Partner" element={<PartnerPage />} />
           <Route path="Team" element={<div>Team Page</div>} />
           <Route path="Jobs" element={<div>Jobs Page</div>} />
           <Route path="Fernwartung" element={<div>Fernwartung Page</div>} />
