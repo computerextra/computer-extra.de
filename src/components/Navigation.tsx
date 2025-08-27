@@ -131,12 +131,20 @@ export default function Navigation() {
     <div className="z-50 ">
       <div className="container items-center hidden w-full mx-auto mt-5 lg:flex">
         <div className="flex justify-center w-full">
-          <NavigationMenu viewport={false} className="bg-white rounded-2xl">
+          <NavigationMenu
+            viewport={false}
+            className={cn(
+              location.pathname === "/"
+                ? "bg-white"
+                : "dark bg-background text-slate-100",
+              "rounded-2xl "
+            )}
+          >
             <NavigationMenuList>
               {Links.map((link, idx) => {
                 if (link.children) {
                   return (
-                    <NavigationMenuItem>
+                    <NavigationMenuItem key={idx}>
                       <NavigationMenuTrigger>
                         {link.label}
                       </NavigationMenuTrigger>

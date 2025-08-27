@@ -11,11 +11,10 @@ export default function AngeboteSeite() {
 
   useEffect(() => {
     if (Angebote == null) return;
-    console.log(Angebote);
   }, [Angebote]);
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 mb-10">
       <h1 className="text-center">Unsere Angebote</h1>
       <p className="max-w-2xl mx-auto mt-4 text-lg text-center md:text-xl text-slate-900/90">
         Finden Sie das ideale Gerät für Ihre Anforderungen - Computer,
@@ -24,7 +23,7 @@ export default function AngeboteSeite() {
       {isLoading ? (
         <p className="mt-10 text-3xl text-center">Bitte warten...</p>
       ) : (
-        <div className="grid gap-5 mt-10 mb-5 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 mt-10 lg:grid-cols-5 max-h-[1000px]">
           {Angebote?.map((Angebot) => (
             <AngebotCard key={Angebot.id} Angebot={Angebot} />
           ))}
@@ -41,14 +40,28 @@ function AngebotCard({ Angebot }: { Angebot: Angebot }) {
 
   return (
     <>
-      <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 group">
-        <div className="relative overflow-hidden h-max">
+      <Card
+        className={cn(
+          Angebot.title.toLowerCase().includes("telekom")
+            ? "lg:col-span-3 row-span-1"
+            : "lg:col-span-2 row-span-1",
+          "transition-shadow duration-300 shadow-sm group bg-primary-background border-blue-950 hover:shadow-md"
+        )}
+      >
+        <div className="relative overflow-hidden h-70">
           <img
             // TODO: Link anpassen, wenn direkt auf API
-            src={"https://computer-extra.de/Images/Angebote/" + Angebot.image}
+            src={
+              Angebot.link.includes("katalog.computer-extra.de")
+                ? Angebot.link + "/shot.png"
+                : "https://computer-extra.de/Images/Angebote/" + Angebot.image
+            }
             alt={Angebot.title}
             className={cn(
-              "object-cover h-64 w-auto mx-auto transition-transform duration-300 group-hover:scale-105",
+              Angebot.link.includes("katalog.computer-extra.de")
+                ? "object-contain h-max"
+                : "object-cover h-64",
+              "w-auto mx-auto transition-transform duration-300 group-hover:scale-105",
               !isActive ? "grayscale" : "cursor-pointer"
             )}
             onClick={() => isActive && window.open(Angebot.link, "_blank")}
@@ -76,8 +89,7 @@ function AngebotCard({ Angebot }: { Angebot: Angebot }) {
         </CardHeader>
 
         <CardContent className="space-y-4">
-          {Angebot.subtitle}
-
+          <p>{Angebot.subtitle}</p>
           {isActive ? (
             <Button asChild variant={"default"} className="w-full font-medium">
               <a href={Angebot.link} target="_blank" rel="noopener noreferrer">
