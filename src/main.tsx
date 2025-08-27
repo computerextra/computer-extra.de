@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
 import "./index.css";
 import Layout from "./Layout";
+import AGB from "./Pages/AGB";
 import AngeboteSeite from "./Pages/Angebote";
 import Impressum from "./Pages/Impressum";
 import Startseite from "./Pages/Startseite";
@@ -46,7 +47,7 @@ createRoot(document.getElementById("root")!).render(
           {/* Gesetzliches */}
           <Route path="Impressum" element={<Impressum />} />
           <Route path="Datenschutz" element={<div>Datenschutz Page</div>} />
-          <Route path="AGB" element={<div>AGB Page</div>} />
+          <Route path="AGB" element={<AGB />} />
 
           {/* Versteckte Links */}
           <Route path="OEM" element={<div>OEM Page</div>} />
