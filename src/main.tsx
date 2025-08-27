@@ -9,6 +9,7 @@ import Datenschutz from "./Pages/Datenschutz";
 import Impressum from "./Pages/Impressum";
 import PartnerPage from "./Pages/Partner";
 import Startseite from "./Pages/Startseite";
+import TeamPage from "./Pages/Team";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -37,7 +38,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="Datenrettung" element={<div>Datenrettung Page</div>} />
 
           <Route path="Partner" element={<PartnerPage />} />
-          <Route path="Team" element={<div>Team Page</div>} />
+          <Route path="Team" element={<TeamPage />} />
           <Route path="Jobs" element={<div>Jobs Page</div>} />
           <Route path="Fernwartung" element={<div>Fernwartung Page</div>} />
 

@@ -10,7 +10,7 @@ export default function PartnerPage() {
   return (
     <>
       <h1>Unsere Partner</h1>
-      <h2>
+      <h2 className="text-center">
         Wir pflegen eine partnerschaftliche Zusammenarbeit mit unseren Partnern.
         Auf Vertrauen und Transparenz legen wir großen Wert - denn im
         Miteinander liegt unsere Stärke.
