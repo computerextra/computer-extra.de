@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import "./index.css";
 import Layout from "./Layout";
 import AngeboteSeite from "./Pages/Angebote";
+import Impressum from "./Pages/Impressum";
 import Startseite from "./Pages/Startseite";
 
 createRoot(document.getElementById("root")!).render(
@@ -43,9 +44,15 @@ createRoot(document.getElementById("root")!).render(
           <Route path="Kontakt" element={<div>Kontakt Page</div>} />
 
           {/* Gesetzliches */}
-          <Route path="Impressum" element={<div>Impressum Page</div>} />
+          <Route path="Impressum" element={<Impressum />} />
           <Route path="Datenschutz" element={<div>Datenschutz Page</div>} />
           <Route path="AGB" element={<div>AGB Page</div>} />
+
+          {/* Versteckte Links */}
+          <Route path="OEM" element={<div>OEM Page</div>} />
+
+          {/* Catch All */}
+          <Route path="*" element={<div>404 Not Found</div>} />
         </Route>
       </Routes>
     </BrowserRouter>
