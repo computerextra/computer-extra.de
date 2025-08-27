@@ -1,3 +1,4 @@
+import { ContactFormProps, sendContactForm } from "@/api/contactForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -24,13 +25,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-const formSchema = z.object({
-  Name: z.string().min(1, "Name ist erforderlich"),
-  Mail: z.email("Bitte geben Sie eine gültige E-Mail-Adresse ein."),
-  Telefon: z.string().optional(),
-  Nachricht: z.string().min(1, "Eine Nachricht ist erforderlich."),
-});
-
 export default function Kontakt() {
   return (
     <div className="container px-4 py-12 mx-auto">
@@ -55,12 +49,15 @@ function ContactForm() {
   const [res, setRes] = useState<{ status: number; message: string } | null>(
     null
   );
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof ContactFormProps>>({
+    resolver: zodResolver(ContactFormProps),
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+  // TODO: Geht nicht, nur 500er Fehler
+  const onSubmit = async (values: z.infer<typeof ContactFormProps>) => {
+    const res = await sendContactForm(values);
+    console.log(res);
+    setRes(res);
   };
 
   if (res?.status === 200) {
@@ -78,7 +75,11 @@ function ContactForm() {
         </CardContent>
       </Card>
     );
-  } else if (res?.status === 500) {
+  } else if (
+    res?.status === 400 ||
+    res?.status === 500 ||
+    res?.status === 405
+  ) {
     return (
       <Card className="bg-card border-border">
         <CardContent className="flex flex-col items-center justify-center py-12">
@@ -89,7 +90,7 @@ function ContactForm() {
           <p className="text-center text-muted-foreground">
             Ihre Nachtricht konnte leider nicht gesendet werden. Bitte versuchen
             Sie es später erneut. <br />
-            Fehler: {res.message}
+            Fehler: {res?.message}
           </p>
         </CardContent>
       </Card>
