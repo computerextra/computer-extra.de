@@ -3,10 +3,11 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
 import "./index.css";
 import Layout from "./Layout";
-import AGB from "./Pages/AGB";
 import AngeboteSeite from "./Pages/Angebote";
-import Datenschutz from "./Pages/Datenschutz";
-import Impressum from "./Pages/Impressum";
+import AGB from "./Pages/Gesetzliches/AGB";
+import Datenschutz from "./Pages/Gesetzliches/Datenschutz";
+import Impressum from "./Pages/Gesetzliches/Impressum";
+import Kontakt from "./Pages/Kontakt/Kontakt";
 import PartnerPage from "./Pages/Partner";
 import Startseite from "./Pages/Startseite";
 import TeamPage from "./Pages/Team";
@@ -44,7 +45,7 @@ createRoot(document.getElementById("root")!).render(
 
           {/* Termin */}
           <Route path="Termin" element={<div>Termin Page</div>} />
-          <Route path="Kontakt" element={<div>Kontakt Page</div>} />
+          <Route path="Kontakt" element={<Kontakt />} />
 
           {/* Gesetzliches */}
           <Route path="Impressum" element={<Impressum />} />
