@@ -147,3 +147,11 @@ h3 {
 p {
   @apply leading-7 [&:not(:first-child)]:mt-6 lg:text-xl;
 }
+
+section ul {
+  @apply lg:text-xl list-disc list-inside;
+}
+
+section ol {
+  @apply lg:text-xl list-decimal list-inside;
+}

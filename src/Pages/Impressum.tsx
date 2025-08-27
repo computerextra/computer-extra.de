@@ -27,7 +27,7 @@ export default function Impressum() {
         Christian Krauss
       </p>
       <h2 className="mt-5">Kontakt</h2>
-      <Table className="max-w-[600px] text-xl ">
+      <Table className="max-w-[600px] lg:text-xl">
         <TableBody>
           <TableRow>
             <TableCell>Telefon:</TableCell>
@@ -51,12 +51,14 @@ export default function Impressum() {
         <br />
         DE357590630
       </p>
-      <h2 className="mt-5">Redaktionell verantwortlich</h2>
-      <ul className="text-xl list-disc list-inside">
-        <li>Computer Extra GmbH</li>
-        <li>Telekom AG</li>
-        <li>AEM Communication GmbH & Co. KG</li>
-      </ul>
+      <section>
+        <h2 className="mt-5">Redaktionell verantwortlich</h2>
+        <ul>
+          <li>Computer Extra GmbH</li>
+          <li>Telekom AG</li>
+          <li>AEM Communication GmbH & Co. KG</li>
+        </ul>
+      </section>
       <h2 className="mt-5">EU-Streitschlichtung</h2>
       <p>
         Die Europäische Kommission stellt eine Plattform zur

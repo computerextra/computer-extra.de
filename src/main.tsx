@@ -5,6 +5,7 @@ import "./index.css";
 import Layout from "./Layout";
 import AGB from "./Pages/AGB";
 import AngeboteSeite from "./Pages/Angebote";
+import Datenschutz from "./Pages/Datenschutz";
 import Impressum from "./Pages/Impressum";
 import Startseite from "./Pages/Startseite";
 
@@ -46,7 +47,7 @@ createRoot(document.getElementById("root")!).render(
 
           {/* Gesetzliches */}
           <Route path="Impressum" element={<Impressum />} />
-          <Route path="Datenschutz" element={<div>Datenschutz Page</div>} />
+          <Route path="Datenschutz" element={<Datenschutz />} />
           <Route path="AGB" element={<AGB />} />
 
           {/* Versteckte Links */}
