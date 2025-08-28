@@ -87,10 +87,6 @@ const Links: {
     label: "Fernwartung",
   },
   {
-    to: "/Termin",
-    label: "Termin",
-  },
-  {
     label: "Kontakt",
     children: [
       {
