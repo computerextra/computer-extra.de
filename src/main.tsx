@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import "./index.css";
 import Layout from "./Layout";
 import AngeboteSeite from "./Pages/Angebote";
+import Fernwartung from "./Pages/Fernwartung";
 import AGB from "./Pages/Gesetzliches/AGB";
 import Datenschutz from "./Pages/Gesetzliches/Datenschutz";
 import Impressum from "./Pages/Gesetzliches/Impressum";
@@ -50,7 +51,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="Partner" element={<PartnerPage />} />
             <Route path="Team" element={<TeamPage />} />
             <Route path="Jobs" element={<JobPage />} />
-            <Route path="Fernwartung" element={<div>Fernwartung Page</div>} />
+            <Route path="Fernwartung" element={<Fernwartung />} />
 
             {/* Termin */}
             <Route path="Termin" element={<Termin />} />
