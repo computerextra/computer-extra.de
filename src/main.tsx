@@ -12,6 +12,13 @@ import Impressum from "./Pages/Gesetzliches/Impressum";
 import JobPage from "./Pages/Jobs";
 import Kontakt from "./Pages/Kontakt/Kontakt";
 import Termin from "./Pages/Kontakt/Termin";
+import CloudServices from "./Pages/Leistungen/Cloud-Services";
+import Datenrettung from "./Pages/Leistungen/Datenrettung";
+import ITSecurity from "./Pages/Leistungen/IT-Security";
+import Kommunikation from "./Pages/Leistungen/Kommunikation";
+import Netzwerke from "./Pages/Leistungen/Netzwerke";
+import PCKonfiguration from "./Pages/Leistungen/PC-Konfiguration";
+import Webentwicklung from "./Pages/Leistungen/Webentwicklung";
 import PartnerPage from "./Pages/Partner";
 import Startseite from "./Pages/Startseite";
 import TeamPage from "./Pages/Team";
@@ -28,25 +35,13 @@ createRoot(document.getElementById("root")!).render(
             <Route path="Angebote" element={<AngeboteSeite />} />
 
             {/* Leistungen */}
-            <Route
-              path="Webentwicklung"
-              element={<div>Webentwicklung Page</div>}
-            />
-            <Route
-              path="PC-Konfiguration"
-              element={<div>PC-Konfiguration Page</div>}
-            />
-            <Route
-              path="Kommunikation"
-              element={<div>Kommunikation Page</div>}
-            />
-            <Route path="IT-Security" element={<div>IT-Security Page</div>} />
-            <Route path="Netzwerke" element={<div>Netzwerke Page</div>} />
-            <Route
-              path="Cloud-Services"
-              element={<div>Cloud-Services Page</div>}
-            />
-            <Route path="Datenrettung" element={<div>Datenrettung Page</div>} />
+            <Route path="Webentwicklung" element={<Webentwicklung />} />
+            <Route path="PC-Konfiguration" element={<PCKonfiguration />} />
+            <Route path="Kommunikation" element={<Kommunikation />} />
+            <Route path="IT-Security" element={<ITSecurity />} />
+            <Route path="Netzwerke" element={<Netzwerke />} />
+            <Route path="Cloud-Services" element={<CloudServices />} />
+            <Route path="Datenrettung" element={<Datenrettung />} />
 
             <Route path="Partner" element={<PartnerPage />} />
             <Route path="Team" element={<TeamPage />} />
