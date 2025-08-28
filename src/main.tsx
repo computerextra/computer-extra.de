@@ -7,6 +7,7 @@ import AngeboteSeite from "./Pages/Angebote";
 import AGB from "./Pages/Gesetzliches/AGB";
 import Datenschutz from "./Pages/Gesetzliches/Datenschutz";
 import Impressum from "./Pages/Gesetzliches/Impressum";
+import JobPage from "./Pages/Jobs";
 import Kontakt from "./Pages/Kontakt/Kontakt";
 import Termin from "./Pages/Kontakt/Termin";
 import PartnerPage from "./Pages/Partner";
@@ -41,7 +42,7 @@ createRoot(document.getElementById("root")!).render(
 
           <Route path="Partner" element={<PartnerPage />} />
           <Route path="Team" element={<TeamPage />} />
-          <Route path="Jobs" element={<div>Jobs Page</div>} />
+          <Route path="Jobs" element={<JobPage />} />
           <Route path="Fernwartung" element={<div>Fernwartung Page</div>} />
 
           {/* Termin */}
