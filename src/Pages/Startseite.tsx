@@ -10,6 +10,7 @@ import {
   ArrowRight,
   BadgePercent,
   Calendar,
+  CalendarRange,
   Clock,
   Mail,
   Phone,
@@ -165,7 +166,7 @@ export default function Startseite() {
             </Card>
 
             {/* CTA Card 1 - Contact */}
-            <Card className="col-span-2 transition-all duration-300 border-0 shadow-sm bg-primary text-slate-100 hover:shadow-lg hover:scale-105 group">
+            <Card className="col-span-1 transition-all duration-300 border-0 shadow-sm bg-primary text-slate-100 hover:shadow-lg hover:scale-105 group">
               <CardContent className="flex flex-col justify-center h-full p-6 text-center">
                 <Phone className="w-8 h-8 mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
                 <CardTitle className="mb-2 text-xl">Jetzt anrufen</CardTitle>
@@ -180,6 +181,27 @@ export default function Startseite() {
                   <a href="tel:0561601440">
                     0561 / 60144 0 <ArrowRight className="w-4 h-4 ml-2" />
                   </a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* CTA Card 2 - Visit */}
+            <Card className="col-span-1 transition-all duration-300 border-0 shadow-sm bg-accent text-accent-foreground hover:shadow-lg hover:scale-105 group">
+              <CardContent className="flex flex-col justify-center h-full p-6 text-center">
+                <CalendarRange className="w-8 h-8 mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                <CardTitle className="mb-2 text-xl">Beratung</CardTitle>
+                <CardDescription className="mb-4 text-accent-foreground/80">
+                  Buchen Sie sich einen Telekom-Beratungstermin
+                </CardDescription>
+                <Button
+                  variant="secondary"
+                  asChild
+                  className="w-full bg-accent-foreground text-accent hover:bg-accent-foreground/90"
+                >
+                  <Link to="/Termin">
+                    Termin Buchen
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
