@@ -53,7 +53,6 @@ function ContactForm() {
     resolver: zodResolver(ContactFormProps),
   });
 
-  // TODO: Geht nicht, nur 500er Fehler
   const onSubmit = async (values: z.infer<typeof ContactFormProps>) => {
     const res = await sendContactForm(values);
     console.log(res);

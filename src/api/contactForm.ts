@@ -14,7 +14,6 @@ const Response = z.object({
 });
 type Response = z.infer<typeof Response>;
 
-// TODO: Geht nicht, nur 500er Fehler
 export const sendContactForm = async (
   data: z.infer<typeof ContactFormProps>
 ): Promise<Response | null> => {
