@@ -36,7 +36,7 @@ function PartnerCard({ Partner, id }: { Partner: Partner; id: number }) {
       <Card
         className={cn(
           isLarge() ? "lg:col-span-3 lg:flex-row" : "col-span-1",
-          "flex flex-col"
+          "flex flex-col transition-all shadow-sm hover:shadow-lg hover:scale-105 group duration-300"
         )}
       >
         <img
@@ -44,7 +44,7 @@ function PartnerCard({ Partner, id }: { Partner: Partner; id: number }) {
           src={"https://computer-extra.de/Images/Partner/" + Partner.image}
           alt={Partner.name}
           className={cn(
-            "object-contain w-full",
+            "object-contain w-full group-hover:scale-120 transition-transform duration-300",
             isLarge() ? "lg:h-70 h-48" : "h-48"
           )}
         />

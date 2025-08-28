@@ -176,7 +176,7 @@ function EmployeeCard({
 }) {
   const email = employee.name.split(" ").join(".") + " [AT] computer-extra.de";
   return (
-    <Card className="transition-shadow duration-200 bg-card border-border hover:shadow-lg">
+    <Card className="transition-all duration-300 shadow-sm bg-card border-border hover:shadow-lg hover:scale-105 group">
       <CardContent className="p-6">
         <div className="flex flex-col items-center space-y-4 text-center">
           <Avatar className="w-20 h-20">
@@ -187,9 +187,10 @@ function EmployeeCard({
                   ? `https://bilder.computer-extra.de/data/Mitarbeiter/${employee.short.toLowerCase()}.webp`
                   : ""
               }
+              className="transition-transform duration-300 group-hover:scale-120"
               alt={employee.name}
             />
-            <AvatarFallback className="text-lg font-semibold bg-secondary text-secondary-foreground">
+            <AvatarFallback className="text-lg font-semibold transition-transform duration-300 group-hover:scale-120 bg-secondary text-secondary-foreground">
               {employee.short}
             </AvatarFallback>
           </Avatar>
