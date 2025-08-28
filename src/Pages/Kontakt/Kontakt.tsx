@@ -55,7 +55,6 @@ function ContactForm() {
 
   const onSubmit = async (values: z.infer<typeof ContactFormProps>) => {
     const res = await sendContactForm(values);
-    console.log(res);
     setRes(res);
   };
 
