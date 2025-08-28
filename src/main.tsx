@@ -8,6 +8,7 @@ import AGB from "./Pages/Gesetzliches/AGB";
 import Datenschutz from "./Pages/Gesetzliches/Datenschutz";
 import Impressum from "./Pages/Gesetzliches/Impressum";
 import Kontakt from "./Pages/Kontakt/Kontakt";
+import Termin from "./Pages/Kontakt/Termin";
 import PartnerPage from "./Pages/Partner";
 import Startseite from "./Pages/Startseite";
 import TeamPage from "./Pages/Team";
@@ -44,7 +45,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="Fernwartung" element={<div>Fernwartung Page</div>} />
 
           {/* Termin */}
-          <Route path="Termin" element={<div>Termin Page</div>} />
+          <Route path="Termin" element={<Termin />} />
           <Route path="Kontakt" element={<Kontakt />} />
 
           {/* Gesetzliches */}
