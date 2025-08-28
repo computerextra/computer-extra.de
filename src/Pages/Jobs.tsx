@@ -1,4 +1,6 @@
 import { BewerbungsProps, sendBewerbungForm } from "@/api/bewerbung";
+import Error from "@/components/Error";
+import Loading from "@/components/Loading";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -49,7 +51,18 @@ import { useForm } from "react-hook-form";
 import z from "zod";
 
 export default function JobPage() {
-  const { Jobs } = useJobs();
+  const { isPending, isError, Jobs, error } = useJobs();
+  if (isPending) return <Loading message="Unsere Jobs werden geladen..." />;
+  if (isError)
+    return (
+      <Error
+        showRetry
+        message={
+          "Beim Laden der Jobs ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +
+          error
+        }
+      />
+    );
 
   return (
     <>
@@ -431,7 +444,8 @@ const abstractNumbers = (num: number): string => {
 };
 
 function BewerbungsFormular() {
-  const { Jobs } = useJobs();
+  const { isPending, isError, Jobs, error } = useJobs();
+
   const [res, setRes] = useState<{ status: number; message: string } | null>(
     null
   );
@@ -483,6 +497,18 @@ function BewerbungsFormular() {
       </Card>
     );
   }
+
+  if (isPending) return <Loading message="Unsere Jobs werden geladen..." />;
+  if (isError)
+    return (
+      <Error
+        showRetry
+        message={
+          "Beim Laden der Jobs ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +
+          error
+        }
+      />
+    );
 
   return (
     <Card className="max-w-2xl mx-auto bg-card border-border">

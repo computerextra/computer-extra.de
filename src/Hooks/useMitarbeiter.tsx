@@ -1,20 +1,20 @@
-import { fetchMitarbeiter, type Mitarbeiter } from "@/api/mitarbeiter";
-import { useEffect, useState } from "react";
+import { fetchMitarbeiter } from "@/api/mitarbeiter";
+import { useQuery } from "@tanstack/react-query";
 
 export default function useMitarbeiter() {
-  const [Mitarbeiter, setMitarbeiter] = useState<Array<Mitarbeiter> | null>(
-    null
-  );
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
+  const {
+    isPending,
+    isError,
+    data: Mitarbeiter,
+    error,
+  } = useQuery({
+    queryKey: ["Mitarbeiter"],
+    queryFn: async () => {
       const res = await fetchMitarbeiter();
-      setMitarbeiter(res?.data ?? null);
-      setIsLoading(false);
-    })();
-  }, []);
+      return res?.data ?? null;
+    },
+    staleTime: 5 * 1000,
+  });
 
-  return { Mitarbeiter, isLoading };
+  return { isPending, isError, Mitarbeiter, error };
 }

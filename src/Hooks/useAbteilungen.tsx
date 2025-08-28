@@ -1,18 +1,20 @@
-import { fetchAbteilungen, type Abteilung } from "@/api/abteilungen";
-import { useEffect, useState } from "react";
+import { fetchAbteilungen } from "@/api/abteilungen";
+import { useQuery } from "@tanstack/react-query";
 
 export default function useAbteilungen() {
-  const [Abteilungen, setAbteilungen] = useState<Array<Abteilung> | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
+  const {
+    isPending,
+    isError,
+    data: Abteilungen,
+    error,
+  } = useQuery({
+    queryKey: ["Abteilungen"],
+    queryFn: async () => {
       const res = await fetchAbteilungen();
-      setAbteilungen(res?.data ?? null);
-      setIsLoading(false);
-    })();
-  }, []);
+      return res?.data ?? null;
+    },
+    staleTime: 5 * 1000,
+  });
 
-  return { Abteilungen, isLoading };
+  return { isPending, isError, Abteilungen, error };
 }

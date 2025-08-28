@@ -1,4 +1,6 @@
 import type { Angebot } from "@/api/angebote";
+import Error from "@/components/Error";
+import Loading from "@/components/Loading";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import useAngebote from "@/Hooks/useAngebote";
@@ -7,7 +9,7 @@ import { Clock } from "lucide-react";
 import { useEffect } from "react";
 
 export default function AngeboteSeite() {
-  const { Angebote, isLoading } = useAngebote();
+  const { isPending, isError, Angebote, error } = useAngebote();
 
   useEffect(() => {
     if (Angebote == null) return;
@@ -20,9 +22,17 @@ export default function AngeboteSeite() {
         Finden Sie das ideale Gerät für Ihre Anforderungen - Computer,
         Notebooks, Smartphones und Verträge zu unschlagbaren Konditionen!
       </p>
-      {isLoading ? (
-        <p className="mt-10 text-3xl text-center">Bitte warten...</p>
-      ) : (
+      {isPending && <Loading message="Unsere Angebote werden geladen..." />}
+      {isError && (
+        <Error
+          showRetry
+          message={
+            "Beim Laden der Angebote ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +
+            error
+          }
+        />
+      )}
+      {Angebote && (
         <div className="grid grid-cols-1 gap-5 mt-10 lg:grid-cols-5 max-h-[1000px]">
           {Angebote?.map((Angebot) => (
             <AngebotCard key={Angebot.id} Angebot={Angebot} />

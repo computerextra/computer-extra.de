@@ -1,5 +1,7 @@
 import type { Abteilung } from "@/api/abteilungen";
 import type { Mitarbeiter } from "@/api/mitarbeiter";
+import Error from "@/components/Error";
+import Loading from "@/components/Loading";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,8 +12,13 @@ import { Mail } from "lucide-react";
 import { useState } from "react";
 
 export default function TeamPage() {
-  const { Mitarbeiter, isLoading: mitarbeiterLoading } = useMitarbeiter();
-  const { Abteilungen, isLoading: abteilungenLoading } = useAbteilungen();
+  const {
+    isPending: maPending,
+    isError: maIsError,
+    Mitarbeiter,
+    error: maError,
+  } = useMitarbeiter();
+  const { isPending, isError, Abteilungen, error } = useAbteilungen();
 
   const [selectedDepartment, setSelectedDepartment] =
     useState<Abteilung | null>(null);
@@ -39,9 +46,28 @@ export default function TeamPage() {
         Wir schaffen ein flexibles Angebot für unsere Kunden - transparent,
         kreativ, persönlich.
       </h2>
-      {mitarbeiterLoading || abteilungenLoading ? (
-        <p className="mt-10 text-3xl text-center">Bitte warten...</p>
-      ) : (
+      {(maPending || isPending) && (
+        <Loading message="Unser Team wird geladen..." />
+      )}
+      {maIsError && (
+        <Error
+          showRetry
+          message={
+            "Beim Laden der Mitarbeiter ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +
+            maError
+          }
+        />
+      )}
+      {isError && (
+        <Error
+          showRetry
+          message={
+            "Beim Laden der Abteilungen ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +
+            error
+          }
+        />
+      )}
+      {Mitarbeiter && Abteilungen && (
         <div className="container px-4 py-8 mx-auto">
           {/* Search and Filter */}
           <div className="flex flex-col gap-4 mb-8 sm:flex-row">

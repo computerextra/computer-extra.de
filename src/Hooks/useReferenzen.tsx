@@ -1,18 +1,20 @@
-import { fetchReferenzen, type Referenz } from "@/api/referenzen";
-import { useEffect, useState } from "react";
+import { fetchReferenzen } from "@/api/referenzen";
+import { useQuery } from "@tanstack/react-query";
 
 export default function useReferenzen() {
-  const [Referenzen, setReferenzen] = useState<Array<Referenz> | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
+  const {
+    isPending,
+    isError,
+    data: Referenzen,
+    error,
+  } = useQuery({
+    queryKey: ["Referenzen"],
+    queryFn: async () => {
       const res = await fetchReferenzen();
-      setReferenzen(res?.data ?? null);
-      setIsLoading(false);
-    })();
-  }, []);
+      return res?.data ?? null;
+    },
+    staleTime: 5 * 1000,
+  });
 
-  return { Referenzen, isLoading };
+  return { isPending, isError, Referenzen, error };
 }

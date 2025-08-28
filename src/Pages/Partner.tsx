@@ -1,11 +1,13 @@
 import type { Partner } from "@/api/partner";
+import Error from "@/components/Error";
+import Loading from "@/components/Loading";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import usePartner from "@/Hooks/usePartner";
 import { cn } from "@/lib/utils";
 
 export default function PartnerPage() {
-  const { Partner, isLoading } = usePartner();
+  const { isPending, isError, Partner, error } = usePartner();
 
   return (
     <>
@@ -15,9 +17,17 @@ export default function PartnerPage() {
         Auf Vertrauen und Transparenz legen wir großen Wert - denn im
         Miteinander liegt unsere Stärke.
       </h2>
-      {isLoading ? (
-        <p className="mt-10 text-3xl text-center">Bitte warten...</p>
-      ) : (
+      {isPending && <Loading message="Unsere Partner werden geladen..." />}
+      {isError && (
+        <Error
+          showRetry
+          message={
+            "Beim Laden der Partner ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +
+            error
+          }
+        />
+      )}
+      {Partner && (
         <div className="grid grid-cols-1 gap-5 mt-10 lg:grid-cols-6">
           {Partner?.map((partner, idx) => (
             <PartnerCard key={partner.id} Partner={partner} id={idx} />

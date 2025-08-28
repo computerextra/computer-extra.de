@@ -1,18 +1,20 @@
-import { fetchPartner, type Partner } from "@/api/partner";
-import { useEffect, useState } from "react";
+import { fetchPartner } from "@/api/partner";
+import { useQuery } from "@tanstack/react-query";
 
 export default function usePartner() {
-  const [Partner, setPartner] = useState<Array<Partner> | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
+  const {
+    isPending,
+    isError,
+    data: Partner,
+    error,
+  } = useQuery({
+    queryKey: ["Partner"],
+    queryFn: async () => {
       const res = await fetchPartner();
-      setPartner(res?.data ?? null);
-      setIsLoading(false);
-    })();
-  }, []);
+      return res?.data ?? null;
+    },
+    staleTime: 5 * 1000,
+  });
 
-  return { Partner, isLoading };
+  return { isPending, isError, Partner, error };
 }

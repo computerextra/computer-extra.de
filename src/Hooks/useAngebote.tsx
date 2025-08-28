@@ -1,18 +1,20 @@
-import { fetchAngebote, type Angebot } from "@/api/angebote";
-import { useEffect, useState } from "react";
+import { fetchAngebote } from "@/api/angebote";
+import { useQuery } from "@tanstack/react-query";
 
 export default function useAngebote() {
-  const [Angebote, setAngebote] = useState<Array<Angebot> | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
+  const {
+    isPending,
+    isError,
+    data: Angebote,
+    error,
+  } = useQuery({
+    queryKey: ["Angebote"],
+    queryFn: async () => {
       const res = await fetchAngebote();
-      setAngebote(res?.data ?? null);
-      setIsLoading(false);
-    })();
-  }, []);
+      return res?.data ?? null;
+    },
+    staleTime: 5 * 1000,
+  });
 
-  return { Angebote, isLoading };
+  return { isPending, isError, Angebote, error };
 }

@@ -1,18 +1,20 @@
-import { fetchJobs, type Job } from "@/api/jobs";
-import { useEffect, useState } from "react";
+import { fetchJobs } from "@/api/jobs";
+import { useQuery } from "@tanstack/react-query";
 
 export default function useJobs() {
-  const [Jobs, setJobs] = useState<Array<Job> | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
+  const {
+    isPending,
+    isError,
+    data: Jobs,
+    error,
+  } = useQuery({
+    queryKey: ["Jobs"],
+    queryFn: async () => {
       const res = await fetchJobs();
-      setJobs(res?.data ?? null);
-      setIsLoading(false);
-    })();
-  }, []);
+      return res?.data ?? null;
+    },
+    staleTime: 5 * 1000,
+  });
 
-  return { Jobs, isLoading };
+  return { isPending, isError, Jobs, error };
 }

@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
@@ -14,53 +15,60 @@ import PartnerPage from "./Pages/Partner";
 import Startseite from "./Pages/Startseite";
 import TeamPage from "./Pages/Team";
 
+const queryClient = new QueryClient();
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<Startseite />} />
-          <Route path="Angebote" element={<AngeboteSeite />} />
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<Startseite />} />
+            <Route path="Angebote" element={<AngeboteSeite />} />
 
-          {/* Leistungen */}
-          <Route
-            path="Webentwicklung"
-            element={<div>Webentwicklung Page</div>}
-          />
-          <Route
-            path="PC-Konfiguration"
-            element={<div>PC-Konfiguration Page</div>}
-          />
-          <Route path="Kommunikation" element={<div>Kommunikation Page</div>} />
-          <Route path="IT-Security" element={<div>IT-Security Page</div>} />
-          <Route path="Netzwerke" element={<div>Netzwerke Page</div>} />
-          <Route
-            path="Cloud-Services"
-            element={<div>Cloud-Services Page</div>}
-          />
-          <Route path="Datenrettung" element={<div>Datenrettung Page</div>} />
+            {/* Leistungen */}
+            <Route
+              path="Webentwicklung"
+              element={<div>Webentwicklung Page</div>}
+            />
+            <Route
+              path="PC-Konfiguration"
+              element={<div>PC-Konfiguration Page</div>}
+            />
+            <Route
+              path="Kommunikation"
+              element={<div>Kommunikation Page</div>}
+            />
+            <Route path="IT-Security" element={<div>IT-Security Page</div>} />
+            <Route path="Netzwerke" element={<div>Netzwerke Page</div>} />
+            <Route
+              path="Cloud-Services"
+              element={<div>Cloud-Services Page</div>}
+            />
+            <Route path="Datenrettung" element={<div>Datenrettung Page</div>} />
 
-          <Route path="Partner" element={<PartnerPage />} />
-          <Route path="Team" element={<TeamPage />} />
-          <Route path="Jobs" element={<JobPage />} />
-          <Route path="Fernwartung" element={<div>Fernwartung Page</div>} />
+            <Route path="Partner" element={<PartnerPage />} />
+            <Route path="Team" element={<TeamPage />} />
+            <Route path="Jobs" element={<JobPage />} />
+            <Route path="Fernwartung" element={<div>Fernwartung Page</div>} />
 
-          {/* Termin */}
-          <Route path="Termin" element={<Termin />} />
-          <Route path="Kontakt" element={<Kontakt />} />
+            {/* Termin */}
+            <Route path="Termin" element={<Termin />} />
+            <Route path="Kontakt" element={<Kontakt />} />
 
-          {/* Gesetzliches */}
-          <Route path="Impressum" element={<Impressum />} />
-          <Route path="Datenschutz" element={<Datenschutz />} />
-          <Route path="AGB" element={<AGB />} />
+            {/* Gesetzliches */}
+            <Route path="Impressum" element={<Impressum />} />
+            <Route path="Datenschutz" element={<Datenschutz />} />
+            <Route path="AGB" element={<AGB />} />
 
-          {/* Versteckte Links */}
-          <Route path="OEM" element={<div>OEM Page</div>} />
+            {/* Versteckte Links */}
+            <Route path="OEM" element={<div>OEM Page</div>} />
 
-          {/* Catch All */}
-          <Route path="*" element={<div>404 Not Found</div>} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+            {/* Catch All */}
+            <Route path="*" element={<div>404 Not Found</div>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   </StrictMode>
 );
