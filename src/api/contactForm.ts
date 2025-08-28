@@ -17,12 +17,6 @@ type Response = z.infer<typeof Response>;
 export const sendContactForm = async (
   data: z.infer<typeof ContactFormProps>
 ): Promise<Response | null> => {
-  const formData = new FormData();
-  formData.append("Name", data.Name);
-  formData.append("Mail", data.Mail);
-  formData.append("Telefon", data.Telefon ?? "");
-  formData.append("Nachricht", data.Nachricht);
-
   const res = await apiRequest<Response>("/kontaktformular.php", "POST", data);
   return res ?? null;
 };
