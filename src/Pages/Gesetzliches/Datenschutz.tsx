@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Datenschutz() {
   return (
-    <>
+    <div className="container mx-auto mt-20 mb-5">
       <h1>Datenschutzerklärung</h1>
       <Button asChild variant={"default"} size={"lg"}>
         <a
@@ -907,6 +907,6 @@ export default function Datenschutz() {
           erstellt.
         </p>
       </section>
-    </>
+    </div>
   );
 }
