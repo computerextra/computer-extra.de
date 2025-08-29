@@ -40,7 +40,7 @@ export default function TeamPage() {
   }, {} as Record<string, Mitarbeiter[]>);
 
   return (
-    <>
+    <div className="container mx-auto mt-20">
       <h1>Team</h1>
       <h2 className="text-center">
         Wir schaffen ein flexibles Angebot für unsere Kunden - transparent,
@@ -132,8 +132,7 @@ export default function TeamPage() {
                           variant="outline"
                           className="bg-secondary text-secondary-foreground"
                         >
-                          {deptEmployees.length}{" "}
-                          {deptEmployees.length === 1 ? "member" : "members"}
+                          {deptEmployees.length} Mitarbeiter
                         </Badge>
                       </div>
                       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -162,8 +161,7 @@ export default function TeamPage() {
                   variant="outline"
                   className="bg-secondary text-secondary-foreground"
                 >
-                  {filteredEmployees?.length}{" "}
-                  {filteredEmployees?.length === 1 ? "member" : "members"}
+                  {filteredEmployees?.length} Mitarbeiter
                 </Badge>
               </div>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -189,7 +187,7 @@ export default function TeamPage() {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
