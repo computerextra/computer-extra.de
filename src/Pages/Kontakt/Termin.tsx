@@ -11,7 +11,7 @@ import { Link } from "react-router";
 
 export default function Termin() {
   return (
-    <>
+    <div className="container mx-auto mt-20 mb-5">
       <div className="mb-12 text-center">
         <h1>Professionelle Beratung für Ihr Anliegen</h1>
         <p className="max-w-2xl mx-auto text-xl text-pretty">
@@ -163,6 +163,6 @@ export default function Termin() {
           </CardContent>
         </Card>
       </div>
-    </>
+    </div>
   );
 }
