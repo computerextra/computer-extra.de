@@ -1,6 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import posthog from "posthog-js";
-import { PostHogProvider } from "posthog-js/react";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
@@ -35,46 +34,46 @@ posthog.init(import.meta.env.VITE_PUBLIC_POSTHOG_KEY, {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <PostHogProvider client={posthog}>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<Layout />}>
-              <Route index element={<Startseite />} />
-              <Route path="Angebote" element={<AngeboteSeite />} />
+    {/* <PostHogProvider client={posthog}> */}
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<Startseite />} />
+            <Route path="Angebote" element={<AngeboteSeite />} />
 
-              {/* Leistungen */}
-              <Route path="Webentwicklung" element={<Webentwicklung />} />
-              <Route path="PC-Konfiguration" element={<PCKonfiguration />} />
-              <Route path="Kommunikation" element={<Kommunikation />} />
-              <Route path="IT-Security" element={<ITSecurity />} />
-              <Route path="Netzwerke" element={<Netzwerke />} />
-              <Route path="Cloud-Services" element={<CloudServices />} />
-              <Route path="Datenrettung" element={<Datenrettung />} />
+            {/* Leistungen */}
+            <Route path="Webentwicklung" element={<Webentwicklung />} />
+            <Route path="PC-Konfiguration" element={<PCKonfiguration />} />
+            <Route path="Kommunikation" element={<Kommunikation />} />
+            <Route path="IT-Security" element={<ITSecurity />} />
+            <Route path="Netzwerke" element={<Netzwerke />} />
+            <Route path="Cloud-Services" element={<CloudServices />} />
+            <Route path="Datenrettung" element={<Datenrettung />} />
 
-              <Route path="Partner" element={<PartnerPage />} />
-              <Route path="Team" element={<TeamPage />} />
-              <Route path="Jobs" element={<JobPage />} />
-              <Route path="Fernwartung" element={<Fernwartung />} />
+            <Route path="Partner" element={<PartnerPage />} />
+            <Route path="Team" element={<TeamPage />} />
+            <Route path="Jobs" element={<JobPage />} />
+            <Route path="Fernwartung" element={<Fernwartung />} />
 
-              {/* Termin */}
-              <Route path="Termin" element={<Termin />} />
-              <Route path="Kontakt" element={<Kontakt />} />
+            {/* Termin */}
+            <Route path="Termin" element={<Termin />} />
+            <Route path="Kontakt" element={<Kontakt />} />
 
-              {/* Gesetzliches */}
-              <Route path="Impressum" element={<Impressum />} />
-              <Route path="Datenschutz" element={<Datenschutz />} />
-              <Route path="AGB" element={<AGB />} />
+            {/* Gesetzliches */}
+            <Route path="Impressum" element={<Impressum />} />
+            <Route path="Datenschutz" element={<Datenschutz />} />
+            <Route path="AGB" element={<AGB />} />
 
-              {/* Versteckte Links */}
-              <Route path="OEM" element={<div>OEM Page</div>} />
+            {/* Versteckte Links */}
+            <Route path="OEM" element={<div>OEM Page</div>} />
 
-              {/* Catch All */}
-              <Route path="*" element={<div>404 Not Found</div>} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </QueryClientProvider>
-    </PostHogProvider>
+            {/* Catch All */}
+            <Route path="*" element={<div>404 Not Found</div>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
+    {/* </PostHogProvider> */}
   </StrictMode>
 );
