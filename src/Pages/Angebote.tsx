@@ -16,7 +16,7 @@ export default function AngeboteSeite() {
   }, [Angebote]);
 
   return (
-    <div className="container mt-4 mb-10">
+    <div className="container mx-auto mt-20 mb-10">
       <h1 className="text-center">Unsere Angebote</h1>
       <p className="max-w-2xl mx-auto mt-4 text-lg text-center md:text-xl text-slate-900/90">
         Finden Sie das ideale Gerät für Ihre Anforderungen - Computer,
