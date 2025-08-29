@@ -29,11 +29,12 @@ const Words = [
 
 export default function Startseite() {
   const videoRef = useRef<null | HTMLVideoElement>(null);
-  const [paddingTop, setPaddingTop] = useState<number>(0);
+  const [paddingTop, setPaddingTop] = useState<string>("0");
 
   useEffect(() => {
     const getPadding = () => {
-      const maxHeight = 990;
+      const minPadding = 10;
+      const maxHeight = 1200;
       const height = window.innerHeight;
       let p = 0;
       if (height > maxHeight) {
@@ -41,7 +42,7 @@ export default function Startseite() {
       } else {
         p = maxHeight - height;
       }
-      setPaddingTop(p);
+      setPaddingTop(`min(calc(${p}px), ${minPadding}rem)`);
     };
 
     window.addEventListener("resize", getPadding);
@@ -72,7 +73,7 @@ export default function Startseite() {
         loop
         onCanPlay={setPlayBack}
         muted
-        className="absolute top-0 left-0 right-0 bottom-0 z-[-2] w-full h-full object-cover"
+        className="fixed top-0 left-0 right-0 bottom-0 z-[-2] w-full h-full object-cover"
       />
       {/* Mobile */}
       <div className="fixed inset-0 flex flex-col items-center justify-center text-center bg-blue-900/85 z-[-1] xl:hidden">
@@ -141,7 +142,7 @@ export default function Startseite() {
       </div>
       {/* Desktop */}
       <div
-        className="fixed inset-0 hidden bg-blue-900/80 xl:block z-[-1] overflow-auto"
+        className="min-h-screen min-w-screen hidden bg-blue-900/80 xl:flex justify-center items-center z-[-1] overflow-auto"
         style={{ paddingTop: paddingTop }}
       >
         <div className="container flex items-center h-full mx-auto">
