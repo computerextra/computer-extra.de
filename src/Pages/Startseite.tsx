@@ -128,6 +128,16 @@ export default function Startseite() {
             Jetzt einen Beratungstermin vereinbaren
           </Link>
         </Button>
+        <Button
+          className="mt-10 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
+          variant={"outline"}
+          asChild
+        >
+          <a href="tel:0561601440" className="flex items-center text-black">
+            <Phone className="w-4 h-4 text-black" />
+            0561 / 60 144 0
+          </a>
+        </Button>
       </div>
       {/* Desktop */}
       <div

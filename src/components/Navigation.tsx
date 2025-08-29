@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { MenuIcon, Phone } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import { Button } from "./ui/button";
 import {
@@ -234,23 +234,6 @@ export default function Navigation() {
             </div>
           </SheetContent>
         </Sheet>
-        <Button variant={"ghost"} className="lg:hidden" asChild>
-          <a
-            href="tel:0561601440"
-            className={cn(
-              "flex items-center gap-2",
-              location.pathname === "/" ? "text-slate-100" : "text-slate-900"
-            )}
-          >
-            <Phone
-              className={cn(
-                "w-5 h-5 ms-2",
-                location.pathname === "/" ? "text-slate-100" : "text-slate-900"
-              )}
-            />{" "}
-            0561/601440
-          </a>
-        </Button>
       </div>
     </div>
   );
