@@ -10,7 +10,7 @@ export default function PartnerPage() {
   const { isPending, isError, Partner, error } = usePartner();
 
   return (
-    <>
+    <div className="container mx-auto mt-20">
       <h1>Unsere Partner</h1>
       <h2 className="text-center">
         Wir pflegen eine partnerschaftliche Zusammenarbeit mit unseren Partnern.
@@ -34,7 +34,7 @@ export default function PartnerPage() {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -74,7 +74,8 @@ function PartnerCard({ Partner, id }: { Partner: Partner; id: number }) {
               size={isLarge() ? "lg" : "default"}
             >
               <a href={Partner.link} target="_blank" rel="noopener noreferrer">
-                Webseite besuchen
+                <span className="hidden xl:block">Webseite besuchen</span>
+                <span className="block xl:hidden">Webseite</span>
               </a>
             </Button>
           </CardContent>
