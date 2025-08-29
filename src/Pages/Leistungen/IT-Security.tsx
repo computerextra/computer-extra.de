@@ -7,25 +7,48 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArrowRight, Code, Section, Server } from "lucide-react";
+import { ArrowRight, LockKeyhole, Mail } from "lucide-react";
 import { Link } from "react-router";
 
 export default function ITSecurity() {
   const services = [
     {
-      icon: <Code className="w-8 h-8" />,
-      title: "Webentwicklung",
-      description: "Moderne, responsive Websites mit den neuesten Technologien",
+      icon: (
+        <div className="min-w-20">
+          <img
+            src="https://bilder.computer-extra.de/data/GData-C1NFFgD5.webp"
+            alt="G Data Gold Partner Logo"
+            className="w-auto h-8"
+          />
+        </div>
+      ),
+      title: "G Data",
+      description: "IT-Sicherheit aus Deutschland für höchsten Datenschutz.",
     },
     {
-      icon: <Server className="w-8 h-8" />,
-      title: "Webhosting",
-      description: "Hosting in Deutschland ab 9,99€ / Monat",
+      icon: (
+        <div className="min-w-20">
+          <img
+            src="https://bilder.computer-extra.de/data/Securepoint-CMybLUE-.webp"
+            alt="G Data Gold Partner Logo"
+            className="w-auto h-8"
+          />
+        </div>
+      ),
+      title: "Securepoint",
+      description: "Netzwerksicherheit - Made in Germany.",
     },
     {
-      icon: <Section className="w-8 h-8" />,
-      title: "Datenschutz geprüfte Webseiten",
-      description: "Mehr Sicherheit für Sie und Ihre Kunden.",
+      icon: <Mail className="w-8 h-8" />,
+      title: "Mailstore",
+      description:
+        "Die führende Software-Lösung zur rechtssicheren E-Mail-Archivierung.",
+    },
+    {
+      icon: <LockKeyhole className="w-8 h-8" />,
+      title: "Shadowprotect",
+      description:
+        "Die Besten in Sachen zuverlässiger Datensicherung und Disaster Recovery.",
     },
   ];
 
@@ -34,15 +57,16 @@ export default function ITSecurity() {
       <section className="relative px-4 py-20 shadow-lg rounded-xl bg-gradient-to-br from-blue-950/10 via-background to-blue-950/10">
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="secondary" className="mb-4">
-            Professionelle Webentwicklung
+            Professionelle Cybersecurity
           </Badge>
           <h1 className="mb-6 text-4xl font-bold md:text-6xl text-balance">
-            Ihre Vision, unsere <span className="text-primary">Expertise</span>
+            <span className="text-primary">Sicherheit</span>, die Vertrauen
+            schafft.
           </h1>
           <p className="max-w-2xl mx-auto mb-8 text-xl text-muted-foreground text-pretty">
-            Wir verwandeln Ihre Ideen in digitale Lösungen, die Ihr Unternehmen
-            voranbringen. Von der Konzeption bis zur Umsetzung - alles aus einer
-            Hand.
+            Wir schützen Ihre IT-Infrastruktur mit maßgeschneiderten
+            Sicherheitslösungen. Von Anti-Viren-Software bis hin zu Firewalls -
+            alles aus Deutschland und sicher gehostet.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" className="px-8 text-lg" asChild>
@@ -60,15 +84,15 @@ export default function ITSecurity() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Unsere Dienstleistungen
+              Unsere Leistungen
             </h2>
             <p className="max-w-2xl mx-auto text-xl text-muted-foreground">
-              Wir bieten umfassende Webentwicklungslösungen und Hosting für
-              Unternehmen jeder Größe
+              Wir bieten umfassende Sicherheitslösungen für Unternehmen jeder
+              Größe
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-4">
             {services.map((service, index) => (
               <Card
                 key={index}
@@ -91,57 +115,6 @@ export default function ITSecurity() {
         </div>
       </section>
 
-      {/* References Section */}
-      <section className="px-4 py-20 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Unsere Referenzen
-            </h2>
-            <p className="max-w-2xl mx-auto text-xl text-muted-foreground">
-              Erfolgreiche Projekte, die unsere Expertise unter Beweis stellen
-            </p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {/* {Referenzen?.map((Referenz) => (
-              <Card
-                key={Referenz.id}
-                className="overflow-hidden transition-shadow hover:shadow-xl"
-              >
-                <div className="overflow-hidden aspect-video">
-                  <img
-                    src={Referenz.Bild || "/placeholder.svg"}
-                    alt={`Website Screenshot von ${Referenz.Name}`}
-                    className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-xl">{Referenz.Name}</CardTitle>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <ExternalLink className="w-4 h-4" />
-                    <a
-                      href={Referenz.Webseite}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {
-                        Referenz.Webseite.split("/")[
-                          Referenz.Webseite.split("//").length
-                        ]
-                      }
-                    </a>
-                  </div>
-                </CardHeader>
-                <CardContent></CardContent>
-              </Card>
-            ))} */}
-          </div>
-        </div>
-      </section>
-
       {/* Why Choose Us Section */}
       <section className="px-4 py-20">
         <div className="max-w-4xl mx-auto text-center">
@@ -150,11 +123,15 @@ export default function ITSecurity() {
           </h2>
           <div className="grid gap-8 mb-12 md:grid-cols-3">
             <div>
-              <div className="mb-2 text-3xl font-bold text-primary">40+</div>
+              <div className="mb-2 text-3xl font-bold text-primary">
+                20.000+
+              </div>
               <p className="text-muted-foreground">Betreute Kunden</p>
             </div>
             <div>
-              <div className="mb-2 text-3xl font-bold text-primary">15+</div>
+              <div className="mb-2 text-3xl font-bold text-primary">
+                {new Date().getFullYear() - 1997}
+              </div>
               <p className="text-muted-foreground">Jahre Erfahrung</p>
             </div>
             <div>
@@ -172,7 +149,7 @@ export default function ITSecurity() {
             Bereit für Ihr nächstes Projekt?
           </h2>
           <p className="mb-8 text-xl opacity-90">
-            Lassen Sie uns gemeinsam Ihre digitale Vision verwirklichen.
+            Lassen Sie uns gemeinsam Ihre Cyber-Security auf das Maximum heben.
             Kontaktieren Sie uns für ein kostenloses Beratungsgespräch.
           </p>
           <Button
