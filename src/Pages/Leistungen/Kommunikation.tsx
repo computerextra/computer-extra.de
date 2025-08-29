@@ -7,23 +7,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArrowRight, Code, Section, Server } from "lucide-react";
+import { ArrowRight, Headset, Newspaper, Smartphone } from "lucide-react";
 import { Link } from "react-router";
 
 export default function Kommunikation() {
   const services = [
     {
-      icon: <Code className="w-8 h-8" />,
+      icon: <Newspaper className="w-8 h-8" />,
       title: "Festnetz und Mobiles Internet",
       description: "Aktuelle Festnetz- und Mobilfunktarife von der Telekom",
     },
     {
-      icon: <Server className="w-8 h-8" />,
+      icon: <Smartphone className="w-8 h-8" />,
       title: "Smartphones",
       description: "Bei uns bekommen Sie die aktuellsten Smartphones",
     },
     {
-      icon: <Section className="w-8 h-8" />,
+      icon: <Headset className="w-8 h-8" />,
       title: "Telefonanlagen",
       description:
         "Komplette Infrastruktur; Ob Telefonanlage, Systemtelefon oder Telefonie über den PC.",
