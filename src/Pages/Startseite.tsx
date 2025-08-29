@@ -278,7 +278,8 @@ export default function Startseite() {
                   className="w-full bg-accent-foreground text-accent hover:bg-accent-foreground/90"
                 >
                   <Link to="/Angebote">
-                    Angebote entdecken
+                    <span className="hidden 2xl:block">Angebote entdecken</span>
+                    <span className="block 2xl:hidden">Angebote</span>
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
@@ -299,7 +300,9 @@ export default function Startseite() {
                   className="w-full bg-accent-foreground text-accent hover:bg-accent-foreground/90"
                 >
                   <Link to="/Kontakt">
-                    Kontakt aufnehmen
+                    <span className="hidden 2xl:block">Kontakt aufnehmen</span>
+                    <span className="block 2xl:hidden">Kontakt</span>
+
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
