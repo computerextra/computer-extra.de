@@ -7,25 +7,25 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArrowRight, Code, Section, Server } from "lucide-react";
+import { ArrowRight, Cloud, FileSpreadsheet, Sparkle } from "lucide-react";
 import { Link } from "react-router";
 
 export default function CloudServices() {
   const services = [
     {
-      icon: <Code className="w-8 h-8" />,
-      title: "Webentwicklung",
-      description: "Moderne, responsive Websites mit den neuesten Technologien",
+      icon: <FileSpreadsheet className="w-8 h-8" />,
+      title: "Microsoft 365",
+      description: "Holen Sich sich Ihr Office-Paket als Abo",
     },
     {
-      icon: <Server className="w-8 h-8" />,
-      title: "Webhosting",
-      description: "Hosting in Deutschland ab 9,99€ / Monat",
+      icon: <Cloud className="w-8 h-8" />,
+      title: "Cloud Backup",
+      description: "Sichern Sie Ihre Systeme mit Veeam Data Protection",
     },
     {
-      icon: <Section className="w-8 h-8" />,
-      title: "Datenschutz geprüfte Webseiten",
-      description: "Mehr Sicherheit für Sie und Ihre Kunden.",
+      icon: <Sparkle className="w-8 h-8" />,
+      title: "Microsoft Copilot",
+      description: "Nutzen Sie den KI-Autopiloten von Microsoft.",
     },
   ];
 
@@ -34,15 +34,17 @@ export default function CloudServices() {
       <section className="relative px-4 py-20 shadow-lg rounded-xl bg-gradient-to-br from-blue-950/10 via-background to-blue-950/10">
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="secondary" className="mb-4">
-            Professionelle Webentwicklung
+            Professionelle Cloud Lösungen
           </Badge>
           <h1 className="mb-6 text-4xl font-bold md:text-6xl text-balance">
-            Ihre Vision, unsere <span className="text-primary">Expertise</span>
+            <span className="text-primary">Cloud-Kompetenz</span>, die Ihr
+            Unternehmen stärkt.
           </h1>
           <p className="max-w-2xl mx-auto mb-8 text-xl text-muted-foreground text-pretty">
-            Wir verwandeln Ihre Ideen in digitale Lösungen, die Ihr Unternehmen
-            voranbringen. Von der Konzeption bis zur Umsetzung - alles aus einer
-            Hand.
+            Wir bieten Ihnen maßgeschneiderte Cloud-Lösungen, die Ihre
+            Arbeitsweise revolutionieren. Mit Microsoft 365 und weiteren
+            Microsoft-Diensten optimieren wir Ihre Prozesse - flexibel, sicher
+            und effizient.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" className="px-8 text-lg" asChild>
@@ -60,11 +62,10 @@ export default function CloudServices() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Unsere Dienstleistungen
+              Unsere Leistungen
             </h2>
             <p className="max-w-2xl mx-auto text-xl text-muted-foreground">
-              Wir bieten umfassende Webentwicklungslösungen und Hosting für
-              Unternehmen jeder Größe
+              Wir bieten umfassende Cloud-Lösungen für Unternehmen jeder Größe
             </p>
           </div>
 
@@ -91,57 +92,6 @@ export default function CloudServices() {
         </div>
       </section>
 
-      {/* References Section */}
-      <section className="px-4 py-20 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Unsere Referenzen
-            </h2>
-            <p className="max-w-2xl mx-auto text-xl text-muted-foreground">
-              Erfolgreiche Projekte, die unsere Expertise unter Beweis stellen
-            </p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {/* {Referenzen?.map((Referenz) => (
-              <Card
-                key={Referenz.id}
-                className="overflow-hidden transition-shadow hover:shadow-xl"
-              >
-                <div className="overflow-hidden aspect-video">
-                  <img
-                    src={Referenz.Bild || "/placeholder.svg"}
-                    alt={`Website Screenshot von ${Referenz.Name}`}
-                    className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-xl">{Referenz.Name}</CardTitle>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <ExternalLink className="w-4 h-4" />
-                    <a
-                      href={Referenz.Webseite}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {
-                        Referenz.Webseite.split("/")[
-                          Referenz.Webseite.split("//").length
-                        ]
-                      }
-                    </a>
-                  </div>
-                </CardHeader>
-                <CardContent></CardContent>
-              </Card>
-            ))} */}
-          </div>
-        </div>
-      </section>
-
       {/* Why Choose Us Section */}
       <section className="px-4 py-20">
         <div className="max-w-4xl mx-auto text-center">
@@ -150,11 +100,13 @@ export default function CloudServices() {
           </h2>
           <div className="grid gap-8 mb-12 md:grid-cols-3">
             <div>
-              <div className="mb-2 text-3xl font-bold text-primary">40+</div>
+              <div className="mb-2 text-3xl font-bold text-primary">100+</div>
               <p className="text-muted-foreground">Betreute Kunden</p>
             </div>
             <div>
-              <div className="mb-2 text-3xl font-bold text-primary">15+</div>
+              <div className="mb-2 text-3xl font-bold text-primary">
+                {new Date().getFullYear() - 2011}
+              </div>
               <p className="text-muted-foreground">Jahre Erfahrung</p>
             </div>
             <div>
@@ -169,7 +121,7 @@ export default function CloudServices() {
       <section className="px-4 py-20 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-            Bereit für Ihr nächstes Projekt?
+            Bereit für Ihren Einstieg?
           </h2>
           <p className="mb-8 text-xl opacity-90">
             Lassen Sie uns gemeinsam Ihre digitale Vision verwirklichen.
