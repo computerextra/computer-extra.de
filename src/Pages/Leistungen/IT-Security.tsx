@@ -1,5 +1,3 @@
-import Error from "@/components/Error";
-import Loading from "@/components/Loading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,8 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { error } from "console";
-import { ArrowRight, Code, ExternalLink, Section, Server } from "lucide-react";
+import { ArrowRight, Code, Section, Server } from "lucide-react";
 import { Link } from "react-router";
 
 export default function ITSecurity() {
@@ -31,20 +28,6 @@ export default function ITSecurity() {
       description: "Mehr Sicherheit für Sie und Ihre Kunden.",
     },
   ];
-
-  if (isPending)
-    return <Loading message="Unsere Referenzen werden geladen..." />;
-
-  if (isError)
-    return (
-      <Error
-        showRetry
-        message={
-          "Beim Laden der Referenzen ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +
-          error
-        }
-      />
-    );
 
   return (
     <>
@@ -121,7 +104,7 @@ export default function ITSecurity() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">
-            {Referenzen?.map((Referenz) => (
+            {/* {Referenzen?.map((Referenz) => (
               <Card
                 key={Referenz.id}
                 className="overflow-hidden transition-shadow hover:shadow-xl"
@@ -154,7 +137,7 @@ export default function ITSecurity() {
                 </CardHeader>
                 <CardContent></CardContent>
               </Card>
-            ))}
+            ))} */}
           </div>
         </div>
       </section>
