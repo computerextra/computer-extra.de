@@ -7,7 +7,7 @@ export default function Layout() {
       <div className="z-100">
         <Navigation />
       </div>
-      <div className="container mx-auto mt-10 mb-10 text-slate-900 ">
+      <div className="text-slate-900 ">
         <Outlet />
       </div>
     </div>
