@@ -67,7 +67,7 @@ export default function Fernwartung() {
   };
 
   return (
-    <>
+    <div className="container mx-auto mt-20 mb-5">
       <main className="container px-4 py-12 mx-auto space-y-16">
         {/* Hero Section with OS Detection */}
         <section className="space-y-8 text-center">
@@ -271,6 +271,6 @@ export default function Fernwartung() {
           </div>
         </section>
       </main>
-    </>
+    </div>
   );
 }
