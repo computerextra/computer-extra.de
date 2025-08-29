@@ -49,7 +49,7 @@ export default function Webentwicklung() {
     );
 
   return (
-    <>
+    <div className="container mx-auto mt-20 mb-5">
       <section className="relative px-4 py-20 shadow-lg rounded-xl bg-gradient-to-br from-blue-950/10 via-background to-blue-950/10">
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="secondary" className="mb-4">
@@ -207,6 +207,6 @@ export default function Webentwicklung() {
           </Button>
         </div>
       </section>
-    </>
+    </div>
   );
 }
