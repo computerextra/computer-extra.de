@@ -148,7 +148,7 @@ export default function Startseite() {
         <div className="container flex items-center h-full mx-auto">
           {/* Bento Grid Layout */}
           <div className="grid grid-cols-6 gap-4 h-auto max-h-[1000px]">
-            <Card className="col-span-4 row-span-2 transition-shadow duration-300 shadow-sm bg-blue-950/75 border-blue-950 hover:shadow-md">
+            <Card className="col-span-6 row-span-2 transition-shadow duration-300 shadow-sm bg-blue-950/75 border-blue-950 hover:shadow-md">
               <CardContent className="flex flex-col justify-center h-full px-8">
                 <h1 className="mb-4 font-bold leading-tight text-6xl text-slate-100 !text-start">
                   Willkommen bei{" "}
@@ -173,6 +173,53 @@ export default function Startseite() {
                   Partnerschaft mit der Telekom für Business- und Privattarife
                   runden das Gesamtpaket ab.
                 </p>
+              </CardContent>
+            </Card>
+
+            {/* Card Opening Hours */}
+            <Card className="col-span-4 row-span-2 transition-shadow duration-300 shadow-sm bg-blue-950/75 border-blue-950 hover:shadow-md">
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-2 text-slate-100">
+                  <Clock className="w-5 h-5 text-slate-100" />
+                  Öffnungszeiten
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-100/80">Montag - Freitag</span>
+                  <span className="font-medium text-slate-100">
+                    9:00 - 18:00
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-100/80">Samstag</span>
+                  <span className="font-medium text-slate-100">
+                    Geschlossen
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-100/80">Sonntag</span>
+                  <span className="font-medium text-slate-100">
+                    Geschlossen
+                  </span>
+                </div>
+                <div className="pt-4 border-t border-border">
+                  <div className="flex items-center gap-2 mb-3 text-sm">
+                    {isOpen() ? (
+                      <>
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-slate-100/80">
+                          Jetzt geöffnet
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <span className="text-slate-100/80">Geschlossen</span>
+                      </>
+                    )}
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
@@ -217,7 +264,7 @@ export default function Startseite() {
               </CardContent>
             </Card>
 
-            {/* CTA Card 2 - Visit */}
+            {/* CTA Card 3 - Visit */}
             <Card className="col-span-1 transition-all duration-300 border-0 shadow-sm bg-accent text-accent-foreground hover:shadow-lg hover:scale-105 group">
               <CardContent className="flex flex-col justify-center h-full p-6 text-center">
                 <BadgePercent className="w-8 h-8 mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
@@ -238,7 +285,7 @@ export default function Startseite() {
               </CardContent>
             </Card>
 
-            {/* CTA Card 3 - Email Contact */}
+            {/* CTA Card 4 - Email Contact */}
             <Card className="transition-all duration-300 border-0 shadow-sm bg-secondary text-secondary-foreground hover:shadow-lg hover:scale-105 group">
               <CardContent className="flex flex-col justify-center h-full p-6 text-center">
                 <Mail className="w-8 h-8 mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
@@ -256,53 +303,6 @@ export default function Startseite() {
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
-              </CardContent>
-            </Card>
-
-            {/* Card 4 - Opening Hours */}
-            <Card className="col-span-3 row-span-1 transition-shadow duration-300 shadow-sm bg-blue-950/75 border-blue-950 hover:shadow-md">
-              <CardHeader className="pb-4">
-                <CardTitle className="flex items-center gap-2 text-slate-100">
-                  <Clock className="w-5 h-5 text-slate-100" />
-                  Öffnungszeiten
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-100/80">Montag - Freitag</span>
-                  <span className="font-medium text-slate-100">
-                    9:00 - 18:00
-                  </span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-100/80">Samstag</span>
-                  <span className="font-medium text-slate-100">
-                    Geschlossen
-                  </span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-100/80">Sonntag</span>
-                  <span className="font-medium text-slate-100">
-                    Geschlossen
-                  </span>
-                </div>
-                <div className="pt-4 border-t border-border">
-                  <div className="flex items-center gap-2 mb-3 text-sm">
-                    {isOpen() ? (
-                      <>
-                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-slate-100/80">
-                          Jetzt geöffnet
-                        </span>
-                      </>
-                    ) : (
-                      <>
-                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                        <span className="text-slate-100/80">Geschlossen</span>
-                      </>
-                    )}
-                  </div>
-                </div>
               </CardContent>
             </Card>
           </div>
