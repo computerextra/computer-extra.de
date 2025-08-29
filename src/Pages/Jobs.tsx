@@ -163,7 +163,7 @@ export default function JobPage() {
         </div>
       </section>
       {/* Apprenticeship Section */}
-      <section id="ausbildung">
+      <section id="ausbildung" className="mt-3">
         <div className="mb-8 text-center">
           <h2 className="mb-4 text-3xl font-bold text-balance">
             Ausbildungsplätze
@@ -376,7 +376,7 @@ export default function JobPage() {
         </div>
       </section>
       {/* Application Form Section */}
-      <section id="bewerbung">
+      <section id="bewerbung" className="mt-3">
         <div className="mb-8 text-center">
           <h2 className="mb-4 text-3xl font-bold text-balance">
             Schnellbewerbung
