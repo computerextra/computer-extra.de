@@ -155,3 +155,44 @@ section ul {
 section ol {
   @apply lg:text-xl list-decimal list-inside;
 }
+
+#blanko * {
+  scroll-margin: initial;
+  text-align: initial;
+  font-size: initial;
+  line-height: initial;
+  letter-spacing: initial;
+  margin-top: initial;
+}
+
+#blanko h1 {
+  @apply text-3xl py-3;
+}
+
+#blanko h2 {
+  @apply text-2xl py-2;
+}
+
+#blanko p {
+  @apply text-xl pb-3;
+}
+
+#blanko strong {
+  @apply text-xl;
+}
+
+#blanko ul {
+  @apply text-xl list-disc list-outside ms-10;
+}
+
+#blanko ol {
+  @apply text-xl list-decimal list-outside ms-10;
+}
+
+#blanko li {
+  @apply text-xl;
+}
+
+.check {
+  @apply !list-none !list-outside !ms-0;
+}

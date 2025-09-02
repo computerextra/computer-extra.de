@@ -1,20 +1,14 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router";
 
 export default function Datenschutz() {
   return (
     <div className="container mx-auto mt-20 mb-5">
       <h1>Datenschutzerklärung</h1>
       <Button asChild variant={"default"} size={"lg"}>
-        {/* TODO: Neu machen, online geht nicht mehr, keine Lizenzen mehr verfügbar. */}
-        {/* Eventuell ein Formular erstellen, was dann per PHP ne PDF mit allen Infos erstellt? */}
-        {/* TODO: Überlegen, wie die Infos bereitgestellt werden können, damit sie schnell anpassbar sind, wenn es änderungen gibt. */}
-        <a
-          href="https://dsgvo3.ds-manager.net/computerextra/onlinevt.html?key=6ThOZSR1cvQCMdES"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link to="/Auftragsdatenverarbeitung">
           Auftragsdatenverarbeitungsvertrag
-        </a>
+        </Link>
       </Button>
       <section id="1. Einleitung">
         <h2>1. Einleitung</h2>
