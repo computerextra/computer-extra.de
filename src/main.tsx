@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
 import "./index.css";
 import Layout from "./Layout";
+import NotFound from "./Pages/404";
 import AngeboteSeite from "./Pages/Angebote";
 import Fernwartung from "./Pages/Fernwartung";
 import AGB from "./Pages/Gesetzliches/AGB";
@@ -20,6 +21,7 @@ import Kommunikation from "./Pages/Leistungen/Kommunikation";
 import Netzwerke from "./Pages/Leistungen/Netzwerke";
 import PCKonfiguration from "./Pages/Leistungen/PC-Konfiguration";
 import Webentwicklung from "./Pages/Leistungen/Webentwicklung";
+import OEM from "./Pages/OEM";
 import PartnerPage from "./Pages/Partner";
 import Startseite from "./Pages/Startseite";
 import TeamPage from "./Pages/Team";
@@ -70,10 +72,10 @@ createRoot(document.getElementById("root")!).render(
             <Route path="AGB" element={<AGB />} />
 
             {/* Versteckte Links */}
-            <Route path="OEM" element={<div>OEM Page</div>} />
+            <Route path="OEM" element={<OEM />} />
 
             {/* Catch All */}
-            <Route path="*" element={<div>404 Not Found</div>} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

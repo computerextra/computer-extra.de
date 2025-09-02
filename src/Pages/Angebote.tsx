@@ -55,7 +55,7 @@ function AngebotCard({ Angebot }: { Angebot: Angebot }) {
           Angebot.title.toLowerCase().includes("telekom")
             ? "lg:col-span-3 row-span-1"
             : "lg:col-span-2 row-span-1",
-          "transition-shadow duration-300 shadow-sm group bg-primary-background border-blue-950 hover:shadow-md"
+          "transition-shadow duration-300 shadow-sm group bg-slate-100  border-blue-950 hover:shadow-md"
         )}
       >
         <div className="relative overflow-hidden h-70">

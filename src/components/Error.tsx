@@ -20,7 +20,7 @@ export default function Error({
   showRetry?: boolean;
 }) {
   return (
-    <Card className="w-full max-w-md">
+    <Card className="w-full max-w-md mt-20">
       <CardHeader className="text-center">
         <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 rounded-full bg-destructive/10">
           <AlertCircle className="w-6 h-6 text-destructive" />

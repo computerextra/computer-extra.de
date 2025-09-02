@@ -6,6 +6,9 @@ export const ContactFormProps = z.object({
   Mail: z.email("Bitte geben Sie eine gültige E-Mail-Adresse ein."),
   Telefon: z.string().optional(),
   Nachricht: z.string().min(1, "Eine Nachricht ist erforderlich."),
+  Datenschutz: z.boolean(
+    "Die Datenschutzebedingungen müssen akzeptiert werden"
+  ),
 });
 
 const Response = z.object({

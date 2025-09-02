@@ -1,6 +1,7 @@
 import { ContactFormProps, sendContactForm } from "@/api/contactForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Form,
   FormControl,
@@ -160,6 +161,33 @@ function ContactForm() {
                 </FormItem>
               )}
             />
+            {/* Datenschutz */}
+            <FormField
+              control={form.control}
+              name="Datenschutz"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-center gap-2">
+                  <FormControl>
+                    <Checkbox
+                      disabled={
+                        form.formState.isSubmitting ||
+                        form.formState.isSubmitted
+                      }
+                      checked={field.value}
+                      onCheckedChange={(checked) => field.onChange(checked)}
+                    />
+                  </FormControl>
+                  <FormLabel>
+                    Ich habe die Datenschutzerklärung zur Kenntnis genommen. Ich
+                    stimme zu, dass meine Angaben und Daten zur Beantwortung
+                    meiner Anfrage elektronisch erhoben und gespeichert werden.
+                    Hinweis: Sie können Ihre Einwilligung jederzeit für die
+                    Zukunft per E-Mail an info [AT] computer-extra [PUNKT] de
+                    widerrufen.
+                  </FormLabel>
+                </FormItem>
+              )}
+            />
             <Button type="submit" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? (
                 <>
@@ -173,7 +201,7 @@ function ContactForm() {
                 </>
               )}
             </Button>
-            <p className="text-xs text-muted-foreground">
+            <p className="!text-xs text-muted-foreground">
               * Pflichtfelder. Ihre Daten werden vertraulich behandelt und nicht
               an Dritte weitergegeben.
             </p>

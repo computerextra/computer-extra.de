@@ -6,7 +6,7 @@ export default function Loading({
   message?: string;
 }) {
   return (
-    <div className="space-y-6 text-center">
+    <div className="mt-20 space-y-6 text-center">
       {/* Loading Animation */}
       <div className="relative">
         <div className="w-16 h-16 mx-auto">

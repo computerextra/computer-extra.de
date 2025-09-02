@@ -103,7 +103,7 @@ export default function Auftragsdatenverarbeitung() {
     <div className="container mx-auto mt-20 mb-5">
       <h1>Auftragsdatenverarbeitungsvertrag</h1>
       {!BlankoIsPending && !BlankoIsError && (
-        <div className="p-4 mx-auto mt-5 border-4 rounded-2xl">
+        <div className="p-4 mx-auto mt-5 border-4 rounded-2xl bg-slate-100">
           <h2 className="!text-xl">Vertragsbedingungen</h2>
           <p className="!text-lg">
             Hinweis: "[XXXXX]" sind Platzhalter. Ihre Vertragspartnerdaten
@@ -117,7 +117,7 @@ export default function Auftragsdatenverarbeitung() {
         </div>
       )}
       {!BlankoAIsPending && !BlankoAIsError && (
-        <div className="p-4 mx-auto mt-5 border-4 rounded-2xl">
+        <div className="p-4 mx-auto mt-5 border-4 rounded-2xl bg-slate-100">
           <h2 className="!text-xl">Anlage A: Details zum Auftrag</h2>
           <div
             className="mt-2 overflow-y-scroll bg-white border-4 max-h-70"
@@ -127,7 +127,7 @@ export default function Auftragsdatenverarbeitung() {
         </div>
       )}
       {!BlankoBIsPending && !BlankoBIsError && (
-        <div className="p-4 mx-auto mt-5 border-4 rounded-2xl">
+        <div className="p-4 mx-auto mt-5 border-4 rounded-2xl bg-slate-100">
           <h2 className="!text-xl">
             Anlage B: Technische und organisatorische Maßnahmen
           </h2>
@@ -138,7 +138,7 @@ export default function Auftragsdatenverarbeitung() {
           />
         </div>
       )}
-      <div className="p-4 mx-auto mt-5 border-4 rounded-2xl">
+      <div className="p-4 mx-auto mt-5 border-4 rounded-2xl bg-slate-100">
         <h2>Vertragsdaten des Auftraggebers</h2>
         <p>Bitte überprüfen Sie Ihre Eingaben vor dem Absenden.</p>
         <Form {...form}>

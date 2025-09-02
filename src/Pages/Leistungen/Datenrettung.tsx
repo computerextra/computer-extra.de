@@ -213,7 +213,7 @@ export default function Datenrettung() {
       </section>
 
       {/* References Section */}
-      <section className="px-4 py-20 bg-muted/30">
+      <section className="px-4 py-20 ">
         <div className="mt-12 text-center">
           <Card className="bg-white border-slate-200">
             <CardContent className="pt-6">

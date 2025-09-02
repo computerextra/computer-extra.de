@@ -98,7 +98,7 @@ export default function PCKonfiguration() {
       </section>
 
       {/* References Section */}
-      <section className="px-4 py-20 bg-muted/30">
+      <section className="px-4 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">
