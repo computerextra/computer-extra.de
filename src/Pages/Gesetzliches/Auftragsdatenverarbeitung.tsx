@@ -1,7 +1,6 @@
 import {
   AuftragsdatenverarbeitungProps,
   createPdf,
-  type CreateResponse,
 } from "@/api/Auftragsdatenverarbeitung";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -28,7 +27,6 @@ import {
 } from "@/Hooks/Verträge";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Send } from "lucide-react";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import type z from "zod";
 
@@ -83,7 +81,7 @@ export default function Auftragsdatenverarbeitung() {
 
   // TODO: Hiermit was machen
   // zum Beispiel Anzeigen, dass alles schick und Download Knopf anzeigen
-  const [res, setRes] = useState<CreateResponse | null>(null);
+  // const [res, setRes] = useState<CreateResponse | null>(null);
 
   const form = useForm<z.infer<typeof AuftragsdatenverarbeitungProps>>({
     resolver: zodResolver(AuftragsdatenverarbeitungProps),
@@ -96,7 +94,8 @@ export default function Auftragsdatenverarbeitung() {
     values: z.infer<typeof AuftragsdatenverarbeitungProps>
   ) => {
     const res = await createPdf(values);
-    setRes(res);
+    console.log(res);
+    // setRes(res);
   };
 
   return (

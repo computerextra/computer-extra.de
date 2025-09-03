@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Download, Lock } from "lucide-react";
 
-const DownloadUrl = "https://api.computer-extra.de/OEMLogo.zip";
+const DownloadUrl = "https://api.computer-extra.de/oem-logo/OEMLogo.zip";
 
 export default function OEM() {
   return (
