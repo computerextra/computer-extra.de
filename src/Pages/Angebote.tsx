@@ -59,6 +59,23 @@ function AngebotCard({ Angebot }: { Angebot: Angebot }) {
         )}
       >
         <div className="relative overflow-hidden h-70">
+          {/* Laufzeit Mobile */}
+          <div className="flex items-center gap-1 px-3 py-1 rounded-full lg:hidden justify-self-end me-2 max-w-fit bg-primary/90 text-slate-100">
+            <Clock className="w-3 h-3" />
+            <span className="text-xs font-medium">
+              {new Date(Angebot.date_start).toLocaleDateString("de-DE", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "2-digit",
+              })}{" "}
+              -{" "}
+              {new Date(Angebot.date_stop).toLocaleDateString("de-DE", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "2-digit",
+              })}
+            </span>
+          </div>
           <img
             // TODO: Link anpassen, wenn direkt auf API
             src={
@@ -76,7 +93,8 @@ function AngebotCard({ Angebot }: { Angebot: Angebot }) {
             )}
             onClick={() => isActive && window.open(Angebot.link, "_blank")}
           />
-          <div className="absolute flex items-center gap-1 px-3 py-1 rounded-full top-4 right-4 bg-primary/90 text-slate-100">
+          {/* Laufzeit Desktop */}
+          <div className="absolute items-center hidden gap-1 px-3 py-1 rounded-full lg:flex top-4 right-4 bg-primary/90 text-slate-100">
             <Clock className="w-3 h-3" />
             <span className="text-xs font-medium">
               {new Date(Angebot.date_start).toLocaleDateString("de-DE", {
