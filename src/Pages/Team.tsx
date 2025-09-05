@@ -40,7 +40,7 @@ export default function TeamPage() {
   }, {} as Record<string, Mitarbeiter[]>);
 
   return (
-    <div className="container mx-auto mt-20">
+    <div className="container mx-auto mt-10">
       <h1>Team</h1>
       <h2 className="text-center">
         Wir schaffen ein flexibles Angebot für unsere Kunden - transparent,

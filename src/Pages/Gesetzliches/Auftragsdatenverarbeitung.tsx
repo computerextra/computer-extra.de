@@ -99,7 +99,7 @@ export default function Auftragsdatenverarbeitung() {
   };
 
   return (
-    <div className="container mx-auto mt-20 mb-5">
+    <div className="container mx-auto mt-10 mb-5">
       <h1>Auftragsdatenverarbeitungsvertrag</h1>
       {!BlankoIsPending && !BlankoIsError && (
         <div className="p-4 mx-auto mt-5 border-4 rounded-2xl bg-slate-100">

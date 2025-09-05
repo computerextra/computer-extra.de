@@ -2,7 +2,7 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 export default function Impressum() {
   return (
-    <div className="container mx-auto mt-20 mb-5">
+    <div className="container mx-auto mt-10 mb-5">
       <h1>Impressum</h1>
       <p>
         Computer Extra GmbH <br />

@@ -25,6 +25,7 @@ import OEM from "./Pages/OEM";
 import PartnerPage from "./Pages/Partner";
 import Startseite from "./Pages/Startseite";
 import TeamPage from "./Pages/Team";
+import StartLayout from "./StartLayout";
 
 const queryClient = new QueryClient();
 
@@ -40,8 +41,10 @@ createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route element={<Layout />}>
+          <Route element={<StartLayout />}>
             <Route index element={<Startseite />} />
+          </Route>
+          <Route element={<Layout />}>
             <Route path="Angebote" element={<AngeboteSeite />} />
 
             {/* Leistungen */}

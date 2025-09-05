@@ -1,6 +1,6 @@
 export default function AGB() {
   return (
-    <div className="container mx-auto mt-20 mb-5">
+    <div className="container mx-auto mt-10 mb-5">
       <h1>Allgemeine Geschäftsbedingungen</h1>
       <h2>Der Firma Computer Extra GmbH, im Folgenden Verkäufer genannt.</h2>
       <h3>1. Umfang der Lieferungen und Leistungen</h3>

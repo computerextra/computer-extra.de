@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export default function Datenschutz() {
   return (
-    <div className="container mx-auto mt-20 mb-5">
+    <div className="container mx-auto mt-10 mb-5">
       <h1>Datenschutzerklärung</h1>
       <Button asChild variant={"default"} size={"lg"}>
         <Link to="/Auftragsdatenverarbeitung">

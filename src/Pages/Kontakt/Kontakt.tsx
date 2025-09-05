@@ -28,7 +28,7 @@ import { z } from "zod";
 
 export default function Kontakt() {
   return (
-    <div className="container mx-auto mt-20 mb-5">
+    <div className="container mx-auto mt-10 mb-5">
       <div className="mb-12 text-center">
         <h1 className="mb-4 text-4xl font-bold text-foreground text-balance">
           Kontakt

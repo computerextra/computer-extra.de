@@ -65,7 +65,7 @@ export default function JobPage() {
     );
 
   return (
-    <div className="container mx-auto mt-20 mb-5">
+    <div className="container mx-auto mt-10 mb-5">
       {/* Jobs Section */}
       <section id="jobs">
         <div className="mb-8 text-center">

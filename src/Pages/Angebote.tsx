@@ -16,7 +16,7 @@ export default function AngeboteSeite() {
   }, [Angebote]);
 
   return (
-    <div className="container mx-auto mt-20 mb-10">
+    <div className="container mx-auto mt-10 mb-10">
       <h1 className="text-center">Unsere Angebote</h1>
       <p className="max-w-2xl mx-auto mt-4 text-lg text-center md:text-xl text-slate-900/90">
         Finden Sie das ideale Gerät für Ihre Anforderungen - Computer,
@@ -32,6 +32,7 @@ export default function AngeboteSeite() {
           }
         />
       )}
+
       {Angebote && (
         <div className="grid grid-cols-1 gap-5 mt-10 lg:grid-cols-5 max-h-[1000px]">
           {Angebote?.map((Angebot) => (
@@ -60,7 +61,7 @@ function AngebotCard({ Angebot }: { Angebot: Angebot }) {
       >
         <div className="relative overflow-hidden h-70">
           {/* Laufzeit Mobile */}
-          <div className="flex items-center gap-1 px-3 py-1 rounded-full lg:hidden justify-self-end me-2 max-w-fit bg-primary/90 text-slate-100">
+          <div className="flex items-center gap-1 px-3 py-1 mb-1 rounded-full lg:hidden justify-self-end me-2 max-w-fit bg-primary/90 text-slate-100">
             <Clock className="w-3 h-3" />
             <span className="text-xs font-medium">
               {new Date(Angebot.date_start).toLocaleDateString("de-DE", {

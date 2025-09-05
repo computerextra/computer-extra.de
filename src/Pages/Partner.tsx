@@ -10,7 +10,7 @@ export default function PartnerPage() {
   const { isPending, isError, Partner, error } = usePartner();
 
   return (
-    <div className="container mx-auto mt-20">
+    <div className="container mx-auto mt-10">
       <h1>Unsere Partner</h1>
       <h2 className="text-center">
         Wir pflegen eine partnerschaftliche Zusammenarbeit mit unseren Partnern.
