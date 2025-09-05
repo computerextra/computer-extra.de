@@ -35,6 +35,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import useJobs from "@/Hooks/useJobs";
+import { LgWidth } from "@/Vars";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Briefcase,
@@ -46,12 +47,34 @@ import {
   MapPin,
   Quote,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
 
 export default function JobPage() {
   const { isPending, isError, Jobs, error } = useJobs();
+  const [minHeigt, setMinHeigt] = useState(0);
+
+  useEffect(() => {
+    if (Jobs == null) return;
+
+    const w = window.screen.width;
+    if (LgWidth < w) return;
+
+    const body = document.body,
+      html = document.documentElement;
+
+    const height = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+
+    setMinHeigt(height);
+  }, [Jobs]);
+
   if (isPending) return <Loading message="Unsere Jobs werden geladen..." />;
   if (isError)
     return (
@@ -65,7 +88,7 @@ export default function JobPage() {
     );
 
   return (
-    <div className="container mx-auto mt-10 mb-5">
+    <div className="container mx-auto mt-10 " style={{ minHeight: minHeigt }}>
       {/* Jobs Section */}
       <section id="jobs">
         <div className="mb-8 text-center">

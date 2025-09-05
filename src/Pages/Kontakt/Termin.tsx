@@ -6,12 +6,34 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { LgWidth } from "@/Vars";
 import { Calendar, ExternalLink, Info, Shield } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 export default function Termin() {
+  const [minHeigt, setMinHeigt] = useState(0);
+
+  useEffect(() => {
+    const w = window.screen.width;
+    if (LgWidth < w) return;
+
+    const body = document.body,
+      html = document.documentElement;
+
+    const height = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+
+    setMinHeigt(height);
+  }, []);
+
   return (
-    <div className="container mx-auto mt-10 mb-5">
+    <div className="container mx-auto mt-10" style={{ minHeight: minHeigt }}>
       <div className="mb-12 text-center">
         <h1>Professionelle Beratung für Ihr Anliegen</h1>
         <p className="max-w-2xl mx-auto text-xl text-pretty">

@@ -8,8 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import useAbteilungen from "@/Hooks/useAbteilungen";
 import useMitarbeiter from "@/Hooks/useMitarbeiter";
+import { LgWidth } from "@/Vars";
 import { Mail } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function TeamPage() {
   const {
@@ -19,6 +20,27 @@ export default function TeamPage() {
     error: maError,
   } = useMitarbeiter();
   const { isPending, isError, Abteilungen, error } = useAbteilungen();
+  const [minHeigt, setMinHeigt] = useState(0);
+
+  useEffect(() => {
+    if (Abteilungen == null) return;
+
+    const w = window.screen.width;
+    if (LgWidth < w) return;
+
+    const body = document.body,
+      html = document.documentElement;
+
+    const height = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+
+    setMinHeigt(height);
+  }, [Abteilungen]);
 
   const [selectedDepartment, setSelectedDepartment] =
     useState<Abteilung | null>(null);
@@ -40,7 +62,7 @@ export default function TeamPage() {
   }, {} as Record<string, Mitarbeiter[]>);
 
   return (
-    <div className="container mx-auto mt-10">
+    <div className="container mx-auto mt-10" style={{ minHeight: minHeigt }}>
       <h1>Team</h1>
       <h2 className="text-center">
         Wir schaffen ein flexibles Angebot für unsere Kunden - transparent,

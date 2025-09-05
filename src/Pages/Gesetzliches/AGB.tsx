@@ -1,6 +1,29 @@
+import { LgWidth } from "@/Vars";
+import { useEffect, useState } from "react";
+
 export default function AGB() {
+  const [minHeigt, setMinHeigt] = useState(0);
+
+  useEffect(() => {
+    const w = window.screen.width;
+    if (LgWidth < w) return;
+
+    const body = document.body,
+      html = document.documentElement;
+
+    const height = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+
+    setMinHeigt(height);
+  }, []);
+
   return (
-    <div className="container mx-auto mt-10 mb-5">
+    <div className="container mx-auto mt-10" style={{ minHeight: minHeigt }}>
       <h1>Allgemeine Geschäftsbedingungen</h1>
       <h2>Der Firma Computer Extra GmbH, im Folgenden Verkäufer genannt.</h2>
       <h3>1. Umfang der Lieferungen und Leistungen</h3>

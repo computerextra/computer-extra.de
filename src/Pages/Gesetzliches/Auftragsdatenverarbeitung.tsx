@@ -25,8 +25,10 @@ import {
   useBlankoAnlageB,
   useBlankoVertrag,
 } from "@/Hooks/Verträge";
+import { LgWidth } from "@/Vars";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Send } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import type z from "zod";
 
@@ -79,6 +81,29 @@ export default function Auftragsdatenverarbeitung() {
     BlankoAnlageB,
   } = useBlankoAnlageB();
 
+  const [minHeigt, setMinHeigt] = useState(0);
+
+  useEffect(() => {
+    if (BlankoVertrag == null || BlankoAnlageA == null || BlankoAnlageB == null)
+      return;
+
+    const w = window.screen.width;
+    if (LgWidth < w) return;
+
+    const body = document.body,
+      html = document.documentElement;
+
+    const height = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+
+    setMinHeigt(height);
+  }, [BlankoVertrag, BlankoAnlageA, BlankoAnlageB]);
+
   // TODO: Hiermit was machen
   // zum Beispiel Anzeigen, dass alles schick und Download Knopf anzeigen
   // const [res, setRes] = useState<CreateResponse | null>(null);
@@ -99,7 +124,7 @@ export default function Auftragsdatenverarbeitung() {
   };
 
   return (
-    <div className="container mx-auto mt-10 mb-5">
+    <div className="container mx-auto mt-10" style={{ minHeight: minHeigt }}>
       <h1>Auftragsdatenverarbeitungsvertrag</h1>
       {!BlankoIsPending && !BlankoIsError && (
         <div className="p-4 mx-auto mt-5 border-4 rounded-2xl bg-slate-100">

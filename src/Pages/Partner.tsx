@@ -5,12 +5,35 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import usePartner from "@/Hooks/usePartner";
 import { cn } from "@/lib/utils";
+import { LgWidth } from "@/Vars";
+import { useEffect, useState } from "react";
 
 export default function PartnerPage() {
   const { isPending, isError, Partner, error } = usePartner();
+  const [minHeigt, setMinHeigt] = useState(0);
+
+  useEffect(() => {
+    if (Partner == null) return;
+
+    const w = window.screen.width;
+    if (LgWidth < w) return;
+
+    const body = document.body,
+      html = document.documentElement;
+
+    const height = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+
+    setMinHeigt(height);
+  }, [Partner]);
 
   return (
-    <div className="container mx-auto mt-10">
+    <div className="container mx-auto mt-10" style={{ minHeight: minHeigt }}>
       <h1>Unsere Partner</h1>
       <h2 className="text-center">
         Wir pflegen eine partnerschaftliche Zusammenarbeit mit unseren Partnern.

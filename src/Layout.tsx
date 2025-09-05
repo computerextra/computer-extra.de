@@ -42,7 +42,7 @@ function ScrollToTop() {
         </div>
 
         {/* Mobile */}
-        <div className="fixed left-50 bottom-5 lg:hidden translate-x-[-50%]">
+        <div className="fixed left-[50%] bottom-5 lg:hidden translate-x-[-50%]">
           <Button
             variant="default"
             size="default"

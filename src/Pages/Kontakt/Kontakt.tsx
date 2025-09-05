@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { LgWidth } from "@/Vars";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   CircleCheckBig,
@@ -22,13 +23,33 @@ import {
   Phone,
   Send,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export default function Kontakt() {
+  const [minHeigt, setMinHeigt] = useState(0);
+
+  useEffect(() => {
+    const w = window.screen.width;
+    if (LgWidth < w) return;
+
+    const body = document.body,
+      html = document.documentElement;
+
+    const height = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+
+    setMinHeigt(height);
+  }, []);
+
   return (
-    <div className="container mx-auto mt-10 mb-5">
+    <div className="container mx-auto mt-10" style={{ minHeight: minHeigt }}>
       <div className="mb-12 text-center">
         <h1 className="mb-4 text-4xl font-bold text-foreground text-balance">
           Kontakt

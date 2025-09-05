@@ -1,8 +1,30 @@
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { LgWidth } from "@/Vars";
+import { useEffect, useState } from "react";
 
 export default function Impressum() {
+  const [minHeigt, setMinHeigt] = useState(0);
+
+  useEffect(() => {
+    const w = window.screen.width;
+    if (LgWidth < w) return;
+
+    const body = document.body,
+      html = document.documentElement;
+
+    const height = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+
+    setMinHeigt(height);
+  }, []);
+
   return (
-    <div className="container mx-auto mt-10 mb-5">
+    <div className="container mx-auto mt-10" style={{ minHeight: minHeigt }}>
       <h1>Impressum</h1>
       <p>
         Computer Extra GmbH <br />
