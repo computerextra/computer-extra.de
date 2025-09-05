@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import usePartner from "@/Hooks/usePartner";
 import { cn } from "@/lib/utils";
 import { LgWidth } from "@/Vars";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 export default function PartnerPage() {
   const { isPending, isError, Partner, error } = usePartner();
@@ -50,13 +50,15 @@ export default function PartnerPage() {
           }
         />
       )}
-      {Partner && (
+      <Suspense
+        fallback={<Loading message="Unsere Partner werden geladen..." />}
+      >
         <div className="grid grid-cols-1 gap-5 mt-10 lg:grid-cols-6">
           {Partner?.map((partner, idx) => (
             <PartnerCard key={partner.id} Partner={partner} id={idx} />
           ))}
         </div>
-      )}
+      </Suspense>
     </div>
   );
 }

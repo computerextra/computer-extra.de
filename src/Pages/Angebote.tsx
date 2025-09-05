@@ -8,7 +8,7 @@ import useAngebote from "@/Hooks/useAngebote";
 import { cn } from "@/lib/utils";
 import { LgWidth } from "@/Vars";
 import { Clock } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 export default function AngeboteSeite() {
   const { isPending, isError, Angebote, error } = useAngebote();
@@ -63,17 +63,6 @@ export default function AngeboteSeite() {
         Finden Sie das ideale Gerät für Ihre Anforderungen - Computer,
         Notebooks, Smartphones und Verträge zu unschlagbaren Konditionen!
       </p>
-      {isPending && (
-        <>
-          <Loading message="Unsere Angebote werden geladen..." />
-          <div className="grid grid-cols-1 gap-5 mt-10 lg:grid-cols-5 max-h-[1000px]">
-            <SkeletonCard />
-            <SkeletonCardBig />
-            <SkeletonCardBig />
-            <SkeletonCard />
-          </div>
-        </>
-      )}
 
       {isError && (
         <Error
@@ -85,13 +74,25 @@ export default function AngeboteSeite() {
         />
       )}
 
-      {Angebote && (
+      <Suspense
+        fallback={
+          <>
+            <Loading message="Unsere Angebote werden geladen..." />
+            <div className="grid grid-cols-1 gap-5 mt-10 lg:grid-cols-5 max-h-[1000px]">
+              <SkeletonCard />
+              <SkeletonCardBig />
+              <SkeletonCardBig />
+              <SkeletonCard />
+            </div>
+          </>
+        }
+      >
         <div className="grid grid-cols-1 gap-5 mt-10 lg:grid-cols-5 max-h-[1000px]">
           {Angebote?.map((Angebot) => (
             <AngebotCard key={Angebot.id} Angebot={Angebot} />
           ))}
         </div>
-      )}
+      </Suspense>
     </div>
   );
 }

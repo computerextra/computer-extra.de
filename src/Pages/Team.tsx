@@ -10,7 +10,7 @@ import useAbteilungen from "@/Hooks/useAbteilungen";
 import useMitarbeiter from "@/Hooks/useMitarbeiter";
 import { LgWidth } from "@/Vars";
 import { Mail } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 export default function TeamPage() {
   const {
@@ -89,126 +89,131 @@ export default function TeamPage() {
           }
         />
       )}
-      {Mitarbeiter && Abteilungen && (
-        <div className="container px-4 py-8 mx-auto">
-          {/* Search and Filter */}
-          <div className="flex flex-col gap-4 mb-8 sm:flex-row">
-            <div className="flex flex-wrap gap-2">
-              <Button
-                variant={selectedDepartment == null ? "default" : "outline"}
-                onClick={() => setSelectedDepartment(null)}
-                className={
-                  selectedDepartment === null
-                    ? "bg-primary text-primary-foreground"
-                    : ""
-                }
-              >
-                Alle
-                <Badge
-                  variant="secondary"
-                  className="ml-2 bg-secondary text-secondary-foreground"
-                >
-                  {Mitarbeiter?.length}
-                </Badge>
-              </Button>
-              {Abteilungen?.map((dept) => (
+      <Suspense>
+        {Mitarbeiter && Abteilungen && (
+          <div className="container px-4 py-8 mx-auto">
+            {/* Search and Filter */}
+            <div className="flex flex-col gap-4 mb-8 sm:flex-row">
+              <div className="flex flex-wrap gap-2">
                 <Button
-                  key={dept.id}
-                  variant={selectedDepartment === dept ? "default" : "outline"}
-                  onClick={() => setSelectedDepartment(dept)}
+                  variant={selectedDepartment == null ? "default" : "outline"}
+                  onClick={() => setSelectedDepartment(null)}
                   className={
-                    selectedDepartment === dept
+                    selectedDepartment === null
                       ? "bg-primary text-primary-foreground"
                       : ""
                   }
                 >
-                  {dept.name}
-
+                  Alle
                   <Badge
                     variant="secondary"
                     className="ml-2 bg-secondary text-secondary-foreground"
                   >
-                    {
-                      Mitarbeiter?.filter((emp) => emp.abteilungId === dept.id)
-                        .length
-                    }
+                    {Mitarbeiter?.length}
                   </Badge>
                 </Button>
-              ))}
-            </div>
-          </div>
+                {Abteilungen?.map((dept) => (
+                  <Button
+                    key={dept.id}
+                    variant={
+                      selectedDepartment === dept ? "default" : "outline"
+                    }
+                    onClick={() => setSelectedDepartment(dept)}
+                    className={
+                      selectedDepartment === dept
+                        ? "bg-primary text-primary-foreground"
+                        : ""
+                    }
+                  >
+                    {dept.name}
 
-          {/* Team Display */}
-          {selectedDepartment == null ? (
-            // Show all departments
-            <div className="space-y-12">
-              {Object.entries(groupedEmployees ?? {}).map(
-                ([dept, deptEmployees]) =>
-                  deptEmployees.length > 0 && (
-                    <section key={dept}>
-                      <div className="flex items-center gap-3 mb-6">
-                        <h2 className="text-2xl font-semibold text-foreground">
-                          {dept}
-                        </h2>
-                        <Badge
-                          variant="outline"
-                          className="bg-secondary text-secondary-foreground"
-                        >
-                          {deptEmployees.length} Mitarbeiter
-                        </Badge>
-                      </div>
-                      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        {deptEmployees.map((employee) => (
-                          <EmployeeCard
-                            key={employee.id}
-                            employee={employee}
-                            dep={Abteilungen?.find(
-                              (x) => x.id === employee.abteilungId
-                            )}
-                          />
-                        ))}
-                      </div>
-                    </section>
-                  )
-              )}
-            </div>
-          ) : (
-            // Show selected department
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <h2 className="text-2xl font-semibold text-foreground">
-                  {selectedDepartment.name}
-                </h2>
-                <Badge
-                  variant="outline"
-                  className="bg-secondary text-secondary-foreground"
-                >
-                  {filteredEmployees?.length} Mitarbeiter
-                </Badge>
-              </div>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {filteredEmployees?.map((employee) => (
-                  <EmployeeCard
-                    key={employee.id}
-                    employee={employee}
-                    dep={Abteilungen?.find(
-                      (x) => x.id === employee.abteilungId
-                    )}
-                  />
+                    <Badge
+                      variant="secondary"
+                      className="ml-2 bg-secondary text-secondary-foreground"
+                    >
+                      {
+                        Mitarbeiter?.filter(
+                          (emp) => emp.abteilungId === dept.id
+                        ).length
+                      }
+                    </Badge>
+                  </Button>
                 ))}
               </div>
             </div>
-          )}
 
-          {filteredEmployees?.length === 0 && (
-            <div className="py-12 text-center">
-              <p className="text-lg text-muted-foreground">
-                No employees found matching your criteria.
-              </p>
-            </div>
-          )}
-        </div>
-      )}
+            {/* Team Display */}
+            {selectedDepartment == null ? (
+              // Show all departments
+              <div className="space-y-12">
+                {Object.entries(groupedEmployees ?? {}).map(
+                  ([dept, deptEmployees]) =>
+                    deptEmployees.length > 0 && (
+                      <section key={dept}>
+                        <div className="flex items-center gap-3 mb-6">
+                          <h2 className="text-2xl font-semibold text-foreground">
+                            {dept}
+                          </h2>
+                          <Badge
+                            variant="outline"
+                            className="bg-secondary text-secondary-foreground"
+                          >
+                            {deptEmployees.length} Mitarbeiter
+                          </Badge>
+                        </div>
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                          {deptEmployees.map((employee) => (
+                            <EmployeeCard
+                              key={employee.id}
+                              employee={employee}
+                              dep={Abteilungen?.find(
+                                (x) => x.id === employee.abteilungId
+                              )}
+                            />
+                          ))}
+                        </div>
+                      </section>
+                    )
+                )}
+              </div>
+            ) : (
+              // Show selected department
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <h2 className="text-2xl font-semibold text-foreground">
+                    {selectedDepartment.name}
+                  </h2>
+                  <Badge
+                    variant="outline"
+                    className="bg-secondary text-secondary-foreground"
+                  >
+                    {filteredEmployees?.length} Mitarbeiter
+                  </Badge>
+                </div>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {filteredEmployees?.map((employee) => (
+                    <EmployeeCard
+                      key={employee.id}
+                      employee={employee}
+                      dep={Abteilungen?.find(
+                        (x) => x.id === employee.abteilungId
+                      )}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {filteredEmployees?.length === 0 && (
+              <div className="py-12 text-center">
+                <p className="text-lg text-muted-foreground">
+                  No employees found matching your criteria.
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+      </Suspense>
     </div>
   );
 }
