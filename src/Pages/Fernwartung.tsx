@@ -39,16 +39,18 @@ export default function Fernwartung() {
     const userAgent = navigator.userAgent.toLowerCase();
     let detectedOS: OperatingSystem = "Unknown";
 
+    console.log(userAgent);
+
     if (userAgent.includes("windows")) {
       detectedOS = "Windows";
-    } else if (userAgent.includes("mac")) {
-      detectedOS = "macOS";
-    } else if (userAgent.includes("linux")) {
-      detectedOS = "Linux";
     } else if (userAgent.includes("android")) {
       detectedOS = "Android";
     } else if (userAgent.includes("iphone") || userAgent.includes("ipad")) {
       detectedOS = "iOS";
+    } else if (userAgent.includes("mac")) {
+      detectedOS = "macOS";
+    } else if (userAgent.includes("linux")) {
+      detectedOS = "Linux";
     }
 
     setOs(detectedOS);
