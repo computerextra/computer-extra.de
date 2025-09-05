@@ -1,3 +1,4 @@
+import Ref1 from "@/assets/Computer/ref1.webp";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,6 +18,8 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowRight, BadgePlus, Rainbow, Wrench } from "lucide-react";
 import { Link } from "react-router";
+
+const Referenzen = [Ref1];
 
 export default function PCKonfiguration() {
   const services = [
@@ -120,22 +123,25 @@ export default function PCKonfiguration() {
             >
               <CarouselContent>
                 {/* TODO: Bilder von Computern */}
-                {Array.from({ length: 5 }).map((_, index) => (
+                {Referenzen.map((img, index) => (
                   <CarouselItem key={index}>
                     <div className="p-1">
                       <Card>
                         <CardContent className="flex items-center justify-center p-6 aspect-video">
-                          <span className="text-4xl font-semibold">
+                          <img src={img} alt={img} />
+                          {/* <span className="text-4xl font-semibold">
                             {index + 1}
-                          </span>
+                          </span> */}
                         </CardContent>
                       </Card>
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <div className="hidden lg:block">
+                <CarouselPrevious />
+                <CarouselNext />
+              </div>
             </Carousel>
           </div>
         </div>
