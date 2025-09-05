@@ -204,7 +204,7 @@ export default function Navigation() {
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="lg:hidden">
+          <SheetContent side="left" className="lg:hidden z-999">
             <div className="grid gap-4 p-4">
               {Links.map((link, idx) => {
                 if (link.children) {
