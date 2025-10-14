@@ -1,8 +1,10 @@
 import { ChevronUpCircle } from "lucide-react";
+import { lazy } from "react";
 import { Outlet } from "react-router";
-import Navigation from "./components/Navigation";
 import { Button } from "./components/ui/button";
 import useScrollSpy from "./Hooks/useScrollSpy";
+
+const Navigation = lazy(() => import("./components/Navigation"));
 
 export default function Layout() {
   return (

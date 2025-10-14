@@ -1,5 +1,7 @@
+import { lazy } from "react";
 import { Outlet } from "react-router";
-import Navigation from "./components/Navigation";
+
+const Navigation = lazy(() => import("./components/Navigation"));
 
 export default function StartLayout() {
   return (
