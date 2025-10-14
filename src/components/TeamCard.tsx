@@ -1,9 +1,9 @@
+import { Mail } from "lucide-react";
 import type { Abteilung } from "@/api/abteilungen";
 import type { Mitarbeiter } from "@/api/mitarbeiter";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail } from "lucide-react";
 
 export default function EmployeeCard({
   employee,

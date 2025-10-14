@@ -1,12 +1,3 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   ArrowRight,
   BookText,
@@ -17,8 +8,19 @@ import {
   ToolCase,
 } from "lucide-react";
 import { Link } from "react-router";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import useTitle from "@/Hooks/useTitle";
 
 export default function Netzwerke() {
+  useTitle("Netzwerke");
   const services = [
     {
       icon: <MessageCircleMore className="w-8 h-8" />,

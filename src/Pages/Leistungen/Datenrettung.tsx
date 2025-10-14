@@ -1,3 +1,10 @@
+import {
+  ArrowRight,
+  HardDrive,
+  Monitor,
+  Server,
+  TabletSmartphone,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -7,15 +14,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  ArrowRight,
-  HardDrive,
-  Monitor,
-  Server,
-  TabletSmartphone,
-} from "lucide-react";
+import useTitle from "@/Hooks/useTitle";
 
 export default function Datenrettung() {
+  useTitle("Datenrettung");
   const services = [
     {
       icon: <TabletSmartphone className="w-8 h-8" />,

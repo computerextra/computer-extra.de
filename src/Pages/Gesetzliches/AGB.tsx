@@ -1,9 +1,10 @@
-import { LgWidth } from "@/Vars";
 import { useEffect, useState } from "react";
+import useTitle from "@/Hooks/useTitle";
+import { LgWidth } from "@/Vars";
 
 export default function AGB() {
   const [minHeigt, setMinHeigt] = useState(0);
-
+  useTitle("AGB");
   useEffect(() => {
     const w = window.screen.width;
     if (LgWidth < w) return;

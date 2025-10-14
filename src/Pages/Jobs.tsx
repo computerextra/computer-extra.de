@@ -1,4 +1,6 @@
-import Error from "@/components/Error";
+import { Briefcase, Clock, GraduationCap, MapPin, Quote } from "lucide-react";
+import { lazy, Suspense, useEffect, useState } from "react";
+import ErrorAlert from "@/components/Error";
 import Loading from "@/components/Loading";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,15 +13,15 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import useJobs from "@/Hooks/useJobs";
+import useTitle from "@/Hooks/useTitle";
 import { LgWidth } from "@/Vars";
-import { Briefcase, Clock, GraduationCap, MapPin, Quote } from "lucide-react";
-import { lazy, Suspense, useEffect, useState } from "react";
 
 const BewerbungsFormular = lazy(() => import("@/components/JobForm"));
 
 export default function JobPage() {
   const { isPending, isError, Jobs, error } = useJobs();
   const [minHeigt, setMinHeigt] = useState(0);
+  useTitle("Jobs");
 
   useEffect(() => {
     if (Jobs == null) return;
@@ -44,7 +46,7 @@ export default function JobPage() {
   if (isPending) return <Loading message="Unsere Jobs werden geladen..." />;
   if (isError)
     return (
-      <Error
+      <ErrorAlert
         showRetry
         message={
           "Beim Laden der Jobs ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +

@@ -1,3 +1,6 @@
+import { Calendar, ExternalLink, Info, Shield } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -6,13 +9,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import useTitle from "@/Hooks/useTitle";
 import { LgWidth } from "@/Vars";
-import { Calendar, ExternalLink, Info, Shield } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Link } from "react-router";
 
 export default function Termin() {
   const [minHeigt, setMinHeigt] = useState(0);
+  useTitle("Termin");
 
   useEffect(() => {
     const w = window.screen.width;

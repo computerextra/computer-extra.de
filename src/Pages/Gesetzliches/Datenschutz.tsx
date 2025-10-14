@@ -1,10 +1,12 @@
-import { Button } from "@/components/ui/button";
-import { LgWidth } from "@/Vars";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { Button } from "@/components/ui/button";
+import useTitle from "@/Hooks/useTitle";
+import { LgWidth } from "@/Vars";
 
 export default function Datenschutz() {
   const [minHeigt, setMinHeigt] = useState(0);
+  useTitle("Datenschutz");
 
   useEffect(() => {
     const w = window.screen.width;

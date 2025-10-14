@@ -1,11 +1,3 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   ArrowRight,
   BadgePercent,
@@ -17,6 +9,15 @@ import {
 } from "lucide-react";
 import { lazy, useEffect, useState } from "react";
 import { Link } from "react-router";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import useTitle from "@/Hooks/useTitle";
 
 const Words = [
   "Hardware",
@@ -32,7 +33,7 @@ const VideoBg = lazy(() => import("@/components/VideoBg"));
 
 export default function Startseite() {
   const [paddingTop, setPaddingTop] = useState<string>("0");
-
+  useTitle();
   useEffect(() => {
     const getPadding = () => {
       const minPadding = 10;

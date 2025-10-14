@@ -26,6 +26,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import useTitle from "@/Hooks/useTitle";
 import {
   useBlankoAnlageA,
   useBlankoAnlageB,
@@ -64,6 +65,7 @@ const EULänder = [
 ];
 
 export default function Auftragsdatenverarbeitung() {
+  useTitle("Auftragsdatenverarbeitung");
   const {
     isPending: BlankoIsPending,
     isError: BlankoIsError,

@@ -1,10 +1,12 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, Home } from "lucide-react";
 import { useNavigate } from "react-router";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import useTitle from "@/Hooks/useTitle";
 
 export default function NotFound() {
   const router = useNavigate();
+  useTitle("404");
 
   const handleGoBack = () => {
     if (window.history.length > 1) {

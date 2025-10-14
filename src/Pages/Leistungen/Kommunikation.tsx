@@ -1,3 +1,5 @@
+import { ArrowRight, Headset, Newspaper, Smartphone } from "lucide-react";
+import { Link } from "react-router";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -7,10 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArrowRight, Headset, Newspaper, Smartphone } from "lucide-react";
-import { Link } from "react-router";
+import useTitle from "@/Hooks/useTitle";
 
 export default function Kommunikation() {
+  useTitle("Kommunikation");
   const services = [
     {
       icon: <Newspaper className="w-8 h-8" />,

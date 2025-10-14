@@ -1,4 +1,6 @@
-import Error from "@/components/Error";
+import { ArrowRight, Code, ExternalLink, Section, Server } from "lucide-react";
+import { Link } from "react-router";
+import ErrorAlert from "@/components/Error";
 import Loading from "@/components/Loading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,11 +12,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import useReferenzen from "@/Hooks/useReferenzen";
-import { ArrowRight, Code, ExternalLink, Section, Server } from "lucide-react";
-import { Link } from "react-router";
+import useTitle from "@/Hooks/useTitle";
 
 export default function Webentwicklung() {
   const { isPending, isError, Referenzen, error } = useReferenzen();
+  useTitle("Webentwicklung");
 
   const services = [
     {
@@ -39,7 +41,7 @@ export default function Webentwicklung() {
 
   if (isError)
     return (
-      <Error
+      <ErrorAlert
         showRetry
         message={
           "Beim Laden der Referenzen ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +

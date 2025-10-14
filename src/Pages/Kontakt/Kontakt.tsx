@@ -1,12 +1,14 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { LgWidth } from "@/Vars";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { lazy, useEffect, useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import useTitle from "@/Hooks/useTitle";
+import { LgWidth } from "@/Vars";
 
 const ContactForm = lazy(() => import("@/components/KontaktForm"));
 
 export default function Kontakt() {
   const [minHeigt, setMinHeigt] = useState(0);
+  useTitle("Kontakt");
 
   useEffect(() => {
     const w = window.screen.width;

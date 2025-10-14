@@ -1,13 +1,14 @@
+import { lazy, Suspense, useEffect, useState } from "react";
 import type { Abteilung } from "@/api/abteilungen";
 import type { Mitarbeiter } from "@/api/mitarbeiter";
-import Error from "@/components/Error";
+import ErrorAlert from "@/components/Error";
 import Loading from "@/components/Loading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import useAbteilungen from "@/Hooks/useAbteilungen";
 import useMitarbeiter from "@/Hooks/useMitarbeiter";
+import useTitle from "@/Hooks/useTitle";
 import { LgWidth } from "@/Vars";
-import { lazy, Suspense, useEffect, useState } from "react";
 
 const EmployeeCard = lazy(() => import("@/components/TeamCard"));
 
@@ -20,6 +21,8 @@ export default function TeamPage() {
   } = useMitarbeiter();
   const { isPending, isError, Abteilungen, error } = useAbteilungen();
   const [minHeigt, setMinHeigt] = useState(0);
+
+  useTitle("Team");
 
   useEffect(() => {
     if (Abteilungen == null) return;
@@ -51,14 +54,17 @@ export default function TeamPage() {
     return matchesDepartment;
   });
 
-  const groupedEmployees = Abteilungen?.reduce((acc, dept) => {
-    if (dept == null) return acc;
-    if (filteredEmployees == null) return acc;
-    acc[dept.name] = filteredEmployees.filter(
-      (emp) => emp.abteilungId === dept.id
-    );
-    return acc;
-  }, {} as Record<string, Mitarbeiter[]>);
+  const groupedEmployees = Abteilungen?.reduce(
+    (acc, dept) => {
+      if (dept == null) return acc;
+      if (filteredEmployees == null) return acc;
+      acc[dept.name] = filteredEmployees.filter(
+        (emp) => emp.abteilungId === dept.id
+      );
+      return acc;
+    },
+    {} as Record<string, Mitarbeiter[]>
+  );
 
   return (
     <div className="container mx-auto mt-10" style={{ minHeight: minHeigt }}>
@@ -71,7 +77,7 @@ export default function TeamPage() {
         <Loading message="Unser Team wird geladen..." />
       )}
       {maIsError && (
-        <Error
+        <ErrorAlert
           showRetry
           message={
             "Beim Laden der Mitarbeiter ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +
@@ -80,7 +86,7 @@ export default function TeamPage() {
         />
       )}
       {isError && (
-        <Error
+        <ErrorAlert
           showRetry
           message={
             "Beim Laden der Abteilungen ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +

@@ -1,3 +1,4 @@
+import Autoplay from "embla-carousel-autoplay";
 import Ref1 from "@/assets/Computer/ref1.webp";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -7,7 +8,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 
 //  TODO: Bilder von Computern
 const Referenzen = [Ref1];

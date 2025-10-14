@@ -1,14 +1,16 @@
-import Error from "@/components/Error";
+import { lazy, Suspense, useEffect, useState } from "react";
+import ErrorAlert from "@/components/Error";
 import Loading from "@/components/Loading";
 import usePartner from "@/Hooks/usePartner";
+import useTitle from "@/Hooks/useTitle";
 import { LgWidth } from "@/Vars";
-import { lazy, Suspense, useEffect, useState } from "react";
 
 const PartnerCard = lazy(() => import("@/components/PartnerCard"));
 
 export default function PartnerPage() {
   const { isPending, isError, Partner, error } = usePartner();
   const [minHeigt, setMinHeigt] = useState(0);
+  useTitle("Partner");
 
   useEffect(() => {
     if (Partner == null) return;
@@ -40,7 +42,7 @@ export default function PartnerPage() {
       </h2>
       {isPending && <Loading message="Unsere Partner werden geladen..." />}
       {isError && (
-        <Error
+        <ErrorAlert
           showRetry
           message={
             "Beim Laden der Partner ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +

@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "./ui/card";
 
-export default function Error({
+export default function ErrorAlert({
   title = "Etwas ist schiefgelaufen",
   message = "Beim Laden der Daten ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
   onRetry = () => location.reload(),

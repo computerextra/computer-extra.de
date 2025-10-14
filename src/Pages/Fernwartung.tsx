@@ -1,13 +1,3 @@
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   AlertCircle,
   CheckCircle,
@@ -20,6 +10,17 @@ import {
   Smartphone,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import useTitle from "@/Hooks/useTitle";
 
 type OperatingSystem =
   | "Windows"
@@ -34,6 +35,7 @@ const DL_PREIS = 30;
 export default function Fernwartung() {
   const [os, setOs] = useState<OperatingSystem>("Unknown");
   const [isSupported, setIsSupported] = useState(false);
+  useTitle("Fernwartung");
 
   useEffect(() => {
     const userAgent = navigator.userAgent.toLowerCase();

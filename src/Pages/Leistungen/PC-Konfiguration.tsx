@@ -1,3 +1,6 @@
+import { ArrowRight, BadgePlus, Rainbow, Wrench } from "lucide-react";
+import { lazy } from "react";
+import { Link } from "react-router";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -7,13 +10,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArrowRight, BadgePlus, Rainbow, Wrench } from "lucide-react";
-import { lazy } from "react";
-import { Link } from "react-router";
+import useTitle from "@/Hooks/useTitle";
 
 const KonfigReferenzen = lazy(() => import("@/components/KonfigReferenzen"));
 
 export default function PCKonfiguration() {
+  useTitle("PC Konfiguration");
   const services = [
     {
       icon: <BadgePlus className="w-8 h-8" />,

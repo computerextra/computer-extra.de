@@ -1,15 +1,17 @@
-import Error from "@/components/Error";
+import { lazy, Suspense, useEffect, useState } from "react";
+import ErrorAlert from "@/components/Error";
 import Loading from "@/components/Loading";
 import { Skeleton } from "@/components/ui/skeleton";
 import useAngebote from "@/Hooks/useAngebote";
+import useTitle from "@/Hooks/useTitle";
 import { LgWidth } from "@/Vars";
-import { lazy, Suspense, useEffect, useState } from "react";
 
 const AngebotCard = lazy(() => import("@/components/AngebotsCard"));
 
 export default function AngeboteSeite() {
   const { isPending, isError, Angebote, error } = useAngebote();
   const [minHeigt, setMinHeigt] = useState(0);
+  useTitle("Angebote");
 
   useEffect(() => {
     if (Angebote == null) return;
@@ -62,7 +64,7 @@ export default function AngeboteSeite() {
       </p>
 
       {isError && (
-        <Error
+        <ErrorAlert
           showRetry
           message={
             "Beim Laden der Angebote ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. Fehler: " +

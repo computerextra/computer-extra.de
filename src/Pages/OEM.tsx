@@ -1,3 +1,4 @@
+import { Download, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -6,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Download, Lock } from "lucide-react";
 
 const DownloadUrl = "https://api.computer-extra.de/oem-logo/OEMLogo.zip";
 

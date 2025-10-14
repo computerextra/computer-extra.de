@@ -1,9 +1,11 @@
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { LgWidth } from "@/Vars";
 import { useEffect, useState } from "react";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import useTitle from "@/Hooks/useTitle";
+import { LgWidth } from "@/Vars";
 
 export default function Impressum() {
   const [minHeigt, setMinHeigt] = useState(0);
+  useTitle("Impressum");
 
   useEffect(() => {
     const w = window.screen.width;

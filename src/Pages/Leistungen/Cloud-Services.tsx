@@ -1,3 +1,5 @@
+import { ArrowRight, Cloud, FileSpreadsheet, Sparkle } from "lucide-react";
+import { Link } from "react-router";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -7,10 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArrowRight, Cloud, FileSpreadsheet, Sparkle } from "lucide-react";
-import { Link } from "react-router";
+import useTitle from "@/Hooks/useTitle";
 
 export default function CloudServices() {
+  useTitle("Cloud Services");
   const services = [
     {
       icon: <FileSpreadsheet className="w-8 h-8" />,
