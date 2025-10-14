@@ -1,5 +1,11 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Send } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import type z from "zod";
 import {
   AuftragsdatenverarbeitungProps,
+  type CreateResponse,
   createPdf,
 } from "@/api/Auftragsdatenverarbeitung";
 import { Button } from "@/components/ui/button";
@@ -26,11 +32,6 @@ import {
   useBlankoVertrag,
 } from "@/Hooks/Verträge";
 import { LgWidth } from "@/Vars";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Send } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import type z from "zod";
 
 const EULänder = [
   "Belgien",
@@ -104,9 +105,7 @@ export default function Auftragsdatenverarbeitung() {
     setMinHeigt(height);
   }, [BlankoVertrag, BlankoAnlageA, BlankoAnlageB]);
 
-  // TODO: Hiermit was machen
-  // zum Beispiel Anzeigen, dass alles schick und Download Knopf anzeigen
-  // const [res, setRes] = useState<CreateResponse | null>(null);
+  const [res, setRes] = useState<CreateResponse | null>(null);
 
   const form = useForm<z.infer<typeof AuftragsdatenverarbeitungProps>>({
     resolver: zodResolver(AuftragsdatenverarbeitungProps),
@@ -119,8 +118,7 @@ export default function Auftragsdatenverarbeitung() {
     values: z.infer<typeof AuftragsdatenverarbeitungProps>
   ) => {
     const res = await createPdf(values);
-    console.log(res);
-    // setRes(res);
+    setRes(res);
   };
 
   return (
@@ -177,7 +175,7 @@ export default function Auftragsdatenverarbeitung() {
                 <FormItem>
                   <FormLabel>Kundennummer: *</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input disabled={res?.status == 200} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -190,7 +188,7 @@ export default function Auftragsdatenverarbeitung() {
                 <FormItem>
                   <FormLabel>Firma: *</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input disabled={res?.status == 200} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -205,7 +203,7 @@ export default function Auftragsdatenverarbeitung() {
                     Vollständiger Name des Vertretungsberechtigten: *
                   </FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input disabled={res?.status == 200} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -218,7 +216,7 @@ export default function Auftragsdatenverarbeitung() {
                 <FormItem>
                   <FormLabel>Straße und Hausnummer *</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input disabled={res?.status == 200} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -231,7 +229,7 @@ export default function Auftragsdatenverarbeitung() {
                 <FormItem>
                   <FormLabel>Postleitzahl: *</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input disabled={res?.status == 200} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -244,7 +242,7 @@ export default function Auftragsdatenverarbeitung() {
                 <FormItem>
                   <FormLabel>Ort: *</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input disabled={res?.status == 200} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -260,6 +258,7 @@ export default function Auftragsdatenverarbeitung() {
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
+                    disabled={res?.status == 200}
                   >
                     <FormControl>
                       <SelectTrigger>
@@ -286,7 +285,7 @@ export default function Auftragsdatenverarbeitung() {
                 <FormItem>
                   <FormLabel>E-Mail-Adresse: *</FormLabel>
 
-                  <Input {...field} />
+                  <Input disabled={res?.status == 200} {...field} />
                   <FormMessage />
                 </FormItem>
               )}
@@ -301,7 +300,8 @@ export default function Auftragsdatenverarbeitung() {
                     <Checkbox
                       disabled={
                         form.formState.isSubmitting ||
-                        form.formState.isSubmitted
+                        form.formState.isSubmitted ||
+                        res?.status == 200
                       }
                       checked={field.value}
                       onCheckedChange={(checked) => field.onChange(checked)}
@@ -324,7 +324,8 @@ export default function Auftragsdatenverarbeitung() {
                     <Checkbox
                       disabled={
                         form.formState.isSubmitting ||
-                        form.formState.isSubmitted
+                        form.formState.isSubmitted ||
+                        res?.status == 200
                       }
                       checked={field.value}
                       onCheckedChange={(checked) => field.onChange(checked)}
@@ -341,12 +342,17 @@ export default function Auftragsdatenverarbeitung() {
             <p className="!p-0 !text-xs text-muted-foreground !m-0 !mb-2">
               *Bei diesen Feldern handelt es sich um ein Pflichtfeld.
             </p>
-            <Button type="submit" disabled={form.formState.isSubmitting}>
+            <Button
+              type="submit"
+              disabled={form.formState.isSubmitting || res?.status == 200}
+            >
               {form.formState.isSubmitting ? (
                 <>
                   <div className="w-4 h-4 mr-2 border-b-2 rounded-full animate-spin border-primary-foreground" />
                   Wird gesendet...
                 </>
+              ) : res?.status == 200 ? (
+                <>{res.message}</>
               ) : (
                 <>
                   <Send className="w-4 h-4 mr-2" />
