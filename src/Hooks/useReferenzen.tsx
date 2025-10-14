@@ -1,5 +1,5 @@
-import { fetchReferenzen } from "@/api/referenzen";
 import { useQuery } from "@tanstack/react-query";
+import { fetchReferenzen } from "@/api/referenzen";
 
 export default function useReferenzen() {
   const {

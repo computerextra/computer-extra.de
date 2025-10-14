@@ -1,5 +1,5 @@
-import { fetchAbteilungen } from "@/api/abteilungen";
 import { useQuery } from "@tanstack/react-query";
+import { fetchAbteilungen } from "@/api/abteilungen";
 
 export default function useAbteilungen() {
   const {

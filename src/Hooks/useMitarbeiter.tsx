@@ -1,5 +1,5 @@
-import { fetchMitarbeiter } from "@/api/mitarbeiter";
 import { useQuery } from "@tanstack/react-query";
+import { fetchMitarbeiter } from "@/api/mitarbeiter";
 
 export default function useMitarbeiter() {
   const {

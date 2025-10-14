@@ -1,5 +1,5 @@
-import { fetchPartner } from "@/api/partner";
 import { useQuery } from "@tanstack/react-query";
+import { fetchPartner } from "@/api/partner";
 
 export default function usePartner() {
   const {

@@ -5,13 +5,8 @@
         "source.addMissingImports.ts": "explicit",
         "source.biome": "explicit",
         "source.fixAll.biome": "explicit",
-        "source.fixAll.ts": "explicit",
-        "source.organizeImports": "explicit",
         "source.organizeImports.biome": "explicit",
-        "source.removeUnused.ts": "explicit",
-        "source.removeUnusedImports": "explicit",
-        "source.sort.json": "explicit",
-        "source.sortImports": "explicit"
+        "source.sort.json": "explicit"
     },
     "editor.formatOnSave": true
 }

@@ -1,42 +1,62 @@
 {
 	"$schema": "https://biomejs.dev/schemas/2.2.6/schema.json",
-	"vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
-	"files": { "ignoreUnknown": false },
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		},
+		"enabled": true
+	},
+	"files": {
+		"ignoreUnknown": false
+	},
 	"formatter": {
+		"attributePosition": "auto",
+		"bracketSameLine": false,
+		"bracketSpacing": true,
 		"enabled": true,
+		"expand": "auto",
 		"formatWithErrors": false,
 		"indentStyle": "space",
 		"indentWidth": 2,
 		"lineEnding": "lf",
 		"lineWidth": 80,
-		"attributePosition": "auto",
-		"bracketSameLine": false,
-		"bracketSpacing": true,
-		"expand": "auto",
 		"useEditorconfig": true
 	},
-	"linter": {
-		"enabled": true,
-		"rules": { "recommended": false },
-		"includes": ["**", "!dist"]
+	"html": {
+		"formatter": {
+			"selfCloseVoidElements": "always"
+		}
 	},
 	"javascript": {
 		"formatter": {
+			"arrowParentheses": "always",
+			"attributePosition": "auto",
+			"bracketSameLine": false,
+			"bracketSpacing": true,
 			"jsxQuoteStyle": "double",
 			"quoteProperties": "asNeeded",
-			"trailingCommas": "es5",
-			"semicolons": "always",
-			"arrowParentheses": "always",
-			"bracketSameLine": false,
 			"quoteStyle": "double",
-			"attributePosition": "auto",
-			"bracketSpacing": true
+			"semicolons": "always",
+			"trailingCommas": "es5"
 		}
 	},
-	"html": { "formatter": { "selfCloseVoidElements": "always" } },
+	"linter": {
+		"enabled": true,
+		"includes": [
+			"**",
+			"!dist"
+		],
+		"rules": {
+			"recommended": false
+		}
+	},
 	"overrides": [
 		{
-			"includes": ["**/*.{ts,tsx}"],
+			"includes": [
+				"**/*.{ts,tsx}"
+			],
 			"linter": {
 				"rules": {
 					"complexity": {
@@ -46,8 +66,8 @@
 						"noUselessEscapeInRegex": "error"
 					},
 					"correctness": {
-						"noConstAssign": "error",
 						"noConstantCondition": "error",
+						"noConstAssign": "error",
 						"noEmptyCharacterClassInRegex": "error",
 						"noEmptyPattern": "error",
 						"noGlobalObjectCalls": "error",
@@ -103,12 +123,23 @@
 				}
 			}
 		},
-		{ "includes": ["**/*.{ts,tsx}"], "javascript": { "globals": [] } },
 		{
-			"includes": ["**/*.{ts,tsx}"],
+			"includes": [
+				"**/*.{ts,tsx}"
+			],
+			"javascript": {
+				"globals": []
+			}
+		},
+		{
+			"includes": [
+				"**/*.{ts,tsx}"
+			],
 			"linter": {
 				"rules": {
-					"complexity": { "noArguments": "error" },
+					"complexity": {
+						"noArguments": "error"
+					},
 					"correctness": {
 						"noConstAssign": "off",
 						"noGlobalObjectCalls": "off",
@@ -119,7 +150,9 @@
 						"noUnreachable": "off",
 						"noUnreachableSuper": "off"
 					},
-					"style": { "useConst": "error" },
+					"style": {
+						"useConst": "error"
+					},
 					"suspicious": {
 						"noClassAssign": "off",
 						"noDuplicateClassMembers": "off",
@@ -137,11 +170,17 @@
 			}
 		},
 		{
-			"includes": ["**/*.{ts,tsx}"],
+			"includes": [
+				"**/*.{ts,tsx}"
+			],
 			"linter": {
 				"rules": {
-					"complexity": { "noUselessTypeConstraint": "error" },
-					"correctness": { "noUnusedVariables": "error" },
+					"complexity": {
+						"noUselessTypeConstraint": "error"
+					},
+					"correctness": {
+						"noUnusedVariables": "error"
+					},
 					"style": {
 						"noCommonJs": "error",
 						"noNamespace": "error",
@@ -159,7 +198,9 @@
 			}
 		},
 		{
-			"includes": ["**/*.{ts,tsx}"],
+			"includes": [
+				"**/*.{ts,tsx}"
+			],
 			"linter": {
 				"rules": {
 					"correctness": {
@@ -169,9 +210,18 @@
 				}
 			}
 		},
-		{ "includes": ["**/*.{ts,tsx}"], "linter": { "rules": {} } },
 		{
-			"includes": ["**/*.{ts,tsx}"],
+			"includes": [
+				"**/*.{ts,tsx}"
+			],
+			"linter": {
+				"rules": {}
+			}
+		},
+		{
+			"includes": [
+				"**/*.{ts,tsx}"
+			],
 			"javascript": {
 				"globals": [
 					"onanimationend",
@@ -303,8 +353,9 @@
 			}
 		}
 	],
-	"assist": {
-		"enabled": true,
-		"actions": { "source": { "organizeImports": "on" } }
+	"vcs": {
+		"clientKind": "git",
+		"enabled": false,
+		"useIgnoreFile": false
 	}
 }

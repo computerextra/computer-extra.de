@@ -1,9 +1,9 @@
+import { useQuery } from "@tanstack/react-query";
 import {
   getBlankoAnlageA,
   getBlankoAnlageB,
   getBlankoVertrag,
 } from "@/api/Auftragsdatenverarbeitung";
-import { useQuery } from "@tanstack/react-query";
 
 export function useBlankoVertrag() {
   const {

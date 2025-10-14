@@ -1,5 +1,5 @@
-import { fetchAngebote } from "@/api/angebote";
 import { useQuery } from "@tanstack/react-query";
+import { fetchAngebote } from "@/api/angebote";
 
 export default function useAngebote() {
   const {
