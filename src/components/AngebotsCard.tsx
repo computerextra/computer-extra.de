@@ -4,7 +4,13 @@ import { Clock } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
-export default function AngebotCard({ Angebot }: { Angebot: Angebot }) {
+export default function AngebotCard({
+  Angebot,
+  idx,
+}: {
+  Angebot: Angebot;
+  idx: number;
+}) {
   const isActive =
     new Date() > new Date(Angebot.date_start) &&
     new Date() < new Date(Angebot.date_stop);
@@ -13,7 +19,7 @@ export default function AngebotCard({ Angebot }: { Angebot: Angebot }) {
     <>
       <Card
         className={cn(
-          Angebot.title.toLowerCase().includes("telekom")
+          idx % 2 == 0
             ? "lg:col-span-3 row-span-1"
             : "lg:col-span-2 row-span-1",
           "transition-shadow duration-300 shadow-sm group bg-slate-100  border-blue-950 hover:shadow-md"

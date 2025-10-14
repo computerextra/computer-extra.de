@@ -85,8 +85,8 @@ export default function AngeboteSeite() {
         }
       >
         <div className="grid grid-cols-1 gap-5 mt-10 lg:grid-cols-5 max-h-[1000px]">
-          {Angebote?.map((Angebot) => (
-            <AngebotCard key={Angebot.id} Angebot={Angebot} />
+          {Angebote?.map((Angebot, idx) => (
+            <AngebotCard key={Angebot.id} Angebot={Angebot} idx={idx} />
           ))}
         </div>
       </Suspense>
