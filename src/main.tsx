@@ -1,10 +1,23 @@
-import { StrictMode } from "react";
+import { lazy, StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter, Route, Routes } from "react-router";
+import { ThemeProvider } from "./components/theme-provider";
 import "./index.css";
-import App from "./App.tsx";
+import Layout from "./Layout";
+
+// Lazy Load Pages to reduce package size
+const Home = lazy(() => import("./Pages/Home"));
 
 createRoot(document.getElementById("root")!).render(
-	<StrictMode>
-		<App />
-	</StrictMode>,
+  <StrictMode>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<Home />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
+  </StrictMode>
 );
