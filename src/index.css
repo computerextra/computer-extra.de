@@ -121,3 +121,16 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+@font-face {
+  font-family: "Envision";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Envision.woff") format("woff"),
+    url("/fonts/Envision.woff2") format("woff2");
+}
+
+@theme {
+  --font-envision: "Envision";
+}

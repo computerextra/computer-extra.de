@@ -1,29 +1,47 @@
 import { Outlet } from "react-router";
-import Navbar from "./components/ui/navigation";
+import Navbar from "./components/navigation";
 
 const navigationData = [
   {
-    title: "Home",
-    href: "#",
+    title: "Start",
+    href: "/#Hero",
   },
   {
-    title: "Products",
-    href: "#",
+    title: "Angebote",
+    href: "/#Angebote",
   },
   {
-    title: "About Us",
-    href: "#",
+    title: "Leistungen",
+    href: "/#Leistungen",
   },
   {
-    title: "Contacts",
-    href: "#",
+    title: "Partner",
+    href: "/#Partner",
+  },
+  {
+    title: "Team",
+    href: "/#Team",
+  },
+  {
+    title: "Jobs",
+    href: "/Jobs",
+  },
+  {
+    title: "Fernwartung",
+    href: "/Fernwartung",
+  },
+  {
+    title: "Kontakt",
+    href: "/#Kontakt",
   },
 ];
 
 export default function Layout() {
   return (
     <div className="container mx-auto">
-      <Navbar navigationData={navigationData} />
+      <div className="sticky top-0">
+        <Navbar navigationData={navigationData} />
+      </div>
       <Outlet />
     </div>
   );

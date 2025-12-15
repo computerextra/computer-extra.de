@@ -7,6 +7,7 @@ import Layout from "./Layout";
 
 // Lazy Load Pages to reduce package size
 const Home = lazy(() => import("./Pages/Home"));
+const Leistungen = lazy(() => import("./Pages/Leistungen"));
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="Leistungen" element={<Leistungen />} />
           </Route>
         </Routes>
       </BrowserRouter>
