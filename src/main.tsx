@@ -1,22 +1,22 @@
 import { lazy, StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+
 import { BrowserRouter, Route, Routes } from "react-router";
 import { ThemeProvider } from "./components/theme-provider";
 import "./index.css";
-import Layout from "./Layout";
 
-// Lazy Load Pages to reduce package size
+const Layout = lazy(() => import("./Layout"));
 const Home = lazy(() => import("./Pages/Home"));
-const Leistungen = lazy(() => import("./Pages/Leistungen"));
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider>
+    <ThemeProvider defaultTheme="system" storageKey="computer-extra-theme">
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="Leistungen" element={<Leistungen />} />
+
+            <Route path="*" element={<>Catch All</>} />
           </Route>
         </Routes>
       </BrowserRouter>

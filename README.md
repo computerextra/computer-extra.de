@@ -1,7 +1,3 @@
-router: https://reactrouter.com/
+# React + TypeScript + Vite + shadcn/ui
 
-Components: https://www.cult-ui.com/docs/installation
-https://ui.shadcn.com/docs/components/card
-
-
-template: https://cult-polar-starter.vercel.app/
+This is a template for a new Vite project with React, TypeScript, and shadcn/ui.
