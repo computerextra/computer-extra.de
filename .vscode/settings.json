@@ -4,7 +4,7 @@
     "astro.content-intellisense": true,
     "astro.updateImportsOnFileMove.enabled": true,
     "[astro]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "astro-build.astro-vscode"
     },
     "[json]": {
         "editor.quickSuggestions": {
@@ -35,6 +35,18 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false,
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
