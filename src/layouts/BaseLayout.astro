@@ -19,11 +19,11 @@ const { title, frontmatter } = Astro.props;
     <title>Computer Extra GmbH | {title ? title : frontmatter?.title}</title>
   </head>
   <body>
-    <nav></nav>
-    <main class="container mx-auto">
-      <h1>{title ? title : frontmatter?.title}</h1>
-      <slot />
-    </main>
+    <ScrollArea>
+      <div data-scheme="secondary" class="bg-primary text-primary rounded">
+        <slot />
+      </div>
+    </ScrollArea>
     <footer></footer>
   </body>
 </html>
