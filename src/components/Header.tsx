@@ -12,6 +12,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
+import axios from "axios";
 
 // TODO: Logo
 const Logo = (props: React.SVGAttributes<SVGElement>) => {
@@ -94,70 +95,17 @@ export interface NavbarNavItem {
 export interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
   logo?: React.ReactNode;
   logoHref?: string;
-  navigationLinks?: NavbarNavItem[];
-  ctaText?: string;
-  ctaHref?: string;
-  onCtaClick?: () => void;
 }
 
-// TODO: Links
-const defaultNavigationLinks: NavbarNavItem[] = [
-  { href: "/", label: "Startseite" },
-  {
-    label: "Leistungen",
-    submenu: true,
-    type: "simple",
-    items: [
-      {
-        href: "#components",
-        label: "Components",
-      },
-      {
-        href: "#documentation",
-        label: "Documentation",
-      },
-      {
-        href: "#templates",
-        label: "Templates",
-      },
-    ],
-  },
-  { label: "Partner", href: "/" },
-  { label: "Team", href: "/" },
-  {
-    label: "Jobs",
-    submenu: true,
-    type: "simple",
-    items: [
-      {
-        href: "/",
-        label: "xyz",
-      },
-      {
-        href: "/",
-        label: "xyz2",
-      },
-      {
-        href: "/",
-        label: "xyz3",
-      },
-    ],
-  },
-  { label: "Termin", href: "/" },
-];
-
 export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
-  (
-    {
-      className,
-      logo = <Logo />,
-      logoHref = "/",
-      navigationLinks = defaultNavigationLinks,
-      ...props
-    },
-    ref,
-  ) => {
+  ({ className, logo = <Logo />, logoHref = "/", ...props }, ref) => {
     const [isMobile, setIsMobile] = React.useState(false);
+    const [Jobs, setJobs] = React.useState<
+      undefined | { href: string; label: string }[]
+    >(undefined);
+    const [Ausbildung, setAusbildung] = React.useState<
+      undefined | { href: string; label: string }[]
+    >(undefined);
     const containerRef = React.useRef<HTMLElement>(null);
     React.useEffect(() => {
       const checkWidth = () => {
@@ -175,6 +123,83 @@ export const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
         resizeObserver.disconnect();
       };
     }, []);
+
+    React.useEffect(() => {
+      (async () => {
+        const res = await axios.get<{
+          success: boolean;
+          data: Array<{
+            id: string;
+            name: string;
+            online: number;
+            isAusbilung: number;
+            Beschreibung: string;
+          }>;
+        }>("https://api.computer-extra.de/jobs.php");
+        if (res?.data?.data) {
+          const a: { href: string; label: string }[] = [];
+          const j: { href: string; label: string }[] = [];
+
+          res.data.data.forEach((x) => {
+            if (x.online == 1) {
+              if (x.isAusbilung == 1) {
+                a.push({
+                  href: `/Jobs/${x.id}`,
+                  label: x.name,
+                });
+              } else {
+                j.push({
+                  href: `/Ausbildung/${x.id}`,
+                  label: x.name,
+                });
+              }
+            }
+          });
+          setAusbildung(a);
+          setJobs(j);
+        }
+      })();
+    }, []);
+
+    // TODO: Links
+    const navigationLinks: NavbarNavItem[] = [
+      { href: "/", label: "Startseite" },
+      {
+        label: "Leistungen",
+        submenu: true,
+        type: "simple",
+        items: [
+          {
+            href: "#components",
+            label: "Components",
+          },
+          {
+            href: "#documentation",
+            label: "Documentation",
+          },
+          {
+            href: "#templates",
+            label: "Templates",
+          },
+        ],
+      },
+      { label: "Partner", href: "/" },
+      { label: "Team", href: "/" },
+      {
+        label: "Jobs",
+        submenu: true,
+        type: "simple",
+        items: Jobs,
+      },
+      {
+        label: "Ausbildung",
+        submenu: true,
+        type: "simple",
+        items: Ausbildung,
+      },
+      { label: "Termin", href: "/" },
+    ];
+
     // Combine refs
     const combinedRef = React.useCallback(
       (node: HTMLElement | null) => {
@@ -441,7 +466,7 @@ Navbar.displayName = "Navbar";
 
 // ListItem component for navigation menu items
 const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
+  React.ComponentRef<"a">,
   React.ComponentPropsWithoutRef<"a"> & {
     title: string;
     href?: string;
