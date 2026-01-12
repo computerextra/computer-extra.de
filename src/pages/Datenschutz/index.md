@@ -1,8 +1,27 @@
 ---
 layout: ../../layouts/BaseLayout.astro
-title: Datenschutz
+title: Datenschutzerklärung
 ---
 
+<!-- TODO: Neue AVV einbauen: Siehe aktuelle Beta -->
+<div class="flex items-center w-full my-5">
+          <a
+            href="https://dsgvo3.ds-manager.net/computerextra/onlinevt.html?key=6ThOZSR1cvQCMdES"
+            target="_blank"
+            class="relative px-10 py-5 overflow-hidden font-medium text-gray-600 bg-gray-100 border border-gray-100 rounded-lg shadow-inner group"
+          >
+            <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-gray-600 group-hover:w-full ease"></span>
+            <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-gray-600 group-hover:w-full ease"></span>
+            <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
+            <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
+            <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">
+              Auftragsdatenverarbeitungsvertrag
+            </span>
+          </a>
+        </div>
+
+<div class="custom">
 <h1>Datenschutzerklärung</h1><h2>1. Einleitung</h2><p>Mit den folgenden Informationen möchten wir Ihnen als "betroffener Person" einen Überblick über die Verarbeitung Ihrer personenbezogenen Daten durch uns und Ihre Rechte aus den Datenschutzgesetzen geben. Eine Nutzung unserer Internetseiten ist grundsätzlich ohne Eingabe personenbezogener Daten möglich. Sofern Sie besondere Services unseres Unternehmens über unsere Internetseite in Anspruch nehmen möchten, könnte jedoch eine Verarbeitung personenbezogener Daten erforderlich werden. Ist die Verarbeitung personenbezogener Daten erforderlich und besteht für eine solche Verarbeitung keine gesetzliche Grundlage, holen wir generell eine Einwilligung von Ihnen ein.</p>
  <p>Die Verarbeitung von personenbezogenen Daten, beispielsweise Ihres Namens, der Anschrift oder der E-Mail-Adresse, erfolgt stets im Einklang mit der Datenschutz-Grundverordnung (DS-GVO) und in Übereinstimmung mit den für die "Computer Extra GmbH" geltenden landesspezifischen Datenschutzbestimmungen. Mittels dieser Datenschutzerklärung möchten wir Sie über Umfang und Zweck der von uns erhobenen, genutzten und verarbeiteten personenbezogenen Daten informieren.</p>
  <p>Wir haben als für die Verarbeitung Verantwortliche zahlreiche technische und organisatorische Maßnahmen umgesetzt, um einen möglichst lückenlosen Schutz der über diese Internetseite verarbeiteten personenbezogenen Daten sicherzustellen. Dennoch können internetbasierte Datenübertragungen grundsätzlich Sicherheitslücken aufweisen, sodass ein absoluter Schutz nicht gewährleistet werden kann. Aus diesem Grund steht es Ihnen frei, personenbezogene Daten auch auf alternativen Wegen, beispielsweise telefonisch oder per Post, an uns zu übermitteln.</p>
@@ -87,25 +106,203 @@ title: Datenschutz
  <p>Datenschutzerklärung:<br><a href='https://www.linkedin.com/legal/privacy-policy' rel='nofollow'>https://www.linkedin.com/legal/privacy-policy</a></p><h2>11. Webanalyse</h2><h3> 11.1 Posthog</h3>
 <p>Diese Website nutzt den Service “Posthog”. Anbieter ist die Posthog Inc., 965 Mission Street, San Francisco, CA 94103, USA.</p>
 
-<p>Wir nutzen Posthog, um das Nutzerverhalten bei der Nutzung unserer Services besser nachvollziehen und um unser Angebot optimieren zu können. Dabei kann Posthog Ihr Verhalten auf unserer Webseite aufzeichnen und wiedergeben.</p>
-
-<p>Für die Analyse der Softwarenutzung werden die IP-Adresse und Informationen wie Zeitstempel, Klicks und Ihre Spracheinstellungen in verkürzter Form erfasst und weiterverarbeitet, wodurch ein direkter Personenbezug ausgeschlossen wird. Zudem werden die mittels PostHog ermittelten statistischen Daten nicht mit anderen von uns erhobenen Daten zusammengeführt.</p>
-
-<p>Die zeitlich begrenzte Verarbeitung und Speicherung dieser Daten findet grundsätzlich innerhalb der EU statt. Sollte eine Datenübermittlung aus der EU in Posthog’s AWS-Umgebung in den USA erforderlich sein, ist diese auf die EU-Standardvertragsklauseln (SCC) gestützt. Details dazu finden Sie hier: 
-<a href="https://docs.google.com/document/d/1reTUk6VTsTLo1ErNYn-Tdmj_ETo8QYNH6tNCaebDwpE/edit?usp=sharing">Posthog EU Standard Contractual Clauses (SCCs)</a>
+<p>
+  Wir nutzen Posthog, um das Nutzerverhalten bei der Nutzung unserer Services
+  besser nachvollziehen und um unser Angebot optimieren zu können. Dabei kann
+  Posthog Ihr Verhalten auf unserer Webseite aufzeichnen und wiedergeben.
 </p>
 
-<p>Die Benutzung erfolgt auf Grund unseres berechtigten Interesses nach Art. 6 Abs. 1 S. 1 lit. f DSGVO zur Analyse und Optimierung unserer Online-Angebote. Dies dient dem wirtschaftlichen Betrieb unserer Webseite/App und verbessert das Nutzererlebnis.</p>
-
-<p>Weitere Informationen können in der Datenschutzerklärung von Posthog eingesehen werden: 
-<a href="https://posthog.com/privacy">https://posthog.com/privacy</a></p><h2>12. Plugins und andere Dienste</h2><h3> 12.1 meetergo</h3>
 <p>
-Wir haben meetergo auf dieser Webseite eingebunden. Anbieter ist die meetergo GmbH, Hauptstr. 44, 40789 Monheim am Rhein (nachfolgend meetergo). meetergo stellt ein Online-Terminvergabe-Tool bereit. Wenn Sie online einen Termin mit uns vereinbaren, werden Ihre hierzu eingegebenen Daten auf den Servern von meetergo in Deutschland gespeichert. Des Weiteren erfasst meetergo kurzfristig Ihre IP-Adresse, Ihre Referrer-URL, die Uhrzeit des Zugriffs und kann feststellen, dass Sie bei uns eine Anfrage gestellt haben; diese Daten werden ausschließlich für die technische Bereitstellung des Dienstes verwendet und anschließend automatisch wieder gelöscht. Die Verwendung von meetergo erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an einer möglichst unkomplizierten Terminvereinbarung. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 1 lit. a; die Einwilligung ist jederzeit widerrufbar</p><h2>13. Ihre Rechte als betroffene Person</h2><h3>13.1 Recht auf Bestätigung</h3><p>Sie haben das Recht, von uns eine Bestätigung darüber zu verlangen, ob Sie betreffende personenbezogene Daten verarbeitet werden.</p><h3>13.2 Recht auf Auskunft Art. 15 DS-GVO</h3><p>Sie haben das Recht, jederzeit von uns unentgeltliche Auskunft über die zu Ihrer Person gespeicherten personenbezogenen Daten sowie eine Kopie dieser Daten nach Maßgabe der gesetzlichen Bestimmungen zu erhalten.</p><h3>13.3 Recht auf Berichtigung Art. 16 DS-GVO</h3><p>Sie haben das Recht, die Berichtigung Sie betreffender unrichtiger personenbezogener Daten zu verlangen. Ferner steht Ihnen das Recht zu, unter Berücksichtigung der Zwecke der Verarbeitung, die Vervollständigung unvollständiger personenbezogener Daten zu verlangen.</p><h3>13.4 Löschung Art. 17 DS-GVO</h3><p>Sie haben das Recht, von uns zu verlangen, dass die Sie betreffenden personenbezogenen Daten unverzüglich gelöscht werden, sofern einer der gesetzlich vorgesehenen Gründe zutrifft und soweit die Verarbeitung bzw. Speicherung nicht erforderlich ist.</p><h3>13.5 Einschränkung der Verarbeitung Art. 18 DS-GVO</h3><p>Sie haben das Recht, von uns die Einschränkung der Verarbeitung zu verlangen, wenn eine der gesetzlichen Voraussetzungen gegeben ist.</p><h3>13.6 Datenübertragbarkeit Art. 20 DS-GVO</h3><p>Sie haben das Recht, die Sie betreffenden personenbezogenen Daten, welche uns durch Sie bereitgestellt wurden, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten. Sie haben außerdem das Recht, diese Daten einem anderen Verantwortlichen ohne Behinderung durch uns, dem die personenbezogenen Daten bereitgestellt wurden, zu übermitteln, sofern die Verarbeitung auf der Einwilligung gemäß Art. 6 Abs. 1 lit. a) DS-GVO oder Art. 9 Abs. 2 lit. a) DS-GVO oder auf einem Vertrag gemäß Art. 6 Abs. 1 lit. b) DS-GVO beruht und die Verarbeitung mithilfe automatisierter Verfahren erfolgt, sofern die Verarbeitung nicht für die Wahrnehmung einer Aufgabe erforderlich ist, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, welche uns übertragen wurde.</p>
- <p>Ferner haben Sie bei der Ausübung Ihres Rechts auf Datenübertragbarkeit gemäß Art. 20 Abs. 1 DS-GVO das Recht, zu erwirken, dass die personenbezogenen Daten direkt von einem Verantwortlichen an einen anderen Verantwortlichen übermittelt werden, soweit dies technisch machbar ist und sofern hiervon nicht die Rechte und Freiheiten anderer Personen beeinträchtigt werden.</p><div style="border: 2px solid black;"><h3>13.7 Widerspruch Art. 21 DS-GVO</h3><p>Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Sie betreffender personenbezogener Daten, die aufgrund von Art. 6 Abs. 1 lit. e) (Datenverarbeitung im öffentlichen Interesse) oder f (Datenverarbeitung auf Grundlage einer Interessenabwägung) DS-GVO erfolgt, Widerspruch einzulegen.</p>
- <p>Dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling im Sinne von Art. 4 Nr. 4 DS-GVO.</p>
- <p>Legen Sie Widerspruch ein, werden wir Ihre personenbezogenen Daten nicht mehr verarbeiten, es sei denn, wir können zwingende berechtigte Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder sofern die Verarbeitung der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen dient.</p>
- <p>In Einzelfällen verarbeiten wir personenbezogene Daten, um Direktwerbung zu betreiben. Sie können jederzeit Widerspruch gegen die Verarbeitung der personenbezogenen Daten zum Zwecke derartiger Werbung einlegen. Dies gilt auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht. Widersprechen Sie gegenüber uns der Verarbeitung für Zwecke der Direktwerbung, so werden wir die personenbezogenen Daten nicht mehr für diese Zwecke verarbeiten.</p>
- <p>Zudem haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, gegen die Sie betreffende Verarbeitung personenbezogener Daten, die bei uns zu wissenschaftlichen oder historischen Forschungszwecken oder zu statistischen Zwecken gemäß Art. 89 Abs. 1 DS-GVO erfolgen, Widerspruch einzulegen, es sei denn, eine solche Verarbeitung ist zur Erfüllung einer im öffentlichen Interesse liegenden Aufgabe erforderlich.</p>
- <p>Ihnen steht es frei, im Zusammenhang mit der Nutzung von Diensten der Informationsgesellschaft, ungeachtet der Richtlinie 2002/58/EG, Ihr Widerspruchsrecht mittels automatisierter Verfahren auszuüben, bei denen technische Spezifikationen verwendet werden.</p></div><h3>13.8 Widerruf einer datenschutzrechtlichen Einwilligung</h3><p>Sie haben das Recht, eine Einwilligung zur Verarbeitung personenbezogener Daten jederzeit mit Wirkung für die Zukunft zu widerrufen.</p><h3>13.9 Beschwerde bei einer Aufsichtsbehörde</h3><p>Sie haben das Recht, sich bei einer für Datenschutz zuständigen Aufsichtsbehörde über unsere Verarbeitung personenbezogener Daten zu beschweren.</p><h2>14. Routinemäßige Speicherung, Löschung und Sperrung von personenbezogenen Daten</h2><p>Wir verarbeiten und speichern Ihre personenbezogenen Daten nur für den Zeitraum, der zur Erreichung des Speicherungszwecks erforderlich ist oder sofern dies durch die Rechtsvorschriften, welchen unser Unternehmen unterliegt, vorgesehen wurde.</p>
- <p>Entfällt der Speicherungszweck oder läuft eine vorgeschriebene Speicherfrist ab, werden die personenbezogenen Daten routinemäßig und entsprechend den gesetzlichen Vorschriften gesperrt oder gelöscht.</p><h2>15. Dauer der Speicherung von personenbezogenen Daten</h2><p>Das Kriterium für die Dauer der Speicherung von personenbezogenen Daten ist die jeweilige gesetzliche Aufbewahrungsfrist. Nach Ablauf der Frist werden die entsprechenden Daten routinemäßig gelöscht, sofern sie nicht mehr zur Vertragserfüllung oder Vertragsanbahnung erforderlich sind.</p><h2>16. Aktualität und Änderung der Datenschutzerklärung</h2><p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand: Januar 2026.</p>
- <p>Durch die Weiterentwicklung unserer Internetseiten und Angebote oder aufgrund geänderter gesetzlicher beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf der Website unter "https://computer-extra.de/Datenschutz" von Ihnen abgerufen und ausgedruckt werden.</p><p>Diese Datenschutzerklärung wurde mit Unterstützung der Datenschutz-Software: <a href='https://www.audatis-manager.de'>audatis MANAGER</a> erstellt.</p>
+  Für die Analyse der Softwarenutzung werden die IP-Adresse und Informationen
+  wie Zeitstempel, Klicks und Ihre Spracheinstellungen in verkürzter Form
+  erfasst und weiterverarbeitet, wodurch ein direkter Personenbezug
+  ausgeschlossen wird. Zudem werden die mittels PostHog ermittelten
+  statistischen Daten nicht mit anderen von uns erhobenen Daten zusammengeführt.
+</p>
+
+<p>
+  Die zeitlich begrenzte Verarbeitung und Speicherung dieser Daten findet
+  grundsätzlich innerhalb der EU statt. Sollte eine Datenübermittlung aus der EU
+  in Posthog’s AWS-Umgebung in den USA erforderlich sein, ist diese auf die
+  EU-Standardvertragsklauseln (SCC) gestützt. Details dazu finden Sie hier:
+  <a href="https://docs.google.com/document/d/1reTUk6VTsTLo1ErNYn-Tdmj_ETo8QYNH6tNCaebDwpE/edit?usp=sharing">
+    Posthog EU Standard Contractual Clauses (SCCs)
+  </a>
+</p>
+
+<p>
+  Die Benutzung erfolgt auf Grund unseres berechtigten Interesses nach Art. 6
+  Abs. 1 S. 1 lit. f DSGVO zur Analyse und Optimierung unserer Online-Angebote.
+  Dies dient dem wirtschaftlichen Betrieb unserer Webseite/App und verbessert
+  das Nutzererlebnis.
+</p>
+
+<p>
+  Weitere Informationen können in der Datenschutzerklärung von Posthog
+  eingesehen werden:
+  <a href="https://posthog.com/privacy">https://posthog.com/privacy</a>
+</p>
+<h2>12. Plugins und andere Dienste</h2>
+<h3> 12.1 meetergo</h3>
+<p>
+  Wir haben meetergo auf dieser Webseite eingebunden. Anbieter ist die meetergo
+  GmbH, Hauptstr. 44, 40789 Monheim am Rhein (nachfolgend meetergo). meetergo
+  stellt ein Online-Terminvergabe-Tool bereit. Wenn Sie online einen Termin mit
+  uns vereinbaren, werden Ihre hierzu eingegebenen Daten auf den Servern von
+  meetergo in Deutschland gespeichert. Des Weiteren erfasst meetergo kurzfristig
+  Ihre IP-Adresse, Ihre Referrer-URL, die Uhrzeit des Zugriffs und kann
+  feststellen, dass Sie bei uns eine Anfrage gestellt haben; diese Daten werden
+  ausschließlich für die technische Bereitstellung des Dienstes verwendet und
+  anschließend automatisch wieder gelöscht. Die Verwendung von meetergo erfolgt
+  auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein
+  berechtigtes Interesse an einer möglichst unkomplizierten Terminvereinbarung.
+  Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die
+  Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw.
+  Art. 9 Abs. 1 lit. a; die Einwilligung ist jederzeit widerrufbar
+</p>
+<h2>13. Ihre Rechte als betroffene Person</h2>
+<h3>13.1 Recht auf Bestätigung</h3>
+<p>
+  Sie haben das Recht, von uns eine Bestätigung darüber zu verlangen, ob Sie
+  betreffende personenbezogene Daten verarbeitet werden.
+</p>
+<h3>13.2 Recht auf Auskunft Art. 15 DS-GVO</h3>
+<p>
+  Sie haben das Recht, jederzeit von uns unentgeltliche Auskunft über die zu
+  Ihrer Person gespeicherten personenbezogenen Daten sowie eine Kopie dieser
+  Daten nach Maßgabe der gesetzlichen Bestimmungen zu erhalten.
+</p>
+<h3>13.3 Recht auf Berichtigung Art. 16 DS-GVO</h3>
+<p>
+  Sie haben das Recht, die Berichtigung Sie betreffender unrichtiger
+  personenbezogener Daten zu verlangen. Ferner steht Ihnen das Recht zu, unter
+  Berücksichtigung der Zwecke der Verarbeitung, die Vervollständigung
+  unvollständiger personenbezogener Daten zu verlangen.
+</p>
+<h3>13.4 Löschung Art. 17 DS-GVO</h3>
+<p>
+  Sie haben das Recht, von uns zu verlangen, dass die Sie betreffenden
+  personenbezogenen Daten unverzüglich gelöscht werden, sofern einer der
+  gesetzlich vorgesehenen Gründe zutrifft und soweit die Verarbeitung bzw.
+  Speicherung nicht erforderlich ist.
+</p>
+<h3>13.5 Einschränkung der Verarbeitung Art. 18 DS-GVO</h3>
+<p>
+  Sie haben das Recht, von uns die Einschränkung der Verarbeitung zu verlangen,
+  wenn eine der gesetzlichen Voraussetzungen gegeben ist.
+</p>
+<h3>13.6 Datenübertragbarkeit Art. 20 DS-GVO</h3>
+<p>
+  Sie haben das Recht, die Sie betreffenden personenbezogenen Daten, welche uns
+  durch Sie bereitgestellt wurden, in einem strukturierten, gängigen und
+  maschinenlesbaren Format zu erhalten. Sie haben außerdem das Recht, diese
+  Daten einem anderen Verantwortlichen ohne Behinderung durch uns, dem die
+  personenbezogenen Daten bereitgestellt wurden, zu übermitteln, sofern die
+  Verarbeitung auf der Einwilligung gemäß Art. 6 Abs. 1 lit. a) DS-GVO oder Art.
+  9 Abs. 2 lit. a) DS-GVO oder auf einem Vertrag gemäß Art. 6 Abs. 1 lit. b)
+  DS-GVO beruht und die Verarbeitung mithilfe automatisierter Verfahren erfolgt,
+  sofern die Verarbeitung nicht für die Wahrnehmung einer Aufgabe erforderlich
+  ist, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt
+  erfolgt, welche uns übertragen wurde.
+</p>
+<p>
+  Ferner haben Sie bei der Ausübung Ihres Rechts auf Datenübertragbarkeit gemäß
+  Art. 20 Abs. 1 DS-GVO das Recht, zu erwirken, dass die personenbezogenen Daten
+  direkt von einem Verantwortlichen an einen anderen Verantwortlichen
+  übermittelt werden, soweit dies technisch machbar ist und sofern hiervon nicht
+  die Rechte und Freiheiten anderer Personen beeinträchtigt werden.
+</p>
+<div style="border: 2px solid black;">
+  <h3>13.7 Widerspruch Art. 21 DS-GVO</h3>
+  <p>
+    Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation
+    ergeben, jederzeit gegen die Verarbeitung Sie betreffender personenbezogener
+    Daten, die aufgrund von Art. 6 Abs. 1 lit. e) (Datenverarbeitung im
+    öffentlichen Interesse) oder f (Datenverarbeitung auf Grundlage einer
+    Interessenabwägung) DS-GVO erfolgt, Widerspruch einzulegen.
+  </p>
+  <p>
+    Dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling im Sinne
+    von Art. 4 Nr. 4 DS-GVO.
+  </p>
+  <p>
+    Legen Sie Widerspruch ein, werden wir Ihre personenbezogenen Daten nicht
+    mehr verarbeiten, es sei denn, wir können zwingende berechtigte Gründe für
+    die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten
+    überwiegen, oder sofern die Verarbeitung der Geltendmachung, Ausübung oder
+    Verteidigung von Rechtsansprüchen dient.
+  </p>
+  <p>
+    In Einzelfällen verarbeiten wir personenbezogene Daten, um Direktwerbung zu
+    betreiben. Sie können jederzeit Widerspruch gegen die Verarbeitung der
+    personenbezogenen Daten zum Zwecke derartiger Werbung einlegen. Dies gilt
+    auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung
+    steht. Widersprechen Sie gegenüber uns der Verarbeitung für Zwecke der
+    Direktwerbung, so werden wir die personenbezogenen Daten nicht mehr für
+    diese Zwecke verarbeiten.
+  </p>
+  <p>
+    Zudem haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen
+    Situation ergeben, gegen die Sie betreffende Verarbeitung personenbezogener
+    Daten, die bei uns zu wissenschaftlichen oder historischen Forschungszwecken
+    oder zu statistischen Zwecken gemäß Art. 89 Abs. 1 DS-GVO erfolgen,
+    Widerspruch einzulegen, es sei denn, eine solche Verarbeitung ist zur
+    Erfüllung einer im öffentlichen Interesse liegenden Aufgabe erforderlich.
+  </p>
+  <p>
+    Ihnen steht es frei, im Zusammenhang mit der Nutzung von Diensten der
+    Informationsgesellschaft, ungeachtet der Richtlinie 2002/58/EG, Ihr
+    Widerspruchsrecht mittels automatisierter Verfahren auszuüben, bei denen
+    technische Spezifikationen verwendet werden.
+  </p>
+</div>
+<h3>13.8 Widerruf einer datenschutzrechtlichen Einwilligung</h3>
+<p>
+  Sie haben das Recht, eine Einwilligung zur Verarbeitung personenbezogener
+  Daten jederzeit mit Wirkung für die Zukunft zu widerrufen.
+</p>
+<h3>13.9 Beschwerde bei einer Aufsichtsbehörde</h3>
+<p>
+  Sie haben das Recht, sich bei einer für Datenschutz zuständigen
+  Aufsichtsbehörde über unsere Verarbeitung personenbezogener Daten zu
+  beschweren.
+</p>
+<h2>
+  14. Routinemäßige Speicherung, Löschung und Sperrung von personenbezogenen
+  Daten
+</h2>
+<p>
+  Wir verarbeiten und speichern Ihre personenbezogenen Daten nur für den
+  Zeitraum, der zur Erreichung des Speicherungszwecks erforderlich ist oder
+  sofern dies durch die Rechtsvorschriften, welchen unser Unternehmen
+  unterliegt, vorgesehen wurde.
+</p>
+<p>
+  Entfällt der Speicherungszweck oder läuft eine vorgeschriebene Speicherfrist
+  ab, werden die personenbezogenen Daten routinemäßig und entsprechend den
+  gesetzlichen Vorschriften gesperrt oder gelöscht.
+</p>
+<h2>15. Dauer der Speicherung von personenbezogenen Daten</h2>
+<p>
+  Das Kriterium für die Dauer der Speicherung von personenbezogenen Daten ist
+  die jeweilige gesetzliche Aufbewahrungsfrist. Nach Ablauf der Frist werden die
+  entsprechenden Daten routinemäßig gelöscht, sofern sie nicht mehr zur
+  Vertragserfüllung oder Vertragsanbahnung erforderlich sind.
+</p>
+<h2>16. Aktualität und Änderung der Datenschutzerklärung</h2>
+<p>
+  Diese Datenschutzerklärung ist aktuell gültig und hat den Stand: Januar 2026.
+</p>
+<p>
+  Durch die Weiterentwicklung unserer Internetseiten und Angebote oder aufgrund
+  geänderter gesetzlicher beziehungsweise behördlicher Vorgaben kann es
+  notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle
+  Datenschutzerklärung kann jederzeit auf der Website unter
+  "https://computer-extra.de/Datenschutz" von Ihnen abgerufen und ausgedruckt
+  werden.
+</p>
+<p>
+  Diese Datenschutzerklärung wurde mit Unterstützung der Datenschutz-Software:
+  <a href="https://www.audatis-manager.de">audatis MANAGER</a> erstellt.
+</p>
+</div>

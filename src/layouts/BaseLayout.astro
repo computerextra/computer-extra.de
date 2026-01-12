@@ -1,33 +1,93 @@
 ---
-import "../globals.css";
+import Main from "./Main.astro";
 
-import Footer from "@/components/Footer.astro";
-import { Navbar } from "@/components/Header";
+import { cn } from "@/lib/utils";
 
 interface Props {
   title?: string;
+  subtitle?: string;
   frontmatter?: { title?: string };
 }
 
-const { title, frontmatter } = Astro.props;
+const { title, subtitle, frontmatter } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<Main title={title} frontmatter={frontmatter}>
+  {
+    title === "Leistungen" ? (
+      <video
+        autoplay
+        id="bgvid"
+        muted
+        loop
+        playsinline
+        src="/videos/LeistungenBg.mp4"
+        class="absolute top-0 right-0 bottom-0 left-0 z-10 min-h-screen min-w-full bg-blue-600 object-cover"
+      />
+    ) : (
+      <video
+        autoplay
+        id="bgvid"
+        muted
+        loop
+        playsinline
+        src="/videos/VideoBg.mp4"
+        class="absolute top-0 right-0 bottom-0 left-0 z-10 aspect-video min-h-screen min-w-full bg-blue-600 object-cover"
+      />
+    )
+  }
 
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <title>Computer Extra GmbH | {title ? title : frontmatter?.title}</title>
-  </head>
-  <body class="flex min-h-screen flex-col antialiased">
-    <header class="container mx-auto">
-      <Navbar client:only />
-    </header>
-    <main class="container mx-auto mt-5 grow">
-      <slot />
-    </main>
-    <Footer />
-  </body>
-</html>
+  <div class="relative z-30 min-h-screen w-full">
+    <div
+      class={cn(
+        "min-h-[60vh] ps-5 pe-5 lg:min-h-[80vh] 2xl:min-h-[60vh] flex flex-col text-center justify-center w-full z-20",
+        title === "Leistung" && "bg-black/30"
+      )}
+    >
+      <h1 class="text-5xl font-bold hyphens-manual text-slate-100 lg:text-9xl">
+        {title || frontmatter?.title}
+      </h1>
+      <h2 class="pt-4 text-2xl font-semibold text-slate-100">
+        {subtitle}
+      </h2>
+
+      {
+        (title === "404" || title === "Erfolg" || title === "Fehler") && (
+          <a
+            href="/"
+            class="mx-auto mt-16 w-max rounded-xl bg-white p-6 hover:underline focus:underline"
+          >
+            Zur Startseite
+          </a>
+        )
+      }
+    </div>
+    <div class="mx-auto hidden h-8 w-[98%] rounded-t-3xl bg-white/50 lg:block">
+    </div>
+    <div
+      class="min-h-[45vh] w-full rounded-t-3xl bg-white pt-5 pb-10"
+      id="contentbg"
+    >
+      <div class="mx-auto w-11/12 rounded-t-xl bg-white pt-10">
+        <slot />
+      </div>
+    </div>
+  </div>
+  <script is:inline>
+    const videoBgElem = document.querySelector("#bgvid");
+    if (videoBgElem == null) return;
+
+    const videoHeight = videoBgElem.clientHeight;
+    const windowHeight = window.innerHeight;
+    // 60vh!
+    const vh = (windowHeight / 100) * 60;
+
+    // set height of bg to cover video
+    const bgElem = document.querySelector("#contentbg");
+    if (bgElem == null) return;
+
+    bgElem.style.minHeight = `${videoHeight - vh}px`;
+
+    videoBgElem.playbackRate = 1;
+  </script>
+</Main>
