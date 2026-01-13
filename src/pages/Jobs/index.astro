@@ -1,0 +1,11 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import JobOverview from "@/components/JobOverview";
+---
+
+<BaseLayout
+  title="Stellenangebote"
+  subtitle="Wir suchen derzeit Verstärkung für unser Team!"
+>
+  <JobOverview client:only />
+</BaseLayout>

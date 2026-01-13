@@ -76,18 +76,21 @@ const { title, subtitle, frontmatter } = Astro.props;
     </div>
   </div>
   <script is:inline>
-    const videoBgElem = document.querySelector("#bgvid");
-    if (videoBgElem == null) return;
+    function setVideo() {
+      const videoBgElem = document.querySelector("#bgvid");
+      if (videoBgElem == null) return;
 
-    const videoHeight = videoBgElem.clientHeight;
-    const windowHeight = window.innerHeight;
-    // 60vh!
-    const vh = (windowHeight / 100) * 60;
+      const videoHeight = videoBgElem.clientHeight;
+      const windowHeight = window.innerHeight;
+      // 60vh!
+      const vh = (windowHeight / 100) * 60;
 
-    // set height of bg to cover video
-    const bgElem = document.querySelector("#contentbg");
-    if (bgElem == null) return;
+      // set height of bg to cover video
+      const bgElem = document.querySelector("#contentbg");
+      if (bgElem == null) return;
 
-    bgElem.style.minHeight = `${videoHeight - vh}px`;
+      bgElem.style.minHeight = `${videoHeight - vh}px`;
+    }
+    setVideo();
   </script>
 </Main>
