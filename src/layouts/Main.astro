@@ -1,7 +1,7 @@
 ---
 import "../globals.css";
 
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import Menu from "@/components/Menu";
 
 import Posthog from "@/components/posthog.astro";
@@ -29,7 +29,7 @@ const { title, frontmatter } = Astro.props;
   </head>
   <body class="scroll-smooth antialiased">
     <ScrollToTopButton client:only />
-    <Menu />
+    <Menu client:only />
     <slot />
     <Footer />
   </body>

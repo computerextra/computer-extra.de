@@ -1,7 +1,222 @@
 ---
+import GradientHeader from "@/components/ui/GradientHeader.astro";
 import StartLayout from "@/layouts/StartLayout.astro";
+
+import PartnerSelection from "@/components/PartnerSelection";
+import AngeboteSection from "@/components/AngeboteSection";
+import HomeBtn from "@/components/ui/HomeBtn.astro";
 ---
 
 <StartLayout title="Startseite">
-  <h1>Test</h1>
+  <!-- Header -->
+  <section
+    class="mx-0 mb-10 grid w-full gap-10 lg:mx-auto lg:w-[60%] lg:grid-cols-2"
+  >
+    <div>
+      <GradientHeader>
+        Wir bieten Ihnen ein ganzes Spektrum an Dienstleistungen im Bereich der
+        IT.
+      </GradientHeader>
+      <p class="text-lg">
+        Ob IT-Infrastruktur, Security oder Kommunikation, Computer Extra hat die
+        passenden Produkte und Services verfügbar. Privat-, Office- und
+        Gaming-PCs werden direkt auf Ihre Bedürfnisse zugeschnitten. Die
+        exklusive Partnerschaft mit der Telekom für Business- und Privattarife
+        runden das Gesamtpaket ab. Webdesign und -entwicklung sowie das passende
+        Hosting von Webseiten und Mails darf dabei nicht fehlen. Wenn doch
+        einmal etwas schiefläuft, sind die kompetenten Techniker per Fernwartung
+        schnell am Start und können viele Probleme in kürzester Zeit aus der
+        Ferne lösen. Falls das Problem größer oder komplexer wird, fahren die
+        Kollegen auch gerne vor Ort.
+      </p>
+    </div>
+    <div class="hidden animate-bounce lg:grid xl:relative">
+      <img
+        src="/images/laden.webp"
+        alt="Ein Blick in den Laden"
+        class="top-10 left-0 z-20 block max-w-100 rounded-xl transition-all duration-300 ease-in-out hover:z-30 hover:scale-105 hover:ring xl:absolute"
+        height="auto"
+      />
+      <img
+        src="/images/TelekomWand.webp"
+        alt="Telekom Ecke"
+        class="right-0 bottom-10 z-10 block max-w-100 rounded-xl transition-all duration-300 ease-in-out hover:z-30 hover:scale-105 hover:ring xl:absolute"
+        height="auto"
+      />
+    </div>
+  </section>
+  <!-- Angebote -->
+  <section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]">
+    <GradientHeader>Angebote</GradientHeader>
+    <AngeboteSection client:only />
+  </section>
+  <!-- Dienstleistungen -->
+  <section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]">
+    <GradientHeader>Dienstleistungen</GradientHeader>
+    <div
+      id="Webdesign"
+      class="my-10 grid w-full grid-cols-1 gap-10 md:grid-cols-2"
+    >
+      <div>
+        <GradientHeader fontSize="text-3xl">
+          Webdesign & Hosting
+        </GradientHeader>
+        <p class="text-lg">
+          Wir liefern innovative Konzepte für von modernen und optimierte
+          Webseiten (Webdesign) nach Ihren Wünschen, setzen diese für Sie um und
+          kümmern uns auf Wunsch auch um das Hosting der Webseite, Emails &
+          Domains.
+        </p>
+      </div>
+      <img
+        src="images/hosting.webp"
+        alt="Ausschnitte von Webseiten die durch Computer Extra entstanden sind."
+        class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
+        width={900}
+      />
+    </div>
+    <div
+      id="Kommunikation"
+      class="my-10 grid w-full grid-cols-1 gap-10 md:grid-cols-2"
+    >
+      <div>
+        <GradientHeader fontSize="text-3xl">Kommunikation</GradientHeader>
+        <p class="text-lg">
+          Entdecken Sie maßgeschneiderte Kommunikationslösungen für Ihr
+          Unternehmen. Als zertifizierter Partner namhafter Hersteller wie{" "}
+          <span class="font-semibold underline">Auerswald</span>,{" "}
+          <span class="font-semibold underline">Bintec Elmeg</span> und{" "}
+          <span class="font-semibold underline">Agfeo</span> bieten wir Ihnen erstklassige
+          Beratung, schnelle installation und qualifizierten Service. Auf Kundenwunsch
+          installieren wir die neue Telefonanlage lokal vor Ort oder in der Cloud.
+        </p>
+      </div>
+
+      <img
+        src="images/business.webp"
+        alt=""
+        class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
+        width={900}
+      />
+    </div>
+    <div
+      id="Konfiguration"
+      class="my-10 grid w-full grid-cols-1 gap-10 md:grid-cols-2"
+    >
+      <div>
+        <GradientHeader fontSize="text-3xl">
+          PC-Konfigurationen
+        </GradientHeader>
+        <p class="text-lg">
+          Wir finden für Sie den richtigen PC, unabhängig von Hersteller und
+          System. Wir beraten und bauen für Sie den perfekten Computer, egal ob
+          Spiele-, Office-, oder Videobearbeitungs-PC. Wir konfigurieren Ihren
+          Computer für Ihre Bedürfnisse. Gerne übernehmen wir auch die
+          Einrichtung Ihres neuen PCs inklusive Übertragung der alten Daten,
+          Installation von Programmen sowie einrichtung Ihrer E-Mail Adressen.
+          Bei Desktop Computern können wir ganz individuell für Sie einen
+          Rechner konfigurieren und bauen. Sie Zahlen dann nur für das, was Sie
+          auch wirklich brauchen!
+        </p>
+      </div>
+
+      <video
+        src="video/RElektro_FINAL_03062101.mp4"
+        class="max-h-112.5 rounded-lg object-cover transition-all duration-300 ease-in-out hover:scale-105"
+        width={"auto"}
+        height={900}
+        muted
+        loop
+        playsinline
+        controls
+        autoplay></video>
+    </div>
+    <div
+      id="Netzwerke"
+      class="my-10 grid w-full grid-cols-1 gap-10 md:grid-cols-2"
+    >
+      <div>
+        <GradientHeader fontSize="text-3xl">Netzwerke</GradientHeader>
+        <p class="text-lg">
+          In der heutigen Zeit sind effiziente IT-Strukturen ein entscheidender
+          Faktor für Erfolg. Deshalb orientieren sich unsere Konzepte an Ihren
+          Bedürfnissen von morgen. Als erfahrener Dienstleister bieten wir
+          umfassende Lösungen im Bereich der modernen Datentechnik, um eine
+          optimale Vernetzung von Anlagen und Systemen in Unternehmen zu
+          schaffen.
+        </p>
+      </div>
+      <img
+        src="images/network.webp"
+        class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
+        width={900}
+      />
+    </div>
+    <div
+      id="Security"
+      class="my-10 grid w-full grid-cols-1 gap-10 md:grid-cols-2"
+    >
+      <div>
+        <GradientHeader fontSize="text-3xl">IT-Security</GradientHeader>
+        <p class="text-lg">
+          IT-, Daten- & Cybersicherheit und der verantwortungsbewusste Umgang
+          damit ist der Schlüssel für Vertrauen in der Digitalen Welt. Nutzen
+          Sie unsere Expertise und unser Know-how für den richtigen Schutz.
+          Geben Sie Cyberkriminalität keine Chance! Schützen Sie sich, Ihre
+          Mitarbeiter und Ihr Unternehmen. Wir sichern Ihre Firewall, Notebooks,
+          PCs und auch Server.
+        </p>
+      </div>
+      <img
+        src="images/Securepoint.webp"
+        class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
+        width={900}
+      />
+    </div>
+    <HomeBtn to="/Leistungen"> Alle Dienstleistungen ansehen</HomeBtn>
+  </section>
+  <!-- Partner -->
+  <section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]">
+    <GradientHeader>Partner</GradientHeader>
+    <PartnerSelection client:only />
+    <HomeBtn to="/Partner"> Alle Partner ansehen </HomeBtn>
+  </section>
+  <!-- Kontakt -->
+  <section
+    class="min-h-[20vh] w-full rounded-tl-3xl rounded-tr-3xl bg-linear-to-br from-purple-500 to-blue-600"
+  >
+    <h2 class="pt-60 text-center text-6xl font-bold text-white">
+      Kontaktieren Sie uns
+    </h2>
+    <p class="pt-10 text-center text-4xl font-semibold text-white">
+      Erzählen Sie uns von Ihnen - gemeinsam machen wir den Unterschied
+    </p>
+    <div class="flex min-h-[20vh] w-full items-center justify-center">
+      <a
+        href="/Kontakt"
+        class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+      >
+        <span
+          class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+        ></span>
+        <span
+          class="ease relative transition-colors delay-200 duration-300 group-hover:text-white"
+        >
+          Schreiben Sie uns
+        </span>
+      </a>
+    </div>
+  </section>
 </StartLayout>

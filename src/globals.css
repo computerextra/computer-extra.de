@@ -125,6 +125,23 @@
   }
 }
 
+/* Bounce Animation */
+@theme {
+  --animate-bounce: home-bounce 10s ease-in-out infinite;
+
+  @keyframes home-bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
 .custom-nav.active {
   @apply underline;
   @apply decoration-4;

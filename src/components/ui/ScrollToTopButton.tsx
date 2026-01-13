@@ -5,8 +5,10 @@ export default function ScrollToTopButton() {
   const { isScrolled } = useScrollSpy();
 
   const backToTop = () => {
+    document.documentElement.style.scrollBehavior = "smooth";
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+    document.documentElement.style.scrollBehavior = "auto";
   };
 
   if (isScrolled)
