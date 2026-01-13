@@ -20,6 +20,7 @@ const isWeihnachten = false;
       autoplay
       id="bgvid"
       muted
+      onloadstart="this.playbackRate = 0.5;"
       loop
       playsinline
       class="absolute top-0 right-0 left-0 z-10 min-h-screen min-w-full object-cover grayscale invert"
@@ -31,7 +32,7 @@ const isWeihnachten = false;
         <h1
           class="max-w-fit rounded-xl px-10 py-0 pt-3 text-3xl font-bold text-slate-100 uppercase md:py-4 lg:text-5xl"
         >
-          Computer Extra bietet&nbsp;
+          <span class="envision">Computer Extra</span> bietet&nbsp;
           <br class="2xl:hidden" />
           <AnimatedText client:only />
           <br />
@@ -125,10 +126,4 @@ const isWeihnachten = false;
       </div>
     </div>
   </div>
-  <script is:inline>
-    const video = document.querySelector("#bgvid");
-    if (video == null) return;
-
-    video.playbackRate = 0.5;
-  </script>
 </Main>

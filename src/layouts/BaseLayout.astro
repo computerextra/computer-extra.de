@@ -21,6 +21,7 @@ const { title, subtitle, frontmatter } = Astro.props;
         muted
         loop
         playsinline
+        onloadstart="this.playbackRate = 1;"
         src="/videos/LeistungenBg.mp4"
         class="absolute top-0 right-0 bottom-0 left-0 z-10 min-h-screen min-w-full bg-blue-600 object-cover"
       />
@@ -31,6 +32,7 @@ const { title, subtitle, frontmatter } = Astro.props;
         muted
         loop
         playsinline
+        onloadstart="this.playbackRate = 1;"
         src="/videos/VideoBg.mp4"
         class="absolute top-0 right-0 bottom-0 left-0 z-10 aspect-video min-h-screen min-w-full bg-blue-600 object-cover"
       />
@@ -87,7 +89,5 @@ const { title, subtitle, frontmatter } = Astro.props;
     if (bgElem == null) return;
 
     bgElem.style.minHeight = `${videoHeight - vh}px`;
-
-    videoBgElem.playbackRate = 1;
   </script>
 </Main>
