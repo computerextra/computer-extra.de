@@ -24,7 +24,7 @@ export default function PartnerSelection() {
         .map((p, idx) => (
           <a key={p.id + idx} href={p.link} target="_blank">
             <img
-              src={`/Images/Partner/${p.image}`}
+              src={`https://bilder.computer-extra.de/data/Partner/${p.image}`}
               height={200}
               width={200}
               className="scale-100 rounded-full ring-2 grayscale-0 transition-all duration-300 ease-in-out hover:scale-[1.2] hover:shadow-xl hover:grayscale-0 xl:grayscale"

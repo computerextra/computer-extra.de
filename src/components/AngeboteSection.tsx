@@ -77,7 +77,7 @@ function AngebotsCard({ Angebot }: { Angebot: Angebot }) {
     >
       <img
         className={`w-full ${isDisabled() ? "grayscale" : "grayscale-0"}`}
-        src={`/Images/Angebote/${Angebot.image}`}
+        src={`https://bilder.computer-extra.de/data/Angebote/${Angebot.image}`}
         alt={Angebot.title}
       />
       <div className="px-6 py-4">
