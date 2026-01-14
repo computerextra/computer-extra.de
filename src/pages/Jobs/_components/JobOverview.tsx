@@ -40,7 +40,6 @@ export default function JobOverview() {
 
   const getJobs = useEffectEvent(async () => {
     const res = await axios.get<{ success: boolean; data: Array<Job> }>(
-      // TODO: Api Endpoint erstellen!
       "https://api.computer-extra.de/jobs.php",
     );
     if (res.data.data) {
