@@ -1,0 +1,54 @@
+---
+import GradientHeader from "@/components/ui/GradientHeader.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { ExternalLink } from "lucide-react";
+---
+
+<BaseLayout
+  title="Telekom Beratung"
+  subtitle="Buchen Sie sich einen Telekom Beratungtermin"
+>
+  <div class="mx-0 my-24 flex w-full items-center lg:mx-auto lg:w-[60%]">
+    <a
+      href="https://my.meetergo.com/comp_ex/beratung"
+      target="_blank"
+      class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+    >
+      <span
+        class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+      ></span>
+      <span
+        class="ease relative transition-colors delay-200 duration-300 group-hover:text-white"
+      >
+        <span class="flex gap-1 align-baseline"
+          >Jetzt einen Termin buchen* <ExternalLink client:only /></span
+        >
+      </span>
+    </a>
+  </div>
+
+  <section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]">
+    <GradientHeader>* Informationen</GradientHeader>
+    <p class="text-lg">
+      Bitte beachten Sie, dass die verlinkte Seite auf ein externes Unternehmen
+      verlinkt. Weitere Informationen finden Sie in unserer{" "}
+      <a class="text-blue-600 underline" href="/Datenschutz">
+        Datenschutzerklärung
+      </a>
+      . Falls Sie dies dennoch nicht wünschen, rufen Sie uns bitte unter der bekannten
+      Rufnummer an und wir buchen den Termin mit Ihnen.
+    </p>
+  </section>
+</BaseLayout>
