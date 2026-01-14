@@ -1,4 +1,3 @@
-import useMitarbeiter from "@/hooks/useMitarbeiter";
 import { z } from "zod";
 import axios from "axios";
 import { useEffect, useEffectEvent, useState } from "react";
@@ -102,7 +101,20 @@ export default function JobOverview() {
 }
 
 function JobCard({ Job }: { Job: Job | undefined }) {
-  const { Mitarbeiter } = useMitarbeiter();
+  const [count, setCount] = useState<number>(0);
+
+  const getCount = useEffectEvent(async () => {
+    const res = await axios.get<{ success: boolean; count: number }>(
+      "https://api.computer-extra.de/mitarbeiter.php",
+    );
+    if (res.data.count) {
+      setCount(res.data.count);
+    }
+  });
+
+  useEffect(() => {
+    getCount();
+  }, []);
 
   if (Job != null) {
     return (
@@ -150,9 +162,8 @@ function JobCard({ Job }: { Job: Job | undefined }) {
             </p>
             <p className="py-3">
               Die Computer Extra GmbH ist als inhabergeführtes mittelständiges
-              Unternehmen mit {Mitarbeiter?.length} Mitarbeitern ein Fachhandel
-              und Systemhaus für Datenverarbeitung, Vernetzung und jegliche Art
-              von IT.
+              Unternehmen mit {count} Mitarbeitern ein Fachhandel und Systemhaus
+              für Datenverarbeitung, Vernetzung und jegliche Art von IT.
             </p>
             <p className="py-3">
               Wenn Du Lust auf Neues und Spaß an spannenden Aufgaben hast, dann
