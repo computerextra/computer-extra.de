@@ -55,9 +55,8 @@ export default function ContactForm() {
       formData.append("Telefon", value.Telefon);
       formData.append("Nachricht", value.Nachricht);
 
-      // TODO: Endpoint anlegen
       const res = await axios.post(
-        "https://api.computer-extra.de/Kontakt.php",
+        "https://api.computer-extra.de/kontaktformular.php",
         formData,
       );
 
