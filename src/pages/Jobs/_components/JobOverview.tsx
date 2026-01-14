@@ -194,8 +194,8 @@ function JobCard({ Job }: { Job: Job | undefined }) {
                 unverbindliches Gespräch
               </a>
               , um weitere Informationen über unser Unternehmen zu erhalten. Du
-              kannst dich auch gerne{" "}
-              <a href="#AzubiForm" className="text-blue-600 underline">
+              kannst dich auch gerne
+              <a href="#Bewerbungsform" className="text-blue-600 underline">
                 direkt bei uns Bewerben
               </a>
               .
