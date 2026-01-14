@@ -3,12 +3,6 @@ import GradientHeader from "@/components/ui/GradientHeader.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import { DL_VALUE, PCVisitLink } from "@/config";
-
-const disabled =
-  (!navigator.userAgent.includes("Windows") &&
-    !navigator.userAgent.includes("Mac")) ||
-  navigator.userAgent.includes("iPhone") ||
-  navigator.userAgent.includes("iPad");
 ---
 
 <BaseLayout title="Fernwartung" subtitle="mit einem Qualifizierten Mitarbeiter">
@@ -37,42 +31,62 @@ const disabled =
   </p>
 
   <div class="my-5 flex w-full items-center">
-    <a
-      href={PCVisitLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
-    >
-      <span
-        class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
-      ></span>
-      <span
-        class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
-      ></span>
-      <span
-        class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
-      ></span>
-      <span
-        class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
-      ></span>
-      <span
-        class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
-      ></span>
-      <span
-        class="ease relative transition-colors delay-200 duration-300 group-hover:text-white"
+    <div class="grid grid-cols-2 gap-4">
+      <a
+        href={PCVisitLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
       >
-        {
-          disabled ? (
-            <>Ihr Betriebssystem wird aktuell nicht Unterstützt</>
-          ) : (
-            <>
-              Download für
-              {navigator.userAgent.includes("Windows") ? "Windows" : "MacOs"}
-            </>
-          )
-        }
-      </span>
-    </a>
+        <span
+          class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+        ></span>
+        <span
+          class="ease relative transition-colors delay-200 duration-300 group-hover:text-white"
+        >
+          Download für Windows
+        </span>
+      </a>
+      <a
+        href={PCVisitLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+      >
+        <span
+          class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+        ></span>
+        <span
+          class="ease relative transition-colors delay-200 duration-300 group-hover:text-white"
+        >
+          Download für MacOs
+        </span>
+      </a>
+    </div>
   </div>
 
   <div class="order-2 pt-5 pb-10 text-xl lg:order-1">

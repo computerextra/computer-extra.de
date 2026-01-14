@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useEffectEvent, useState } from "react";
 import sortBy from "sort-by";
-import GradientHeader from "./ui/GradientHeader.astro";
 
 type Angebot = {
   id: string;

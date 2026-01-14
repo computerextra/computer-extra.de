@@ -11,7 +11,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./ui/card";
+} from "../../../components/ui/card";
 import {
   Field,
   FieldDescription,
@@ -20,10 +20,10 @@ import {
   FieldLabel,
   FieldLegend,
   FieldSet,
-} from "./ui/field";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
-import { Checkbox } from "./ui/checkbox";
+} from "../../../components/ui/field";
+import { Input } from "../../../components/ui/input";
+import { Button } from "../../../components/ui/button";
+import { Checkbox } from "../../../components/ui/checkbox";
 
 type Job = {
   id: string;
