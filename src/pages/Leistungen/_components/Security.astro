@@ -1,5 +1,6 @@
 ---
 import GradientHeader from "@/components/ui/GradientHeader.astro";
+import { Image } from "astro:assets";
 ---
 
 <section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]" id="security">
@@ -40,7 +41,8 @@ import GradientHeader from "@/components/ui/GradientHeader.astro";
         Qualitätssiegel führen zu dürfen:
       </p>
     </div>
-    <img
+    <Image
+      inferSize
       src="https://bilder.computer-extra.de/data/Website/GData.webp"
       alt="G Data Logo"
       class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
@@ -93,7 +95,8 @@ import GradientHeader from "@/components/ui/GradientHeader.astro";
         Komplettservice.
       </p>
     </div>
-    <img
+    <Image
+      inferSize
       src="https://bilder.computer-extra.de/data/Website/Securepoint.webp"
       alt="G Data Logo"
       class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"

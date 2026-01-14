@@ -1,5 +1,6 @@
 ---
 import GradientHeader from "@/components/ui/GradientHeader.astro";
+import { Image } from "astro:assets";
 ---
 
 <section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]" id="network">
@@ -53,7 +54,8 @@ import GradientHeader from "@/components/ui/GradientHeader.astro";
       Unser Anspruch ist es, immer auf dem neuesten Stand der Technik zu sein,
       um optimale Lösungen zu bieten.
     </p>
-    <img
+    <Image
+      inferSize
       src="https://bilder.computer-extra.de/data/Website/network.webp"
       alt="G Data Logo"
       class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"

@@ -1,5 +1,6 @@
 ---
 import GradientHeader from "@/components/ui/GradientHeader.astro";
+import { Image } from "astro:assets";
 ---
 
 <section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]" id="communication">
@@ -21,7 +22,8 @@ import GradientHeader from "@/components/ui/GradientHeader.astro";
       .
     </p>
 
-    <img
+    <Image
+      inferSize
       src="https://bilder.computer-extra.de/data/Website/business.webp"
       alt=""
       class="order-first rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105 md:order-last"
@@ -40,10 +42,12 @@ import GradientHeader from "@/components/ui/GradientHeader.astro";
         Samsung, Google, Sony, Xiaomi,
       </p>
     </div>
-    <img
+    <Image
       src="https://bilder.computer-extra.de/data/Website/TelekomWand.webp"
+      alt=""
       class="order-first rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105 md:order-last"
       width={900}
+      inferSize
     />
   </div>
   <h2 class="pb-10 text-xl font-semibold text-blue-700">

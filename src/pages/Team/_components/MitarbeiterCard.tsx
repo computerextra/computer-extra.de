@@ -104,6 +104,7 @@ export default function MitarbeiterCard() {
                   src={`https://bilder.computer-extra.de/data/Mitarbeiter/${ma.short.toLowerCase()}.webp`}
                   height={200}
                   width={200}
+                  alt={ma.name}
                   className="scale-100 rounded-full ring-2 grayscale-0 md:transition-all md:duration-300 md:ease-in-out md:hover:scale-[1.2] md:hover:shadow-xl md:hover:grayscale-0 xl:grayscale"
                 />
               ) : ma.sex == "m" ? (
@@ -111,6 +112,7 @@ export default function MitarbeiterCard() {
                   src="https://bilder.computer-extra.de/data/Mitarbeiter/avatar-male-510x510.webp"
                   height={200}
                   width={200}
+                  alt={ma.name}
                   className="scale-100 rounded-full ring-2 grayscale-0 md:transition-all md:duration-300 md:ease-in-out md:hover:scale-[1.2] md:hover:shadow-xl md:hover:grayscale-0 xl:grayscale"
                 />
               ) : (
@@ -118,6 +120,7 @@ export default function MitarbeiterCard() {
                   src="https://bilder.computer-extra.de/data/Mitarbeiter/avatar-female-510x510.webp"
                   height={200}
                   width={200}
+                  alt={ma.name}
                   className="scale-100 rounded-full ring-2 grayscale-0 md:transition-all md:duration-300 md:ease-in-out md:hover:scale-[1.2] md:hover:shadow-xl md:hover:grayscale-0 xl:grayscale"
                 />
               )}
@@ -197,6 +200,7 @@ const Overlay = ({
                 <div className="relative">
                   <img
                     src={getImageUrl()}
+                    alt={Mitarbeiter.name}
                     className="absolute -m-16 -ml-20 max-w-37.5 rounded-full border-none bg-white align-middle shadow-xl lg:-ml-16"
                   />
                 </div>

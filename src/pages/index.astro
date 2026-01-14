@@ -1,10 +1,11 @@
 ---
 import GradientHeader from "@/components/ui/GradientHeader.astro";
 import StartLayout from "@/layouts/StartLayout.astro";
+import HomeBtn from "@/components/ui/HomeBtn.astro";
+import Image from "astro/components/Image.astro";
 
 import PartnerSelection from "@/pages/_components/PartnerSelection";
 import AngeboteSection from "@/pages/_components/AngeboteSection";
-import HomeBtn from "@/components/ui/HomeBtn.astro";
 ---
 
 <StartLayout title="Startseite">
@@ -31,17 +32,19 @@ import HomeBtn from "@/components/ui/HomeBtn.astro";
       </p>
     </div>
     <div class="hidden animate-bounce lg:grid xl:relative">
-      <img
+      <Image
         src="https://bilder.computer-extra.de/data/Website/laden.webp"
         alt="Ein Blick in den Laden"
         class="top-10 left-0 z-20 block max-w-100 rounded-xl transition-all duration-300 ease-in-out hover:z-30 hover:scale-105 hover:ring xl:absolute"
-        height="auto"
+        width={400}
+        inferSize
       />
-      <img
+      <Image
         src="https://bilder.computer-extra.de/data/Website/TelekomWand.webp"
         alt="Telekom Ecke"
         class="right-0 bottom-10 z-10 block max-w-100 rounded-xl transition-all duration-300 ease-in-out hover:z-30 hover:scale-105 hover:ring xl:absolute"
-        height="auto"
+        width={400}
+        inferSize
       />
     </div>
   </section>
@@ -68,11 +71,12 @@ import HomeBtn from "@/components/ui/HomeBtn.astro";
           Domains.
         </p>
       </div>
-      <img
+      <Image
         src="https://bilder.computer-extra.de/data/Website/hosting.webp"
         alt="Ausschnitte von Webseiten die durch Computer Extra entstanden sind."
         class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
         width={900}
+        inferSize
       />
     </div>
     <div
@@ -92,11 +96,12 @@ import HomeBtn from "@/components/ui/HomeBtn.astro";
         </p>
       </div>
 
-      <img
+      <Image
         src="https://bilder.computer-extra.de/data/Website/business.webp"
         alt=""
         class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
         width={900}
+        inferSize
       />
     </div>
     <div
@@ -146,10 +151,12 @@ import HomeBtn from "@/components/ui/HomeBtn.astro";
           schaffen.
         </p>
       </div>
-      <img
+      <Image
         src="https://bilder.computer-extra.de/data/Website/network.webp"
         class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
+        alt="Netzwerkswitch mit Glasfaserkabeln"
         width={900}
+        inferSize
       />
     </div>
     <div
@@ -167,10 +174,12 @@ import HomeBtn from "@/components/ui/HomeBtn.astro";
           PCs und auch Server.
         </p>
       </div>
-      <img
+      <Image
         src="https://bilder.computer-extra.de/data/Website/Securepoint.webp"
+        alt="Securepoint Logo"
         class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
         width={900}
+        inferSize
       />
     </div>
     <HomeBtn to="/Leistungen"> Alle Dienstleistungen ansehen</HomeBtn>

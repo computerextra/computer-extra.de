@@ -1,6 +1,7 @@
 ---
 import GradientHeader from "@/components/ui/GradientHeader.astro";
 import SwipeCarousel from "@/pages/Leistungen/_components/SwipeCarousel";
+import { Image } from "astro:assets";
 ---
 
 <section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]" id="data-retention">
@@ -97,7 +98,8 @@ import SwipeCarousel from "@/pages/Leistungen/_components/SwipeCarousel";
         </a>
       </div>
     </div>
-    <img
+    <Image
+      inferSize
       src="https://bilder.computer-extra.de/data/Website/Server.webp"
       alt="Server"
       class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
@@ -148,7 +150,8 @@ import SwipeCarousel from "@/pages/Leistungen/_components/SwipeCarousel";
         </a>
       </div>
     </div>
-    <img
+    <Image
+      inferSize
       src="https://bilder.computer-extra.de/data/Website/Speicher.webp"
       alt="Speicher"
       class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
