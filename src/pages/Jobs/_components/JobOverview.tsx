@@ -375,6 +375,7 @@ function JobForm({ Job }: { Job: Job }) {
         (document.querySelector("#Zeugnisse") as HTMLFormElement).files[0],
       );
 
+      // TODO: Endpoint anlegen
       const res = await axios.post(
         "https://api.computer-extra.de/Bewerbung.php",
         formData,
