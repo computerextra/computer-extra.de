@@ -3,11 +3,9 @@ layout: ../../layouts/BaseLayout.astro
 title: Datenschutzerklärung
 ---
 
-<!-- TODO: Neue AVV einbauen: Siehe aktuelle Beta -->
 <div class="flex items-center w-full my-5">
           <a
-            href="https://dsgvo3.ds-manager.net/computerextra/onlinevt.html?key=6ThOZSR1cvQCMdES"
-            target="_blank"
+            href="/Datenschutz/Auftragsdaten"
             class="relative px-10 py-5 overflow-hidden font-medium text-gray-600 bg-gray-100 border border-gray-100 rounded-lg shadow-inner group"
           >
             <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-gray-600 group-hover:w-full ease"></span>
