@@ -108,14 +108,14 @@ export default function MitarbeiterCard() {
                 />
               ) : ma.sex == "m" ? (
                 <img
-                  src="/Images/avatar-male-510x510.webp"
+                  src="https://bilder.computer-extra.de/data/Mitarbeiter/avatar-male-510x510.webp"
                   height={200}
                   width={200}
                   className="scale-100 rounded-full ring-2 grayscale-0 md:transition-all md:duration-300 md:ease-in-out md:hover:scale-[1.2] md:hover:shadow-xl md:hover:grayscale-0 xl:grayscale"
                 />
               ) : (
                 <img
-                  src="/Images/avatar-female-510x510.webp"
+                  src="https://bilder.computer-extra.de/data/Mitarbeiter/avatar-female-510x510.webp"
                   height={200}
                   width={200}
                   className="scale-100 rounded-full ring-2 grayscale-0 md:transition-all md:duration-300 md:ease-in-out md:hover:scale-[1.2] md:hover:shadow-xl md:hover:grayscale-0 xl:grayscale"
@@ -159,7 +159,7 @@ const Overlay = ({
     if (Mitarbeiter.image == 1) {
       return `https://bilder.computer-extra.de/data/Mitarbeiter/${Mitarbeiter.short.toLowerCase()}.webp`;
     }
-    return `/Images/avatar-${
+    return `https://bilder.computer-extra.de/data/Mitarbeiter/avatar-${
       Mitarbeiter.sex === "m" ? "male" : "female"
     }-510x510.webp`;
   };
