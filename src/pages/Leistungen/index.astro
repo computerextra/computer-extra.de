@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import NavigationButton from "@/pages/Leistungen/_components/NavigationButton.astro";
+import Datenrettung from "@/pages/Leistungen/_components/Datenrettung.astro";
+---
+
+<BaseLayout
+  title="Leistungen"
+  subtitle="Wir bieten Ihnen ein ganzes Spektrum an Dienstleistungen im Bereich der IT."
+>
+  <section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]">
+    <p class="text-lg">
+      Ob IT-Infrastruktur, Security oder Kommunikation, Computer Extra hat die
+      passenden Produkte und Services verfügbar. Privat-, Office- und Gaming-PCs
+      werden direkt auf Ihre Bedürfnisse zugeschnitten. Die exklusive
+      Partnerschaft mit der Telekom für Business- und Privattarife runden das
+      Gesamtpaket ab. Webdesign und -entwicklung sowie das passende Hosting von
+      Webseiten und Mails darf dabei nicht fehlen. Wenn doch einmal etwas
+      schiefläuft, sind die kompetenten Techniker per Fernwartung schnell am
+      Start und können viele Probleme in kürzester Zeit aus der Ferne lösen.
+      Falls das Problem größer oder komplexer wird, fahren die Kollegen auch
+      gerne vor Ort.
+    </p>
+  </section>
+
+  <section
+    class="mx-0 my-24 grid w-full grid-cols-2 gap-10 lg:mx-auto lg:w-[60%] xl:grid-cols-4"
+  >
+    <NavigationButton text="Webdesign & Hosting" to="webdesign" />
+    <NavigationButton text="PC Konfigurationen" to="config" />
+    <NavigationButton text="Kommunikation" to="communication" />
+    <NavigationButton text="IT Security" to="security" />
+    <NavigationButton text="Netzwerke" to="network" />
+    <NavigationButton text="Datenrettung" to="data-retention" />
+  </section>
+
+  <!-- Webdesign -->
+
+  <!-- PC Konfiguration -->
+
+  <!-- Kommunikation -->
+
+  <!-- Security -->
+
+  <!-- Netzwerke -->
+
+  <!-- Datenrettung -->
+  <Datenrettung />
+</BaseLayout>
