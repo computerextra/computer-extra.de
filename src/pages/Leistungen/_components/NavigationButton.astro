@@ -7,7 +7,8 @@ interface Props {
 const { text, to } = Astro.props;
 ---
 
-<div
+<a
+  href={to}
   onclick="handleclick({to})"
   class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner hover:cursor-pointer"
 >
@@ -31,15 +32,4 @@ const { text, to } = Astro.props;
   >
     {text}
   </span>
-</div>
-<script is:inline>
-  function handleclick(id) {
-    const elem = document.getElementById(id);
-    if (elem == null) return;
-
-    const yOffset = -150;
-    const Bounding = elem.getBoundingClientRect().top;
-    const y = Bounding + window.scrollY + yOffset;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }
-</script>
+</a>

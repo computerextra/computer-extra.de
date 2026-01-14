@@ -2,6 +2,11 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import NavigationButton from "@/pages/Leistungen/_components/NavigationButton.astro";
 import Datenrettung from "@/pages/Leistungen/_components/Datenrettung.astro";
+import Kommunikation from "./_components/Kommunikation.astro";
+import Netzwerke from "./_components/Netzwerke.astro";
+import PCKonfiguration from "./_components/PCKonfiguration.astro";
+import Security from "./_components/Security.astro";
+import Webdesign from "./_components/Webdesign.astro";
 ---
 
 <BaseLayout
@@ -26,24 +31,23 @@ import Datenrettung from "@/pages/Leistungen/_components/Datenrettung.astro";
   <section
     class="mx-0 my-24 grid w-full grid-cols-2 gap-10 lg:mx-auto lg:w-[60%] xl:grid-cols-4"
   >
-    <NavigationButton text="Webdesign & Hosting" to="webdesign" />
-    <NavigationButton text="PC Konfigurationen" to="config" />
-    <NavigationButton text="Kommunikation" to="communication" />
-    <NavigationButton text="IT Security" to="security" />
-    <NavigationButton text="Netzwerke" to="network" />
-    <NavigationButton text="Datenrettung" to="data-retention" />
+    <NavigationButton text="Webdesign & Hosting" to="#webdesign" />
+    <NavigationButton text="PC Konfigurationen" to="#config" />
+    <NavigationButton text="Kommunikation" to="#communication" />
+    <NavigationButton text="IT Security" to="#security" />
+    <NavigationButton text="Netzwerke" to="#network" />
+    <NavigationButton text="Datenrettung" to="#data-retention" />
   </section>
 
-  <!-- Webdesign -->
+  <Webdesign />
 
-  <!-- PC Konfiguration -->
+  <PCKonfiguration />
 
-  <!-- Kommunikation -->
+  <Kommunikation />
 
-  <!-- Security -->
+  <Security />
 
-  <!-- Netzwerke -->
+  <Netzwerke />
 
-  <!-- Datenrettung -->
   <Datenrettung />
 </BaseLayout>
