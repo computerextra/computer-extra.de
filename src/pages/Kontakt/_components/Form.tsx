@@ -60,9 +60,8 @@ export default function ContactForm() {
         formData,
       );
 
-      if (res.data) {
-        const d = res.data;
-        if (d.success) {
+      if (res) {
+        if (res.status === 200) {
           // Navigate to "ERFOLG"
           window.location.href = "/Erfolg";
         } else {
