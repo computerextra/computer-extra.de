@@ -384,8 +384,10 @@ function JobForm({ Job }: { Job: Job }) {
         const d = res.data;
         if (d.success) {
           // Navigate to "ERFOLG"
+          window.location.href = "/Erfolg";
         } else {
           // Navigate to "FEHLER"
+          window.location.href = "/Fehler";
         }
       }
     },
