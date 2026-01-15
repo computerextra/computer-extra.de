@@ -1,0 +1,121 @@
+---
+import GradientHeader from "@/components/ui/GradientHeader.astro";
+import Webreferenzen from "@/pages/Leistungen/_components/Webreferenzen";
+---
+
+<section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]" id="webdesign">
+  <GradientHeader paddingBottom="pb-2">
+    Webentwicklung & Hosting
+  </GradientHeader>
+  <p class="mt-0 text-xl font-semibold text-blue-700">
+    Wir liefern innovative Konzepte für von modernen und optimierte Webseiten
+    nach Ihren Wünschen, setzen diese für Sie um und kümmern uns auf Wunsch auch
+    um das Hosting der Webseite, Emails & Domains.
+  </p>
+  <div class="my-16 grid grid-cols-1 gap-10">
+    <p class="text-xl">
+      Wir konzeptionieren & erstellen modernste, optisch ansprechende und
+      technisch hochwertige Webseiten - perfekt optimiert auf Ihr Projekt.
+    </p>
+    <div class="cList">
+      <ul
+        class="grid grid-cols-1 items-center gap-10 text-xl leading-snug md:grid-cols-2 2xl:grid-cols-4"
+      >
+        <li>
+          <span>Modernstes, individuelles Web-Design</span>
+        </li>
+        <li>
+          <span>Mobilgeräte (Full Responsive)</span>
+        </li>
+        <li>
+          <span>
+            Neueste Techniken <br />(
+            <div class="m-0! inline-block p-0!" aria-label="tooltip-react">
+              <div class="relative">React</div>
+            </div>
+            ,
+            <div class="m-0! inline-block p-0!" aria-label="tooltip-framer">
+              <div class="relative">Framer-Motion</div>
+            </div>
+            ,
+            <div class="m-0! inline-block p-0!" aria-label="tooltip-tailwind">
+              <div class="relative">TailwindCss</div>
+            </div>
+            ,
+            <div class="m-0! inline-block p-0!" aria-label="tooltip-typescript">
+              <div class="relative">TypeScript</div>
+            </div>
+            , etc.)
+          </span>
+        </li>
+        <li>
+          <span>Datenschutz geprüft (DSGVO)</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="my-16 grid grid-cols-1 gap-10">
+    <p class="text-xl">
+      Sie benötigen einen leistungsstarken, sicheren und für Sie wartungsfreien
+      Ort für Ihrer Webseite (Webspace), auf den Nutzer jederzeit zugreifen
+      können. Wir übernehmen Einrichtung, Konfiguration und Auslieferung der
+      Webseite (Webhosting), Ihrer E-Mail Adressen und die Domain-Verwaltung für
+      Sie.
+    </p>
+    <div class="cList">
+      <ul
+        class="grid grid-cols-1 items-center gap-10 text-xl leading-snug md:grid-cols-2 2xl:grid-cols-5"
+      >
+        <li>
+          <span>Modernste Hosting-Technik</span>
+        </li>
+        <li>
+          <span>Sichere Verschlüsselung mit SSL Zertifikaten (HTTPS)</span>
+        </li>
+        <li>
+          <span>E-Mail Postfächer (POP3/IMAP)</span>
+        </li>
+        <li>
+          <span>Wunsch-Domains</span>
+        </li>
+        <li>
+          <span>Hosting ab 9,99€ / Monat</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="my-16 grid grid-cols-1 gap-10 lg:grid-cols-2">
+    <p class="text-xl">
+      Bringen Sie Ihre Website auf die nächste Stufe. Steigern Sie
+      Online-Sichtbarkeit & Geschäftserfolg! Jetzt unverbindlich von Experten
+      beraten lassen.
+    </p>
+    <a
+      href="/Kontakt"
+      class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+    >
+      <span
+        class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+      ></span>
+      <span
+        class="ease relative flex h-full w-full items-center justify-center text-2xl transition-colors delay-200 duration-300 group-hover:text-white"
+      >
+        Schreiben Sie uns
+      </span>
+    </a>
+  </div>
+  <Webreferenzen client:only />
+</section>

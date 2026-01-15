@@ -1,0 +1,115 @@
+---
+import GradientHeader from "@/components/ui/GradientHeader.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import { DL_VALUE, PCVisitLink } from "@/config";
+---
+
+<BaseLayout title="Fernwartung" subtitle="mit einem Qualifizierten Mitarbeiter">
+  <GradientHeader> Hinweis: </GradientHeader>
+  <p class="py-2 text-xl font-bold">
+    Mir ist bekannt, dass die Unterstützung kostenpflichtig ist!
+  </p>
+  <p class="py-1">
+    Sofern keine anderweitigen individuellen Vereinbarungen gelten, betragen die
+    Kosten für die ersten 30 Minuten {DL_VALUE * 2}€ und je weiteren begonnenen
+    15 Minuten {DL_VALUE}€ inklusive der derzeit gültigen Mehrwertsteuer.
+  </p>
+  <p class="py-1">
+    Im Rahmen der Fernwartung können Daten und Einstellungen auf meinem Computer
+    verändert werden. Der Supportmitarbeiter handelt mit meinem Einverständnis.
+    Des Weiteren gelten unsere
+    <a class="text-blue-600 underline" href="/AGB">AGB</a>
+    .
+  </p>
+  <p class="py-1">
+    Es werden personenbezogene Daten im Einklang mit unserer
+    <a href="/Datenschutz" class="text-blue-600 underline"
+      >Datenschutzerklärung</a
+    >
+    erhoben.
+  </p>
+
+  <div class="my-5 flex w-full items-center">
+    <div class="grid grid-cols-2 gap-4">
+      <a
+        href={PCVisitLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+      >
+        <span
+          class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+        ></span>
+        <span
+          class="ease relative transition-colors delay-200 duration-300 group-hover:text-white"
+        >
+          Download für Windows
+        </span>
+      </a>
+      <a
+        href={PCVisitLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+      >
+        <span
+          class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+        ></span>
+        <span
+          class="ease relative transition-colors delay-200 duration-300 group-hover:text-white"
+        >
+          Download für MacOs
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="order-2 pt-5 pb-10 text-xl lg:order-1">
+    <p class="py-1">
+      Bitte klicken Sie auf den Download für Ihr Betriebssystem, um den Download
+      für die Fernwartungssoftware zu starten.
+    </p>
+    <p class="py-1">
+      Je nach Konfiguration und Browser müssen Sie noch einen Speicherort
+      auswählen.
+    </p>
+    <p class="py-1">Führen Sie die heruntergeladene Datei aus.</p>
+    <p class="py-1 font-semibold">
+      Sollten Sie Fragen haben, steht Ihnen unser Mitarbeiter, der mit Ihnen die
+      Fernwartung durchführt selbstverständlich gern zur Verfügung.
+    </p>
+    <p class="py-1 font-semibold">
+      Ist die Software gestartet, müssen Sie eine Verbindungsnummer eingeben.{
+        " "
+      }
+      <span class="font-semibold">
+        Diese erhalten Sie von unserem Techniker.
+      </span>
+    </p>
+  </div>
+</BaseLayout>

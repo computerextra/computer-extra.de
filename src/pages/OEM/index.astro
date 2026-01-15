@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="OEM" subtitle="Internal Use Only">
+  <section class="min-h-[38vh] w-full">
+    <div class="flex justify-center">
+      <a
+        href="/data/OEMLogo.zip"
+        class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+      >
+        <span
+          class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+        ></span>
+        <span
+          class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+        ></span>
+        <span
+          class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+        ></span>
+        <span
+          class="ease relative transition-colors delay-200 duration-300 group-hover:text-white"
+        >
+          Download
+        </span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

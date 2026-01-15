@@ -1,0 +1,39 @@
+---
+import "../globals.css";
+
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
+import Menu from "@/components/Menu";
+
+import Posthog from "@/layouts/posthog.astro";
+import Footer from "@/components/Footer.astro";
+import Meta from "./meta.astro";
+import Favicon from "./favivon.astro";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  frontmatter?: { title?: string };
+}
+
+const { title, frontmatter } = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <Meta />
+    <Favicon />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <title>Computer Extra GmbH | {title ? title : frontmatter?.title}</title>
+
+    <Posthog />
+  </head>
+  <body class="scroll-smooth antialiased">
+    <ScrollToTopButton client:only />
+    <Menu client:only />
+    <slot />
+    <Footer />
+  </body>
+</html>

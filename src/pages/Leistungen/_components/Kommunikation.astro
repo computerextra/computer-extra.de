@@ -1,0 +1,113 @@
+---
+import GradientHeader from "@/components/ui/GradientHeader.astro";
+import { Image } from "astro:assets";
+---
+
+<section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]" id="communication">
+  <GradientHeader paddingBottom="pb-2"> Business Kommunikation </GradientHeader>
+
+  <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+    <p class="order-last text-xl md:order-first">
+      Entdecken Sie maßgeschneiderte Kommunikationslösungen für Ihr Unternehmen.
+      Als zertifizierter Partner namhafter Hersteller wie{" "}
+      <span class="font-semibold underline">Auerswald</span>,{" "}
+      <span class="font-semibold underline">Bintec Elmeg</span> und{" "}
+      <span class="font-semibold underline">Agfeo</span> bieten wir Ihnen erstklassige
+      Beratung, schnelle installation und qualifizierten Service. Auf Kundenwunsch
+      installieren wir die neue Telefonanlage lokal vor Ort oder in der Cloud. Kontaktieren
+      Sie uns jetzt für eine{" "}
+      <a class="text-blue-600 underline" href="/Kontakt">
+        unverbindliche Beratung
+      </a>
+      .
+    </p>
+
+    <Image
+      inferSize
+      src="https://bilder.computer-extra.de/data/Website/business.webp"
+      alt=""
+      class="order-first rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105 md:order-last"
+      width={900}
+    />
+  </div>
+  <GradientHeader className="pt-10">Mobilfunk</GradientHeader>
+  <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+    <div class="order-last text-xl md:order-first">
+      <p>
+        Wir sind exklusiver Partner der Deutschen Telekom und bieten Ihnen neben
+        den Tarifen aus dem Telekom Netz auch die Produkte von CONGSTAR an.
+      </p>
+      <p>
+        Bei uns erhalten Sie alle Endgeräte der führenden Marken wie z.B. Apple,
+        Samsung, Google, Sony, Xiaomi,
+      </p>
+    </div>
+    <Image
+      src="https://bilder.computer-extra.de/data/Website/TelekomWand.webp"
+      alt=""
+      class="order-first rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105 md:order-last"
+      width={900}
+      inferSize
+    />
+  </div>
+  <h2 class="pb-10 text-xl font-semibold text-blue-700">
+    Was bieten wir Ihnen?
+  </h2>
+  <div class="cList">
+    <ul
+      class="grid grid-cols-1 items-center gap-10 text-xl leading-snug md:grid-cols-2 2xl:grid-cols-4"
+    >
+      <li>
+        <span>Einen persönlichen Ansprechpartner</span>
+      </li>
+      <li>
+        <span>Kompetente Tarifberatung</span>
+      </li>
+      <li>
+        <span>umfassende Analyse Ihres Bedarfs</span>
+      </li>
+      <li>
+        <span>Kombination mit verschiedenen Produkten</span>
+      </li>
+      <li>
+        <span>bestes Mobilfunknetz (mehrfach ausgezeichnet)</span>
+      </li>
+      <li>
+        <span>umfangreiche Endgeräteauswahl</span>
+      </li>
+      <li>
+        <span>umfangreiche Zubehörauswahl</span>
+      </li>
+      <li>
+        <span>Garantie- & Reparaturabwicklung</span>
+      </li>
+    </ul>
+  </div>
+  <div class="my-16 grid grid-cols-1 gap-10 lg:grid-cols-2">
+    <a
+      href="/Kontakt"
+      class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+    >
+      <span
+        class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+      ></span>
+      <span
+        class="ease relative flex h-full w-full items-center justify-center text-2xl transition-colors delay-200 duration-300 group-hover:text-white"
+      >
+        Schreiben Sie uns
+      </span>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import PartnerCard from "@/pages/Partner/_components/PartnerCard";
+---
+
+<BaseLayout
+  title="Partner"
+  subtitle="Wir pflegen eine partnerschaftliche Zusammenarbeit mit unseren Partnern. Auf Vertrauen und Transparenz legen wir großen Wert - denn im Miteinander liegt unsere Stärke."
+>
+  <PartnerCard client:only />
+</BaseLayout>

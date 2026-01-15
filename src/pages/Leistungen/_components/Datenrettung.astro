@@ -1,0 +1,222 @@
+---
+import GradientHeader from "@/components/ui/GradientHeader.astro";
+import SwipeCarousel from "@/pages/Leistungen/_components/SwipeCarousel";
+import { Image } from "astro:assets";
+---
+
+<section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]" id="data-retention">
+  <GradientHeader paddingBottom="pb-2"> Datenrettung </GradientHeader>
+
+  <p class="mt-0 text-xl font-semibold text-blue-700">
+    Datenrettungen von HDD bis Tapes, DSGVO-Konforme Datenlöschungen.
+  </p>
+  <div class="my-10">
+    <SwipeCarousel client:only />
+  </div>
+  <div class="my-16 grid grid-cols-1">
+    <a
+      href="https://www.ontrack.com/de-de/datenrettung/anfrage-datenrettung/?partnerid=1009352"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+    >
+      <span
+        class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+      ></span>
+      <span
+        class="ease relative flex h-full w-full items-center justify-center text-2xl transition-colors delay-200 duration-300 group-hover:text-white"
+      >
+        Jetzt Datenrettung anfragen
+      </span>
+    </a>
+  </div>
+  <p class="mt-0 text-xl font-semibold text-blue-700">
+    Professionelle Datenrettung mit Ontrack
+  </p>
+  <p class="py-2 text-xl">
+    Ontrack verfügt über jahrzehntelange Erfahrung in der Datenwiederherstellung
+    für alle Medien, Hersteller und Modelle und bietet Kunden bewährte Lösungen
+    und Produkte.
+  </p>
+  {/* SERVER */}
+  <div class="my-10 grid grid-cols-1 gap-10 lg:grid-cols-2">
+    <div>
+      <p class="mt-0 text-xl font-semibold text-blue-700">
+        Benötigen Sie eine Server-Wiederherstellung?
+      </p>
+      <p class="py-2 text-xl">
+        Hardware-Ausfälle, menschliche Fehler, fehlende Daten, Malware,
+        Cyber-Angriffe und Naturkatastrophen.
+      </p>
+      <p class="py-2 text-xl">
+        Wir haben das alles schon erlebt. Serverausfälle haben massive
+        Auswirkungen auf die Produktivität von Unternehmen. Kleine, mittlere und
+        große, weltweit agierende, Unternehmen, vertrauen Ontrack bei der
+        zeitkritischen Wiederherstellung und Abfrage von Das, NAS, SDS oder
+        Server-Daten. Ontrack hilft Ihnen auch bei der Datenwiederherstellung,
+        wenn Ihr Backup-System beschädigt wurde.
+      </p>
+      <div class="my-16 grid grid-cols-1">
+        <a
+          href="https://www.ontrack.com/de-de/datenrettung/anfrage-datenrettung/?partnerid=1009352"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+        >
+          <span
+            class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+          ></span>
+          <span
+            class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+          ></span>
+          <span
+            class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+          ></span>
+          <span
+            class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+          ></span>
+          <span
+            class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+          ></span>
+          <span
+            class="ease relative flex h-full w-full items-center justify-center text-2xl transition-colors delay-200 duration-300 group-hover:text-white"
+          >
+            Server Datenrettung
+          </span>
+        </a>
+      </div>
+    </div>
+    <Image
+      inferSize
+      src="https://bilder.computer-extra.de/data/Website/Server.webp"
+      alt="Server"
+      class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
+    />
+  </div>
+  {/* SD KArte */}
+  <div class="my-10 grid grid-cols-1 gap-10 lg:grid-cols-2">
+    <div>
+      <p class="mt-0 text-xl font-semibold text-blue-700">
+        Wertvolle digitale Erinnerungen gelöscht?
+      </p>
+      <p class="py-2 text-xl">
+        Wir kümmern uns um die Datenwiederherstellung von Digitalkameras,
+        USB-Sticks, Memory Cards oder Flash-Drives.
+      </p>
+      <p class="py-2 text-xl">
+        Die Experten von Ontrack wissen, wie Sie Ihre Fotos, Dateien und Videos
+        von allen Storage Medien - auch beschädigten - wieder verfügbar machen
+        können.
+      </p>
+      <div class="my-16 grid grid-cols-1">
+        <a
+          href="https://www.ontrack.com/de-de/datenrettung/anfrage-datenrettung/?partnerid=1009352"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+        >
+          <span
+            class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+          ></span>
+          <span
+            class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+          ></span>
+          <span
+            class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+          ></span>
+          <span
+            class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+          ></span>
+          <span
+            class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+          ></span>
+          <span
+            class="ease relative flex h-full w-full items-center justify-center text-2xl transition-colors delay-200 duration-300 group-hover:text-white"
+          >
+            SD Karte wiederherstellen
+          </span>
+        </a>
+      </div>
+    </div>
+    <Image
+      inferSize
+      src="https://bilder.computer-extra.de/data/Website/Speicher.webp"
+      alt="Speicher"
+      class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
+    />
+  </div>
+  <p class="mt-0 text-xl font-semibold text-blue-700">
+    Wie schnell benötigen Sie Ihre Daten?
+  </p>
+  <p class="py-5 text-xl">
+    Zeit ist ein wichtiger Faktor bei der Datenrettung. Wir haben für jeden
+    Anspruch den richtigen Service.
+  </p>
+  <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+    <div
+      class="rounded-lg bg-yellow-300 p-4 text-center transition-all duration-300 ease-in-out hover:scale-105"
+    >
+      <p class="py-4 text-2xl font-semibold">Standard</p>
+      <p class="pb-4 text-lg">7 - 10 Geschäftstage</p>
+    </div>
+    <div
+      class="rounded-lg bg-green-400 p-4 text-center text-white transition-all duration-300 ease-in-out hover:scale-105"
+    >
+      <p class="py-4 text-2xl font-semibold">Express</p>
+      <p class="pb-4 text-lg">Durchschnittlich 3 Geschäftstage</p>
+    </div>
+    <div
+      class="rounded-lg bg-red-500 p-4 text-center text-white transition-all duration-300 ease-in-out hover:scale-105"
+    >
+      <p class="py-4 text-2xl font-semibold">Notfall</p>
+      <p class="pb-4 text-lg">Rund um die Uhr bis zur Fertigstellung</p>
+    </div>
+  </div>
+  <p class="py-5 text-xl">
+    Um den Zustand der Daten zu bestimmen werden Ihre Medien von den Experten
+    bei Ontrack analysiert. Optional erhalten Sie einen detaillierten
+    Online-Bericht mit allen wieder herstellbaren Dateien, bevor Sie sich für
+    die Datenrettung entscheiden.
+  </p>
+  <div class="my-16 grid grid-cols-1">
+    <a
+      href="https://www.ontrack.com/de-de/datenrettung/anfrage-datenrettung/?partnerid=1009352"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+    >
+      <span
+        class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+      ></span>
+      <span
+        class="ease relative flex h-full w-full items-center justify-center text-2xl transition-colors delay-200 duration-300 group-hover:text-white"
+      >
+        Jetzt Datenrettung anfragen
+      </span>
+    </a>
+  </div>
+</section>

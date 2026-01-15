@@ -1,0 +1,12 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import MitarbeiterCard from "@/pages/Team/_components/MitarbeiterCard";
+---
+
+<BaseLayout
+  title="Team"
+  subtitle="Wir schaffen ein flexibles Angebot für unsere Kunden - transparent, kreativ, persönlich."
+>
+  <MitarbeiterCard client:only />
+</BaseLayout>

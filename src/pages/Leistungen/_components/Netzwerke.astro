@@ -1,0 +1,91 @@
+---
+import GradientHeader from "@/components/ui/GradientHeader.astro";
+import { Image } from "astro:assets";
+---
+
+<section class="mx-0 my-24 w-full lg:mx-auto lg:w-[60%]" id="network">
+  <GradientHeader paddingBottom="pb-2">Netzwerke</GradientHeader>
+  <p class="mt-0 text-xl font-semibold text-blue-700">
+    Die Zukunft der Vernetzung!
+  </p>
+  <p class="py-2 text-xl">
+    In der heutigen Zeit sind effiziente IT-Strukturen ein entscheidender Faktor
+    für Erfolg. Deshalb orientieren sich unsere Konzepte an Ihren Bedürfnissen
+    von morgen. Als erfahrener Dienstleister bieten wir umfassende Lösungen im
+    Bereich der modernen Datentechnik, um eine optimale Vernetzung von Anlagen
+    und Systemen in Unternehmen zu schaffen.
+  </p>
+  <p class="mt-0 text-xl font-semibold text-blue-700">
+    Das können wir für Sie tun:
+  </p>
+  <div class="cList my-7">
+    <ul
+      class="grid grid-cols-1 items-center gap-10 text-xl leading-snug md:grid-cols-2 2xl:grid-cols-3"
+    >
+      <li>
+        <span>Consulting & Konzept</span>
+      </li>
+      <li>
+        <span>Projektierung & Planung</span>
+      </li>
+      <li>
+        <span>Installation & Projektabwicklung</span>
+      </li>
+      <li>
+        <span>Dokumentation</span>
+      </li>
+      <li>
+        <span>Service, Wartung & Instandhaltung</span>
+      </li>
+      <li>
+        <span>Update & Performance-Optimierung</span>
+      </li>
+    </ul>
+  </div>
+  <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+    <p class="py-2 text-xl">
+      In modernen Netzwerken werden große Datenmengen ausgetauscht. Hohe
+      Bandbreiten verlangen eine stabile und zukunftssichere
+      Netzwerk-Infrastruktur. Dabei ist die fachgerechte Installation und
+      höchste Qualität aller Komponenten unerlässlich. Deshalb erarbeiten wir
+      auf Basis der kundenspezifischen Anforderungen und des gewünschten
+      Einsatzzwecks ein abgestimmtes Konzept mit dem Einsatz passender
+      Technologie und besonderem Augenmerk auf die zukünftige Erweiterbarkeit.
+      Unser Anspruch ist es, immer auf dem neuesten Stand der Technik zu sein,
+      um optimale Lösungen zu bieten.
+    </p>
+    <Image
+      inferSize
+      src="https://bilder.computer-extra.de/data/Website/network.webp"
+      alt="G Data Logo"
+      class="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
+    />
+  </div>
+  <div class="my-16 grid grid-cols-1 gap-10 lg:grid-cols-2">
+    <a
+      href="/Kontakt"
+      class="group relative overflow-hidden rounded-lg border border-gray-100 bg-gray-100 px-10 py-5 font-medium text-gray-600 shadow-inner"
+    >
+      <span
+        class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute right-0 bottom-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"
+      ></span>
+      <span
+        class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"
+      ></span>
+      <span
+        class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"
+      ></span>
+      <span
+        class="ease relative flex h-full w-full items-center justify-center text-2xl transition-colors delay-200 duration-300 group-hover:text-white"
+      >
+        Schreiben Sie uns
+      </span>
+    </a>
+  </div>
+</section>
