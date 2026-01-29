@@ -31,8 +31,9 @@ const { title, frontmatter } = Astro.props;
     <Posthog />
   </head>
   <body class="scroll-smooth antialiased">
-    <ScrollToTopButton client:only />
-    <Menu client:only />
+    <ScrollToTopButton client:load />
+
+    <Menu client:load />
     <slot />
     <Footer />
   </body>
