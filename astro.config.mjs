@@ -16,4 +16,7 @@ export default defineConfig({
       POSTHOG_HOST: envField.string({ context: "client", access: "public" }),
     },
   },
+  image: {
+    domains: ["bilder.computer-extra.de", "computer-extra.de"],
+  },
 });
