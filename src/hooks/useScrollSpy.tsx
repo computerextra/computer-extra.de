@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useEffectEvent, useState } from "react"
 
 export default function useScrollSpy(): { isScrolled: boolean } {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false)
 
-  const handleScroll = () => {
+  const handleScroll = useEffectEvent(() => {
     if (
       document.body.scrollTop > 20 ||
       document.documentElement.scrollTop > 20
     ) {
-      setIsScrolled(true);
+      setIsScrolled(true)
     } else {
-      setIsScrolled(false);
+      setIsScrolled(false)
     }
-  };
+  })
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll)
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
-  return { isScrolled };
+  return { isScrolled }
 }

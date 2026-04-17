@@ -1,11 +1,11 @@
 {
-    "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
-    "overrides": [
-        {
-            "files": "*.astro",
-            "options": {
-                "parser": "astro"
-            }
-        }
-    ]
+  "endOfLine": "lf",
+  "semi": false,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "printWidth": 80,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "src/index.css",
+  "tailwindFunctions": ["cn", "cva"]
 }
