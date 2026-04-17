@@ -1,14 +1,15 @@
+/* eslint-disable react-hooks/refs */
 "use client"
 
 import { gsap } from "gsap"
 import {
-    createElement,
-    type ElementType,
-    useCallback,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
+  createElement,
+  type ElementType,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
 } from "react"
 
 interface TypingTextProps {

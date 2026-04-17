@@ -1,9 +1,11 @@
 import { usePostHog } from "posthog-js/react"
 import { lazy, useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router"
-import { RootLayout, StartLayout } from "./Layout"
 
-const Startseite = lazy(() => import("@/Pages/Page"))
+const RootLayout = lazy(() => import("@/components/Layout/root-layout"))
+const StartLayout = lazy(() => import("@/components/Layout/start-layout"))
+
+const Startseite = lazy(() => import("@/Pages/Start"))
 const NotFound = lazy(() => import("@/Pages/404"))
 
 function PostHogPageView() {

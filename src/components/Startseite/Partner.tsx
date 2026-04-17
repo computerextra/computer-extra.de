@@ -1,6 +1,6 @@
-import { useEffect, useEffectEvent, useState } from "react"
-import axios from "axios"
 import { LoadingSpinner } from "@/components/misc/LoadingSpinner.tsx"
+import axios from "axios"
+import { useEffect, useEffectEvent, useState } from "react"
 import sortBy from "sort-by"
 
 type Partner = { id: string; name: string; link: string; image: string }
@@ -34,6 +34,7 @@ export default function Partner() {
 
     if (p) {
       for (let i = 0; i < anzahl; i++) {
+        // eslint-disable-next-line react-hooks/purity
         const random = Math.floor(Math.random() * p.length)
         if (!tmp.includes(p[random])) tmp.push(p[random])
         else i--

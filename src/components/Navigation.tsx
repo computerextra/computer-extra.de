@@ -1,6 +1,6 @@
-import { Fragment, useState } from "react"
 import useScrollSpy from "@/hooks/useScrollSpy.tsx"
 import { cn } from "@/lib/utils.ts"
+import { Fragment, useState } from "react"
 import { NavLink } from "react-router"
 
 interface RouterProps {

@@ -1,10 +1,10 @@
-import { NavLink, Outlet } from "react-router"
+import { Footer } from "@/components/Footer.tsx"
 import AnimatedText from "@/components/misc/AnimatedText"
 import ScrollToTopButton from "@/components/misc/ScrollToTopButton"
-import { useEffect, useRef } from "react"
-import { cn } from "@/lib/utils.ts"
 import { Navigation } from "@/components/Navigation.tsx"
-import { Footer } from "@/components/Footer.tsx"
+import { cn } from "@/lib/utils.ts"
+import { useEffect, useRef } from "react"
+import { NavLink, Outlet } from "react-router"
 
 const Weihnachten = {
   show: false,
@@ -23,28 +23,7 @@ const Words = [
   "Webhosting",
 ]
 
-function Header() {
-  return (
-    <header>
-      <Navigation />
-    </header>
-  )
-}
-
-export function RootLayout() {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="container mx-auto grow">
-        <Outlet />
-        <ScrollToTopButton />
-      </main>
-      <Footer />
-    </div>
-  )
-}
-
-export function StartLayout() {
+export default function StartLayout() {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -54,7 +33,9 @@ export function StartLayout() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
+      <header>
+        <Navigation />
+      </header>
       <main>
         <div className="overflow-x-hidden">
           <video

@@ -1,7 +1,7 @@
-import useTitle from "@/hooks/useTitle"
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
-import { lazy } from "react"
 import { Button } from "@/components/ui/button.tsx"
+import useTitle from "@/hooks/useTitle"
+import { lazy } from "react"
 import { NavLink } from "react-router"
 
 const Angebote = lazy(() => import("@/components/Startseite/Angebote"))
