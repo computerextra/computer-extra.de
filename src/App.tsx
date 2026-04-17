@@ -26,6 +26,19 @@ export function App() {
           <Route index element={<Startseite />} />
         </Route>
         <Route element={<RootLayout />}>
+          <Route path={"AGB"} element={<></>} />
+          <Route path={"Datenschutz"} element={<></>} />
+          <Route path={"Erfolg"} element={<></>} />
+          <Route path={"Fehler"} element={<></>} />
+          <Route path={"Fernwartung"} element={<></>} />
+          <Route path={"Impressum"} element={<></>} />
+          <Route path={"Jobs"} element={<></>} />
+          <Route path={"Kontakt"} element={<></>} />
+          <Route path={"Leistungen"} element={<></>} />
+          <Route path={"OEM"} element={<></>} />
+          <Route path={"Partner"} element={<></>} />
+          <Route path={"Team"} element={<></>} />
+          <Route path={"Termin"} element={<></>} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
