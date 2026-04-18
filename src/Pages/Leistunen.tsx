@@ -6,7 +6,9 @@ const Datenrettung = lazy(() => import("@/components/Leistungen/Datenrettung"))
 const Kommunikation = lazy(
   () => import("@/components/Leistungen/Kommunikation")
 )
-const Konfiguration = lazy(() => import("@/components/Leistungen/Konfigration"))
+const Konfiguration = lazy(
+  () => import("@/components/Leistungen/Konfiguration")
+)
 const Netzwerke = lazy(() => import("@/components/Leistungen/Netzwerke"))
 const Security = lazy(() => import("@/components/Leistungen/Security"))
 const Webdesign = lazy(() => import("@/components/Leistungen/Webdesign"))
