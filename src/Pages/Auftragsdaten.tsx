@@ -22,12 +22,10 @@ import {
 } from "@/hooks/avv"
 import { createPdf, type CreateResponse } from "@/lib/apiClient"
 import { useForm } from "@tanstack/react-form"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+
 import { Send } from "lucide-react"
 import { useEffect, useState } from "react"
 import z from "zod"
-
-const queryClient = new QueryClient()
 
 const LgWidth = 1024
 
@@ -84,11 +82,7 @@ const formSchema = z.object({
 })
 
 export default function Auftragsdaten() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Form />
-    </QueryClientProvider>
-  )
+  return <Form />
 }
 
 function Form() {

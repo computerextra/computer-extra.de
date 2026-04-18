@@ -114,3 +114,46 @@ export const getBlankoAnlageB = async (): Promise<Response | null> => {
   )
   return res ?? null
 }
+
+const Mitarbeiter = z.object({
+  id: z.string(),
+  name: z.string(),
+  short: z.string(),
+  image: z.boolean(),
+  sex: z.string(),
+  focus: z.string(),
+  abteilungId: z.string(),
+})
+export type Mitarbeiter = z.infer<typeof Mitarbeiter>
+const MitarbeiterResponse = z.object({
+  success: z.boolean(),
+  data: z.array(Mitarbeiter),
+  count: z.number().int(),
+})
+export type MitarbeiterResponse = z.infer<typeof MitarbeiterResponse>
+
+export const fetchMitarbeiter =
+  async (): Promise<MitarbeiterResponse | null> => {
+    const res = await apiRequest<MitarbeiterResponse>("/mitarbeiter.php", "GET")
+    return res ?? null
+  }
+
+const Abteilung = z.object({
+  id: z.string(),
+  name: z.string(),
+  idx: z.number().int(),
+})
+export type Abteilung = z.infer<typeof Abteilung>
+
+const AbteilungResponse = z.object({
+  success: z.boolean(),
+  data: z.array(Abteilung),
+  count: z.number().int(),
+})
+
+type AbteilungResponse = z.infer<typeof AbteilungResponse>
+
+export const fetchAbteilungen = async (): Promise<AbteilungResponse | null> => {
+  const res = await apiRequest<AbteilungResponse>("/abteilungen.php", "GET")
+  return res ?? null
+}
