@@ -1,12 +1,4 @@
-import {
-  type CSSProperties,
-  lazy,
-  useEffect,
-  useEffectEvent,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react"
+import { type CSSProperties, lazy, useEffect, useEffectEvent, useLayoutEffect, useRef, useState, } from "react"
 import { NavLink, Outlet, useLocation } from "react-router"
 import ScrollToTopButton from "@/components/misc/ScrollToTopButton.tsx"
 import { Button } from "@/components/ui/button.tsx"
@@ -134,6 +126,7 @@ export default function RootLayout() {
           )}
         </div>
       </div>
+
       <main className={"z-0 grow bg-white pt-5"}>
         <Outlet />
       </main>

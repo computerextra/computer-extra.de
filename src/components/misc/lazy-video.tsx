@@ -1,3 +1,5 @@
+import { useIsVisible } from "@/hooks/useIsVisible.tsx"
+import { cn } from "@/lib/utils.ts"
 import {
   type CSSProperties,
   type Ref,
@@ -5,8 +7,6 @@ import {
   useEffect,
   useRef,
 } from "react"
-import { useIsVisible } from "@/hooks/useIsVisible.tsx"
-import { cn } from "@/lib/utils.ts"
 
 type VideoComponentProps = {
   src: string
@@ -41,6 +41,7 @@ const LazyVideo = ({
     } catch (e) {
       // do nothing
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const stopVideoOnMove = useCallback(() => {
