@@ -22,6 +22,8 @@ const getTitle = (path: string) => {
       return "Allgemeine Geschäftsbedingungen"
     case "404":
       return "404 - Nicht gefunden"
+    case "Auftragsdaten":
+      return "AVV"
     default:
       return t
   }
@@ -50,6 +52,8 @@ const getSubtitle = (title: string) => {
       return "Internal Use Only"
     case "404":
       return "Die gesuchte Seite konnte nicht gefunden werden."
+    case "Auftragsdaten":
+      return "Auftragsdatenverarbeitungsvertrag"
     default:
       return ""
   }
