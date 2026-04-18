@@ -391,3 +391,51 @@
         @apply list-decimal ps-10 text-pretty;
     }
 }
+
+@layer components {
+    .cList {
+        @apply relative;
+    }
+
+    .cList ul {
+        @apply relative;
+    }
+}
+
+@layer components {
+    .cList ul li {
+        @apply relative left-0 flex items-center my-1
+        min-h-4 md:min-h-24 2xl:min-h-32
+        border-l-2 border-blue-600
+        transition-all duration-500;
+    }
+
+    .cList ul li:hover {
+        @apply left-2.5;
+    }
+}
+
+@layer components {
+    .cList ul li span {
+        @apply relative z-1  p-2 pl-3
+        transition-all duration-500;
+    }
+
+    .cList ul li:hover span {
+        @apply text-white;
+    }
+}
+
+@layer components {
+    .cList ul li::before {
+        content: "";
+        @apply absolute inset-0 bg-blue-600;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: 0.5s;
+    }
+
+    .cList ul li:hover::before {
+        transform: scaleX(1);
+    }
+}

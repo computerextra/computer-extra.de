@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button.tsx"
 import { lazy } from "react"
+import { Separator } from "@/components/ui/separator.tsx"
 
 const Datenrettung = lazy(() => import("@/components/Leistungen/Datenrettung"))
 const Kommunikation = lazy(
@@ -31,6 +32,7 @@ const Leistungen = () => {
       <section className={"mt-8 grid grid-cols-2 gap-8"}>
         <Button
           size={"xl"}
+          className={"cursor-pointer"}
           onClick={() => {
             const elem = document.querySelector("#webdesign")
             elem?.scrollIntoView({ behavior: "smooth" })
@@ -40,6 +42,7 @@ const Leistungen = () => {
         </Button>
         <Button
           size={"xl"}
+          className={"cursor-pointer"}
           onClick={() => {
             const elem = document.querySelector("#config")
             elem?.scrollIntoView({ behavior: "smooth" })
@@ -49,6 +52,7 @@ const Leistungen = () => {
         </Button>
         <Button
           size={"xl"}
+          className={"cursor-pointer"}
           onClick={() => {
             const elem = document.querySelector("#communication")
             elem?.scrollIntoView({ behavior: "smooth" })
@@ -58,6 +62,7 @@ const Leistungen = () => {
         </Button>
         <Button
           size={"xl"}
+          className={"cursor-pointer"}
           onClick={() => {
             const elem = document.querySelector("#security")
             elem?.scrollIntoView({ behavior: "smooth" })
@@ -67,6 +72,7 @@ const Leistungen = () => {
         </Button>
         <Button
           size={"xl"}
+          className={"cursor-pointer"}
           onClick={() => {
             const elem = document.querySelector("#network")
             elem?.scrollIntoView({ behavior: "smooth" })
@@ -76,6 +82,7 @@ const Leistungen = () => {
         </Button>
         <Button
           size={"xl"}
+          className={"cursor-pointer"}
           onClick={() => {
             const elem = document.querySelector("#data-retention")
             elem?.scrollIntoView({ behavior: "smooth" })
@@ -85,27 +92,39 @@ const Leistungen = () => {
         </Button>
       </section>
 
-      <section id={"webdesign"} className={"mt-8"}>
+      <Separator className={"my-4"} />
+
+      <section id={"webdesign"}>
         <Webdesign />
       </section>
 
-      <section id={"config"} className={"mt-8"}>
+      <Separator className={"my-4"} />
+
+      <section id={"config"}>
         <Konfiguration />
       </section>
 
-      <section id={"communication"} className={"mt-8"}>
+      <Separator className={"my-4"} />
+
+      <section id={"communication"}>
         <Kommunikation />
       </section>
 
-      <section id={"security"} className={"mt-8"}>
+      <Separator className={"my-4"} />
+
+      <section id={"security"}>
         <Security />
       </section>
 
-      <section id={"network"} className={"mt-8"}>
+      <Separator className={"my-4"} />
+
+      <section id={"network"}>
         <Netzwerke />
       </section>
 
-      <section id={"data-retention"} className={"mt-8"}>
+      <Separator className={"my-4"} />
+
+      <section id={"data-retention"}>
         <Datenrettung />
       </section>
     </div>
