@@ -1,8 +1,36 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
 import { Button } from "@/components/ui/button.tsx"
 import { NavLink } from "react-router"
+import axios from "axios"
+import { useEffect, useEffectEvent, useState } from "react"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card.tsx"
+
+type Referenz = {
+  id: string
+  Name: string
+  Webseite: string
+  Bild: string
+  Online: number
+}
 
 const Webdesign = () => {
+  const [Referenzen, setReferenzen] = useState<Referenz[] | undefined>(
+    undefined
+  )
+
+  const getReferenzen = useEffectEvent(async () => {
+    const res = await axios.get<{ success: boolean; data: Referenz[] }>(
+      "https://api.computer-extra.de/referenzen.php"
+    )
+
+    if (res.data.data) setReferenzen(res.data.data)
+  })
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    getReferenzen()
+  }, [])
+
   return (
     <div>
       <GradientHeader>Webentwicklung & Hosting</GradientHeader>
@@ -74,6 +102,45 @@ const Webdesign = () => {
         <Button asChild size={"xl"}>
           <NavLink to={"/Kontakt"}>Schreiben Sie uns</NavLink>
         </Button>
+      </div>
+
+      <div className={"grid gap-10 md:grid-cols-2 xl:grid-cols-3"}>
+        {Referenzen?.map((item) => {
+          if (item.Online) {
+            return (
+              <Card key={item.id}>
+                <CardHeader>
+                  <CardTitle>{item.Name}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <img
+                    alt="Screenshot"
+                    className="object-cover"
+                    height="200"
+                    src={item.Bild}
+                    style={{
+                      aspectRatio: "400/200",
+                      objectFit: "cover",
+                    }}
+                    width="400"
+                  />
+                </CardContent>
+                <CardFooter>
+                  <a
+                    target={"_blank"}
+                    href={item.Webseite}
+                    rel="noopener noreferrer"
+                    className={"underline"}
+                  >
+                    {item.Webseite.replace("https://", "")
+                      .replace("www.", "")
+                      .replace(/\/$/, "")}
+                  </a>
+                </CardFooter>
+              </Card>
+            )
+          }
+        })}
       </div>
     </div>
   )
