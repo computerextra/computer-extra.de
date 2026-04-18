@@ -10,6 +10,7 @@ const StartLayout = lazy(() => import("@/components/Layout/layout"))
 
 const NotFound = lazy(() => import("@/Pages/404"))
 const AGB = lazy(() => import("@/Pages/AGB"))
+const Auftragsdaten = lazy(() => import("@/Pages/Auftragsdaten"))
 const Datenschutz = lazy(() => import("@/Pages/Datenschutz"))
 const Erfolg = lazy(() => import("@/Pages/Erfolg"))
 const Fehler = lazy(() => import("@/Pages/Fehler"))
@@ -48,6 +49,7 @@ export function App() {
         </Route>
         <Route element={<RootLayout />}>
           <Route path={"AGB"} element={<AGB />} />
+          <Route path={"Auftragsdaten"} element={<Auftragsdaten />} />
           <Route path={"Datenschutz"} element={<Datenschutz />} />
           <Route path={"Erfolg"} element={<Erfolg />} />
           <Route path={"Fehler"} element={<Fehler />} />

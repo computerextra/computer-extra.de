@@ -1,12 +1,4 @@
-import {
-  type CSSProperties,
-  lazy,
-  useEffect,
-  useEffectEvent,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react"
+import { type CSSProperties, lazy, useEffect, useEffectEvent, useLayoutEffect, useRef, useState, } from "react"
 import { Outlet, useLocation } from "react-router"
 import ScrollToTopButton from "@/components/misc/ScrollToTopButton.tsx"
 
@@ -84,7 +76,9 @@ export default function LeistungenLayout() {
     <div className={"flex min-h-screen flex-col"}>
       <div
         ref={headerRef}
-        className={"h-fit min-h-[50vh] overflow-hidden bg-blue-600/50"}
+        className={
+          "flex h-fit min-h-[50vh] items-center justify-center overflow-hidden bg-blue-600/50"
+        }
       >
         <LazyVideo
           src={"/videos/LeistungenBg.mp4"}
@@ -104,7 +98,7 @@ export default function LeistungenLayout() {
           >
             {title}
           </h1>
-          <h2 className="scroll-m-20 pb-2 text-center text-2xl font-semibold tracking-tight text-slate-100 first:mt-0">
+          <h2 className="mt-5 scroll-m-20 pb-2 text-center text-2xl font-semibold tracking-tight text-slate-100">
             {subtitle}
           </h2>
         </div>

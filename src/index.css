@@ -361,3 +361,33 @@
 #tsparticles canvas {
     height: min-content !important;
 }
+
+.custom {
+    h1 {
+        @apply text-3xl font-bold leading-tight text-pretty;
+    }
+
+    h2 {
+        @apply py-4 text-2xl font-semibold text-pretty;
+    }
+
+    h3 {
+        @apply py-2 text-xl font-medium text-pretty;
+    }
+
+    p {
+        @apply py-2 text-pretty;
+    }
+
+    ul {
+        @apply list-disc ps-10 text-pretty;
+    }
+
+    a {
+        @apply text-blue-500 underline text-pretty;
+    }
+
+    ol {
+        @apply list-decimal ps-10 text-pretty;
+    }
+}
