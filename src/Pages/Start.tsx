@@ -22,7 +22,7 @@ export default function Startseite() {
             Wir bieten Ihnen ein ganzes Spektrum an Dienstleistungen im Bereich
             der IT.
           </GradientHeader>
-          <p className="text-lg">
+          <p className="leading-7 not-first:mt-6">
             Ob IT-Infrastruktur, Security oder Kommunikation, Computer Extra hat
             die passenden Produkte und Services verfügbar. Privat-, Office- und
             Gaming-PCs werden direkt auf Ihre Bedürfnisse zugeschnitten. Die
@@ -79,16 +79,16 @@ export default function Startseite() {
       <section
         id={"Kontakt"}
         className={
-          "min-h-[20vh] w-full rounded-tl-3xl rounded-tr-3xl bg-linear-to-br from-purple-500 to-blue-600"
+          "flex min-h-[20vh] w-full flex-col items-center justify-center rounded-tl-3xl rounded-tr-3xl bg-linear-to-br from-purple-500 to-blue-600"
         }
       >
-        <h2 className="pt-60 text-center text-6xl font-bold text-white">
+        <h2 className="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight text-white">
           Kontaktieren Sie uns
         </h2>
-        <p className="pt-10 text-center text-4xl font-semibold text-white">
+        <p className="text-center leading-7 text-white not-first:mt-6">
           Erzählen Sie uns von Ihnen - gemeinsam machen wir den Unterschied
         </p>
-        <div className="mx-auto grid min-h-[20vh] w-2/3 items-center">
+        <div className="mx-auto mt-5 grid w-2/3 items-center">
           <Button asChild variant={"secondary"} size={"lg"}>
             <NavLink to="/Kontakt">Schreiben Sie uns</NavLink>
           </Button>

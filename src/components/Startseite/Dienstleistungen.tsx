@@ -9,10 +9,8 @@ export default function Dienstleistungen() {
         className="my-10 grid w-full grid-cols-1 gap-10 md:grid-cols-2"
       >
         <div>
-          <GradientHeader fontSize="text-3xl">
-            Webdesign & Hosting
-          </GradientHeader>
-          <p className="text-lg">
+          <GradientHeader>Webdesign & Hosting</GradientHeader>
+          <p className="leading-7 not-first:mt-6">
             Wir liefern innovative Konzepte für von modernen und optimierte
             Webseiten (Webdesign) nach Ihren Wünschen, setzen diese für Sie um
             und kümmern uns auf Wunsch auch um das Hosting der Webseite, Emails
@@ -31,8 +29,8 @@ export default function Dienstleistungen() {
         className="my-10 grid w-full grid-cols-1 gap-10 md:grid-cols-2"
       >
         <div>
-          <GradientHeader fontSize="text-3xl">Kommunikation</GradientHeader>
-          <p className="text-lg">
+          <GradientHeader>Kommunikation</GradientHeader>
+          <p className="leading-7 not-first:mt-6">
             Entdecken Sie maßgeschneiderte Kommunikationslösungen für Ihr
             Unternehmen. Als zertifizierter Partner namhafter Hersteller wie{" "}
             <span className="font-semibold underline">Auerswald</span>,{" "}
@@ -56,10 +54,8 @@ export default function Dienstleistungen() {
         className="my-10 grid w-full grid-cols-1 gap-10 md:grid-cols-2"
       >
         <div>
-          <GradientHeader fontSize="text-3xl">
-            PC-Konfigurationen
-          </GradientHeader>
-          <p className="text-lg">
+          <GradientHeader>PC-Konfigurationen</GradientHeader>
+          <p className="leading-7 not-first:mt-6">
             Wir finden für Sie den richtigen PC, unabhängig von Hersteller und
             System. Wir beraten und bauen für Sie den perfekten Computer, egal
             ob Spiele-, Office-, oder Videobearbeitungs-PC. Wir konfigurieren
@@ -83,8 +79,8 @@ export default function Dienstleistungen() {
         className="my-10 grid w-full grid-cols-1 gap-10 md:grid-cols-2"
       >
         <div>
-          <GradientHeader fontSize="text-3xl">Netzwerke</GradientHeader>
-          <p className="text-lg">
+          <GradientHeader>Netzwerke</GradientHeader>
+          <p className="leading-7 not-first:mt-6">
             In der heutigen Zeit sind effiziente IT-Strukturen ein
             entscheidender Faktor für Erfolg. Deshalb orientieren sich unsere
             Konzepte an Ihren Bedürfnissen von morgen. Als erfahrener
@@ -105,8 +101,8 @@ export default function Dienstleistungen() {
         className="my-10 grid w-full grid-cols-1 gap-10 md:grid-cols-2"
       >
         <div>
-          <GradientHeader fontSize="text-3xl">IT-Security</GradientHeader>
-          <p className="text-lg">
+          <GradientHeader>IT-Security</GradientHeader>
+          <p className="leading-7 not-first:mt-6">
             IT-, Daten- & Cybersicherheit und der verantwortungsbewusste Umgang
             damit ist der Schlüssel für Vertrauen in der Digitalen Welt. Nutzen
             Sie unsere Expertise und unser Know-how für den richtigen Schutz.
