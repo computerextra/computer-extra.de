@@ -1,7 +1,14 @@
-import { type CSSProperties, lazy, useEffect, useEffectEvent, useLayoutEffect, useRef, useState, } from "react"
-import { NavLink, Outlet, useLocation } from "react-router"
+import {
+  type CSSProperties,
+  lazy,
+  useEffect,
+  useEffectEvent,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react"
+import { Outlet, useLocation } from "react-router"
 import ScrollToTopButton from "@/components/misc/ScrollToTopButton.tsx"
-import { Button } from "@/components/ui/button.tsx"
 
 const Navigation = lazy(() => import("@/components/Navigation"))
 const LazyVideo = lazy(() => import("@/components/misc/lazy-video"))
@@ -12,16 +19,13 @@ const getTitle = (path: string) => {
   switch (t) {
     case "AGB":
       return "Allgemeine Geschäftsbedingungen"
-    case "404":
-      return "404 - Nicht gefunden"
     default:
       return t
   }
 }
 
 const getSubtitle = (title: string) => {
-  const t = title.replaceAll("/", "")
-  switch (t) {
+  switch (title) {
     case "Leistungen":
       return "Wir bieten Ihnen ein ganzes Spektrum an Dienstleistungen im Bereich der IT."
     case "Partner":
@@ -40,14 +44,12 @@ const getSubtitle = (title: string) => {
       return "Da hat etwas nicht funktioniert!"
     case "OEM":
       return "Internal Use Only"
-    case "404":
-      return "Die gesuchte Seite konnte nicht gefunden werden."
     default:
       return ""
   }
 }
 
-export default function RootLayout() {
+export default function LeistungenLayout() {
   const headerRef = useRef<HTMLDivElement | null>(null)
   const location = useLocation()
   const [style, setStyle] = useState<CSSProperties | undefined>(undefined)
@@ -72,7 +74,7 @@ export default function RootLayout() {
 
   useLayoutEffect(() => {
     const title = getTitle(location.pathname)
-    const sub_title = getSubtitle(location.pathname)
+    const sub_title = getSubtitle(title)
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setTitle(title)
     setSubtitle(sub_title)
@@ -85,7 +87,7 @@ export default function RootLayout() {
         className={"h-fit min-h-[50vh] overflow-hidden bg-blue-600/50"}
       >
         <LazyVideo
-          src={"/videos/VideoBg.mp4"}
+          src={"/videos/LeistungenBg.mp4"}
           playbackRate={1}
           style={style}
           className={
@@ -105,19 +107,6 @@ export default function RootLayout() {
           <h2 className="scroll-m-20 pb-2 text-center text-2xl font-semibold tracking-tight text-slate-100 first:mt-0">
             {subtitle}
           </h2>
-          {(location.pathname.replaceAll("/", "") == "404" ||
-            location.pathname.replaceAll("/", "") == "Erfolg" ||
-            location.pathname.replaceAll("/", "") == "Fehler") && (
-            <div
-              className={
-                "mx-auto mt-20 flex max-w-[60vw] items-center justify-center"
-              }
-            >
-              <Button variant={"secondary"} size={"xl"} asChild>
-                <NavLink to={"/"}>Zurück zur Startseite</NavLink>
-              </Button>
-            </div>
-          )}
         </div>
       </div>
       <main className={"z-0 grow bg-white pt-5"}>

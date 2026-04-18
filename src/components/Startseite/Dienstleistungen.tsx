@@ -1,4 +1,5 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
+import LazyVideo from "@/components/misc/lazy-video.tsx"
 
 export default function Dienstleistungen() {
   return (
@@ -70,18 +71,12 @@ export default function Dienstleistungen() {
             Sie auch wirklich brauchen!
           </p>
         </div>
-
-        <video
-          src="videos/RElektro_FINAL_03062101.mp4"
-          className="max-h-112.5 rounded-lg object-cover transition-all duration-300 ease-in-out hover:scale-105"
-          width={"auto"}
-          height={900}
-          muted
-          loop
-          playsInline
-          controls
-          autoPlay
-        ></video>
+        <LazyVideo
+          src={"videos/RElektro_FINAL_03062101.mp4"}
+          className={
+            "rounded-lg transition-all duration-300 ease-in-out hover:scale-105"
+          }
+        />
       </div>
       <div
         id="Netzwerke"

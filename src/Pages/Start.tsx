@@ -1,6 +1,5 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
 import { Button } from "@/components/ui/button.tsx"
-import useTitle from "@/hooks/useTitle"
 import { lazy } from "react"
 import { NavLink } from "react-router"
 
@@ -11,9 +10,9 @@ const Dienstleistungen = lazy(
 const Partner = lazy(() => import("@/components/Startseite/Partner"))
 
 export default function Startseite() {
-  useTitle(undefined)
   return (
     <div className="container mx-auto">
+      <title>Computer Extra GmbH</title>
       <section
         id={"Hero"}
         className={"mb-10 grid w-full gap-10 lg:grid-cols-2"}

@@ -78,7 +78,7 @@ export default function Angebote() {
       {a?.sort(sortBy("date_start")).map((Angebot, idx) => {
         if (Angebot.anzeigen == 1)
           return (
-            <Card>
+            <Card key={Angebot.id}>
               <CardHeader>
                 <CardTitle>{Angebot.title}</CardTitle>
                 <CardDescription>{Angebot.subtitle}</CardDescription>

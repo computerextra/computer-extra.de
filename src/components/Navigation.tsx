@@ -39,7 +39,7 @@ const routes: RouterProps[] = [
   },
 ]
 
-export const Navigation = () => {
+const Navigation = () => {
   return (
     <Fragment>
       <DesktopNavigation />
@@ -83,10 +83,10 @@ function MobileNavigation() {
 function DesktopNavigation() {
   const { isScrolled } = useScrollSpy()
   return (
-    <div className={"fixed top-5 z-50 hidden w-full lg:block"}>
+    <div className={"fixed inset-x-0 top-5 z-1000 hidden w-screen lg:block"}>
       <nav
         className={cn(
-          "mt-1ß mx-auto flex max-w-[65%] px-6 py-5 transition-all duration-500",
+          "mt-1ß mx-auto flex max-w-fit items-center justify-center gap-8 px-6 py-5 transition-all duration-500",
           isScrolled ? "rounded-2xl bg-white/80 ring-2" : "border-b"
         )}
       >
@@ -127,3 +127,5 @@ function DesktopNavigation() {
     </div>
   )
 }
+
+export default Navigation
