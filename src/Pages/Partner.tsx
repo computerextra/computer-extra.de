@@ -35,7 +35,7 @@ const Partner = () => {
       }
     >
       <title>Computer Extra GmbH | Partner</title>
-      {Partner?.sort(sortBy("name")).map((p, idx) => {
+      {Partner?.sort(sortBy("name")).map((p) => {
         return (
           <Card key={p.id}>
             <CardHeader>
