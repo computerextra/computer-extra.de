@@ -67,7 +67,12 @@ function MobileNavigation() {
                 <NavLink
                   id={"nav-item"}
                   to={route.path}
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    document.body.scrollTop = 0
+                    document.documentElement.scrollTop = 0
+
+                    setOpen(false)
+                  }}
                 >
                   {route.title}
                 </NavLink>
@@ -92,6 +97,10 @@ function DesktopNavigation() {
       >
         <NavLink
           to={"/"}
+          onClick={() => {
+            document.body.scrollTop = 0
+            document.documentElement.scrollTop = 0
+          }}
           className={cn(
             "envision text-2xl font-semibold transition-all duration-500",
             isScrolled ? "text-slate-600" : "text-white/90"
@@ -107,6 +116,10 @@ function DesktopNavigation() {
           {routes.map((route, idx) => (
             <li key={idx}>
               <NavLink
+                onClick={() => {
+                  document.body.scrollTop = 0
+                  document.documentElement.scrollTop = 0
+                }}
                 to={route.path}
                 className={({ isActive }) =>
                   cn(
