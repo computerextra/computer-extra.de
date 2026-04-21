@@ -67,7 +67,7 @@ const Jobs = () => {
   }, [])
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-5">
       <title>Computer Extra GmbH | Jobs</title>
       <section>
         {/* Jobs */}
