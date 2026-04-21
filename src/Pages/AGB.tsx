@@ -1,6 +1,6 @@
 const Agb = () => {
   return (
-    <div className={"container mx-auto"}>
+    <div className={"container mx-auto mt-5"}>
       <title>Computer Extra GmbH | AGB</title>
       <h2 className="mt-5 mb-2 text-xl font-medium">
         1. Umfang der Lieferungen und Leistungen

@@ -1,8 +1,14 @@
-import { useEffect, useEffectEvent, useState } from "react"
-import axios from "axios"
-import sortBy from "sort-by"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card.tsx"
 import { Button } from "@/components/ui/button.tsx"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card.tsx"
+import axios from "axios"
+import { useEffect, useEffectEvent, useState } from "react"
+import sortBy from "sort-by"
 
 type Partner = {
   id: string

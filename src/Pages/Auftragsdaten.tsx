@@ -153,7 +153,10 @@ function Form() {
   })
 
   return (
-    <div className="container mx-auto my-10" style={{ minHeight: minHeigt }}>
+    <div
+      className="container mx-auto my-10 mt-5"
+      style={{ minHeight: minHeigt }}
+    >
       {!BlankoIsPending && !BlankoIsError && (
         <div className="mx-auto mt-5 rounded-2xl border-4 bg-slate-100 p-4">
           <h2 className="text-xl!">Vertragsbedingungen</h2>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button.tsx"
-import { lazy } from "react"
 import { Separator } from "@/components/ui/separator.tsx"
+import { lazy } from "react"
 
 const Datenrettung = lazy(() => import("@/components/Leistungen/Datenrettung"))
 const Kommunikation = lazy(
@@ -15,7 +15,7 @@ const Webdesign = lazy(() => import("@/components/Leistungen/Webdesign"))
 
 const Leistungen = () => {
   return (
-    <div className={"container mx-auto"}>
+    <div className={"container mx-auto mt-5"}>
       <title>Computer Extra GmbH | Leistungen</title>
       <section>
         <p className="leading-7 not-first:mt-6">
