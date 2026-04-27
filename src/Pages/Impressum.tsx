@@ -7,7 +7,7 @@ const Impressum = () => {
   const [markdownContent, setMarkdownContent] = useState("")
 
   useEffect(() => {
-    fetch("/Datenschutz.md")
+    fetch("/Impressum.md")
       .then((res) => res.text())
       .then((text) => setMarkdownContent(text))
   }, [])
