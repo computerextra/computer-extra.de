@@ -1,4 +1,6 @@
-import { NavLink, Outlet } from "react-router"
+import Waves from "@/components/Layout/waves"
+import ScrollToTopButton from "@/components/misc/ScrollToTopButton.tsx"
+import { Button } from "@/components/ui/button.tsx"
 import {
   Card,
   CardContent,
@@ -15,10 +17,7 @@ import {
   useRef,
   useState,
 } from "react"
-import { CircleArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button.tsx"
-import Waves from "@/components/Layout/waves"
-import ScrollToTopButton from "@/components/misc/ScrollToTopButton.tsx"
+import { NavLink, Outlet } from "react-router"
 
 const Navigation = lazy(() => import("@/components/Navigation"))
 const AnimatedText = lazy(() => import("@/components/misc/AnimatedText"))
@@ -67,7 +66,11 @@ const getDay = () => {
 
 const isWorkingHour = () => {
   const now = new Date()
-  return now.getDay() <= 5 && now.getHours() >= 9 && now.getHours() < 18
+  return (
+    now.getDay() <= 5 &&
+    ((now.getHours() >= 9 && now.getHours() < 13) ||
+      (now.getHours() >= 14 && now.getHours() < 18))
+  )
 }
 
 const Layout = () => {
@@ -163,79 +166,49 @@ const Layout = () => {
               <CardContent>
                 <div className={"grid grid-cols-2"}>
                   <span className={"flex items-baseline gap-1"}>
-                    <CircleArrowRight
-                      className={cn(
-                        "size-3.5",
-                        isOpen
-                          ? "animate-pulse text-green-600"
-                          : "text-red-600",
-                        day == "Montag" ? "block" : "hidden"
-                      )}
+                    <Circle
+                      show={day == "Montag"}
+                      color={isOpen ? "green" : "red"}
                     />
                     Montag
                   </span>
-                  <span>09:00 - 18:00</span>
+                  <span>09:00 - 13:00 | 14:00 - 18:00</span>
                   <span className={"flex items-baseline gap-1"}>
-                    <CircleArrowRight
-                      className={cn(
-                        "size-3.5",
-                        isOpen
-                          ? "animate-pulse text-green-600"
-                          : "text-red-600",
-                        day == "Dienstag" ? "block" : "hidden"
-                      )}
+                    <Circle
+                      show={day == "Dienstag"}
+                      color={isOpen ? "green" : "red"}
                     />
                     Dienstag
                   </span>
-                  <span>09:00 - 18:00</span>
+                  <span>09:00 - 13:00 | 14:00 - 18:00</span>
                   <span className={"flex items-baseline gap-1"}>
-                    <CircleArrowRight
-                      className={cn(
-                        "size-3.5",
-                        isOpen
-                          ? "animate-pulse text-green-600"
-                          : "text-red-600",
-                        day == "Mittwoch" ? "block" : "hidden"
-                      )}
+                    <Circle
+                      show={day == "Mittwoch"}
+                      color={isOpen ? "green" : "red"}
                     />
                     Mittwoch
                   </span>
-                  <span>09:00 - 18:00</span>
+                  <span>09:00 - 13:00 | 14:00 - 18:00</span>
                   <span className={"flex items-baseline gap-1"}>
-                    <CircleArrowRight
-                      className={cn(
-                        "size-3.5",
-                        isOpen
-                          ? "animate-pulse text-green-600"
-                          : "text-red-600",
-                        day == "Donnerstag" ? "block" : "hidden"
-                      )}
+                    <Circle
+                      show={day == "Donnerstag"}
+                      color={isOpen ? "green" : "red"}
                     />
                     Donnerstag
                   </span>
-                  <span>09:00 - 18:00</span>
+                  <span>09:00 - 13:00 | 14:00 - 18:00</span>
                   <span className={"flex items-baseline gap-1"}>
-                    <CircleArrowRight
-                      className={cn(
-                        "size-3.5",
-                        isOpen
-                          ? "animate-pulse text-green-600"
-                          : "text-red-600",
-                        day == "Freitag" ? "block" : "hidden"
-                      )}
+                    <Circle
+                      show={day == "Freitag"}
+                      color={isOpen ? "green" : "red"}
                     />
                     Freitag
                   </span>
-                  <span>09:00 - 18:00</span>
+                  <span>09:00 - 13:00 | 14:00 - 18:00</span>
                   <span className={"flex items-baseline gap-1"}>
-                    <CircleArrowRight
-                      className={cn(
-                        "size-3.5",
-                        "text-red-600",
-                        day == "Samstag" || day == "Sonntag"
-                          ? "block"
-                          : "hidden"
-                      )}
+                    <Circle
+                      show={day == "Samstag" || day == "Sonntag"}
+                      color={"red"}
                     />
                     Samstag - Sonntag
                   </span>
@@ -248,14 +221,14 @@ const Layout = () => {
               <CardHeader>
                 <CardTitle className={"text-xl"}>Telekom Beratung</CardTitle>
                 <CardDescription className={"text-slate-200"}>
-                  Jetzt Beratungstermin sichern – einfach & unverbindlich
+                  Jetzt Beratungstermin sichern - einfach & unverbindlich
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="leading-7 not-first:mt-6">
                   Sie möchten den passenden Telekom Telefon- oder Mobilfunktarif
                   finden, aber sich nicht durch unzählige Optionen kämpfen? Wir
-                  helfen Ihnen dabei – persönlich und unkompliziert.
+                  helfen Ihnen dabei - persönlich und unkompliziert.
                 </p>
                 <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
                   Schnell. Einfach. Individuell.
@@ -288,6 +261,34 @@ const Layout = () => {
       <Footer />
       <ScrollToTopButton />
     </div>
+  )
+}
+
+function Circle({ show, color }: { show: boolean; color: "red" | "green" }) {
+  const primaryColor = () => {
+    if (color === "green") return "bg-green-600"
+    return "bg-red-600"
+  }
+  const secondaryColor = () => {
+    if (color === "green") return "bg-green-400"
+    return "bg-red-400"
+  }
+
+  return (
+    <span className={cn("flex size-3.5", show ? "relative" : "hidden")}>
+      <span
+        className={cn(
+          "absolute inline-flex h-full w-full animate-ping rounded-full opacity-75",
+          secondaryColor()
+        )}
+      ></span>
+      <span
+        className={cn(
+          "relative inline-flex size-3.5 rounded-full",
+          primaryColor()
+        )}
+      ></span>
+    </span>
   )
 }
 
