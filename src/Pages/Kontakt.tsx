@@ -119,7 +119,7 @@ const Kontakt = () => {
                     Öffnungszeiten
                   </h3>
                   <p className="text-gray-600">
-                    Montag - Freitag: 09:00 - 18:00
+                    Montag - Freitag: 09:00 - 13:00 | 14:00 - 18:00
                   </p>
                   <p className="text-gray-600">
                     Samstag &amp; Sonntag: geschlossen
