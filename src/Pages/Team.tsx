@@ -1,11 +1,16 @@
-import { useQuery } from "@tanstack/react-query"
-import { type Abteilung, fetchAbteilungen, fetchMitarbeiter, type Mitarbeiter, } from "@/lib/apiClient.ts"
-import { Button } from "@/components/ui/button.tsx"
-import { useState } from "react"
-import { Badge } from "@/components/ui/badge.tsx"
-import { Card, CardContent } from "@/components/ui/card.tsx"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar.tsx"
-import { Mail } from "lucide-react"
+import { Badge } from "@/components/ui/badge.tsx"
+import { Button } from "@/components/ui/button.tsx"
+import { Card, CardContent } from "@/components/ui/card.tsx"
+import {
+  type Abteilung,
+  fetchAbteilungen,
+  fetchMitarbeiter,
+  type Mitarbeiter,
+} from "@/lib/apiClient.ts"
+import { useQuery } from "@tanstack/react-query"
+import { Mail, Phone } from "lucide-react"
+import { useState } from "react"
 
 const Team = () => {
   const Mitarbeiter = useQuery({
@@ -191,7 +196,6 @@ function EmployeeCard({
         <div className="flex flex-col items-center space-y-4 text-center">
           <Avatar className="h-20 w-20">
             <AvatarImage
-              // TODO: Bild über API ziehen
               src={
                 employee.image
                   ? `https://bilder.computer-extra.de/data/Mitarbeiter/${employee.short.toLowerCase()}.webp`
@@ -214,6 +218,14 @@ function EmployeeCard({
               <Mail className="h-4 w-4" />
               <span>{email}</span>
             </div>
+
+            <a
+              href={`tel:056160144${employee.Gruppenwahl}`}
+              className="flex items-center justify-center gap-1 text-sm text-muted-foreground"
+            >
+              <Phone className="h-4 w-4" />
+              <span>0561 / 60 144 - {employee.Gruppenwahl}</span>
+            </a>
 
             <Badge
               variant="outline"

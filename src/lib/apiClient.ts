@@ -123,6 +123,7 @@ const Mitarbeiter = z.object({
   sex: z.string(),
   focus: z.string(),
   abteilungId: z.string(),
+  Gruppenwahl: z.string(),
 })
 export type Mitarbeiter = z.infer<typeof Mitarbeiter>
 const MitarbeiterResponse = z.object({

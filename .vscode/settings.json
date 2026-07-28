@@ -6,5 +6,6 @@
         "source.organizeImports": "always",
         "source.removeUnusedImports": "always",
         "source.sort.json": "always"
-    }
+    },
+    "snyk.advanced.organization": "20eb6ee3-5c76-4797-bd54-9a6a0476757a"
 }
