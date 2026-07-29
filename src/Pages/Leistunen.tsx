@@ -10,6 +10,7 @@ const Konfiguration = lazy(
   () => import("@/components/Leistungen/Konfiguration")
 )
 const Netzwerke = lazy(() => import("@/components/Leistungen/Netzwerke"))
+const PhoneDocs = lazy(() => import("@/components/Leistungen/PhoneDocs"))
 const Security = lazy(() => import("@/components/Leistungen/Security"))
 const Webdesign = lazy(() => import("@/components/Leistungen/Webdesign"))
 
@@ -31,7 +32,17 @@ const Leistungen = () => {
           wird, fahren die Kollegen auch gerne vor Ort.
         </p>
       </section>
-      <section className={"mt-8 grid grid-cols-2 gap-8"}>
+      <section className={"mt-8 grid grid-cols-1 gap-8 md:grid-cols-2"}>
+        <Button
+          size={"xl"}
+          className={"cursor-pointer"}
+          onClick={() => {
+            const elem = document.querySelector("#phonedocs")
+            elem?.scrollIntoView({ behavior: "smooth" })
+          }}
+        >
+          Smartphone-Reparatur
+        </Button>
         <Button
           size={"xl"}
           className={"cursor-pointer"}
@@ -92,6 +103,12 @@ const Leistungen = () => {
         >
           Datenrettung
         </Button>
+      </section>
+
+      <Separator className={"my-4"} />
+
+      <section id={"phonedocs"}>
+        <PhoneDocs />
       </section>
 
       <Separator className={"my-4"} />
