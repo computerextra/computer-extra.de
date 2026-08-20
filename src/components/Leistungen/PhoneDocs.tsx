@@ -1,6 +1,7 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
 import { Button } from "@/components/ui/button.tsx"
-import { CheckCircle2, ExternalLink, Smartphone, Wrench } from "lucide-react"
+import { CheckCircle2, Smartphone, Wrench } from "lucide-react"
+import { NavLink } from "react-router"
 
 const benefits = [
   "Ehrliche Diagnose statt Teiletausch auf Verdacht",
@@ -57,19 +58,10 @@ const PhoneDocs = () => {
 
       <div className="my-16 grid">
         <Button asChild size={"xl"}>
-          <a
-            href="https://phonedocs.de/Kontakt"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <NavLink to="/Phonedocs/Anfrage">
             Reparatur bei PhoneDocs anfragen
-            <ExternalLink aria-hidden="true" className="ml-2 size-5" />
-            <span className="sr-only">(externer Link)</span>
-          </a>
+          </NavLink>
         </Button>
-        <p className="mt-3 text-center text-sm text-slate-600">
-          Externer Inhalt: Das Kontaktformular öffnet sich auf phonedocs.de.
-        </p>
       </div>
     </div>
   )

@@ -1,7 +1,15 @@
-import { type CSSProperties, lazy, useEffect, useEffectEvent, useLayoutEffect, useRef, useState, } from "react"
-import { NavLink, Outlet, useLocation } from "react-router"
 import ScrollToTopButton from "@/components/misc/ScrollToTopButton.tsx"
 import { Button } from "@/components/ui/button.tsx"
+import {
+  type CSSProperties,
+  lazy,
+  useEffect,
+  useEffectEvent,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react"
+import { NavLink, Outlet, useLocation } from "react-router"
 
 const Navigation = lazy(() => import("@/components/Navigation"))
 const LazyVideo = lazy(() => import("@/components/misc/lazy-video"))
@@ -16,6 +24,8 @@ const getTitle = (path: string) => {
       return "404 - Nicht gefunden"
     case "Auftragsdaten":
       return "AVV"
+    case "PhonedocsAnfrage":
+      return "PhoneDocs Anfrage"
     default:
       return t
   }
@@ -38,6 +48,10 @@ const getSubtitle = (title: string) => {
       return "Buchen Sie sich einen Telekom Beratungtermin"
     case "AGB":
       return "Der Firma Computer Extra GmbH, im Folgenden Verkäufer genannt."
+    case "Phonedocs":
+      return "Reparieren statt neu kaufen. Schnell, ehrlich und nachvollziehbar."
+    case "PhonedocsAnfrage":
+      return "Ihre Reparaturanfrage an PhoneDocs."
     case "Fehler":
       return "Da hat etwas nicht funktioniert!"
     case "OEM":
