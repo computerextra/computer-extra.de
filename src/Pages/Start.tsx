@@ -25,7 +25,8 @@ export default function Startseite() {
           <p className="leading-7 not-first:mt-6">
             Ob IT-Infrastruktur, Security oder Kommunikation, Computer Extra hat
             die passenden Produkte und Services verfügbar. Privat-, Office- und
-            Gaming-PCs werden direkt auf Ihre Bedürfnisse zugeschnitten. Die
+            Gaming-PCs und Notebooks werden direkt auf Ihre Bedürfnisse
+            zugeschnitten. Die
             exklusive Partnerschaft mit der Telekom für Business- und
             Privattarife runden das Gesamtpaket ab. Webdesign und -entwicklung
             sowie das passende Hosting von Webseiten und Mails darf dabei nicht

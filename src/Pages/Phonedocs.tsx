@@ -138,9 +138,14 @@ export default function Phonedocs() {
             und Dauer. So können Sie in Ruhe entscheiden, ob sich die Reparatur
             für Sie lohnt.
           </p>
-          <Button asChild size="xl" className="mt-8">
-            <NavLink to="/Phonedocs/Anfrage">Reparatur anfragen</NavLink>
-          </Button>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <Button asChild size="xl">
+              <NavLink to="/Phonedocs/Anfrage">Reparatur anfragen</NavLink>
+            </Button>
+            <Button asChild size="xl" variant="outline">
+              <NavLink to="/Phonedocs/Preise">Preisliste ansehen</NavLink>
+            </Button>
+          </div>
         </div>
 
         <div className="grid gap-6">

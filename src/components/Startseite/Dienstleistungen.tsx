@@ -1,5 +1,4 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
-import LazyVideo from "@/components/misc/lazy-video.tsx"
 
 export default function Dienstleistungen() {
   return (
@@ -43,8 +42,8 @@ export default function Dienstleistungen() {
         </div>
 
         <img
-          src="https://bilder.computer-extra.de/data/Website/business.webp"
-          alt=""
+          src="/business-kommunikation.webp"
+          alt="Moderne Business-Kommunikation mit IP-Telefon, Headset und Telefonanlage"
           className="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
           width={900}
         />
@@ -54,24 +53,22 @@ export default function Dienstleistungen() {
         className="my-10 grid w-full grid-cols-1 gap-10 md:grid-cols-2"
       >
         <div>
-          <GradientHeader>PC-Konfigurationen</GradientHeader>
+          <GradientHeader>PC- & Notebook-Konfigurationen</GradientHeader>
           <p className="leading-7 not-first:mt-6">
-            Wir finden für Sie den richtigen PC, unabhängig von Hersteller und
-            System. Wir beraten und bauen für Sie den perfekten Computer, egal
-            ob Spiele-, Office-, oder Videobearbeitungs-PC. Wir konfigurieren
-            Ihren Computer für Ihre Bedürfnisse. Gerne übernehmen wir auch die
-            Einrichtung Ihres neuen PCs inklusive Übertragung der alten Daten,
-            Installation von Programmen sowie einrichtung Ihrer E-Mail Adressen.
-            Bei Desktop Computern können wir ganz individuell für Sie einen
-            Rechner konfigurieren und bauen. Sie Zahlen dann nur für das, was
-            Sie auch wirklich brauchen!
+            Wir finden und konfigurieren für Sie den richtigen Desktop-PC oder
+            das passende Notebook – unabhängig von Hersteller und System. Ob
+            Gaming, Office, mobiles Arbeiten oder Videobearbeitung: Ausstattung,
+            Leistung und Budget werden auf Ihre Anforderungen abgestimmt. Bei
+            Desktop-PCs stellen wir die Komponenten individuell zusammen;
+            Notebooks konfigurieren wir passend mit Arbeitsspeicher, Speicher,
+            Betriebssystem und Software. Gerne übernehmen wir auch Einrichtung,
+            Datenübertragung, Programme und E-Mail-Konten.
           </p>
         </div>
-        <LazyVideo
-          src={"videos/RElektro_FINAL_03062101.mp4"}
-          className={
-            "rounded-lg transition-all duration-300 ease-in-out hover:scale-105"
-          }
+        <img
+          src="/pc-notebook-konfiguration.webp"
+          alt="Individuelle Konfiguration von Desktop-PCs und Notebooks sowie WERTGARANTIE Elektronik-Versicherungen"
+          className="w-full rounded-lg object-cover transition-all duration-300 ease-in-out hover:scale-105"
         />
       </div>
       <div

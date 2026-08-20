@@ -158,3 +158,25 @@ export const fetchAbteilungen = async (): Promise<AbteilungResponse | null> => {
   const res = await apiRequest<AbteilungResponse>("/abteilungen.php", "GET")
   return res ?? null
 }
+
+export type PhonedocsPreis = {
+  id: number
+  hersteller: string
+  geraet: string
+  reparatur: string
+  preis: string | null
+}
+
+type PhonedocsPreiseResponse = {
+  success: boolean
+  data: PhonedocsPreis[]
+  count: number
+}
+
+export const fetchPhonedocsPreise = async (): Promise<PhonedocsPreis[]> => {
+  const res = await apiRequest<PhonedocsPreiseResponse>(
+    "/phonedocspreise.php",
+    "GET"
+  )
+  return res.success ? res.data : []
+}

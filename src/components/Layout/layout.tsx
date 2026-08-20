@@ -152,8 +152,9 @@ const Layout = () => {
               <CardContent>
                 Ob IT-Infrastruktur, Security oder Kommunikation, Computer Extra
                 hat die passenden Produkte und Services verfügbar. Privat-,
-                Office- und Gaming-PCs werden direkt auf die Bedürfnisse der
-                Kunden zugeschnitten. Die exklusive Partnerschaft mit der
+                Office- und Gaming-PCs sowie Notebooks werden direkt auf die
+                Bedürfnisse der Kunden zugeschnitten. Die exklusive
+                Partnerschaft mit der
                 Telekom für Business- und Privattarife runden das Gesamtpaket
                 ab.
               </CardContent>

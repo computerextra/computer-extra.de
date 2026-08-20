@@ -26,6 +26,8 @@ const getTitle = (path: string) => {
       return "AVV"
     case "PhonedocsAnfrage":
       return "PhoneDocs Anfrage"
+    case "PhonedocsPreise":
+      return "PhoneDocs Preise"
     default:
       return t
   }
@@ -52,6 +54,8 @@ const getSubtitle = (title: string) => {
       return "Reparieren statt neu kaufen. Schnell, ehrlich und nachvollziehbar."
     case "PhonedocsAnfrage":
       return "Ihre Reparaturanfrage an PhoneDocs."
+    case "PhonedocsPreise":
+      return "Unsere Preise für die Reparatur Ihres Gerätes."
     case "Fehler":
       return "Da hat etwas nicht funktioniert!"
     case "OEM":
