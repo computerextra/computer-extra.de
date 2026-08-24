@@ -1,10 +1,7 @@
 import { GradientHeader } from "@/components/misc/gradient-header"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import {
-  fetchPhonedocsPreise,
-  type PhonedocsPreis,
-} from "@/lib/apiClient"
+import { fetchPhonedocsPreise, type PhonedocsPreis } from "@/lib/apiClient"
 import { ArrowDownUp } from "lucide-react"
 import { useEffect, useEffectEvent, useMemo, useState } from "react"
 
@@ -30,6 +27,7 @@ export default function PhonedocsPreise() {
   })
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     ladePreise()
   }, [])
 

@@ -33,8 +33,7 @@ const phoneSchema = z
   .refine(
     (value) =>
       value === "" ||
-      (/^[0-9+()\s/-]+$/.test(value) &&
-        value.replace(/\D/g, "").length >= 6),
+      (/^[0-9+()\s/-]+$/.test(value) && value.replace(/\D/g, "").length >= 6),
     "Bitte geben Sie eine gültige Telefonnummer ein."
   )
 
@@ -93,41 +92,6 @@ export default function PhonedocsAnfrage() {
     },
   })
 
-  const TextField = ({
-    name,
-    label,
-    type = "text",
-    autoComplete,
-  }: {
-    name: "name" | "telefonnummer" | "email" | "geraet"
-    label: string
-    type?: string
-    autoComplete?: string
-  }) => (
-    <form.Field name={name}>
-      {(field) => {
-        const isInvalid =
-          field.state.meta.isTouched && !field.state.meta.isValid
-        return (
-          <Field data-invalid={isInvalid}>
-            <FieldLabel htmlFor={field.name}>{label}</FieldLabel>
-            <Input
-              id={field.name}
-              name={field.name}
-              type={type}
-              value={field.state.value}
-              onBlur={field.handleBlur}
-              onChange={(event) => field.handleChange(event.target.value)}
-              autoComplete={autoComplete}
-              aria-invalid={isInvalid}
-            />
-            {isInvalid && <FieldError errors={field.state.meta.errors} />}
-          </Field>
-        )
-      }}
-    </form.Field>
-  )
-
   return (
     <div className="container mx-auto my-5 max-w-3xl">
       <title>Computer Extra GmbH | PhoneDocs Anfrage</title>
@@ -147,19 +111,95 @@ export default function PhonedocsAnfrage() {
         noValidate
       >
         <FieldGroup>
-          <TextField name="name" label="Name *" autoComplete="name" />
-          <TextField
-            name="telefonnummer"
-            label="Telefonnummer (optional)"
-            autoComplete="tel"
-          />
-          <TextField
-            name="email"
-            label="E-Mail *"
-            type="email"
-            autoComplete="email"
-          />
-          <TextField name="geraet" label="Gerät *" />
+          <form.Field name={"name"}>
+            {(field) => {
+              const isInvalid =
+                field.state.meta.isTouched && !field.state.meta.isValid
+              return (
+                <Field data-invalid={isInvalid}>
+                  <FieldLabel htmlFor={field.name}>{"Name *"}</FieldLabel>
+                  <Input
+                    id={field.name}
+                    name={field.name}
+                    type={"text"}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(event) => field.handleChange(event.target.value)}
+                    autoComplete={"name"}
+                    aria-invalid={isInvalid}
+                  />
+                  {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                </Field>
+              )
+            }}
+          </form.Field>
+          <form.Field name={"telefonnummer"}>
+            {(field) => {
+              const isInvalid =
+                field.state.meta.isTouched && !field.state.meta.isValid
+              return (
+                <Field data-invalid={isInvalid}>
+                  <FieldLabel htmlFor={field.name}>
+                    {"Telefonnummer (optional)"}
+                  </FieldLabel>
+                  <Input
+                    id={field.name}
+                    name={field.name}
+                    type={"text"}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(event) => field.handleChange(event.target.value)}
+                    autoComplete={"tel"}
+                    aria-invalid={isInvalid}
+                  />
+                  {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                </Field>
+              )
+            }}
+          </form.Field>
+          <form.Field name={"email"}>
+            {(field) => {
+              const isInvalid =
+                field.state.meta.isTouched && !field.state.meta.isValid
+              return (
+                <Field data-invalid={isInvalid}>
+                  <FieldLabel htmlFor={field.name}>{"E-Mail *"}</FieldLabel>
+                  <Input
+                    id={field.name}
+                    name={field.name}
+                    type={"text"}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(event) => field.handleChange(event.target.value)}
+                    autoComplete={"email"}
+                    aria-invalid={isInvalid}
+                  />
+                  {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                </Field>
+              )
+            }}
+          </form.Field>
+          <form.Field name={"geraet"}>
+            {(field) => {
+              const isInvalid =
+                field.state.meta.isTouched && !field.state.meta.isValid
+              return (
+                <Field data-invalid={isInvalid}>
+                  <FieldLabel htmlFor={field.name}>{"Gerät *"}</FieldLabel>
+                  <Input
+                    id={field.name}
+                    name={field.name}
+                    type={"text"}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(event) => field.handleChange(event.target.value)}
+                    aria-invalid={isInvalid}
+                  />
+                  {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                </Field>
+              )
+            }}
+          </form.Field>
 
           <form.Field name="fehler">
             {(field) => {
@@ -240,7 +280,9 @@ export default function PhonedocsAnfrage() {
                       aria-invalid={isInvalid}
                     />
                     <FieldLabel htmlFor={field.name}>Akzeptiert *</FieldLabel>
-                    {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                    {isInvalid && (
+                      <FieldError errors={field.state.meta.errors} />
+                    )}
                   </Field>
                 </FieldSet>
               )
