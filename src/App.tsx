@@ -24,6 +24,9 @@ const Partner = lazy(() => import("@/Pages/Partner"))
 const Startseite = lazy(() => import("@/Pages/Start"))
 const Team = lazy(() => import("@/Pages/Team"))
 const Termin = lazy(() => import("@/Pages/Termin"))
+const Phonedocs = lazy(() => import("@/Pages/Phonedocs"))
+const PhonedocsAnfrage = lazy(() => import("@/Pages/PhonedocsAnfrage"))
+const PhonedocsPreise = lazy(() => import("@/Pages/PhonedocsPreise"))
 
 function PostHogPageView() {
   const location = useLocation()
@@ -61,6 +64,9 @@ export function App() {
           <Route path={"Partner"} element={<Partner />} />
           <Route path={"Team"} element={<Team />} />
           <Route path={"Termin"} element={<Termin />} />
+          <Route path={"Phonedocs"} element={<Phonedocs />} />
+          <Route path={"Phonedocs/Anfrage"} element={<PhonedocsAnfrage />} />
+          <Route path={"Phonedocs/Preise"} element={<PhonedocsPreise />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

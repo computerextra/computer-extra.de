@@ -24,8 +24,8 @@ const Kommunikation = () => {
         </p>
 
         <img
-          src="https://bilder.computer-extra.de/data/Website/business.webp"
-          alt=""
+          src="/business-kommunikation.webp"
+          alt="Moderne Business-Kommunikation mit IP-Telefon, Headset und Telefonanlage"
           className="order-first rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105 md:order-last"
           width={900}
         />

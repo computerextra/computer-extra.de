@@ -152,8 +152,9 @@ const Layout = () => {
               <CardContent>
                 Ob IT-Infrastruktur, Security oder Kommunikation, Computer Extra
                 hat die passenden Produkte und Services verfügbar. Privat-,
-                Office- und Gaming-PCs werden direkt auf die Bedürfnisse der
-                Kunden zugeschnitten. Die exklusive Partnerschaft mit der
+                Office- und Gaming-PCs sowie Notebooks werden direkt auf die
+                Bedürfnisse der Kunden zugeschnitten. Die exklusive
+                Partnerschaft mit der
                 Telekom für Business- und Privattarife runden das Gesamtpaket
                 ab.
               </CardContent>
@@ -248,6 +249,37 @@ const Layout = () => {
                     <span className={"md:hidden"}>Termin buchen</span>
                   </NavLink>
                 </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="text-md bg-blue-900/80 text-slate-100 lg:col-span-2">
+              <CardHeader>
+                <CardTitle className="text-xl">PhoneDocs Reparatur</CardTitle>
+                <CardDescription className="text-slate-200">
+                  Smartphone, Tablet oder MacBook professionell reparieren
+                  lassen.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="leading-7">
+                  Ehrliche Diagnose, transparente Kosten und schnelle Hilfe bei
+                  Display-, Akku-, Ladebuchsen- und Wasserschäden.
+                </p>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="text-slate-900"
+                  >
+                    <NavLink to="/Phonedocs">Mehr Infos</NavLink>
+                  </Button>
+                  <Button asChild variant="secondary" size="lg">
+                    <NavLink to="/Phonedocs/Anfrage">
+                      Direkt anfragen
+                    </NavLink>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>

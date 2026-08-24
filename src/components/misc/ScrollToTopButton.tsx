@@ -1,5 +1,5 @@
 import useScrollSpy from "@/hooks/useScrollSpy"
-import { CircleArrowUp } from "lucide-react"
+import { ArrowUp } from "lucide-react"
 import { Button } from "../ui/button"
 
 export default function ScrollToTopButton() {
@@ -21,7 +21,7 @@ export default function ScrollToTopButton() {
         onClick={backToTop}
         className="fixed right-12.5 bottom-12.5 z-1000"
       >
-        <CircleArrowUp className="size-8" />
+        <ArrowUp className="size-8" />
         <span className="sr-only">Zurück nach oben</span>
       </Button>
     )

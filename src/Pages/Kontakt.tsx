@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea"
 import useFormChallenge from "@/hooks/form-challenge"
 import { useForm } from "@tanstack/react-form"
 import axios from "axios"
+import { NavLink } from "react-router"
 import z from "zod"
 
 const formSchema = z.object({
@@ -136,6 +137,16 @@ const Kontakt = () => {
               Jetzt mit uns Durchstarten
             </h2>
             <ContactForm />
+            <div className="mt-6 border-t pt-6">
+              <p className="mb-3 text-sm text-muted-foreground">
+                Anfrage zu einer Smartphone-, Tablet- oder MacBook-Reparatur?
+              </p>
+              <Button asChild variant="outline">
+                <NavLink to="/Phonedocs/Anfrage">
+                  Zur PhoneDocs Reparaturanfrage
+                </NavLink>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

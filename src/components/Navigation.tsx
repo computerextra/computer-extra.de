@@ -1,8 +1,8 @@
 import useScrollSpy from "@/hooks/useScrollSpy.tsx"
 import { cn } from "@/lib/utils.ts"
 import axios from "axios"
-import { Fragment, useEffect, useState } from "react"
 import { ExternalLink } from "lucide-react"
+import { Fragment, useEffect, useState } from "react"
 import { NavLink } from "react-router"
 
 interface RouterProps {
@@ -21,8 +21,7 @@ const routes: RouterProps[] = [
     title: "Leistungen",
   },
   {
-    external: true,
-    path: "https://phonedocs.de/",
+    path: "/Phonedocs",
     title: "PhoneDocs",
   },
   {
