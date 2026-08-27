@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input"
 import { fetchPhonedocsPreise, type PhonedocsPreis } from "@/lib/apiClient"
 import { ArrowDownUp } from "lucide-react"
 import { useEffect, useEffectEvent, useMemo, useState } from "react"
+import { NavLink } from "react-router"
 
 type Sortierung = "aufsteigend" | "absteigend"
 
@@ -197,6 +198,10 @@ export default function PhonedocsPreise() {
           </table>
         </div>
       )}
+
+      <Button asChild size="xl" className="mt-5">
+        <NavLink to="/Phonedocs/Anfrage">Reparatur anfragen</NavLink>
+      </Button>
     </div>
   )
 }
