@@ -167,20 +167,32 @@ export default function PhonedocsPreise() {
             </thead>
             <tbody className="divide-y">
               {angezeigtePreise.map((eintrag) => (
-                <tr key={eintrag.id}>
-                  <td className="px-4 py-3">{eintrag.reparatur}</td>
-                  <td className="px-4 py-3 text-right font-medium">
-                    {eintrag.preis === null
-                      ? "Auf Anfrage"
-                      : Number.isNaN(Number(eintrag.preis))
-                        ? eintrag.preis.toLocaleLowerCase("de") ===
-                          "nicht möglich"
-                          ? "Nicht möglich"
-                          : eintrag.preis
-                        : Number(eintrag.preis).toLocaleString("de-DE", {
-                            style: "currency",
-                            currency: "EUR",
-                          })}
+                <tr key={eintrag.id} className="hover:bg-muted/50">
+                  <td className="p-0">
+                    <NavLink
+                      to={`/Phonedocs/Anfrage?${new URLSearchParams({ geraet: `${eintrag.hersteller} ${eintrag.geraet}`, problem: eintrag.reparatur, fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}` })}`}
+                      className="block px-4 py-3"
+                    >
+                      {eintrag.reparatur}
+                    </NavLink>
+                  </td>
+                  <td className="p-0 text-right font-medium">
+                    <NavLink
+                      to={`/Phonedocs/Anfrage?${new URLSearchParams({ geraet: `${eintrag.hersteller} ${eintrag.geraet}`, problem: eintrag.reparatur, fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}` })}`}
+                      className="block px-4 py-3"
+                    >
+                      {eintrag.preis === null
+                        ? "Auf Anfrage"
+                        : Number.isNaN(Number(eintrag.preis))
+                          ? eintrag.preis.toLocaleLowerCase("de") ===
+                            "nicht möglich"
+                            ? "Nicht möglich"
+                            : eintrag.preis
+                          : Number(eintrag.preis).toLocaleString("de-DE", {
+                              style: "currency",
+                              currency: "EUR",
+                            })}
+                    </NavLink>
                   </td>
                 </tr>
               ))}
@@ -200,7 +212,9 @@ export default function PhonedocsPreise() {
       )}
 
       <Button asChild size="xl" className="mt-5">
-        <NavLink to="/Phonedocs/Anfrage">Reparatur anfragen</NavLink>
+        <NavLink to="/Phonedocs/Anfrage">
+          Ihr Gerät ist nicht dabei? Anfrage stellen
+        </NavLink>
       </Button>
     </div>
   )

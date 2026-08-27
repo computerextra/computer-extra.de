@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useForm } from "@tanstack/react-form"
 import { useState } from "react"
-import { NavLink } from "react-router"
+import { NavLink, useSearchParams } from "react-router"
 import { z } from "zod"
 
 const issueOptions = [
@@ -52,15 +52,17 @@ const formSchema = z.object({
 type SubmitState = "idle" | "success" | "error"
 
 export default function PhonedocsAnfrage() {
+  const [searchParams] = useSearchParams()
+  const vorausgewaehltesProblem = searchParams.get("problem") ?? ""
   const [submitState, setSubmitState] = useState<SubmitState>("idle")
   const form = useForm({
     defaultValues: {
       name: "",
       telefonnummer: "",
       email: "",
-      geraet: "",
-      fehler: "",
-      fehlerbeschreibung: "",
+      geraet: searchParams.get("geraet") ?? "",
+      fehler: vorausgewaehltesProblem,
+      fehlerbeschreibung: searchParams.get("fehlerbeschreibung") ?? "",
       datenschutz: false,
     },
     validators: { onSubmit: formSchema },
@@ -218,6 +220,14 @@ export default function PhonedocsAnfrage() {
                     className="h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
                   >
                     <option value="">Bitte auswählen</option>
+                    {vorausgewaehltesProblem &&
+                      !issueOptions.some(
+                        (option) => option === vorausgewaehltesProblem
+                      ) && (
+                        <option value={vorausgewaehltesProblem}>
+                          {vorausgewaehltesProblem}
+                        </option>
+                      )}
                     {issueOptions.map((option) => (
                       <option key={option} value={option}>
                         {option}
