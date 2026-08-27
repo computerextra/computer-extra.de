@@ -117,8 +117,8 @@ export default function Phonedocs() {
     <div className="container mx-auto mt-5">
       <title>Computer Extra GmbH | PhoneDocs</title>
 
-      <section className="mb-16 grid items-center gap-10 lg:grid-cols-2">
-        <div>
+      <section className="mb-16 grid gap-10 lg:grid-cols-2">
+        <div className="self-center">
           <img
             src="/phonedocs/logo.webp"
             alt="PhoneDocs"
@@ -138,45 +138,56 @@ export default function Phonedocs() {
             und Dauer. So können Sie in Ruhe entscheiden, ob sich die Reparatur
             für Sie lohnt.
           </p>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            <Button asChild size="xl">
-              <NavLink to="/Phonedocs/Anfrage">Reparatur anfragen</NavLink>
-            </Button>
-            <Button asChild size="xl" variant="outline">
-              <NavLink to="/Phonedocs/Preise">Preisliste ansehen</NavLink>
-            </Button>
-          </div>
         </div>
 
-        <div className="grid gap-6">
-          <img
-            src="/phonedocs/hero.webp"
-            alt="Smartphone-Reparatur bei PhoneDocs"
-            className="w-full rounded-xl object-cover shadow-lg"
-          />
-          <Card className="bg-slate-50">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl text-blue-700">
-                <Smartphone aria-hidden="true" className="size-8" />
-                <Wrench aria-hidden="true" className="size-7" />
-                Ihre Vorteile
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="grid gap-4">
-                {benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-3 text-lg">
-                    <CheckCircle2
-                      aria-hidden="true"
-                      className="mt-0.5 size-6 shrink-0 text-blue-600"
-                    />
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+        <img
+          src="/phonedocs/hero.webp"
+          alt="Smartphone-Reparatur bei PhoneDocs"
+          className="h-full w-full rounded-xl object-cover shadow-lg"
+        />
+
+        <section className="grid h-full content-center rounded-xl bg-linear-to-br from-blue-700 to-slate-900 p-8 text-center text-white shadow-lg">
+        <h2 className="text-3xl font-semibold tracking-tight">
+          Ihr Gerät braucht Hilfe?
+        </h2>
+        <p className="mt-3 leading-7 text-blue-50">
+          Bringen Sie es direkt vorbei oder fragen Sie Ihre Reparatur online an.
+        </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <Button asChild variant="secondary" size="lg">
+            <a href="tel:+4956160144180">
+              <Phone aria-hidden="true" className="mr-2 size-5" />
+              0561 / 60144-180 anrufen
+            </a>
+          </Button>
+          <Button asChild variant="secondary" size="lg">
+            <NavLink to="/Phonedocs/Anfrage">Jetzt Anfragen</NavLink>
+          </Button>
         </div>
+        </section>
+
+        <Card className="h-full bg-slate-50">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-3 text-2xl text-blue-700">
+              <Smartphone aria-hidden="true" className="size-8" />
+              <Wrench aria-hidden="true" className="size-7" />
+              Ihre Vorteile
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="grid gap-4">
+              {benefits.map((benefit) => (
+                <li key={benefit} className="flex items-start gap-3 text-lg">
+                  <CheckCircle2
+                    aria-hidden="true"
+                    className="mt-0.5 size-6 shrink-0 text-blue-600"
+                  />
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
       </section>
 
       <section className="my-16">
@@ -239,7 +250,7 @@ export default function Phonedocs() {
             </a>
           </Button>
           <Button asChild variant="secondary" size="lg">
-            <NavLink to="/Phonedocs/Anfrage">Schriftlich anfragen</NavLink>
+            <NavLink to="/Phonedocs/Anfrage">Preisliste</NavLink>
           </Button>
         </div>
       </section>
