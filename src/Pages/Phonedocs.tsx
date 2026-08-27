@@ -147,23 +147,24 @@ export default function Phonedocs() {
         />
 
         <section className="grid h-full content-center rounded-xl bg-linear-to-br from-blue-700 to-slate-900 p-8 text-center text-white shadow-lg">
-        <h2 className="text-3xl font-semibold tracking-tight">
-          Ihr Gerät braucht Hilfe?
-        </h2>
-        <p className="mt-3 leading-7 text-blue-50">
-          Bringen Sie es direkt vorbei oder fragen Sie Ihre Reparatur online an.
-        </p>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          <Button asChild variant="secondary" size="lg">
-            <a href="tel:+4956160144180">
-              <Phone aria-hidden="true" className="mr-2 size-5" />
-              0561 / 60144-180 anrufen
-            </a>
-          </Button>
-          <Button asChild variant="secondary" size="lg">
-            <NavLink to="/Phonedocs/Anfrage">Jetzt Anfragen</NavLink>
-          </Button>
-        </div>
+          <h2 className="text-3xl font-semibold tracking-tight">
+            Ihr Gerät braucht Hilfe?
+          </h2>
+          <p className="mt-3 leading-7 text-blue-50">
+            Bringen Sie es direkt vorbei oder fragen Sie Ihre Reparatur online
+            an.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <Button asChild variant="secondary" size="lg">
+              <a href="tel:+4956160144180">
+                <Phone aria-hidden="true" className="mr-2 size-5" />
+                0561 / 60144-180 anrufen
+              </a>
+            </Button>
+            <Button asChild variant="secondary" size="lg">
+              <NavLink to="/Phonedocs/Anfrage">Jetzt Anfragen</NavLink>
+            </Button>
+          </div>
         </section>
 
         <Card className="h-full bg-slate-50">
@@ -250,7 +251,7 @@ export default function Phonedocs() {
             </a>
           </Button>
           <Button asChild variant="secondary" size="lg">
-            <NavLink to="/Phonedocs/Anfrage">Preisliste</NavLink>
+            <NavLink to="/Phonedocs/Preise">Preisliste</NavLink>
           </Button>
         </div>
       </section>
