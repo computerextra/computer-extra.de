@@ -63,9 +63,6 @@ export default function PhonedocsPreise() {
           preis.reparatur.toLocaleLowerCase("de").includes(suchbegriff)
       )
       .sort((a, b) => {
-        if (a.preis === null && b.preis === null) return 0
-        if (a.preis === null) return 1
-        if (b.preis === null) return -1
         const preisA = Number(a.preis)
         const preisB = Number(b.preis)
         if (Number.isNaN(preisA) && Number.isNaN(preisB)) return 0
@@ -167,7 +164,10 @@ export default function PhonedocsPreise() {
             </thead>
             <tbody className="divide-y">
               {angezeigtePreise.map((eintrag) => (
-                <tr key={eintrag.id} className="hover:bg-muted/50">
+                <tr
+                  key={`${eintrag.id}-${eintrag.reparatur}`}
+                  className="hover:bg-muted/50"
+                >
                   <td className="p-0">
                     <NavLink
                       to={`/Phonedocs/Anfrage?${new URLSearchParams({ geraet: `${eintrag.hersteller} ${eintrag.geraet}`, problem: eintrag.reparatur, fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}` })}`}

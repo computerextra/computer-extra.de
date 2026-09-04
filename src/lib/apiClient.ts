@@ -164,13 +164,49 @@ export type PhonedocsPreis = {
   hersteller: string
   geraet: string
   reparatur: string
-  preis: string | null
+  preis: string
+}
+
+type PhonedocsPreisApi = {
+  id: number
+  model: string
+  [service: string]: string | number
 }
 
 type PhonedocsPreiseResponse = {
   success: boolean
-  data: PhonedocsPreis[]
+  data: PhonedocsPreisApi[]
   count: number
+}
+
+const serviceBezeichnungen: Record<string, string> = {
+  display_incell_lcd: "Display Incell LCD",
+  display_soft_oled_nachbau: "Display Soft-OLED Nachbau",
+  display_refurbished_original: "Display Refurbished Original",
+  display_original_neu: "Display Original Neu",
+  alternativ_akku_ios_faehig: "Alternativ Akku iOS-fähig",
+  akku_original: "Akku Original",
+  ladebuchse_reinigung: "Ladebuchse Reinigung",
+  ladebuchse_austausch: "Ladebuchse Austausch",
+  backcover: "Backcover",
+  kamera: "Kamera",
+  kamera_glas_linse: "Kamera Glas Linse",
+  sub_to_main_flex: "Sub to Main Flex",
+  lautsprecher: "Lautsprecher",
+}
+
+const formatiereService = (service: string) => {
+  const bezeichnung = serviceBezeichnungen[service]
+  if (bezeichnung) return bezeichnung
+
+  const text = service
+    .replaceAll("_", " ")
+    .replaceAll("ae", "ä")
+    .replaceAll("oe", "ö")
+    .replaceAll("ue", "ü")
+    .trim()
+
+  return text.charAt(0).toLocaleUpperCase("de") + text.slice(1)
 }
 
 export const fetchPhonedocsPreise = async (): Promise<PhonedocsPreis[]> => {
@@ -178,5 +214,22 @@ export const fetchPhonedocsPreise = async (): Promise<PhonedocsPreis[]> => {
     "/phonedocspreise.php",
     "GET"
   )
-  return res.success ? res.data : []
+  if (!res.success) return []
+
+  return res.data.flatMap(({ id, model, ...services }) => {
+    const trennstelle = model.indexOf(" ")
+    const hersteller = trennstelle === -1 ? model : model.slice(0, trennstelle)
+    const geraet =
+      trennstelle === -1 ? model : model.slice(trennstelle + 1).trim()
+
+    return Object.entries(services)
+      .filter(([, preis]) => String(preis).trim() !== "-")
+      .map(([reparatur, preis]) => ({
+        id,
+        hersteller,
+        geraet,
+        reparatur: formatiereService(reparatur),
+        preis: String(preis),
+      }))
+  })
 }

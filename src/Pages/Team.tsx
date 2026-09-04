@@ -189,7 +189,13 @@ function EmployeeCard({
   employee: Mitarbeiter
   dep: Abteilung | undefined
 }) {
-  const email = employee.name.split(" ").join(".") + " [AT] computer-extra.de"
+  const email =
+    employee.name
+      .split(" ")
+      .join(".")
+      .replace("ö", "oe")
+      .replace("ü", "ue")
+      .replace("ä", "ae") + " [AT] computer-extra.de"
   return (
     <Card className="group border-border bg-card shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg">
       <CardContent className="p-6">
