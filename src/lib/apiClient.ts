@@ -191,7 +191,6 @@ const serviceBezeichnungen: Record<string, string> = {
   backcover: "Backcover",
   kamera: "Kamera",
   kamera_glas_linse: "Kamera Glas Linse",
-  sub_to_main_flex: "Sub to Main Flex",
   lautsprecher: "Lautsprecher",
 }
 
