@@ -92,12 +92,18 @@ export default function Angebote() {
                       key={idx}
                       href={Angebot.link}
                       target="_blank"
+                      className={cn(
+                        isDisabled(Angebot.date_start, Angebot.date_stop) &&
+                          "line-through"
+                      )}
                       onClick={(e) =>
                         isDisabled(Angebot.date_start, Angebot.date_stop) &&
                         e.preventDefault()
                       }
                     >
-                      Ansehen
+                      {isDisabled(Angebot.date_start, Angebot.date_stop)
+                        ? "Abgelaufen"
+                        : "Ansehen"}
                     </a>
                   </Button>
                 </CardAction>
