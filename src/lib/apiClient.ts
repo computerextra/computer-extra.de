@@ -192,6 +192,7 @@ const serviceBezeichnungen: Record<string, string> = {
   kamera: "Kamera",
   kamera_glas_linse: "Kamera Glas Linse",
   lautsprecher: "Lautsprecher",
+  kostenvoranschlag: "Kostenvoranschlag",
 }
 
 const formatiereService = (service: string) => {
