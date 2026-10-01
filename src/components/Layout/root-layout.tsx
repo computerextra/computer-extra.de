@@ -1,5 +1,7 @@
+import AppNavLink from "@/components/AppNavLink"
 import ScrollToTopButton from "@/components/misc/ScrollToTopButton.tsx"
 import { Button } from "@/components/ui/button.tsx"
+import { useRouteHandle } from "@/hooks/useRouteHandle"
 import {
   type CSSProperties,
   lazy,
@@ -8,83 +10,31 @@ import {
   useRef,
   useState,
 } from "react"
-import { Outlet, useLocation } from "react-router"
-import AppNavLink from "../AppNavLink"
+import { Outlet } from "react-router"
 
 const Navigation = lazy(() => import("@/components/Navigation"))
 const LazyVideo = lazy(() => import("@/components/misc/lazy-video"))
 const Footer = lazy(() => import("@/components/Footer"))
 
-const getTitle = (path: string) => {
-  const t = path.replaceAll("/", "")
-  switch (t) {
-    case "AGB":
-      return "Allgemeine Geschäftsbedingungen"
-    case "404":
-      return "404 - Nicht gefunden"
-    case "Auftragsdaten":
-      return "AVV"
-    case "PhonedocsAnfrage":
-      return "PhoneDocs Anfrage"
-    case "PhonedocsPreise":
-      return "PhoneDocs Preise"
-    default:
-      return t
-  }
-}
-
-const getSubtitle = (title: string) => {
-  const t = title.replaceAll("/", "")
-  switch (t) {
-    case "Leistungen":
-      return "Wir bieten Ihnen ein ganzes Spektrum an Dienstleistungen im Bereich der IT."
-    case "Partner":
-      return "Wir pflegen eine partnerschaftliche Zusammenarbeit mit unseren Partnern. Auf Vertrauen und Transparenz legen wir großen Wert - denn im Miteinander liegt unsere Stärke."
-    case "Team":
-      return "Wir schaffen ein flexibles Angebot für unsere Kunden - transparent, kreativ, persönlich."
-    case "Jobs":
-      return "Wir suchen derzeit Verstärkung für unser Team!"
-    case "Fernwartung":
-      return "mit einem Qualifizierten Mitarbeiter"
-    case "Termin":
-      return "Buchen Sie sich einen Telekom Beratungtermin"
-    case "AGB":
-      return "Der Firma Computer Extra GmbH, im Folgenden Verkäufer genannt."
-    case "Phonedocs":
-      return "Reparieren statt neu kaufen. Schnell, ehrlich und nachvollziehbar."
-    case "PhonedocsAnfrage":
-      return "Ihre Reparaturanfrage an PhoneDocs."
-    case "PhonedocsPreise":
-      return "Unsere Preise für die Reparatur Ihres Gerätes."
-    case "Fehler":
-      return "Da hat etwas nicht funktioniert!"
-    case "OEM":
-      return "Internal Use Only"
-    case "404":
-      return "Die gesuchte Seite konnte nicht gefunden werden."
-    case "Auftragsdaten":
-      return "Auftragsdatenverarbeitungsvertrag"
-    default:
-      return ""
-  }
-}
-
 export default function RootLayout() {
   const headerRef = useRef<HTMLDivElement | null>(null)
-  const location = useLocation()
   const [style, setStyle] = useState<CSSProperties | undefined>(undefined)
 
-  const title = getTitle(location.pathname)
-  const subtitle = getSubtitle(title)
+  const handle = useRouteHandle()
+  const title = handle?.header?.title ?? ""
+  const subtitle = handle?.header?.subtitle
+  const showHomeButton = handle?.header?.showHomeButton === true
 
   const setHeight = useEffectEvent(() => {
     if (headerRef.current == null) return
+
     const height = headerRef.current.clientHeight
     setStyle({ height: `${height}px` })
   })
 
   useEffect(() => {
-    if (headerRef?.current == null) return
+    if (headerRef.current == null) return
+
     setHeight()
     window.addEventListener("resize", setHeight)
 
@@ -94,43 +44,34 @@ export default function RootLayout() {
   }, [headerRef])
 
   return (
-    <div className={"flex min-h-screen flex-col"}>
+    <div className="flex min-h-screen flex-col">
       <div
         ref={headerRef}
-        className={
-          "flex h-fit min-h-[50vh] items-center justify-center overflow-hidden bg-blue-600/50"
-        }
+        className="flex h-fit min-h-[50vh] items-center justify-center overflow-hidden bg-blue-600/50"
       >
         <LazyVideo
-          src={"/videos/VideoBg.mp4"}
+          src="/videos/VideoBg.mp4"
           playbackRate={1}
           style={style}
-          className={
-            "fixed -z-1 flex h-auto min-h-[50vh] w-auto max-w-screen min-w-full items-center justify-center backdrop-hue-rotate-90"
-          }
+          className="fixed -z-1 flex h-auto min-h-[50vh] w-auto max-w-screen min-w-full items-center justify-center backdrop-hue-rotate-90"
         />
 
-        <div className={"container mx-auto"}>
+        <div className="container mx-auto">
           <Navigation />
-          <h1
-            className={
-              "mt-30 scroll-m-20 text-center text-4xl font-bold tracking-tight text-balance text-slate-100 uppercase"
-            }
-          >
+
+          <h1 className="mt-30 scroll-m-20 text-center text-4xl font-bold tracking-tight text-balance text-slate-100 uppercase">
             {title}
           </h1>
-          <h2 className="mt-5 scroll-m-20 pb-2 text-center text-2xl font-semibold tracking-tight text-slate-100">
-            {subtitle}
-          </h2>
-          {(location.pathname.replaceAll("/", "") == "404" ||
-            location.pathname.replaceAll("/", "") == "Erfolg" ||
-            location.pathname.replaceAll("/", "") == "Fehler") && (
-            <div
-              className={
-                "mx-auto mt-20 flex max-w-[60vw] items-center justify-center"
-              }
-            >
-              <Button variant={"secondary"} size={"xl"} asChild>
+
+          {subtitle && (
+            <h2 className="mt-5 scroll-m-20 pb-2 text-center text-2xl font-semibold tracking-tight text-slate-100">
+              {subtitle}
+            </h2>
+          )}
+
+          {showHomeButton && (
+            <div className="mx-auto mt-20 flex max-w-[60vw] items-center justify-center">
+              <Button variant="secondary" size="xl" asChild>
                 <AppNavLink to="/">Zurück zur Startseite</AppNavLink>
               </Button>
             </div>
@@ -138,9 +79,10 @@ export default function RootLayout() {
         </div>
       </div>
 
-      <main className={"z-0 grow bg-white pt-5"}>
+      <main className="z-0 grow bg-white pt-5">
         <Outlet />
       </main>
+
       <Footer />
       <ScrollToTopButton />
     </div>

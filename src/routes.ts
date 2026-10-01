@@ -15,6 +15,11 @@ export type RouteHandle = {
     order: number
     requiresAvailableJobs?: boolean
   }
+  header?: {
+    title: string
+    subtitle?: string
+    showHomeButton?: boolean
+  }
   seo?: {
     title: string
     description: string
@@ -57,6 +62,11 @@ export const appRoutes = defineRoutes([
             title: "Leistungen",
             order: 10,
           },
+          header: {
+            title: "Leistungen",
+            subtitle:
+              "Wir bieten Ihnen ein ganzes Spektrum an Dienstleistungen im Bereich der IT.",
+          },
           seo: {
             title: "IT-Service & Dienstleistungen in Kassel | Computer Extra",
             description:
@@ -74,6 +84,11 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/AGB")),
         handle: {
           sitemap: true,
+          header: {
+            title: "Allgemeine Geschäftsbedingungen",
+            subtitle:
+              "Der Firma Computer Extra GmbH, im Folgenden Verkäufer genannt.",
+          },
           seo: {
             title: "Allgemeine Geschäftsbedingungen | Computer Extra",
             description:
@@ -85,6 +100,10 @@ export const appRoutes = defineRoutes([
         path: "auftragsdaten",
         element: element(() => import("@/Pages/Auftragsdaten")),
         handle: {
+          header: {
+            title: "AVV",
+            subtitle: "Auftragsdatenverarbeitungsvertrag",
+          },
           seo: {
             title: "Auftragsverarbeitung | Computer Extra",
             description:
@@ -98,6 +117,9 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Datenschutz")),
         handle: {
           sitemap: true,
+          header: {
+            title: "Datenschutz",
+          },
           seo: {
             title: "Datenschutz | Computer Extra",
             description:
@@ -109,6 +131,10 @@ export const appRoutes = defineRoutes([
         path: "erfolg",
         element: element(() => import("@/Pages/Erfolg")),
         handle: {
+          header: {
+            title: "Erfolg",
+            showHomeButton: true,
+          },
           seo: {
             title: "Anfrage erfolgreich | Computer Extra",
             description: "Ihre Anfrage wurde erfolgreich übermittelt.",
@@ -120,6 +146,11 @@ export const appRoutes = defineRoutes([
         path: "fehler",
         element: element(() => import("@/Pages/Fehler")),
         handle: {
+          header: {
+            title: "Fehler",
+            subtitle: "Da hat etwas nicht funktioniert!",
+            showHomeButton: true,
+          },
           seo: {
             title: "Fehler | Computer Extra",
             description:
@@ -133,6 +164,10 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Fernwartung")),
         handle: {
           sitemap: true,
+          header: {
+            title: "Fernwartung",
+            subtitle: "mit einem qualifizierten Mitarbeiter",
+          },
           navigation: {
             title: "Fernwartung",
             order: 60,
@@ -149,6 +184,9 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Impressum")),
         handle: {
           sitemap: true,
+          header: {
+            title: "Impressum",
+          },
           seo: {
             title: "Impressum | Computer Extra GmbH",
             description:
@@ -161,6 +199,10 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Jobs")),
         handle: {
           sitemap: true,
+          header: {
+            title: "Jobs",
+            subtitle: "Wir suchen derzeit Verstärkung für unser Team!",
+          },
           navigation: {
             title: "Jobs",
             order: 50,
@@ -178,6 +220,9 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Kontakt")),
         handle: {
           sitemap: true,
+          header: {
+            title: "Kontakt",
+          },
           seo: {
             title: "Kontakt | Computer Extra Kassel",
             description:
@@ -189,6 +234,10 @@ export const appRoutes = defineRoutes([
         path: "oem",
         element: element(() => import("@/Pages/OEM")),
         handle: {
+          header: {
+            title: "OEM",
+            subtitle: "Internal Use Only",
+          },
           seo: {
             title: "OEM | Computer Extra",
             description: "Interner Bereich der Computer Extra GmbH.",
@@ -201,6 +250,11 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Partner")),
         handle: {
           sitemap: true,
+          header: {
+            title: "Partner",
+            subtitle:
+              "Wir pflegen eine partnerschaftliche Zusammenarbeit mit unseren Partnern. Auf Vertrauen und Transparenz legen wir großen Wert - denn im Miteinander liegt unsere Stärke.",
+          },
           navigation: {
             title: "Partner",
             order: 30,
@@ -217,6 +271,11 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Team")),
         handle: {
           sitemap: true,
+          header: {
+            title: "Team",
+            subtitle:
+              "Wir schaffen ein flexibles Angebot für unsere Kunden - transparent, kreativ, persönlich.",
+          },
           navigation: {
             title: "Team",
             order: 40,
@@ -233,6 +292,10 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Termin")),
         handle: {
           sitemap: true,
+          header: {
+            title: "Termin",
+            subtitle: "Buchen Sie sich einen Telekom Beratungstermin",
+          },
           navigation: {
             title: "Termin",
             order: 70,
@@ -249,6 +312,11 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Phonedocs")),
         handle: {
           sitemap: true,
+          header: {
+            title: "PhoneDocs",
+            subtitle:
+              "Reparieren statt neu kaufen. Schnell, ehrlich und nachvollziehbar.",
+          },
           navigation: {
             title: "Phonedocs",
             order: 20,
@@ -264,6 +332,10 @@ export const appRoutes = defineRoutes([
         path: "phonedocs/anfrage",
         element: element(() => import("@/Pages/PhonedocsAnfrage")),
         handle: {
+          header: {
+            title: "PhoneDocs Anfrage",
+            subtitle: "Ihre Reparaturanfrage an PhoneDocs.",
+          },
           seo: {
             title: "Reparaturanfrage | PhoneDocs",
             description:
@@ -277,6 +349,10 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/PhonedocsPreise")),
         handle: {
           sitemap: true,
+          header: {
+            title: "PhoneDocs Preise",
+            subtitle: "Unsere Preise für die Reparatur Ihres Gerätes.",
+          },
           seo: {
             title: "Smartphone Reparatur Preise in Kassel | PhoneDocs",
             description:
@@ -288,6 +364,11 @@ export const appRoutes = defineRoutes([
         path: "*",
         element: element(() => import("@/Pages/404")),
         handle: {
+          header: {
+            title: "404 - Nicht gefunden",
+            subtitle: "Die gesuchte Seite konnte nicht gefunden werden.",
+            showHomeButton: true,
+          },
           seo: {
             title: "Seite nicht gefunden | Computer Extra",
             description: "Die angeforderte Seite konnte nicht gefunden werden.",
