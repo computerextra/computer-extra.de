@@ -1,11 +1,26 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+# Statische 404-Seite aus dem Prerender-Build
+ErrorDocument 404 /404.html
+
+# Alte Mixed-Case-URLs dauerhaft auf lowercase umleiten
+<IfModule mod_alias.c>
+  RedirectMatch 301 ^/Leistungen/?$ /leistungen
+  RedirectMatch 301 ^/AGB/?$ /agb
+  RedirectMatch 301 ^/Auftragsdaten/?$ /auftragsdaten
+  RedirectMatch 301 ^/Datenschutz/?$ /datenschutz
+  RedirectMatch 301 ^/Erfolg/?$ /erfolg
+  RedirectMatch 301 ^/Fehler/?$ /fehler
+  RedirectMatch 301 ^/Fernwartung/?$ /fernwartung
+  RedirectMatch 301 ^/Impressum/?$ /impressum
+  RedirectMatch 301 ^/Jobs/?$ /jobs
+  RedirectMatch 301 ^/Kontakt/?$ /kontakt
+  RedirectMatch 301 ^/OEM/?$ /oem
+  RedirectMatch 301 ^/Partner/?$ /partner
+  RedirectMatch 301 ^/Team/?$ /team
+  RedirectMatch 301 ^/Termin/?$ /termin
+
+  RedirectMatch 301 ^/Phonedocs/?$ /phonedocs
+  RedirectMatch 301 ^/Phonedocs/Anfrage/?$ /phonedocs/anfrage
+  RedirectMatch 301 ^/Phonedocs/Preise/?$ /phonedocs/preise
 </IfModule>
 
 <IfModule mod_deflate.c>
@@ -22,17 +37,17 @@
 </IfModule>
 
 <IfModule mod_headers.c>
-# Caching
-# 1 Jahr (der maximale unterstützte Wert) für Grafik-/Multimediadateien
-<FilesMatch "\.(ico|jpg|jpeg|gif|png|pdf|mp3|mp4|webp)$">
-Header set Cache-Control "public, max-age=31536000, no-transform"
-</FilesMatch>
-# 2 Stunden für Textdateien
-<FilesMatch "\.(html|htm|xml|txt|xsl)$">
-Header set Cache-Control "public, max-age=7200, must-revalidate"
-</FilesMatch>
+  # 1 Jahr für Grafik-/Multimediadateien
+  <FilesMatch "\.(ico|jpg|jpeg|gif|png|pdf|mp3|mp4|webp)$">
+    Header set Cache-Control "public, max-age=31536000, no-transform"
+  </FilesMatch>
+
+  # 2 Stunden für Textdateien
+  <FilesMatch "\.(html|htm|xml|txt|xsl)$">
+    Header set Cache-Control "public, max-age=7200, must-revalidate"
+  </FilesMatch>
 </IfModule>
- 
+
 GeoIPEnable On
 SetEnvIf GEOIP_CONTINENT_CODE AF BlockContinent
 SetEnvIf GEOIP_CONTINENT_CODE AN BlockContinent
