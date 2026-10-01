@@ -1,56 +1,13 @@
+import AppNavLink from "@/components/AppNavLink"
 import useScrollSpy from "@/hooks/useScrollSpy.tsx"
+import { navigationRoutes, type NavigationRoute } from "@/lib/routes"
 import { cn } from "@/lib/utils.ts"
 import axios from "axios"
-import { ExternalLink } from "lucide-react"
 import { Fragment, useEffect, useState } from "react"
-import { NavLink } from "react-router"
-
-interface RouterProps {
-  external?: boolean
-  path: string
-  title: string
-}
-
-const routes: RouterProps[] = [
-  {
-    path: "/",
-    title: "Start",
-  },
-  {
-    path: "/Leistungen",
-    title: "Leistungen",
-  },
-  {
-    path: "/Phonedocs",
-    title: "PhoneDocs",
-  },
-  {
-    path: "/Partner",
-    title: "Partner",
-  },
-  {
-    path: "/Team",
-    title: "Team",
-  },
-  {
-    path: "/Jobs",
-    title: "Jobs",
-  },
-  {
-    path: "/Fernwartung",
-    title: "Fernwartung",
-  },
-  {
-    path: "/Termin",
-    title: "Termin",
-  },
-]
 
 type Job = {
   online: number | string
 }
-
-const jobsRoute = "/Jobs"
 
 const Navigation = () => {
   const [hasAvailableJobs, setHasAvailableJobs] = useState(false)
@@ -78,8 +35,8 @@ const Navigation = () => {
     return () => controller.abort()
   }, [])
 
-  const visibleRoutes = routes.filter(
-    (route) => route.path !== jobsRoute || hasAvailableJobs
+  const visibleRoutes = navigationRoutes.filter(
+    (route) => !route.requiresAvailableJobs || hasAvailableJobs
   )
 
   return (
@@ -90,49 +47,37 @@ const Navigation = () => {
   )
 }
 
-function MobileNavigation({ routes }: { routes: RouterProps[] }) {
-  const [open, setOpen] = useState<boolean>(false)
+function MobileNavigation({ routes }: { routes: NavigationRoute[] }) {
+  const [open, setOpen] = useState(false)
 
   return (
     <div className="lg:hidden">
       <div className={cn("header", open && "menu-open")}>
-        <div className="icon-container" onClick={() => setOpen(!open)}>
+        <div
+          className="icon-container"
+          onClick={() => setOpen((current) => !current)}
+        >
           <div id="menuicon">
-            <div className="bar bar1"></div>
-            <div className="bar bar2"></div>
+            <div className="bar bar1" />
+            <div className="bar bar2" />
           </div>
         </div>
+
         <div className="mobile-menu">
           <ul className="menu">
-            {routes.map((route, idx) => (
-              <li className="menu-item" key={idx}>
-                {route.external ? (
-                  <a
-                    id={"nav-item"}
-                    href={route.path}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setOpen(false)}
-                    className="inline-flex items-center gap-1.5"
-                  >
-                    {route.title}
-                    <ExternalLink aria-hidden="true" className="size-4" />
-                    <span className="sr-only">(externer Link)</span>
-                  </a>
-                ) : (
-                  <NavLink
-                    id={"nav-item"}
-                    to={route.path}
-                    onClick={() => {
-                      document.body.scrollTop = 0
-                      document.documentElement.scrollTop = 0
-
-                      setOpen(false)
-                    }}
-                  >
-                    {route.title}
-                  </NavLink>
-                )}
+            {routes.map((route) => (
+              <li className="menu-item" key={route.path}>
+                <AppNavLink
+                  id="nav-item"
+                  to={route.path}
+                  onClick={() => {
+                    document.body.scrollTop = 0
+                    document.documentElement.scrollTop = 0
+                    setOpen(false)
+                  }}
+                >
+                  {route.title}
+                </AppNavLink>
               </li>
             ))}
           </ul>
@@ -142,18 +87,19 @@ function MobileNavigation({ routes }: { routes: RouterProps[] }) {
   )
 }
 
-function DesktopNavigation({ routes }: { routes: RouterProps[] }) {
+function DesktopNavigation({ routes }: { routes: NavigationRoute[] }) {
   const { isScrolled } = useScrollSpy()
+
   return (
-    <div className={"fixed inset-x-0 top-5 z-1000 hidden w-screen lg:block"}>
+    <div className="fixed inset-x-0 top-5 z-1000 hidden w-screen lg:block">
       <nav
         className={cn(
           "mt-1ß mx-auto flex max-w-fit items-center justify-center gap-8 px-6 py-5 transition-all duration-500",
           isScrolled ? "rounded-2xl bg-white/80 ring-2" : "border-b"
         )}
       >
-        <NavLink
-          to={"/"}
+        <AppNavLink
+          to="/"
           onClick={() => {
             document.body.scrollTop = 0
             document.documentElement.scrollTop = 0
@@ -164,50 +110,29 @@ function DesktopNavigation({ routes }: { routes: RouterProps[] }) {
           )}
         >
           CE
-        </NavLink>
-        <ul
-          className={
-            "flex w-full justify-center gap-8 uppercase focus:underline"
-          }
-        >
-          {routes.map((route, idx) => (
-            <li key={idx}>
-              {route.external ? (
-                <a
-                  href={route.path}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    "relative inline-flex items-center gap-1.5 after:absolute after:-bottom-1.5 after:left-0 after:h-1 after:w-full after:transform-[scaleX(0)] after:transition-[transform] after:delay-250 after:ease-out after:content-[''] hover:after:origin-bottom-left hover:after:transform-[scaleX(1)]",
+        </AppNavLink>
+
+        <ul className="flex w-full justify-center gap-8 uppercase focus:underline">
+          {routes.map((route) => (
+            <li key={route.path}>
+              <AppNavLink
+                to={route.path}
+                onClick={() => {
+                  document.body.scrollTop = 0
+                  document.documentElement.scrollTop = 0
+                }}
+                className={({ isActive }) =>
+                  cn(
+                    "relative inline-block after:absolute after:-bottom-1.5 after:left-0 after:h-1 after:w-full after:transform-[scaleX(0)] after:transition-[transform] after:delay-250 after:ease-out after:content-[''] hover:after:origin-bottom-left hover:after:transform-[scaleX(1)]",
                     isScrolled
-                      ? "text-slate-600 after:bg-blue-600"
-                      : "text-white/90 after:bg-slate-300"
-                  )}
-                >
-                  {route.title}
-                  <ExternalLink aria-hidden="true" className="size-3.5" />
-                  <span className="sr-only">(externer Link)</span>
-                </a>
-              ) : (
-                <NavLink
-                  onClick={() => {
-                    document.body.scrollTop = 0
-                    document.documentElement.scrollTop = 0
-                  }}
-                  to={route.path}
-                  className={({ isActive }) =>
-                    cn(
-                      "relative inline-block after:absolute after:-bottom-1.5 after:left-0 after:h-1 after:w-full after:transform-[scaleX(0)] after:transition-[transform] after:delay-250 after:ease-out after:content-[''] hover:after:origin-bottom-left hover:after:transform-[scaleX(1)]",
-                      isScrolled
-                        ? "text-slate-600 decoration-blue-600 after:bg-blue-600"
-                        : "text-white/90 decoration-slate-300 after:bg-slate-300",
-                      isActive && "underline decoration-4 underline-offset-8"
-                    )
-                  }
-                >
-                  {route.title}
-                </NavLink>
-              )}
+                      ? "text-slate-600 decoration-blue-600 after:bg-blue-600"
+                      : "text-white/90 decoration-slate-300 after:bg-slate-300",
+                    isActive && "underline decoration-4 underline-offset-8"
+                  )
+                }
+              >
+                {route.title}
+              </AppNavLink>
             </li>
           ))}
         </ul>

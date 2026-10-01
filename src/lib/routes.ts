@@ -1,4 +1,5 @@
-import type { appRoutes } from "@/routes"
+import { appRoutes, type RouteHandle } from "@/routes"
+import type { RouteObject } from "react-router"
 
 type Routes = typeof appRoutes
 
@@ -37,6 +38,59 @@ type ExtractSingleRoute<T, Parent extends string> = T extends {
 
 export type AppHref = ExtractRoutePaths<Routes>
 
+export type AppTo =
+  | AppHref
+  | {
+      pathname: AppHref
+      search?: string
+      hash?: string
+    }
+
+export type NavigationRoute = {
+  path: AppHref
+  title: string
+  order: number
+  requiresAvailableJobs: boolean
+}
+
 export function href<T extends AppHref>(path: T): T {
   return path
+}
+
+export const navigationRoutes = collectNavigationRoutes(appRoutes).sort(
+  (a, b) => a.order - b.order
+)
+
+function collectNavigationRoutes(
+  routes: RouteObject[],
+  parentPath = ""
+): NavigationRoute[] {
+  const result: NavigationRoute[] = []
+
+  for (const route of routes) {
+    let currentPath = parentPath
+
+    if (route.index) {
+      currentPath = parentPath || "/"
+    } else if (route.path && route.path !== "*") {
+      currentPath = `${parentPath}/${route.path}`.replace(/\/+/g, "/")
+    }
+
+    const handle = route.handle as RouteHandle | undefined
+
+    if (handle?.navigation) {
+      result.push({
+        path: currentPath as AppHref,
+        title: handle.navigation.title,
+        order: handle.navigation.order,
+        requiresAvailableJobs: handle.navigation.requiresAvailableJobs ?? false,
+      })
+    }
+
+    if (route.children) {
+      result.push(...collectNavigationRoutes(route.children, currentPath))
+    }
+  }
+
+  return result
 }

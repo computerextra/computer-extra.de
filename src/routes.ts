@@ -13,7 +13,7 @@ export type RouteHandle = {
   navigation?: {
     title: string
     order: number
-    requiresAbilableJobs?: boolean
+    requiresAvailableJobs?: boolean
   }
   seo?: {
     title: string
@@ -31,6 +31,10 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Start")),
         handle: {
           sitemap: true,
+          navigation: {
+            title: "Start",
+            order: 0,
+          },
           seo: {
             title:
               "IT-Dienstleister & Computerservice in Kassel | Computer Extra",
@@ -49,6 +53,10 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Leistunen")),
         handle: {
           sitemap: true,
+          navigation: {
+            title: "Leistungen",
+            order: 10,
+          },
           seo: {
             title: "IT-Service & Dienstleistungen in Kassel | Computer Extra",
             description:
@@ -125,6 +133,10 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Fernwartung")),
         handle: {
           sitemap: true,
+          navigation: {
+            title: "Fernwartung",
+            order: 60,
+          },
           seo: {
             title: "IT-Fernwartung & Remote Support | Computer Extra Kassel",
             description:
@@ -149,6 +161,11 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Jobs")),
         handle: {
           sitemap: true,
+          navigation: {
+            title: "Jobs",
+            order: 50,
+            requiresAvailableJobs: true,
+          },
           seo: {
             title: "Jobs & Karriere in Kassel | Computer Extra",
             description:
@@ -184,6 +201,10 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Partner")),
         handle: {
           sitemap: true,
+          navigation: {
+            title: "Partner",
+            order: 30,
+          },
           seo: {
             title: "Unsere Partner | Computer Extra Kassel",
             description:
@@ -196,6 +217,10 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Team")),
         handle: {
           sitemap: true,
+          navigation: {
+            title: "Team",
+            order: 40,
+          },
           seo: {
             title: "Unser Team | Computer Extra Kassel",
             description:
@@ -208,6 +233,10 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Termin")),
         handle: {
           sitemap: true,
+          navigation: {
+            title: "Termin",
+            order: 70,
+          },
           seo: {
             title: "Telekom Beratungstermin in Kassel | Computer Extra",
             description:
@@ -220,6 +249,10 @@ export const appRoutes = defineRoutes([
         element: element(() => import("@/Pages/Phonedocs")),
         handle: {
           sitemap: true,
+          navigation: {
+            title: "Phonedocs",
+            order: 20,
+          },
           seo: {
             title: "Smartphone Reparatur in Kassel | PhoneDocs",
             description:

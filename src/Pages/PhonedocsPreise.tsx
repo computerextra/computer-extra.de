@@ -3,10 +3,10 @@ import { GradientHeader } from "@/components/misc/gradient-header"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { fetchPhonedocsPreise } from "@/lib/apiClient"
+import type { AppTo } from "@/lib/routes"
 import { useQuery } from "@tanstack/react-query"
 import { ArrowDownUp } from "lucide-react"
 import { useMemo, useState } from "react"
-import { NavLink } from "react-router"
 
 type Sortierung = "aufsteigend" | "absteigend"
 
@@ -155,39 +155,46 @@ export default function PhonedocsPreise() {
               </tr>
             </thead>
             <tbody className="divide-y">
-              {angezeigtePreise.map((eintrag) => (
-                <tr
-                  key={`${eintrag.id}-${eintrag.reparatur}`}
-                  className="hover:bg-muted/50"
-                >
-                  <td className="p-0">
-                    <NavLink
-                      to={`/phonedocs/anfrage?${new URLSearchParams({ geraet: `${eintrag.hersteller} ${eintrag.geraet}`, problem: eintrag.reparatur, fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}` })}`}
-                      className="block px-4 py-3"
-                    >
-                      {eintrag.reparatur}
-                    </NavLink>
-                  </td>
-                  <td className="p-0 text-right font-medium">
-                    <NavLink
-                      to={`/phonedocs/anfrage?${new URLSearchParams({ geraet: `${eintrag.hersteller} ${eintrag.geraet}`, problem: eintrag.reparatur, fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}` })}`}
-                      className="block px-4 py-3"
-                    >
-                      {eintrag.preis === null
-                        ? "Auf Anfrage"
-                        : Number.isNaN(Number(eintrag.preis))
-                          ? eintrag.preis.toLocaleLowerCase("de") ===
-                            "nicht möglich"
-                            ? "Nicht möglich"
-                            : eintrag.preis
-                          : Number(eintrag.preis).toLocaleString("de-DE", {
-                              style: "currency",
-                              currency: "EUR",
-                            })}
-                    </NavLink>
-                  </td>
-                </tr>
-              ))}
+              {angezeigtePreise.map((eintrag) => {
+                const search = new URLSearchParams({
+                  geraet: `${eintrag.hersteller} ${eintrag.geraet}`,
+                  problem: eintrag.reparatur,
+                  fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}`,
+                }).toString()
+
+                const anfrageLink: AppTo = {
+                  pathname: "/phonedocs/anfrage",
+                  search: `?${search}`,
+                }
+
+                return (
+                  <tr
+                    key={`${eintrag.id}-${eintrag.reparatur}`}
+                    className="hover:bg-muted/50"
+                  >
+                    <td className="p-0">
+                      <AppNavLink to={anfrageLink} className="block px-4 py-3">
+                        {eintrag.reparatur}
+                      </AppNavLink>
+                    </td>
+                    <td className="p-0 text-right font-medium">
+                      <AppNavLink to={anfrageLink} className="block px-4 py-3">
+                        {eintrag.preis === null
+                          ? "Auf Anfrage"
+                          : Number.isNaN(Number(eintrag.preis))
+                            ? eintrag.preis.toLocaleLowerCase("de") ===
+                              "nicht möglich"
+                              ? "Nicht möglich"
+                              : eintrag.preis
+                            : Number(eintrag.preis).toLocaleString("de-DE", {
+                                style: "currency",
+                                currency: "EUR",
+                              })}
+                      </AppNavLink>
+                    </td>
+                  </tr>
+                )
+              })}
               {angezeigtePreise.length === 0 && (
                 <tr>
                   <td
