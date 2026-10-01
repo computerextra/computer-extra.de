@@ -38,6 +38,7 @@ const initializePostHog = async () => {
     api_host: env.VITE_PUBLIC_POSTHOG_HOST,
     defaults: "2026-05-30",
     capture_performance: false,
+    capture_pageview: "history_change",
   })
 }
 
