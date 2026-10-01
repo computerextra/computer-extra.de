@@ -14,17 +14,6 @@ import { cn } from "@/lib/utils.ts"
 import { useQuery } from "@tanstack/react-query"
 import sortBy from "sort-by"
 
-type Angebot = {
-  id: string
-  title: string
-  subtitle: string
-  date_start: string
-  date_stop: string
-  link: string
-  image: string
-  anzeigen: number
-}
-
 const getDate = (date: string) => {
   const d = new Date(date)
   return new Date(
