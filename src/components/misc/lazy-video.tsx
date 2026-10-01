@@ -1,11 +1,9 @@
-import { useIsVisible } from "@/hooks/useIsVisible.tsx"
 import { cn } from "@/lib/utils.ts"
 import {
   type CSSProperties,
-  type Ref,
   useCallback,
   useEffect,
-  useRef,
+  useState,
   useSyncExternalStore,
 } from "react"
 
@@ -75,73 +73,79 @@ const LazyVideo = ({
   posterHeight,
   posterWidth,
 }: VideoComponentProps) => {
-  const { isVisible, targetRef } = useIsVisible(
-    {
-      root: null,
-      rootMargin: "200px",
-      threshold: 0.1,
-    },
-    false
-  )
-
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const [videoEnabled, setVideoEnabled] = useState(false)
+  const [isVideoReady, setIsVideoReady] = useState(false)
 
   const isDesktop = useMediaQuery(`(min-width: ${desktopBreakpoint}px)`)
-
   const canRenderVideo = !desktopOnly || isDesktop
 
-  const startVideo = useCallback(async () => {
-    const video = videoRef.current
-
-    if (video == null || !canRenderVideo) {
-      return
-    }
-
-    try {
-      await video.play()
-      video.playbackRate = playbackRate
-    } catch {
-      // Autoplay kann vom Browser blockiert werden.
-    }
-  }, [canRenderVideo, playbackRate])
-
-  const stopVideo = useCallback(() => {
-    const video = videoRef.current
-
-    if (video == null) {
-      return
-    }
-
-    video.pause()
-  }, [])
-
   useEffect(() => {
-    if (isVisible && canRenderVideo) {
-      void startVideo()
+    if (!canRenderVideo || videoEnabled) {
       return
     }
 
-    stopVideo()
-  }, [canRenderVideo, isVisible, startVideo, stopVideo])
+    let idleCallbackId: number | undefined
+    let timeoutId: ReturnType<typeof setTimeout> | undefined
+
+    const enableVideo = () => {
+      setVideoEnabled(true)
+    }
+
+    if ("requestIdleCallback" in window) {
+      idleCallbackId = window.requestIdleCallback(enableVideo, {
+        timeout: 1000,
+      })
+    } else {
+      timeoutId = globalThis.setTimeout(enableVideo, 200)
+    }
+
+    return () => {
+      if (idleCallbackId != null) {
+        window.cancelIdleCallback(idleCallbackId)
+      }
+
+      if (timeoutId != null) {
+        globalThis.clearTimeout(timeoutId)
+      }
+    }
+  }, [canRenderVideo, videoEnabled])
 
   return (
-    <span
-      ref={targetRef as unknown as Ref<HTMLSpanElement>}
-      className={cn("relative h-full min-h-12", className)}
-      style={style}
-    >
-      {canRenderVideo ? (
+    <span className={cn("relative h-full min-h-12", className)} style={style}>
+      {poster != null && (
+        <img
+          src={poster}
+          alt=""
+          aria-hidden="true"
+          decoding="async"
+          fetchPriority={posterFetchPriority}
+          className={cn("block h-full w-full object-cover", className)}
+          style={style}
+          width={posterWidth}
+          height={posterHeight}
+        />
+      )}
+
+      {canRenderVideo && videoEnabled && (
         <video
-          ref={videoRef}
           loop
           muted
-          autoPlay={false}
-          preload="none"
+          autoPlay
+          preload="metadata"
           playsInline
-          poster={poster}
           aria-label={alt}
+          onLoadedMetadata={(event) => {
+            event.currentTarget.playbackRate = playbackRate
+          }}
+          onPlaying={() => {
+            setIsVideoReady(true)
+          }}
+          className={cn(
+            "absolute inset-0 h-full w-full object-cover transition-opacity duration-500",
+            isVideoReady ? "opacity-100" : "opacity-0",
+            className
+          )}
           style={style}
-          className={cn("block h-full w-full object-cover", className)}
         >
           <source src={src} type={getVideoType(src)} />
           {fallbackSrc != null && (
@@ -150,20 +154,6 @@ const LazyVideo = ({
           Ihr Browser unterstützt keine Videos. Bitte aktualisieren Sie auf
           einen modernen Browser.
         </video>
-      ) : (
-        poster != null && (
-          <img
-            src={poster}
-            alt=""
-            aria-hidden="true"
-            decoding="async"
-            fetchPriority={posterFetchPriority}
-            className={cn("block h-full w-full object-cover", className)}
-            style={style}
-            width={posterWidth}
-            height={posterHeight}
-          />
-        )
       )}
     </span>
   )

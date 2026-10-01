@@ -54,7 +54,7 @@ ErrorDocument 404 /404.html
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 
-  <FilesMatch "\\.(ico|jpg|jpeg|gif|png|pdf|mp3|mp4|webp)$">
+  <FilesMatch "\\.(ico|jpg|jpeg|gif|png|pdf|mp3|mp4|webp|webm)$">
     Header set Cache-Control "public, max-age=31536000, no-transform"
   </FilesMatch>
 
