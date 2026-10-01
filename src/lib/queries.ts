@@ -8,6 +8,9 @@ import {
   fetchPhonedocsPreise,
   fetchReferenzen,
   fetchStartseitePartner,
+  getBlankoAnlageA,
+  getBlankoAnlageB,
+  getBlankoVertrag,
 } from "@/lib/apiClient"
 import { queryOptions } from "@tanstack/react-query"
 
@@ -24,7 +27,10 @@ export const queries = {
   mitarbeiter: () =>
     queryOptions({
       queryKey: ["mitarbeiter"] as const,
-      queryFn: ({ signal }) => fetchMitarbeiter(signal),
+      queryFn: async ({ signal }) => {
+        const response = await fetchMitarbeiter(signal)
+        return response?.data ?? []
+      },
       staleTime: STALE_TIME,
     }),
 
@@ -38,7 +44,10 @@ export const queries = {
   abteilungen: () =>
     queryOptions({
       queryKey: ["abteilungen"] as const,
-      queryFn: ({ signal }) => fetchAbteilungen(signal),
+      queryFn: async ({ signal }) => {
+        const response = await fetchAbteilungen(signal)
+        return response?.data ?? []
+      },
       staleTime: STALE_TIME,
     }),
 
@@ -74,6 +83,36 @@ export const queries = {
     queryOptions({
       queryKey: ["phonedocs", "preise"] as const,
       queryFn: ({ signal }) => fetchPhonedocsPreise(signal),
+      staleTime: STALE_TIME,
+    }),
+
+  blankoVertrag: () =>
+    queryOptions({
+      queryKey: ["avv", "blanko-vertrag"] as const,
+      queryFn: async () => {
+        const response = await getBlankoVertrag()
+        return response?.message ?? null
+      },
+      staleTime: STALE_TIME,
+    }),
+
+  blankoAnlageA: () =>
+    queryOptions({
+      queryKey: ["avv", "blanko-anlage-a"] as const,
+      queryFn: async () => {
+        const response = await getBlankoAnlageA()
+        return response?.message ?? null
+      },
+      staleTime: STALE_TIME,
+    }),
+
+  blankoAnlageB: () =>
+    queryOptions({
+      queryKey: ["avv", "blanko-anlage-b"] as const,
+      queryFn: async () => {
+        const response = await getBlankoAnlageB()
+        return response?.message ?? null
+      },
       staleTime: STALE_TIME,
     }),
 } as const

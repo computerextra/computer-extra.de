@@ -377,8 +377,12 @@ function ContactForm() {
           }}
         />
 
-        <Button type="submit" form="contactForm">
-          Absenden
+        <Button
+          type="submit"
+          form="contactForm"
+          disabled={kontaktMutation.isPending}
+        >
+          {kontaktMutation.isPending ? "Wird gesendet…" : "Absenden"}
         </Button>
       </FieldGroup>
     </form>

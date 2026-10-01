@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import useFormChallenge from "@/hooks/form-challenge"
-import { fetchMitarbeiterCount, submitBewerbung } from "@/lib/apiClient"
+import { submitBewerbung } from "@/lib/apiClient"
 import { queries } from "@/lib/queries"
 import { href } from "@/lib/routes"
 import { useForm } from "@tanstack/react-form"
@@ -107,10 +107,7 @@ const Jobs = () => {
 export default Jobs
 
 function JobCard({ Job }: { Job: Job | undefined }) {
-  const { data: count = 0 } = useQuery({
-    queryKey: ["MitarbeiterCount"],
-    queryFn: ({ signal }) => fetchMitarbeiterCount(signal),
-  })
+  const { data: count = 0 } = useQuery(queries.mitarbeiterCount())
 
   if (Job != null) {
     return (
@@ -583,8 +580,12 @@ function JobForm({ Job }: { Job: Job }) {
       </CardContent>
       <CardFooter>
         <Field orientation="horizontal">
-          <Button type="submit" form="Bewerbungsform">
-            Absenden
+          <Button
+            type="submit"
+            form="Bewerbungsform"
+            disabled={bewerbungMutation.isPending}
+          >
+            {bewerbungMutation.isPending ? "Wird gesendet…" : "Absenden"}
           </Button>
         </Field>
       </CardFooter>

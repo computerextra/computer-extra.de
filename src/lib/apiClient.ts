@@ -34,9 +34,6 @@ const apiClient = axios.create({
 
 const apiMultiPartClient = axios.create({
   baseURL: baseUrl,
-  headers: {
-    "Content-Type": "multipart/form-data",
-  },
 })
 
 export const apiRequest = async <T>(
@@ -60,13 +57,13 @@ export const apiMultiPartRequest = async <T>(
   method: "POST" | "PUT",
   data: FormData
 ): Promise<T> => {
-  const resonse: AxiosResponse<T> = await apiMultiPartClient({
+  const response: AxiosResponse<T> = await apiMultiPartClient({
     method,
     url,
     data,
   })
 
-  return resonse.data
+  return response.data
 }
 
 const Response = z.object({
