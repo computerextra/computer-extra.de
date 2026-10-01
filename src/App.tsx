@@ -1,8 +1,7 @@
-import { appRoutes } from "@/routes"
 import { usePostHog } from "posthog-js/react"
 import { useEffect } from "react"
-import { useLocation, useRoutes } from "react-router"
-import Seo from "./components/Seo"
+import { useLocation } from "react-router"
+import AppRoutes from "./AppRoutes"
 
 function PostHogPageView() {
   const location = useLocation()
@@ -16,12 +15,10 @@ function PostHogPageView() {
 }
 
 export function App() {
-  const routes = useRoutes(appRoutes)
   return (
     <>
       <PostHogPageView />
-      <Seo />
-      {routes}
+      <AppRoutes />
     </>
   )
 }

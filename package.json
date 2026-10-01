@@ -48,11 +48,12 @@
   "name": "computer-extra.de",
   "private": true,
   "scripts": {
-    "build": "tsc -b && eslint . && vite build && bun run generate:sitemap",
+    "build": "tsc -b && eslint . && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && bun run generate:sitemap && bun run prerender",
     "dev": "vite",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "generate:sitemap": "bun run scripts/generate-sitemap.ts",
     "lint": "eslint .",
+    "prerender": "bun run scripts/prerender.ts",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },
