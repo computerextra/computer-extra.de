@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import posthog from "posthog-js"
 import { PostHogErrorBoundary, PostHogProvider } from "posthog-js/react"
 import { StrictMode } from "react"
-import { createRoot } from "react-dom/client"
+import { hydrateRoot } from "react-dom/client"
 import { BrowserRouter } from "react-router"
 import App from "./App.tsx"
 import "./index.css"
@@ -15,7 +15,14 @@ posthog.init(import.meta.env.VITE_POSTHOG_PROJECT_TOKEN, {
   defaults: "2026-05-30",
 })
 
-createRoot(document.getElementById("root")!).render(
+const root = document.getElementById("root")
+
+if (!root) {
+  throw new Error("Root element not found")
+}
+
+hydrateRoot(
+  root,
   <StrictMode>
     <PostHogProvider client={posthog}>
       <PostHogErrorBoundary>
