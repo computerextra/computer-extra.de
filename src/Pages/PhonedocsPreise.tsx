@@ -1,36 +1,26 @@
+import AppNavLink from "@/components/AppNavLink"
 import { GradientHeader } from "@/components/misc/gradient-header"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { fetchPhonedocsPreise, type PhonedocsPreis } from "@/lib/apiClient"
+import { queries } from "@/lib/queries"
+import type { AppTo } from "@/lib/routes"
+import { useQuery } from "@tanstack/react-query"
 import { ArrowDownUp } from "lucide-react"
-import { useEffect, useEffectEvent, useMemo, useState } from "react"
-import { NavLink } from "react-router"
+import { useMemo, useState } from "react"
 
 type Sortierung = "aufsteigend" | "absteigend"
 
 export default function PhonedocsPreise() {
-  const [preise, setPreise] = useState<PhonedocsPreis[]>([])
+  const {
+    data: preise = [],
+    isPending: laedt,
+    error: fehler,
+  } = useQuery(queries.phonedocsPreise())
+
   const [hersteller, setHersteller] = useState("")
   const [modell, setModell] = useState("")
   const [filter, setFilter] = useState("")
   const [sortierung, setSortierung] = useState<Sortierung>("aufsteigend")
-  const [laedt, setLaedt] = useState(true)
-  const [fehler, setFehler] = useState(false)
-
-  const ladePreise = useEffectEvent(async () => {
-    try {
-      setPreise(await fetchPhonedocsPreise())
-    } catch {
-      setFehler(true)
-    } finally {
-      setLaedt(false)
-    }
-  })
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    ladePreise()
-  }, [])
 
   const herstellerOptionen = useMemo(
     () =>
@@ -74,7 +64,6 @@ export default function PhonedocsPreise() {
 
   return (
     <div className="container mx-auto my-5 max-w-4xl">
-      <title>Computer Extra GmbH | PhoneDocs Preise</title>
       <GradientHeader>PhoneDocs Reparaturpreise</GradientHeader>
 
       <div className="mt-8 grid gap-4 rounded-xl border p-6 shadow-sm md:grid-cols-2">
@@ -87,7 +76,7 @@ export default function PhonedocsPreise() {
               setModell("")
               setFilter("")
             }}
-            disabled={laedt || fehler}
+            disabled={laedt || fehler != null}
             className="h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
           >
             <option value="">Bitte auswählen</option>
@@ -163,39 +152,46 @@ export default function PhonedocsPreise() {
               </tr>
             </thead>
             <tbody className="divide-y">
-              {angezeigtePreise.map((eintrag) => (
-                <tr
-                  key={`${eintrag.id}-${eintrag.reparatur}`}
-                  className="hover:bg-muted/50"
-                >
-                  <td className="p-0">
-                    <NavLink
-                      to={`/Phonedocs/Anfrage?${new URLSearchParams({ geraet: `${eintrag.hersteller} ${eintrag.geraet}`, problem: eintrag.reparatur, fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}` })}`}
-                      className="block px-4 py-3"
-                    >
-                      {eintrag.reparatur}
-                    </NavLink>
-                  </td>
-                  <td className="p-0 text-right font-medium">
-                    <NavLink
-                      to={`/Phonedocs/Anfrage?${new URLSearchParams({ geraet: `${eintrag.hersteller} ${eintrag.geraet}`, problem: eintrag.reparatur, fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}` })}`}
-                      className="block px-4 py-3"
-                    >
-                      {eintrag.preis === null
-                        ? "Auf Anfrage"
-                        : Number.isNaN(Number(eintrag.preis))
-                          ? eintrag.preis.toLocaleLowerCase("de") ===
-                            "nicht möglich"
-                            ? "Nicht möglich"
-                            : eintrag.preis
-                          : Number(eintrag.preis).toLocaleString("de-DE", {
-                              style: "currency",
-                              currency: "EUR",
-                            })}
-                    </NavLink>
-                  </td>
-                </tr>
-              ))}
+              {angezeigtePreise.map((eintrag) => {
+                const search = new URLSearchParams({
+                  geraet: `${eintrag.hersteller} ${eintrag.geraet}`,
+                  problem: eintrag.reparatur,
+                  fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}`,
+                }).toString()
+
+                const anfrageLink: AppTo = {
+                  pathname: "/phonedocs/anfrage",
+                  search: `?${search}`,
+                }
+
+                return (
+                  <tr
+                    key={`${eintrag.id}-${eintrag.reparatur}`}
+                    className="hover:bg-muted/50"
+                  >
+                    <td className="p-0">
+                      <AppNavLink to={anfrageLink} className="block px-4 py-3">
+                        {eintrag.reparatur}
+                      </AppNavLink>
+                    </td>
+                    <td className="p-0 text-right font-medium">
+                      <AppNavLink to={anfrageLink} className="block px-4 py-3">
+                        {eintrag.preis === null
+                          ? "Auf Anfrage"
+                          : Number.isNaN(Number(eintrag.preis))
+                            ? eintrag.preis.toLocaleLowerCase("de") ===
+                              "nicht möglich"
+                              ? "Nicht möglich"
+                              : eintrag.preis
+                            : Number(eintrag.preis).toLocaleString("de-DE", {
+                                style: "currency",
+                                currency: "EUR",
+                              })}
+                      </AppNavLink>
+                    </td>
+                  </tr>
+                )
+              })}
               {angezeigtePreise.length === 0 && (
                 <tr>
                   <td
@@ -212,9 +208,9 @@ export default function PhonedocsPreise() {
       )}
 
       <Button asChild size="xl" className="mt-5">
-        <NavLink to="/Phonedocs/Anfrage">
+        <AppNavLink to="/phonedocs/anfrage">
           Ihr Gerät ist nicht dabei? Anfrage stellen
-        </NavLink>
+        </AppNavLink>
       </Button>
     </div>
   )

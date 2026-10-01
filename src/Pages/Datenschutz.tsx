@@ -1,15 +1,13 @@
+import AppNavLink from "@/components/AppNavLink"
 import { Button } from "@/components/ui/button.tsx"
-
-import { NavLink } from "react-router"
 
 const Datenschutz = () => {
   return (
     <div className={"container mx-auto mt-5"}>
-      <title>Computer Extra GmbH | Datenschutz</title>
       <Button asChild variant={"default"} size={"xl"} className={"my-5"}>
-        <NavLink to={"/Auftragsdaten"}>
+        <AppNavLink to="/auftragsdaten">
           Auftragsdatenverarbeitungsvertrag
-        </NavLink>
+        </AppNavLink>
       </Button>
       <div className={"custom"}>
         <div className="custom">

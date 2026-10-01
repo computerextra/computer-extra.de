@@ -1,3 +1,5 @@
+import AppNavLink from "@/components/AppNavLink"
+import { LoadingSpinner } from "@/components/misc/LoadingSpinner"
 import {
   Accordion,
   AccordionContent,
@@ -25,9 +27,12 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import useFormChallenge from "@/hooks/form-challenge"
+import { submitBewerbung } from "@/lib/apiClient"
+import { queries } from "@/lib/queries"
+import { href } from "@/lib/routes"
 import { useForm } from "@tanstack/react-form"
-import axios from "axios"
-import { useEffect, useEffectEvent, useState } from "react"
+import { useMutation, useQuery } from "@tanstack/react-query"
+import { useNavigate } from "react-router"
 import z from "zod"
 
 type Job = {
@@ -50,25 +55,12 @@ const formSchema = z.object({
 })
 
 const Jobs = () => {
-  const [Jobs, setJobs] = useState<Job[] | undefined>(undefined)
+  const { data: Jobs, isPending: loading } = useQuery(queries.jobs())
 
-  const getJobs = useEffectEvent(async () => {
-    const res = await axios.get<{ success: boolean; data: Array<Job> }>(
-      "https://api.computer-extra.de/jobs.php"
-    )
-    if (res.data.data) {
-      setJobs(res.data.data)
-    }
-  })
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    getJobs()
-  }, [])
+  if (loading) return <LoadingSpinner />
 
   return (
     <div className="container mx-auto mt-5">
-      <title>Computer Extra GmbH | Jobs</title>
       <section>
         {/* Jobs */}
         <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
@@ -115,21 +107,7 @@ const Jobs = () => {
 export default Jobs
 
 function JobCard({ Job }: { Job: Job | undefined }) {
-  const [count, setCount] = useState<number>(0)
-
-  const getCount = useEffectEvent(async () => {
-    const res = await axios.get<{ success: boolean; count: number }>(
-      "https://api.computer-extra.de/mitarbeiter.php"
-    )
-    if (res.data.count) {
-      setCount(res.data.count)
-    }
-  })
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    getCount()
-  }, [])
+  const { data: count = 0 } = useQuery(queries.mitarbeiterCount())
 
   if (Job != null) {
     return (
@@ -205,10 +183,10 @@ function JobCard({ Job }: { Job: Job | undefined }) {
             </p>
 
             <p className="mt-5 mb-5 py-3">
-              <a href="/Kontakt" className="text-blue-600 underline">
+              <AppNavLink to="/kontakt" className="text-blue-600 underline">
                 Vereinbare doch gerne einen Termin für ein erstes
                 unverbindliches Gespräch
-              </a>
+              </AppNavLink>
               , um weitere Informationen über unser Unternehmen zu erhalten. Du
               kannst dich auch gerne
               <a href="#Bewerbungsform" className="text-blue-600 underline">
@@ -336,6 +314,17 @@ function QuoteBox({ wer, quote }: { wer: string; quote: string }) {
 
 function JobForm({ Job }: { Job: Job }) {
   const { firstAscii, secondAscii, CheckResult } = useFormChallenge()
+  const navigate = useNavigate()
+
+  const bewerbungMutation = useMutation({
+    mutationFn: submitBewerbung,
+    onSuccess: () => {
+      navigate(href("/erfolg"))
+    },
+    onError: () => {
+      navigate(href("/fehler"))
+    },
+  })
 
   const form = useForm({
     validators: {
@@ -381,21 +370,7 @@ function JobForm({ Job }: { Job: Job }) {
         (document.querySelector("#Zeugnisse") as HTMLFormElement).files[0]
       )
 
-      const res = await axios.post(
-        "https://api.computer-extra.de/bewerbung.php",
-        formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
-      )
-
-      if (res) {
-        if (res.status === 200) {
-          // Navigate to "ERFOLG"
-          window.location.href = "/Erfolg"
-        } else {
-          // Navigate to "FEHLER"
-          window.location.href = "/Fehler"
-        }
-      }
+      await bewerbungMutation.mutateAsync(formData)
     },
   })
 
@@ -605,8 +580,12 @@ function JobForm({ Job }: { Job: Job }) {
       </CardContent>
       <CardFooter>
         <Field orientation="horizontal">
-          <Button type="submit" form="Bewerbungsform">
-            Absenden
+          <Button
+            type="submit"
+            form="Bewerbungsform"
+            disabled={bewerbungMutation.isPending}
+          >
+            {bewerbungMutation.isPending ? "Wird gesendet…" : "Absenden"}
           </Button>
         </Field>
       </CardFooter>

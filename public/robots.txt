@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://computer-extra.de/sitemap-index.xml
+Sitemap: https://computer-extra.de/sitemap.xml

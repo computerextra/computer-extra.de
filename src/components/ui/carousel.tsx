@@ -56,14 +56,41 @@ function Carousel({
     },
     plugins
   )
-  const [canScrollPrev, setCanScrollPrev] = React.useState(false)
-  const [canScrollNext, setCanScrollNext] = React.useState(false)
 
-  const onSelect = React.useCallback((api: CarouselApi) => {
-    if (!api) return
-    setCanScrollPrev(api.canScrollPrev())
-    setCanScrollNext(api.canScrollNext())
-  }, [])
+  const subscribe = React.useCallback(
+    (callback: () => void) => {
+      if (!api) return () => {}
+
+      api.on("select", callback)
+      api.on("reInit", callback)
+
+      return () => {
+        api.off("select", callback)
+        api.off("reInit", callback)
+      }
+    },
+    [api]
+  )
+
+  const getSnapshot = React.useCallback(() => {
+    if (!api) return 0
+
+    let state = 0
+
+    if (api.canScrollPrev()) state |= 1
+    if (api.canScrollNext()) state |= 2
+
+    return state
+  }, [api])
+
+  const scrollState = React.useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    () => 0
+  )
+
+  const canScrollPrev = (scrollState & 1) !== 0
+  const canScrollNext = (scrollState & 2) !== 0
 
   const scrollPrev = React.useCallback(() => {
     api?.scrollPrev()
@@ -90,18 +117,6 @@ function Carousel({
     if (!api || !setApi) return
     setApi(api)
   }, [api, setApi])
-
-  React.useEffect(() => {
-    if (!api) return
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    onSelect(api)
-    api.on("reInit", onSelect)
-    api.on("select", onSelect)
-
-    return () => {
-      api?.off("select", onSelect)
-    }
-  }, [api, onSelect])
 
   return (
     <CarouselContext.Provider
@@ -236,7 +251,5 @@ export {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  // eslint-disable-next-line react-refresh/only-export-components
-  useCarousel,
   type CarouselApi,
 }

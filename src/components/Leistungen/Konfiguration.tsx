@@ -1,7 +1,7 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
-import { Card, CardContent, CardHeader, CardTitle, } from "@/components/ui/card.tsx"
 import { Button } from "@/components/ui/button.tsx"
-import { NavLink } from "react-router"
+import { Card, CardContent, CardHeader } from "@/components/ui/card.tsx"
+import AppNavLink from "../AppNavLink"
 
 const Konfiguration = () => {
   return (
@@ -42,16 +42,22 @@ const Konfiguration = () => {
         <img
           src="/pc-notebook-konfiguration.webp"
           alt="Individuelle Konfiguration von Desktop-PCs und Notebooks sowie WERTGARANTIE Elektronik-Versicherungen"
-          className="col-span-2 w-full rounded-lg object-cover"
+          width={1536}
+          height={1024}
+          loading="lazy"
+          decoding="async"
+          className="col-span-2 w-full rounded-lg object-cover transition-all duration-300 ease-in-out hover:scale-105"
         />
       </div>
-      <h4 className="mt-0 mt-5 py-2 text-xl font-semibold text-blue-700">
+      <h3 className="mt-5 py-2 text-xl font-semibold text-blue-700">
         Versicherungsvorteile von WERTGARANTIE auf einen Blick
-      </h4>
+      </h3>
       <div className="my-3 grid grid-cols-1 gap-10 md:grid-cols-3">
         <Card>
           <CardHeader>
-            <CardTitle>Jederzeit erreichbar</CardTitle>
+            <h4 className="font-heading text-base leading-snug font-medium">
+              Jederzeit erreichbar
+            </h4>
           </CardHeader>
           <CardContent>
             WERTGARANTIE ist für Sie zu jeder Zeit da und hilft Ihnen stets
@@ -61,7 +67,9 @@ const Konfiguration = () => {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Sorgenfreier Schutz</CardTitle>
+            <h4 className="font-heading text-base leading-snug font-medium">
+              Sorgenfreier Schutz
+            </h4>
           </CardHeader>
           <CardContent>
             Ihre Lieblingsgeräte sind mit WERTGARANTIE jederzeit und weltweit
@@ -70,7 +78,9 @@ const Konfiguration = () => {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>JZuverlässiger Service</CardTitle>
+            <h4 className="font-heading text-base leading-snug font-medium">
+              Zuverlässiger Service
+            </h4>
           </CardHeader>
           <CardContent>
             Wir bearbeiten Schäden schnell und unkompliziert. Bereits mehr als 7
@@ -90,7 +100,7 @@ const Konfiguration = () => {
 
       <div className="my-16 grid">
         <Button asChild size={"xl"}>
-          <NavLink to={"/Kontakt"}>Schreiben Sie uns</NavLink>
+          <AppNavLink to="/kontakt">Schreiben Sie uns</AppNavLink>
         </Button>
       </div>
     </div>

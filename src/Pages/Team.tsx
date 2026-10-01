@@ -2,33 +2,15 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar.tsx"
 import { Badge } from "@/components/ui/badge.tsx"
 import { Button } from "@/components/ui/button.tsx"
 import { Card, CardContent } from "@/components/ui/card.tsx"
-import {
-  type Abteilung,
-  fetchAbteilungen,
-  fetchMitarbeiter,
-  type Mitarbeiter,
-} from "@/lib/apiClient.ts"
+import { type Abteilung, type Mitarbeiter } from "@/lib/apiClient.ts"
+import { queries } from "@/lib/queries"
 import { useQuery } from "@tanstack/react-query"
 import { Mail, Phone } from "lucide-react"
 import { useState } from "react"
 
 const Team = () => {
-  const Mitarbeiter = useQuery({
-    queryKey: ["Mitarbeiter"],
-    queryFn: async () => {
-      const res = await fetchMitarbeiter()
-      return res?.data ?? null
-    },
-    staleTime: 5 * 1000,
-  })
-  const Abteilungen = useQuery({
-    queryKey: ["Abteilungen"],
-    queryFn: async () => {
-      const res = await fetchAbteilungen()
-      return res?.data ?? null
-    },
-    staleTime: 5 * 1000,
-  })
+  const Mitarbeiter = useQuery(queries.mitarbeiter())
+  const Abteilungen = useQuery(queries.abteilungen())
 
   const [selectedDepartment, setSelectedDepartment] =
     useState<Abteilung | null>(null)
@@ -54,8 +36,7 @@ const Team = () => {
 
   return (
     <div className={"container mx-auto mt-5"}>
-      <title>Computer Extra GmbH | Team</title>
-      {Mitarbeiter && Abteilungen && (
+      {Mitarbeiter.data && Abteilungen.data && (
         <div className="container mx-auto px-4 py-8">
           {/* Search and Filter */}
           <div className="mb-8 flex flex-col gap-4 sm:flex-row">

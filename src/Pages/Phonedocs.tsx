@@ -1,3 +1,4 @@
+import AppNavLink from "@/components/AppNavLink"
 import { GradientHeader } from "@/components/misc/gradient-header"
 import {
   Accordion,
@@ -8,7 +9,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle2, Phone, Smartphone, Wrench } from "lucide-react"
-import { NavLink } from "react-router"
 
 const services = [
   {
@@ -115,13 +115,14 @@ const faqs = [
 export default function Phonedocs() {
   return (
     <div className="container mx-auto mt-5">
-      <title>Computer Extra GmbH | PhoneDocs</title>
-
       <section className="mb-16 grid gap-10 lg:grid-cols-2">
         <div className="self-center">
           <img
             src="/phonedocs/logo.webp"
             alt="PhoneDocs"
+            width={1874}
+            height={302}
+            decoding="async"
             className="mb-8 h-auto w-72 max-w-full"
           />
           <GradientHeader>Handyreparatur in Kassel</GradientHeader>
@@ -143,6 +144,11 @@ export default function Phonedocs() {
         <img
           src="/phonedocs/hero.webp"
           alt="Smartphone-Reparatur bei PhoneDocs"
+          width={500}
+          height={375}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="h-full w-full rounded-xl object-cover shadow-lg"
         />
 
@@ -162,7 +168,7 @@ export default function Phonedocs() {
               </a>
             </Button>
             <Button asChild variant="secondary" size="lg">
-              <NavLink to="/Phonedocs/Anfrage">Jetzt Anfragen</NavLink>
+              <AppNavLink to="/phonedocs/anfrage">Jetzt Anfragen</AppNavLink>
             </Button>
           </div>
         </section>
@@ -196,6 +202,10 @@ export default function Phonedocs() {
         <img
           src="/phonedocs/leistungen.webp"
           alt="Professionelle Reparaturarbeiten an einer Hauptplatine"
+          width={1000}
+          height={265}
+          loading="lazy"
+          decoding="async"
           className="mt-8 max-h-96 w-full rounded-xl object-cover shadow-lg"
         />
         <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -205,7 +215,9 @@ export default function Phonedocs() {
               className="transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               <CardHeader>
-                <CardTitle>{service.title}</CardTitle>
+                <CardTitle>
+                  <h3>{service.title}</h3>
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="leading-7">{service.summary}</p>
@@ -251,7 +263,7 @@ export default function Phonedocs() {
             </a>
           </Button>
           <Button asChild variant="secondary" size="lg">
-            <NavLink to="/Phonedocs/Preise">Preisliste</NavLink>
+            <AppNavLink to="/phonedocs/preise">Preisliste</AppNavLink>
           </Button>
         </div>
       </section>

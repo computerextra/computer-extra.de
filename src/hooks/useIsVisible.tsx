@@ -29,14 +29,15 @@ export const useIsVisible = (
       })
     }, optionsRef.current)
 
-    if (targetRef.current) {
-      observer.observe(targetRef.current)
+    const target = targetRef.current
+
+    if (target) {
+      observer.observe(target)
     }
 
     return () => {
-      if (targetRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        observer.unobserve(targetRef.current)
+      if (target) {
+        observer.unobserve(target)
       }
       observer.disconnect()
     }

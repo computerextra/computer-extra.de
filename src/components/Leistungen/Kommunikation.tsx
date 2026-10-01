@@ -1,6 +1,6 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
 import { Button } from "@/components/ui/button.tsx"
-import { NavLink } from "react-router"
+import AppNavLink from "../AppNavLink"
 
 const Kommunikation = () => {
   return (
@@ -14,20 +14,23 @@ const Kommunikation = () => {
           <span className="font-semibold underline">Auerswald</span>,{" "}
           <span className="font-semibold underline">Bintec Elmeg</span> und{" "}
           <span className="font-semibold underline">Agfeo</span> bieten wir
-          Ihnen erstklassige Beratung, schnelle installation und qualifizierten
+          Ihnen erstklassige Beratung, schnelle Installation und qualifizierten
           Service. Auf Kundenwunsch installieren wir die neue Telefonanlage
           lokal vor Ort oder in der Cloud. Kontaktieren Sie uns jetzt für eine{" "}
-          <a className="text-blue-600 underline" href="/Kontakt">
+          <AppNavLink to="/kontakt" className={"text-blue-600 underline"}>
             unverbindliche Beratung
-          </a>
+          </AppNavLink>
           .
         </p>
 
         <img
           src="/business-kommunikation.webp"
           alt="Moderne Business-Kommunikation mit IP-Telefon, Headset und Telefonanlage"
+          width={1672}
+          height={941}
+          loading="lazy"
+          decoding="async"
           className="order-first rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105 md:order-last"
-          width={900}
         />
       </div>
       <GradientHeader>Mobilfunk</GradientHeader>
@@ -50,9 +53,9 @@ const Kommunikation = () => {
           width={900}
         />
       </div>
-      <h2 className="scroll-m-20 pb-2 text-xl font-semibold tracking-tight text-blue-700 first:mt-0">
+      <h3 className="scroll-m-20 pb-2 text-xl font-semibold tracking-tight text-blue-700">
         Was bieten wir Ihnen?
-      </h2>
+      </h3>
       <div className="cList">
         <ul className="grid grid-cols-1 items-center gap-10 leading-snug md:grid-cols-2 2xl:grid-cols-4">
           <li>
@@ -83,7 +86,7 @@ const Kommunikation = () => {
       </div>
       <div className="my-16 grid">
         <Button asChild size={"xl"}>
-          <NavLink to={"/Kontakt"}>Schreiben Sie uns</NavLink>
+          <AppNavLink to="/kontakt">Schreiben Sie uns</AppNavLink>
         </Button>
       </div>
     </div>

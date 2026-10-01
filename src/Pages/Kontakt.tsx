@@ -1,3 +1,4 @@
+import AppNavLink from "@/components/AppNavLink"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
@@ -12,9 +13,11 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import useFormChallenge from "@/hooks/form-challenge"
+import { submitKontakt } from "@/lib/apiClient"
+import { href } from "@/lib/routes"
 import { useForm } from "@tanstack/react-form"
-import axios from "axios"
-import { NavLink } from "react-router"
+import { useMutation } from "@tanstack/react-query"
+import { useNavigate } from "react-router"
 import z from "zod"
 
 const formSchema = z.object({
@@ -29,14 +32,13 @@ const formSchema = z.object({
 const Kontakt = () => {
   return (
     <div className="container mx-auto my-5">
-      <title>Computer Extra GmbH | Kontakt</title>
       <div className="mb-4">
         <div className="mb-6 max-w-3xl text-center sm:text-center md:mx-auto md:mb-12"></div>
       </div>
       <div className="flex items-stretch justify-center">
         <div className="grid md:grid-cols-2">
           <div className="h-full pr-6">
-            <p className="text-5xl font-semibold">Let´s Chat!</p>
+            <h2 className="text-5xl font-semibold">Let&apos;s Chat!</h2>
             <p className="mt-3 mb-12 text-3xl">
               Erzählen Sie uns von Ihren Wünschen
             </p>
@@ -50,9 +52,9 @@ const Kontakt = () => {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="h-6 w-6"
                   >
                     <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
@@ -77,9 +79,9 @@ const Kontakt = () => {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="h-6 w-6"
                   >
                     <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
@@ -106,9 +108,9 @@ const Kontakt = () => {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="h-6 w-6"
                   >
                     <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
@@ -142,9 +144,9 @@ const Kontakt = () => {
                 Anfrage zu einer Smartphone-, Tablet- oder MacBook-Reparatur?
               </p>
               <Button asChild variant="outline">
-                <NavLink to="/Phonedocs/Anfrage">
+                <AppNavLink to="/phonedocs/anfrage">
                   Zur PhoneDocs Reparaturanfrage
-                </NavLink>
+                </AppNavLink>
               </Button>
             </div>
           </div>
@@ -158,6 +160,18 @@ export default Kontakt
 
 function ContactForm() {
   const { firstAscii, secondAscii, CheckResult } = useFormChallenge()
+  const navigate = useNavigate()
+
+  const kontaktMutation = useMutation({
+    mutationFn: submitKontakt,
+    onSuccess: () => {
+      navigate(href("/erfolg"))
+    },
+    onError: () => {
+      navigate(href("/fehler"))
+    },
+  })
+
   const form = useForm({
     validators: {
       onSubmit: formSchema,
@@ -181,25 +195,13 @@ function ContactForm() {
     },
     onSubmit: async ({ value }) => {
       const formData = new FormData()
+
       formData.append("Name", value.Name)
       formData.append("Mail", value.Mail)
       formData.append("Telefon", value.Telefon)
       formData.append("Nachricht", value.Nachricht)
 
-      const res = await axios.post(
-        "https://api.computer-extra.de/kontaktformular.php",
-        formData
-      )
-
-      if (res) {
-        if (res.status === 200) {
-          // Navigate to "ERFOLG"
-          window.location.href = "/Erfolg"
-        } else {
-          // Navigate to "FEHLER"
-          window.location.href = "/Fehler"
-        }
-      }
+      await kontaktMutation.mutateAsync(formData)
     },
   })
   return (
@@ -375,8 +377,12 @@ function ContactForm() {
           }}
         />
 
-        <Button type="submit" form="contactForm">
-          Absenden
+        <Button
+          type="submit"
+          form="contactForm"
+          disabled={kontaktMutation.isPending}
+        >
+          {kontaktMutation.isPending ? "Wird gesendet…" : "Absenden"}
         </Button>
       </FieldGroup>
     </form>

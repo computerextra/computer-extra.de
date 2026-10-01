@@ -1,6 +1,6 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
 import { Button } from "@/components/ui/button.tsx"
-import { NavLink } from "react-router"
+import AppNavLink from "../AppNavLink"
 
 const Netzwerke = () => {
   return (
@@ -16,9 +16,9 @@ const Netzwerke = () => {
         umfassende Lösungen im Bereich der modernen Datentechnik, um eine
         optimale Vernetzung von Anlagen und Systemen in Unternehmen zu schaffen.
       </p>
-      <p className="leading-7 text-blue-700 not-first:mt-6">
-        Das können wir für Sie tun:
-      </p>
+      <h3 className="mt-6 text-xl font-semibold text-blue-700">
+        Das können wir für Sie tun
+      </h3>
       <div className="cList my-7">
         <ul className="grid grid-cols-1 items-center gap-10 leading-snug md:grid-cols-2 2xl:grid-cols-3">
           <li>
@@ -55,13 +55,13 @@ const Netzwerke = () => {
         </p>
         <img
           src="https://bilder.computer-extra.de/data/Website/network.webp"
-          alt="G Data Logo"
+          alt="Netzwerkinfrastruktur und strukturierte Netzwerkverkabelung"
           className="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
         />
       </div>
       <div className="my-16 grid">
         <Button asChild size={"xl"}>
-          <NavLink to={"/Kontakt"}>Schreiben Sie uns</NavLink>
+          <AppNavLink to="/kontakt">Schreiben Sie uns</AppNavLink>
         </Button>
       </div>
     </div>

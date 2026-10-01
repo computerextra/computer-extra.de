@@ -9,21 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx"
+import { queries } from "@/lib/queries"
 import { cn } from "@/lib/utils.ts"
-import axios from "axios"
-import { useEffect, useEffectEvent, useState } from "react"
+import { useQuery } from "@tanstack/react-query"
 import sortBy from "sort-by"
-
-type Angebot = {
-  id: string
-  title: string
-  subtitle: string
-  date_start: string
-  date_stop: string
-  link: string
-  image: string
-  anzeigen: number
-}
 
 const getDate = (date: string) => {
   const d = new Date(date)
@@ -43,39 +32,20 @@ const getDate = (date: string) => {
 }
 
 export default function Angebote() {
-  const [a, setA] = useState<Angebot[] | null>(null)
-  const [loading, setLoading] = useState(false)
-
-  const getAngebote = useEffectEvent(() => {
-    setLoading(true)
-    axios
-      .get<{
-        success: boolean
-        data: Angebot[]
-      }>("https://api.computer-extra.de/angebote.php")
-      .then((res) => {
-        if (res.data.data) {
-          setA(res.data.data)
-        }
-        setLoading(false)
-      })
-  })
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    getAngebote()
-  }, [])
+  const { data: a, isPending: loading } = useQuery(queries.angebote())
 
   const isDisabled = (start: string, end: string) => {
     if (new Date(end) < new Date()) return true
     return new Date(start) > new Date()
   }
 
-  if (loading) return <LoadingSpinner />
+  if (loading) {
+    return <LoadingSpinner className="min-h-96" />
+  }
 
   return (
     <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 2xl:grid-cols-4">
-      {a?.sort(sortBy("date_start")).map((Angebot, idx) => {
+      {[...(a ?? [])].sort(sortBy("date_start")).map((Angebot, idx) => {
         if (Angebot.anzeigen == 1)
           return (
             <Card key={Angebot.id}>
@@ -118,6 +88,8 @@ export default function Angebote() {
                   )}
                   src={`https://bilder.computer-extra.de/data/Angebote/${Angebot.image}`}
                   alt={Angebot.title}
+                  loading="lazy"
+                  decoding="async"
                 />
               </CardContent>
               <CardFooter>

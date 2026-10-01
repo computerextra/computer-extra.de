@@ -1,6 +1,6 @@
+import AppNavLink from "@/components/AppNavLink"
 import { GradientHeader } from "@/components/misc/gradient-header"
 import { Button } from "@/components/ui/button"
-import { NavLink } from "react-router"
 
 const PCVisitLink =
   "https://stable-update.pcvisit.de/v1/hosted/jumplink?func=download&topic=guestSetup&productrole=guestSetup&gateway=stable-update.pcvisit.de&companyid=4500788308"
@@ -10,8 +10,6 @@ const DL_VALUE = 30
 const Fernwartung = () => {
   return (
     <div className="container mx-auto mt-5">
-      <title>Computer Extra GmbH | Fernwartung</title>
-
       <GradientHeader>Hinweis:</GradientHeader>
       <p className="leading-7 not-first:mt-6">
         Mir ist bekannt, dass die Unterstützung kostenpflichtig ist!
@@ -26,16 +24,16 @@ const Fernwartung = () => {
         Im Rahmen der Fernwartung können Daten und Einstellungen auf meinem
         Computer verändert werden. Der Supportmitarbeiter handelt mit meinem
         Einverständnis. Des Weiteren gelten unsere{" "}
-        <NavLink to="/AGB" className={"text-blue-600 underline"}>
+        <AppNavLink to="/agb" className={"text-blue-600 underline"}>
           AGB
-        </NavLink>
+        </AppNavLink>
         .
       </p>
       <p className="leading-7 not-first:mt-6">
         Es werden personenbezogene Daten im Einklang mit unserer{" "}
-        <NavLink to="/Datenschutz" className={"text-blue-600 underline"}>
+        <AppNavLink to="/datenschutz" className={"text-blue-600 underline"}>
           Datenschutzerklärung
-        </NavLink>{" "}
+        </AppNavLink>{" "}
         erhoben.
       </p>
 

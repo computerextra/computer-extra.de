@@ -1,7 +1,7 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
 import { Button } from "@/components/ui/button.tsx"
 import { CheckCircle2, Smartphone, Wrench } from "lucide-react"
-import { NavLink } from "react-router"
+import AppNavLink from "../AppNavLink"
 
 const benefits = [
   "Ehrliche Diagnose statt Teiletausch auf Verdacht",
@@ -58,9 +58,9 @@ const PhoneDocs = () => {
 
       <div className="my-16 grid">
         <Button asChild size={"xl"}>
-          <NavLink to="/Phonedocs/Anfrage">
+          <AppNavLink to="/phonedocs/anfrage">
             Reparatur bei PhoneDocs anfragen
-          </NavLink>
+          </AppNavLink>
         </Button>
       </div>
     </div>

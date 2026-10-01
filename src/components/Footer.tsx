@@ -1,30 +1,39 @@
-import { NavLink } from "react-router"
+import AppNavLink from "./AppNavLink"
 
 const Footer = () => {
   return (
     <div className={`w-full bg-slate-700 pb-12.5 md:pb-0`}>
       <div className="grid grid-cols-1 items-center gap-4 py-10 text-slate-200 lg:grid-cols-3">
         <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3">
-          <NavLink className="hover:underline focus:underline" to="/Impressum">
+          <AppNavLink
+            to="/impressum"
+            className={"hover:underline focus:underline"}
+          >
             Impressum
-          </NavLink>
-          <NavLink
-            className="hover:underline focus:underline"
-            to="/Datenschutz"
+          </AppNavLink>
+          <AppNavLink
+            to="/datenschutz"
+            className={"hover:underline focus:underline"}
           >
             Datenschutz
-          </NavLink>
-          <NavLink className="hover:underline focus:underline" to="/AGB">
+          </AppNavLink>
+          <AppNavLink to="/agb" className={"hover:underline focus:underline"}>
             AGB
-          </NavLink>
+          </AppNavLink>
         </div>
         <div className="grid grid-cols-1 justify-items-center lg:grid-cols-2">
-          <NavLink className="hover:underline focus:underline" to="/Kontakt">
+          <AppNavLink
+            to="/kontakt"
+            className={"hover:underline focus:underline"}
+          >
             Kontakt
-          </NavLink>
-          <NavLink className="hover:underline focus:underline" to="/Termin">
+          </AppNavLink>
+          <AppNavLink
+            to="/termin"
+            className={"hover:underline focus:underline"}
+          >
             Termin
-          </NavLink>
+          </AppNavLink>
         </div>
         <div className="grid grid-cols-4 justify-items-center lg:justify-items-start">
           <a

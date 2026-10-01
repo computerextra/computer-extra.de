@@ -1,8 +1,4 @@
-import {
-  getBlankoAnlageA,
-  getBlankoAnlageB,
-  getBlankoVertrag,
-} from "@/lib/apiClient"
+import { queries } from "@/lib/queries"
 import { useQuery } from "@tanstack/react-query"
 
 export function useBlankoVertrag() {
@@ -11,14 +7,7 @@ export function useBlankoVertrag() {
     isError,
     data: BlankoVertrag,
     error,
-  } = useQuery({
-    queryKey: ["BlankoVertrag"],
-    queryFn: async () => {
-      const res = await getBlankoVertrag()
-      return res?.message ?? null
-    },
-    staleTime: 5 * 1000 * 100,
-  })
+  } = useQuery(queries.blankoVertrag())
 
   return { isPending, isError, BlankoVertrag, error }
 }
@@ -29,14 +18,7 @@ export function useBlankoAnlageA() {
     isError,
     data: BlankoAnlageA,
     error,
-  } = useQuery({
-    queryKey: ["BlankoAnlageA"],
-    queryFn: async () => {
-      const res = await getBlankoAnlageA()
-      return res?.message ?? null
-    },
-    staleTime: 5 * 1000 * 100,
-  })
+  } = useQuery(queries.blankoAnlageA())
 
   return { isPending, isError, BlankoAnlageA, error }
 }
@@ -47,14 +29,7 @@ export function useBlankoAnlageB() {
     isError,
     data: BlankoAnlageB,
     error,
-  } = useQuery({
-    queryKey: ["BlankoAnlageB"],
-    queryFn: async () => {
-      const res = await getBlankoAnlageB()
-      return res?.message ?? null
-    },
-    staleTime: 5 * 1000 * 100,
-  })
+  } = useQuery(queries.blankoAnlageB())
 
   return { isPending, isError, BlankoAnlageB, error }
 }

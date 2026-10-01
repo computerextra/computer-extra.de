@@ -1,8 +1,6 @@
-
 const Impressum = () => {
   return (
     <div className="container mx-auto mt-5">
-      <title>Computer Extra GmbH | Impressum</title>
       <div className={"custom"}>
         <div className="custom">
           <p>

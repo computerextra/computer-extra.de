@@ -17,7 +17,8 @@ import {
   useRef,
   useState,
 } from "react"
-import { NavLink, Outlet } from "react-router"
+import { Outlet } from "react-router"
+import AppNavLink from "../AppNavLink"
 
 const Navigation = lazy(() => import("@/components/Navigation"))
 const AnimatedText = lazy(() => import("@/components/misc/AnimatedText"))
@@ -103,12 +104,15 @@ const Layout = () => {
         className={"h-fit min-h-[50vh] overflow-hidden bg-blue-600/50"}
       >
         <LazyVideo
-          src={"/videos/bg.mp4"}
+          src="/videos/bg.webm"
+          poster="/videos/bg-poster.webp"
+          desktopOnly
+          posterWidth={1000}
+          posterHeight={562}
+          posterFetchPriority="high"
           playbackRate={0.3}
           style={style}
-          className={
-            "fixed -z-1 flex h-auto min-h-[50vh] w-auto max-w-screen min-w-full items-center justify-center backdrop-hue-rotate-90"
-          }
+          className="fixed -z-1 flex h-auto min-h-[50vh] w-auto max-w-screen min-w-full items-center justify-center backdrop-hue-rotate-90"
         />
         <div className={"container mx-auto"}>
           <Navigation />
@@ -154,9 +158,8 @@ const Layout = () => {
                 hat die passenden Produkte und Services verfügbar. Privat-,
                 Office- und Gaming-PCs sowie Notebooks werden direkt auf die
                 Bedürfnisse der Kunden zugeschnitten. Die exklusive
-                Partnerschaft mit der
-                Telekom für Business- und Privattarife runden das Gesamtpaket
-                ab.
+                Partnerschaft mit der Telekom für Business- und Privattarife
+                runden das Gesamtpaket ab.
               </CardContent>
             </Card>
 
@@ -231,9 +234,9 @@ const Layout = () => {
                   finden, aber sich nicht durch unzählige Optionen kämpfen? Wir
                   helfen Ihnen dabei - persönlich und unkompliziert.
                 </p>
-                <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+                <p className="scroll-m-20 text-xl font-semibold tracking-tight">
                   Schnell. Einfach. Individuell.
-                </h3>
+                </p>
 
                 <Button
                   asChild
@@ -241,13 +244,13 @@ const Layout = () => {
                   size={"lg"}
                   className={"mt-2 max-w-full text-slate-900"}
                 >
-                  <NavLink to={"/Termin"}>
+                  <AppNavLink to="/termin">
                     <span className={"hidden md:block"}>
                       👉 Jetzt Termin online buchen und bestens informiert
                       entscheiden!
                     </span>
                     <span className={"md:hidden"}>Termin buchen</span>
-                  </NavLink>
+                  </AppNavLink>
                 </Button>
               </CardContent>
             </Card>
@@ -272,12 +275,12 @@ const Layout = () => {
                     size="lg"
                     className="text-slate-900"
                   >
-                    <NavLink to="/Phonedocs">Mehr Infos</NavLink>
+                    <AppNavLink to="/phonedocs">Mehr Infos</AppNavLink>
                   </Button>
                   <Button asChild variant="secondary" size="lg">
-                    <NavLink to="/Phonedocs/Anfrage">
+                    <AppNavLink to="/phonedocs/anfrage">
                       Direkt anfragen
-                    </NavLink>
+                    </AppNavLink>
                   </Button>
                 </div>
               </CardContent>

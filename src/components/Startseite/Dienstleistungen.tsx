@@ -21,6 +21,8 @@ export default function Dienstleistungen() {
           alt="Ausschnitte von Webseiten die durch Computer Extra entstanden sind."
           className="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
           width={900}
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div
@@ -45,7 +47,10 @@ export default function Dienstleistungen() {
           src="/business-kommunikation.webp"
           alt="Moderne Business-Kommunikation mit IP-Telefon, Headset und Telefonanlage"
           className="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
-          width={900}
+          width={1672}
+          height={941}
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div
@@ -69,6 +74,10 @@ export default function Dienstleistungen() {
           src="/pc-notebook-konfiguration.webp"
           alt="Individuelle Konfiguration von Desktop-PCs und Notebooks sowie WERTGARANTIE Elektronik-Versicherungen"
           className="w-full rounded-lg object-cover transition-all duration-300 ease-in-out hover:scale-105"
+          width={1536}
+          height={1024}
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div
@@ -91,6 +100,8 @@ export default function Dienstleistungen() {
           className="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
           alt="Netzwerkswitch mit Glasfaserkabeln"
           width={900}
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div
@@ -113,6 +124,8 @@ export default function Dienstleistungen() {
           alt="Securepoint Logo"
           className="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
           width={900}
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </div>
