@@ -120,6 +120,9 @@ export default function Phonedocs() {
           <img
             src="/phonedocs/logo.webp"
             alt="PhoneDocs"
+            width={1874}
+            height={302}
+            decoding="async"
             className="mb-8 h-auto w-72 max-w-full"
           />
           <GradientHeader>Handyreparatur in Kassel</GradientHeader>
@@ -141,6 +144,11 @@ export default function Phonedocs() {
         <img
           src="/phonedocs/hero.webp"
           alt="Smartphone-Reparatur bei PhoneDocs"
+          width={500}
+          height={375}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="h-full w-full rounded-xl object-cover shadow-lg"
         />
 
@@ -194,6 +202,10 @@ export default function Phonedocs() {
         <img
           src="/phonedocs/leistungen.webp"
           alt="Professionelle Reparaturarbeiten an einer Hauptplatine"
+          width={1000}
+          height={265}
+          loading="lazy"
+          decoding="async"
           className="mt-8 max-h-96 w-full rounded-xl object-cover shadow-lg"
         />
         <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">

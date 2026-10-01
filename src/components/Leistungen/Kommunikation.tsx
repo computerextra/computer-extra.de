@@ -26,8 +26,11 @@ const Kommunikation = () => {
         <img
           src="/business-kommunikation.webp"
           alt="Moderne Business-Kommunikation mit IP-Telefon, Headset und Telefonanlage"
+          width={1672}
+          height={941}
+          loading="lazy"
+          decoding="async"
           className="order-first rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105 md:order-last"
-          width={900}
         />
       </div>
       <GradientHeader>Mobilfunk</GradientHeader>

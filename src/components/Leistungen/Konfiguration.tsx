@@ -42,7 +42,11 @@ const Konfiguration = () => {
         <img
           src="/pc-notebook-konfiguration.webp"
           alt="Individuelle Konfiguration von Desktop-PCs und Notebooks sowie WERTGARANTIE Elektronik-Versicherungen"
-          className="col-span-2 w-full rounded-lg object-cover"
+          width={1536}
+          height={1024}
+          loading="lazy"
+          decoding="async"
+          className="col-span-2 w-full rounded-lg object-cover transition-all duration-300 ease-in-out hover:scale-105"
         />
       </div>
       <h3 className="mt-5 py-2 text-xl font-semibold text-blue-700">
