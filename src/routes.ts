@@ -4,8 +4,17 @@ import type { RouteObject } from "react-router"
 const element = (importer: () => Promise<{ default: ComponentType }>) =>
   createElement(lazy(importer))
 
+function defineRoutes<const T extends RouteObject[]>(routes: T): T {
+  return routes
+}
+
 export type RouteHandle = {
   sitemap?: boolean
+  navigation?: {
+    title: string
+    order: number
+    requiresAbilableJobs?: boolean
+  }
   seo?: {
     title: string
     description: string
@@ -13,7 +22,7 @@ export type RouteHandle = {
   }
 }
 
-export const appRoutes: RouteObject[] = [
+export const appRoutes = defineRoutes([
   {
     element: element(() => import("@/components/Layout/layout")),
     children: [
@@ -36,7 +45,7 @@ export const appRoutes: RouteObject[] = [
     element: element(() => import("@/components/Layout/layout_leistungen")),
     children: [
       {
-        path: "Leistungen",
+        path: "leistungen",
         element: element(() => import("@/Pages/Leistunen")),
         handle: {
           sitemap: true,
@@ -53,7 +62,7 @@ export const appRoutes: RouteObject[] = [
     element: element(() => import("@/components/Layout/root-layout")),
     children: [
       {
-        path: "AGB",
+        path: "agb",
         element: element(() => import("@/Pages/AGB")),
         handle: {
           sitemap: true,
@@ -65,7 +74,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Auftragsdaten",
+        path: "auftragsdaten",
         element: element(() => import("@/Pages/Auftragsdaten")),
         handle: {
           seo: {
@@ -77,7 +86,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Datenschutz",
+        path: "datenschutz",
         element: element(() => import("@/Pages/Datenschutz")),
         handle: {
           sitemap: true,
@@ -89,7 +98,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Erfolg",
+        path: "erfolg",
         element: element(() => import("@/Pages/Erfolg")),
         handle: {
           seo: {
@@ -100,7 +109,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Fehler",
+        path: "fehler",
         element: element(() => import("@/Pages/Fehler")),
         handle: {
           seo: {
@@ -112,7 +121,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Fernwartung",
+        path: "fernwartung",
         element: element(() => import("@/Pages/Fernwartung")),
         handle: {
           sitemap: true,
@@ -124,7 +133,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Impressum",
+        path: "impressum",
         element: element(() => import("@/Pages/Impressum")),
         handle: {
           sitemap: true,
@@ -136,7 +145,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Jobs",
+        path: "jobs",
         element: element(() => import("@/Pages/Jobs")),
         handle: {
           sitemap: true,
@@ -148,7 +157,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Kontakt",
+        path: "kontakt",
         element: element(() => import("@/Pages/Kontakt")),
         handle: {
           sitemap: true,
@@ -160,7 +169,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "OEM",
+        path: "oem",
         element: element(() => import("@/Pages/OEM")),
         handle: {
           seo: {
@@ -171,7 +180,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Partner",
+        path: "partner",
         element: element(() => import("@/Pages/Partner")),
         handle: {
           sitemap: true,
@@ -183,7 +192,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Team",
+        path: "team",
         element: element(() => import("@/Pages/Team")),
         handle: {
           sitemap: true,
@@ -195,7 +204,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Termin",
+        path: "termin",
         element: element(() => import("@/Pages/Termin")),
         handle: {
           sitemap: true,
@@ -207,7 +216,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Phonedocs",
+        path: "phonedocs",
         element: element(() => import("@/Pages/Phonedocs")),
         handle: {
           sitemap: true,
@@ -219,7 +228,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Phonedocs/Anfrage",
+        path: "phonedocs/anfrage",
         element: element(() => import("@/Pages/PhonedocsAnfrage")),
         handle: {
           seo: {
@@ -231,7 +240,7 @@ export const appRoutes: RouteObject[] = [
         } satisfies RouteHandle,
       },
       {
-        path: "Phonedocs/Preise",
+        path: "phonedocs/preise",
         element: element(() => import("@/Pages/PhonedocsPreise")),
         handle: {
           sitemap: true,
@@ -255,4 +264,4 @@ export const appRoutes: RouteObject[] = [
       },
     ],
   },
-]
+])

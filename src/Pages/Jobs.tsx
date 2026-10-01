@@ -1,3 +1,4 @@
+import AppNavLink from "@/components/AppNavLink"
 import { LoadingSpinner } from "@/components/misc/LoadingSpinner"
 import {
   Accordion,
@@ -26,6 +27,7 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import useFormChallenge from "@/hooks/form-challenge"
+import { href } from "@/lib/routes"
 import { useForm } from "@tanstack/react-form"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
@@ -195,10 +197,10 @@ function JobCard({ Job }: { Job: Job | undefined }) {
             </p>
 
             <p className="mt-5 mb-5 py-3">
-              <a href="/Kontakt" className="text-blue-600 underline">
+              <AppNavLink to="/kontakt" className="text-blue-600 underline">
                 Vereinbare doch gerne einen Termin für ein erstes
                 unverbindliches Gespräch
-              </a>
+              </AppNavLink>
               , um weitere Informationen über unser Unternehmen zu erhalten. Du
               kannst dich auch gerne
               <a href="#Bewerbungsform" className="text-blue-600 underline">
@@ -380,10 +382,10 @@ function JobForm({ Job }: { Job: Job }) {
       if (res) {
         if (res.status === 200) {
           // Navigate to "ERFOLG"
-          window.location.href = "/Erfolg"
+          href("/erfolg")
         } else {
           // Navigate to "FEHLER"
-          window.location.href = "/Fehler"
+          href("/fehler")
         }
       }
     },

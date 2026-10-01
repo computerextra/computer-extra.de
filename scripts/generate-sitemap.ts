@@ -1,11 +1,11 @@
 import { mkdir, writeFile } from "node:fs/promises"
-import { collectStaticRoutes } from "../src/lib/static-routes"
+import { collectSitemapRoutes } from "../src/lib/static-routes"
 import { appRoutes } from "../src/routes"
 
 const BASE_URL = "https://computer-extra.de"
 const OUTPUT_FILE = new URL("../dist/sitemap.xml", import.meta.url)
 
-const routes = collectStaticRoutes(appRoutes)
+const routes = collectSitemapRoutes(appRoutes)
 
 const urls = routes
   .map(

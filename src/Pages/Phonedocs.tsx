@@ -1,3 +1,4 @@
+import AppNavLink from "@/components/AppNavLink"
 import { GradientHeader } from "@/components/misc/gradient-header"
 import {
   Accordion,
@@ -8,7 +9,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle2, Phone, Smartphone, Wrench } from "lucide-react"
-import { NavLink } from "react-router"
 
 const services = [
   {
@@ -160,7 +160,7 @@ export default function Phonedocs() {
               </a>
             </Button>
             <Button asChild variant="secondary" size="lg">
-              <NavLink to="/Phonedocs/Anfrage">Jetzt Anfragen</NavLink>
+              <AppNavLink to="/phonedocs/anfrage">Jetzt Anfragen</AppNavLink>
             </Button>
           </div>
         </section>
@@ -249,7 +249,7 @@ export default function Phonedocs() {
             </a>
           </Button>
           <Button asChild variant="secondary" size="lg">
-            <NavLink to="/Phonedocs/Preise">Preisliste</NavLink>
+            <AppNavLink to="/phonedocs/preise">Preisliste</AppNavLink>
           </Button>
         </div>
       </section>

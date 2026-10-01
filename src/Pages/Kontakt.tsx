@@ -1,3 +1,4 @@
+import AppNavLink from "@/components/AppNavLink"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
@@ -12,9 +13,9 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import useFormChallenge from "@/hooks/form-challenge"
+import { href } from "@/lib/routes"
 import { useForm } from "@tanstack/react-form"
 import axios from "axios"
-import { NavLink } from "react-router"
 import z from "zod"
 
 const formSchema = z.object({
@@ -141,9 +142,9 @@ const Kontakt = () => {
                 Anfrage zu einer Smartphone-, Tablet- oder MacBook-Reparatur?
               </p>
               <Button asChild variant="outline">
-                <NavLink to="/Phonedocs/Anfrage">
+                <AppNavLink to="/phonedocs/anfrage">
                   Zur PhoneDocs Reparaturanfrage
-                </NavLink>
+                </AppNavLink>
               </Button>
             </div>
           </div>
@@ -193,10 +194,10 @@ function ContactForm() {
       if (res) {
         if (res.status === 200) {
           // Navigate to "ERFOLG"
-          window.location.href = "/Erfolg"
+          href("/erfolg")
         } else {
           // Navigate to "FEHLER"
-          window.location.href = "/Fehler"
+          href("/fehler")
         }
       }
     },

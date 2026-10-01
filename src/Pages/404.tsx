@@ -1,5 +1,5 @@
+import AppNavLink from "@/components/AppNavLink"
 import { Button } from "@/components/ui/button"
-import { NavLink } from "react-router"
 
 export default function NotFound() {
   return (
@@ -8,7 +8,7 @@ export default function NotFound() {
         Die gesucht Seite konnte nicht gefunden werden.
       </h2>
       <Button asChild size={"xl"}>
-        <NavLink to="/">Zur Startseite</NavLink>
+        <AppNavLink to="/">Zur Startseite</AppNavLink>
       </Button>
     </div>
   )

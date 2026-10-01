@@ -1,3 +1,4 @@
+import AppNavLink from "@/components/AppNavLink"
 import { GradientHeader } from "@/components/misc/gradient-header"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -14,7 +15,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useForm } from "@tanstack/react-form"
 import { useState } from "react"
-import { NavLink, useSearchParams } from "react-router"
+import { useSearchParams } from "react-router"
 import { z } from "zod"
 
 const issueOptions = [
@@ -272,9 +273,9 @@ export default function PhonedocsAnfrage() {
                   <FieldLegend>Datenschutz</FieldLegend>
                   <FieldDescription>
                     Ich habe die{" "}
-                    <NavLink to="/Datenschutz" className="underline">
+                    <AppNavLink to="/datenschutz" className={"underline"}>
                       Datenschutzerklärung
-                    </NavLink>{" "}
+                    </AppNavLink>{" "}
                     gelesen und stimme der Verarbeitung meiner Daten zu.
                   </FieldDescription>
                   <Field orientation="horizontal" data-invalid={isInvalid}>

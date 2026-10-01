@@ -1,6 +1,6 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
 import { Button } from "@/components/ui/button.tsx"
-import { NavLink } from "react-router"
+import AppNavLink from "../AppNavLink"
 
 const Kommunikation = () => {
   return (
@@ -17,9 +17,9 @@ const Kommunikation = () => {
           Ihnen erstklassige Beratung, schnelle installation und qualifizierten
           Service. Auf Kundenwunsch installieren wir die neue Telefonanlage
           lokal vor Ort oder in der Cloud. Kontaktieren Sie uns jetzt für eine{" "}
-          <a className="text-blue-600 underline" href="/Kontakt">
+          <AppNavLink to="/kontakt" className={"text-blue-600 underline"}>
             unverbindliche Beratung
-          </a>
+          </AppNavLink>
           .
         </p>
 
@@ -83,7 +83,7 @@ const Kommunikation = () => {
       </div>
       <div className="my-16 grid">
         <Button asChild size={"xl"}>
-          <NavLink to={"/Kontakt"}>Schreiben Sie uns</NavLink>
+          <AppNavLink to="/kontakt">Schreiben Sie uns</AppNavLink>
         </Button>
       </div>
     </div>

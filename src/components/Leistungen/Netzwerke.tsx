@@ -1,6 +1,6 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
 import { Button } from "@/components/ui/button.tsx"
-import { NavLink } from "react-router"
+import AppNavLink from "../AppNavLink"
 
 const Netzwerke = () => {
   return (
@@ -61,7 +61,7 @@ const Netzwerke = () => {
       </div>
       <div className="my-16 grid">
         <Button asChild size={"xl"}>
-          <NavLink to={"/Kontakt"}>Schreiben Sie uns</NavLink>
+          <AppNavLink to="/kontakt">Schreiben Sie uns</AppNavLink>
         </Button>
       </div>
     </div>

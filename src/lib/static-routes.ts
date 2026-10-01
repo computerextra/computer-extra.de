@@ -6,9 +6,28 @@ export type StaticRoute = {
   handle: RouteHandle
 }
 
-export function collectStaticRoutes(
+export function collectSitemapRoutes(
   routes: RouteObject[],
   parentPath = ""
+): StaticRoute[] {
+  return collectRoutes(routes, parentPath, (handle) => handle.sitemap === true)
+}
+
+export function collectPrerenderRoutes(
+  routes: RouteObject[],
+  parentPath = ""
+): StaticRoute[] {
+  return collectRoutes(
+    routes,
+    parentPath,
+    (handle, route) => route.path !== "*" && handle.seo != null
+  )
+}
+
+function collectRoutes(
+  routes: RouteObject[],
+  parentPath: string,
+  include: (handle: RouteHandle, route: RouteObject) => boolean
 ): StaticRoute[] {
   const result: StaticRoute[] = []
 
@@ -16,14 +35,14 @@ export function collectStaticRoutes(
     let currentPath = parentPath
 
     if (route.index) {
-      currentPath = parentPath || "/"
+      currentPath = currentPath || "/"
     } else if (route.path && route.path !== "*") {
       currentPath = `${parentPath}/${route.path}`.replace(/\/+/g, "/")
     }
 
     const handle = route.handle as RouteHandle | undefined
 
-    if (handle?.sitemap) {
+    if (handle && include(handle, route)) {
       result.push({
         path: currentPath || "/",
         handle,
@@ -31,9 +50,27 @@ export function collectStaticRoutes(
     }
 
     if (route.children) {
-      result.push(...collectStaticRoutes(route.children, currentPath))
+      result.push(...collectRoutes(route.children, currentPath, include))
     }
   }
 
   return result
+}
+
+export function getNotFoundHandle(
+  routes: RouteObject[]
+): RouteHandle | undefined {
+  for (const route of routes) {
+    if (route.path === "*") {
+      return route.handle as RouteHandle | undefined
+    }
+
+    if (route.children) {
+      const handle = getNotFoundHandle(route.children)
+
+      if (handle) return handle
+    }
+  }
+
+  return undefined
 }

@@ -8,7 +8,8 @@ import {
   useRef,
   useState,
 } from "react"
-import { NavLink, Outlet, useLocation } from "react-router"
+import { Outlet, useLocation } from "react-router"
+import AppNavLink from "../AppNavLink"
 
 const Navigation = lazy(() => import("@/components/Navigation"))
 const LazyVideo = lazy(() => import("@/components/misc/lazy-video"))
@@ -130,7 +131,7 @@ export default function RootLayout() {
               }
             >
               <Button variant={"secondary"} size={"xl"} asChild>
-                <NavLink to={"/"}>Zurück zur Startseite</NavLink>
+                <AppNavLink to="/">Zurück zur Startseite</AppNavLink>
               </Button>
             </div>
           )}

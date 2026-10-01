@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card.tsx"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { NavLink } from "react-router"
+import AppNavLink from "../AppNavLink"
 
 type Referenz = {
   id: string
@@ -100,7 +100,7 @@ const Webdesign = () => {
           Experten beraten lassen.
         </p>
         <Button asChild size={"xl"}>
-          <NavLink to={"/Kontakt"}>Schreiben Sie uns</NavLink>
+          <AppNavLink to="/kontakt">Schreiben Sie uns</AppNavLink>
         </Button>
       </div>
 

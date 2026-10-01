@@ -17,7 +17,8 @@ import {
   useRef,
   useState,
 } from "react"
-import { NavLink, Outlet } from "react-router"
+import { Outlet } from "react-router"
+import AppNavLink from "../AppNavLink"
 
 const Navigation = lazy(() => import("@/components/Navigation"))
 const AnimatedText = lazy(() => import("@/components/misc/AnimatedText"))
@@ -154,9 +155,8 @@ const Layout = () => {
                 hat die passenden Produkte und Services verfügbar. Privat-,
                 Office- und Gaming-PCs sowie Notebooks werden direkt auf die
                 Bedürfnisse der Kunden zugeschnitten. Die exklusive
-                Partnerschaft mit der
-                Telekom für Business- und Privattarife runden das Gesamtpaket
-                ab.
+                Partnerschaft mit der Telekom für Business- und Privattarife
+                runden das Gesamtpaket ab.
               </CardContent>
             </Card>
 
@@ -241,13 +241,13 @@ const Layout = () => {
                   size={"lg"}
                   className={"mt-2 max-w-full text-slate-900"}
                 >
-                  <NavLink to={"/Termin"}>
+                  <AppNavLink to="/termin">
                     <span className={"hidden md:block"}>
                       👉 Jetzt Termin online buchen und bestens informiert
                       entscheiden!
                     </span>
                     <span className={"md:hidden"}>Termin buchen</span>
-                  </NavLink>
+                  </AppNavLink>
                 </Button>
               </CardContent>
             </Card>
@@ -272,12 +272,12 @@ const Layout = () => {
                     size="lg"
                     className="text-slate-900"
                   >
-                    <NavLink to="/Phonedocs">Mehr Infos</NavLink>
+                    <AppNavLink to="/phonedocs">Mehr Infos</AppNavLink>
                   </Button>
                   <Button asChild variant="secondary" size="lg">
-                    <NavLink to="/Phonedocs/Anfrage">
+                    <AppNavLink to="/phonedocs/anfrage">
                       Direkt anfragen
-                    </NavLink>
+                    </AppNavLink>
                   </Button>
                 </div>
               </CardContent>

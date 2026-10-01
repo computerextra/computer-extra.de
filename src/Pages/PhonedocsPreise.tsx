@@ -1,3 +1,4 @@
+import AppNavLink from "@/components/AppNavLink"
 import { GradientHeader } from "@/components/misc/gradient-header"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -161,7 +162,7 @@ export default function PhonedocsPreise() {
                 >
                   <td className="p-0">
                     <NavLink
-                      to={`/Phonedocs/Anfrage?${new URLSearchParams({ geraet: `${eintrag.hersteller} ${eintrag.geraet}`, problem: eintrag.reparatur, fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}` })}`}
+                      to={`/phonedocs/anfrage?${new URLSearchParams({ geraet: `${eintrag.hersteller} ${eintrag.geraet}`, problem: eintrag.reparatur, fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}` })}`}
                       className="block px-4 py-3"
                     >
                       {eintrag.reparatur}
@@ -169,7 +170,7 @@ export default function PhonedocsPreise() {
                   </td>
                   <td className="p-0 text-right font-medium">
                     <NavLink
-                      to={`/Phonedocs/Anfrage?${new URLSearchParams({ geraet: `${eintrag.hersteller} ${eintrag.geraet}`, problem: eintrag.reparatur, fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}` })}`}
+                      to={`/phonedocs/anfrage?${new URLSearchParams({ geraet: `${eintrag.hersteller} ${eintrag.geraet}`, problem: eintrag.reparatur, fehlerbeschreibung: `Gewünschte Reparatur: ${eintrag.reparatur}` })}`}
                       className="block px-4 py-3"
                     >
                       {eintrag.preis === null
@@ -203,9 +204,9 @@ export default function PhonedocsPreise() {
       )}
 
       <Button asChild size="xl" className="mt-5">
-        <NavLink to="/Phonedocs/Anfrage">
+        <AppNavLink to="/phonedocs/anfrage">
           Ihr Gerät ist nicht dabei? Anfrage stellen
-        </NavLink>
+        </AppNavLink>
       </Button>
     </div>
   )
