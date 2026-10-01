@@ -2,7 +2,7 @@ import AppNavLink from "@/components/AppNavLink"
 import { GradientHeader } from "@/components/misc/gradient-header"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { fetchPhonedocsPreise } from "@/lib/apiClient"
+import { queries } from "@/lib/queries"
 import type { AppTo } from "@/lib/routes"
 import { useQuery } from "@tanstack/react-query"
 import { ArrowDownUp } from "lucide-react"
@@ -15,10 +15,7 @@ export default function PhonedocsPreise() {
     data: preise = [],
     isPending: laedt,
     error: fehler,
-  } = useQuery({
-    queryKey: ["PhonedocsPreise"],
-    queryFn: fetchPhonedocsPreise,
-  })
+  } = useQuery(queries.phonedocsPreise())
 
   const [hersteller, setHersteller] = useState("")
   const [modell, setModell] = useState("")

@@ -135,11 +135,18 @@ const MitarbeiterResponse = z.object({
 })
 export type MitarbeiterResponse = z.infer<typeof MitarbeiterResponse>
 
-export const fetchMitarbeiter =
-  async (): Promise<MitarbeiterResponse | null> => {
-    const res = await apiRequest<MitarbeiterResponse>("/mitarbeiter.php", "GET")
-    return res ?? null
-  }
+export const fetchMitarbeiter = async (
+  signal?: AbortSignal
+): Promise<MitarbeiterResponse | null> => {
+  const res = await apiRequest<MitarbeiterResponse>(
+    "/mitarbeiter.php",
+    "GET",
+    undefined,
+    signal
+  )
+
+  return res ?? null
+}
 
 const Abteilung = z.object({
   id: z.string(),
@@ -156,8 +163,16 @@ const AbteilungResponse = z.object({
 
 type AbteilungResponse = z.infer<typeof AbteilungResponse>
 
-export const fetchAbteilungen = async (): Promise<AbteilungResponse | null> => {
-  const res = await apiRequest<AbteilungResponse>("/abteilungen.php", "GET")
+export const fetchAbteilungen = async (
+  signal?: AbortSignal
+): Promise<AbteilungResponse | null> => {
+  const res = await apiRequest<AbteilungResponse>(
+    "/abteilungen.php",
+    "GET",
+    undefined,
+    signal
+  )
+
   return res ?? null
 }
 

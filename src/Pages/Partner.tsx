@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx"
-import { fetchPartner } from "@/lib/apiClient"
+import { queries } from "@/lib/queries"
 import { useQuery } from "@tanstack/react-query"
 import sortBy from "sort-by"
 
@@ -18,10 +18,7 @@ type Partner = {
 }
 
 const Partner = () => {
-  const { data: Partner } = useQuery({
-    queryKey: ["Partner"],
-    queryFn: ({ signal }) => fetchPartner(signal),
-  })
+  const { data: Partner } = useQuery(queries.partner())
 
   return (
     <div

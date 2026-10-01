@@ -1,6 +1,6 @@
 import AppNavLink from "@/components/AppNavLink"
 import useScrollSpy from "@/hooks/useScrollSpy.tsx"
-import { fetchJobs } from "@/lib/apiClient"
+import { queries } from "@/lib/queries"
 import { navigationRoutes, type NavigationRoute } from "@/lib/routes"
 import { cn } from "@/lib/utils.ts"
 import { useQuery } from "@tanstack/react-query"
@@ -8,8 +8,7 @@ import { Fragment, useState } from "react"
 
 const Navigation = () => {
   const { data: hasAvailableJobs = false } = useQuery({
-    queryKey: ["Jobs"],
-    queryFn: ({ signal }) => fetchJobs(signal),
+    ...queries.jobs(),
     select: (jobs) => jobs.some((job) => Number(job.online) === 1),
   })
 

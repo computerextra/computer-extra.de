@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx"
-import { fetchAngebote } from "@/lib/apiClient"
+import { queries } from "@/lib/queries"
 import { cn } from "@/lib/utils.ts"
 import { useQuery } from "@tanstack/react-query"
 import sortBy from "sort-by"
@@ -32,10 +32,7 @@ const getDate = (date: string) => {
 }
 
 export default function Angebote() {
-  const { data: a, isPending: loading } = useQuery({
-    queryKey: ["Angebote"],
-    queryFn: ({ signal }) => fetchAngebote(signal),
-  })
+  const { data: a, isPending: loading } = useQuery(queries.angebote())
 
   const isDisabled = (start: string, end: string) => {
     if (new Date(end) < new Date()) return true

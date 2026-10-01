@@ -1,15 +1,14 @@
 import { LoadingSpinner } from "@/components/misc/LoadingSpinner.tsx"
-import { fetchStartseitePartner } from "@/lib/apiClient"
+import { queries } from "@/lib/queries"
 import { useQuery } from "@tanstack/react-query"
 import sortBy from "sort-by"
 
 type Partner = { id: string; name: string; link: string; image: string }
 
 export default function Partner() {
-  const { data: partner, isPending: loading } = useQuery({
-    queryKey: ["StartseitePartner"],
-    queryFn: ({ signal }) => fetchStartseitePartner(signal),
-  })
+  const { data: partner, isPending: loading } = useQuery(
+    queries.startseitePartner()
+  )
 
   if (loading) return <LoadingSpinner />
 

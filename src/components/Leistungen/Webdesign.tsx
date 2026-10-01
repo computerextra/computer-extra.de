@@ -7,15 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx"
-import { fetchReferenzen } from "@/lib/apiClient"
+import { queries } from "@/lib/queries"
 import { useQuery } from "@tanstack/react-query"
 import AppNavLink from "../AppNavLink"
 
 const Webdesign = () => {
-  const { data: Referenzen } = useQuery({
-    queryKey: ["Referenzen"],
-    queryFn: ({ signal }) => fetchReferenzen(signal),
-  })
+  const { data: Referenzen } = useQuery(queries.referenzen())
 
   return (
     <div>

@@ -27,11 +27,8 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import useFormChallenge from "@/hooks/form-challenge"
-import {
-  fetchJobs,
-  fetchMitarbeiterCount,
-  submitBewerbung,
-} from "@/lib/apiClient"
+import { fetchMitarbeiterCount, submitBewerbung } from "@/lib/apiClient"
+import { queries } from "@/lib/queries"
 import { href } from "@/lib/routes"
 import { useForm } from "@tanstack/react-form"
 import { useMutation, useQuery } from "@tanstack/react-query"
@@ -58,10 +55,7 @@ const formSchema = z.object({
 })
 
 const Jobs = () => {
-  const { data: Jobs, isPending: loading } = useQuery({
-    queryKey: ["Jobs"],
-    queryFn: ({ signal }) => fetchJobs(signal),
-  })
+  const { data: Jobs, isPending: loading } = useQuery(queries.jobs())
 
   if (loading) return <LoadingSpinner />
 
