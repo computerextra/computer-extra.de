@@ -2,6 +2,7 @@
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",
     "@fontsource-variable/raleway": "^5.3.0",
+    "@t3-oss/env-core": "^0.13.11",
     "@tailwindcss/vite": "^4.3.3",
     "@tanstack/react-form": "^1.33.5",
     "@tanstack/react-query": "^5.104.0",
@@ -48,10 +49,11 @@
   "name": "computer-extra.de",
   "private": true,
   "scripts": {
-    "build": "bun run clean && tsc -b && eslint . && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && bun run generate:sitemap && bun run prerender",
+    "build": "bun run clean && tsc -b && eslint . && vite build && bun run generate:htaccess && vite build --ssr src/entry-server.tsx --outDir dist-ssr && bun run generate:sitemap && bun run prerender",
     "clean": "bun -e \"import { rm } from 'node:fs/promises'; await Promise.all([rm('dist', { recursive: true, force: true }), rm('dist-ssr', { recursive: true, force: true })])\"",
     "dev": "vite",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "generate:htaccess": "bun run scripts/generate-htaccess.ts",
     "generate:sitemap": "bun run scripts/generate-sitemap.ts",
     "lint": "eslint .",
     "prerender": "bun run scripts/prerender.ts",

@@ -6,8 +6,11 @@ import {
   type StaticRoute,
 } from "../src/lib/static-routes"
 import { appRoutes } from "../src/routes"
+import { publicBaseUrl } from "./build-context"
 
-const BASE_URL = "https://computer-extra.de"
+function canonicalPath(path: string): string {
+  return path === "/" ? "/" : `${path.replace(/\/+$/, "")}/`
+}
 
 const rootDirectory = path.resolve(import.meta.dirname, "..")
 const distDirectory = path.join(rootDirectory, "dist")
@@ -92,7 +95,10 @@ function createHtml(
     canonical?: boolean
   } = {}
 ): string {
-  const canonicalUrl = new URL(routePath, BASE_URL).toString()
+  const canonicalUrl = new URL(
+    canonicalPath(routePath),
+    publicBaseUrl
+  ).toString()
   const includeCanonical = options.canonical !== false
 
   let html = template.replace(

@@ -5,13 +5,14 @@ import { StrictMode } from "react"
 import { hydrateRoot } from "react-dom/client"
 import { BrowserRouter } from "react-router"
 import App from "./App.tsx"
+import { env } from "./env.ts"
 import "./index.css"
 
 const queryClient = new QueryClient()
 
 // Initialize PostHog
-posthog.init(import.meta.env.VITE_POSTHOG_PROJECT_TOKEN, {
-  api_host: import.meta.env.VITE_POSTHOG_HOST,
+posthog.init(env.VITE_PUBLIC_POSTHOG_PROJECT_TOKEN, {
+  api_host: env.VITE_PUBLIC_POSTHOG_HOST,
   defaults: "2026-05-30",
 })
 
