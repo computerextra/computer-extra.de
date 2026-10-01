@@ -1,3 +1,4 @@
+import { LoadingSpinner } from "@/components/misc/LoadingSpinner"
 import {
   Accordion,
   AccordionContent,
@@ -26,8 +27,8 @@ import {
 import { Input } from "@/components/ui/input"
 import useFormChallenge from "@/hooks/form-challenge"
 import { useForm } from "@tanstack/react-form"
+import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { useEffect, useEffectEvent, useState } from "react"
 import z from "zod"
 
 type Job = {
@@ -50,20 +51,17 @@ const formSchema = z.object({
 })
 
 const Jobs = () => {
-  const [Jobs, setJobs] = useState<Job[] | undefined>(undefined)
-
-  const getJobs = useEffectEvent(async () => {
-    const res = await axios.get<{ success: boolean; data: Array<Job> }>(
-      "https://api.computer-extra.de/jobs.php"
-    )
-    if (res.data.data) {
-      setJobs(res.data.data)
-    }
+  const { data: Jobs, isPending: loading } = useQuery({
+    queryKey: ["Jobs"],
+    queryFn: async () => {
+      const res = await axios.get<{ success: boolean; data: Job[] }>(
+        "https://api.computer-extra.de/jobs.php"
+      )
+      return res.data.data
+    },
   })
 
-  useEffect(() => {
-    getJobs()
-  }, [])
+  if (loading) return <LoadingSpinner />
 
   return (
     <div className="container mx-auto mt-5">
@@ -113,20 +111,15 @@ const Jobs = () => {
 export default Jobs
 
 function JobCard({ Job }: { Job: Job | undefined }) {
-  const [count, setCount] = useState<number>(0)
-
-  const getCount = useEffectEvent(async () => {
-    const res = await axios.get<{ success: boolean; count: number }>(
-      "https://api.computer-extra.de/mitarbeiter.php"
-    )
-    if (res.data.count) {
-      setCount(res.data.count)
-    }
+  const { data: count = 0 } = useQuery({
+    queryKey: ["MitarbeiterCount"],
+    queryFn: async () => {
+      const res = await axios.get<{ success: boolean; count: number }>(
+        "https://api.computer-extra.de/mitarbeiter.php"
+      )
+      return res.data.count
+    },
   })
-
-  useEffect(() => {
-    getCount()
-  }, [])
 
   if (Job != null) {
     return (

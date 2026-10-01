@@ -37,16 +37,16 @@ const LazyVideo = ({
     try {
       await videoRef.current.play()
       videoRef.current.playbackRate = playbackRate
-    } catch (e) {
+    } catch {
       // do nothing
     }
-  }, [])
+  }, [playbackRate])
 
   const stopVideoOnMove = useCallback(() => {
     if (videoRef.current == null) return
     try {
       videoRef.current.pause()
-    } catch (e) {
+    } catch {
       // do nothing
     }
   }, [])

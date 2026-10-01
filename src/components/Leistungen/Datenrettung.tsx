@@ -32,19 +32,23 @@ const imgs: string[] = [
 
 const Datenrettung = () => {
   const [api, setApi] = useState<CarouselApi>()
-  const [current, setCurrent] = useState(0)
-  const [count, setCount] = useState(0)
+  const [current, setCurrent] = useState(1)
+  const count = imgs.length
 
   useEffect(() => {
-    if (!api) {
-      return
+    if (!api) return
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap() + 1)
     }
 
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1)
-    })
+    api.on("select", onSelect)
+    api.on("reInit", onSelect)
+
+    return () => {
+      api.off("select", onSelect)
+      api.off("reInit", onSelect)
+    }
   }, [api])
 
   return (

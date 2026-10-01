@@ -6,8 +6,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx"
+import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { useEffect, useEffectEvent, useState } from "react"
 import sortBy from "sort-by"
 
 type Partner = {
@@ -18,20 +18,15 @@ type Partner = {
 }
 
 const Partner = () => {
-  const [Partner, setPartner] = useState<Array<Partner> | undefined>(undefined)
-
-  const getPartner = useEffectEvent(async () => {
-    const res = await axios.get<{ success: true; data: Partner[] }>(
-      "https://api.computer-extra.de/partner.php"
-    )
-    if (res.data) {
-      setPartner(res.data.data)
-    }
+  const { data: Partner } = useQuery({
+    queryKey: ["Partner"],
+    queryFn: async () => {
+      const res = await axios.get<{ success: true; data: Partner[] }>(
+        "https://api.computer-extra.de/partner.php"
+      )
+      return res.data.data
+    },
   })
-
-  useEffect(() => {
-    getPartner()
-  }, [])
 
   return (
     <div
@@ -39,7 +34,7 @@ const Partner = () => {
         "container mx-auto mt-5 grid grid-cols-2 justify-items-center gap-10 lg:grid-cols-4"
       }
     >
-      {Partner?.sort(sortBy("name")).map((p) => {
+      {[...(Partner ?? [])].sort(sortBy("name")).map((p) => {
         return (
           <Card key={p.id}>
             <CardHeader>

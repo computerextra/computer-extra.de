@@ -7,8 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx"
+import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { useEffect, useEffectEvent, useState } from "react"
 import { NavLink } from "react-router"
 
 type Referenz = {
@@ -20,21 +20,16 @@ type Referenz = {
 }
 
 const Webdesign = () => {
-  const [Referenzen, setReferenzen] = useState<Referenz[] | undefined>(
-    undefined
-  )
+  const { data: Referenzen } = useQuery({
+    queryKey: ["Referenzen"],
+    queryFn: async () => {
+      const res = await axios.get<{ success: boolean; data: Referenz[] }>(
+        "https://api.computer-extra.de/referenzen.php"
+      )
 
-  const getReferenzen = useEffectEvent(async () => {
-    const res = await axios.get<{ success: boolean; data: Referenz[] }>(
-      "https://api.computer-extra.de/referenzen.php"
-    )
-
-    if (res.data.data) setReferenzen(res.data.data)
+      return res.data.data
+    },
   })
-
-  useEffect(() => {
-    getReferenzen()
-  }, [])
 
   return (
     <div>

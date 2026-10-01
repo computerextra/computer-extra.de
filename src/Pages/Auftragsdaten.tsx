@@ -110,21 +110,24 @@ function Form() {
     if (BlankoVertrag == null || BlankoAnlageA == null || BlankoAnlageB == null)
       return
 
-    const w = window.screen.width
-    if (LgWidth < w) return
+    if (window.screen.width < LgWidth) return
 
-    const body = document.body,
-      html = document.documentElement
+    const frame = window.requestAnimationFrame(() => {
+      const body = document.body
+      const html = document.documentElement
 
-    const height = Math.max(
-      body.scrollHeight,
-      body.offsetHeight,
-      html.clientHeight,
-      html.scrollHeight,
-      html.offsetHeight
-    )
+      const height = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+      )
 
-    setMinHeigt(height)
+      setMinHeigt(height)
+    })
+
+    return () => window.cancelAnimationFrame(frame)
   }, [BlankoVertrag, BlankoAnlageA, BlankoAnlageB])
 
   const [res, setRes] = useState<CreateResponse | null>(null)

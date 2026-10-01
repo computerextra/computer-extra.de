@@ -10,8 +10,8 @@ import {
   CardTitle,
 } from "@/components/ui/card.tsx"
 import { cn } from "@/lib/utils.ts"
+import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { useEffect, useEffectEvent, useState } from "react"
 import sortBy from "sort-by"
 
 type Angebot = {
@@ -43,27 +43,15 @@ const getDate = (date: string) => {
 }
 
 export default function Angebote() {
-  const [a, setA] = useState<Angebot[] | null>(null)
-  const [loading, setLoading] = useState(false)
-
-  const getAngebote = useEffectEvent(() => {
-    setLoading(true)
-    axios
-      .get<{
-        success: boolean
-        data: Angebot[]
-      }>("https://api.computer-extra.de/angebote.php")
-      .then((res) => {
-        if (res.data.data) {
-          setA(res.data.data)
-        }
-        setLoading(false)
-      })
+  const { data: a, isPending: loading } = useQuery({
+    queryKey: ["Angebote"],
+    queryFn: async () => {
+      const res = await axios.get<{ success: boolean; data: Angebot[] }>(
+        "https://api.computer-extra.de/angebote.php"
+      )
+      return res.data.data
+    },
   })
-
-  useEffect(() => {
-    getAngebote()
-  }, [])
 
   const isDisabled = (start: string, end: string) => {
     if (new Date(end) < new Date()) return true
@@ -74,7 +62,7 @@ export default function Angebote() {
 
   return (
     <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 2xl:grid-cols-4">
-      {a?.sort(sortBy("date_start")).map((Angebot, idx) => {
+      {[...(a ?? [])].sort(sortBy("date_start")).map((Angebot, idx) => {
         if (Angebot.anzeigen == 1)
           return (
             <Card key={Angebot.id}>

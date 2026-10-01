@@ -5,7 +5,6 @@ import {
   lazy,
   useEffect,
   useEffectEvent,
-  useLayoutEffect,
   useRef,
   useState,
 } from "react"
@@ -73,8 +72,9 @@ export default function RootLayout() {
   const headerRef = useRef<HTMLDivElement | null>(null)
   const location = useLocation()
   const [style, setStyle] = useState<CSSProperties | undefined>(undefined)
-  const [title, setTitle] = useState("")
-  const [subtitle, setSubtitle] = useState("")
+
+  const title = getTitle(location.pathname)
+  const subtitle = getSubtitle(title)
 
   const setHeight = useEffectEvent(() => {
     if (headerRef.current == null) return
@@ -91,14 +91,6 @@ export default function RootLayout() {
       window.removeEventListener("resize", setHeight)
     }
   }, [headerRef])
-
-  useLayoutEffect(() => {
-    const title = getTitle(location.pathname)
-    const sub_title = getSubtitle(location.pathname)
-
-    setTitle(title)
-    setSubtitle(sub_title)
-  }, [location])
 
   return (
     <div className={"flex min-h-screen flex-col"}>

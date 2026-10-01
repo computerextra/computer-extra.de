@@ -1,35 +1,28 @@
 import { GradientHeader } from "@/components/misc/gradient-header"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { fetchPhonedocsPreise, type PhonedocsPreis } from "@/lib/apiClient"
+import { fetchPhonedocsPreise } from "@/lib/apiClient"
+import { useQuery } from "@tanstack/react-query"
 import { ArrowDownUp } from "lucide-react"
-import { useEffect, useEffectEvent, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { NavLink } from "react-router"
 
 type Sortierung = "aufsteigend" | "absteigend"
 
 export default function PhonedocsPreise() {
-  const [preise, setPreise] = useState<PhonedocsPreis[]>([])
+  const {
+    data: preise = [],
+    isPending: laedt,
+    error: fehler,
+  } = useQuery({
+    queryKey: ["PhonedocsPreise"],
+    queryFn: fetchPhonedocsPreise,
+  })
+
   const [hersteller, setHersteller] = useState("")
   const [modell, setModell] = useState("")
   const [filter, setFilter] = useState("")
   const [sortierung, setSortierung] = useState<Sortierung>("aufsteigend")
-  const [laedt, setLaedt] = useState(true)
-  const [fehler, setFehler] = useState(false)
-
-  const ladePreise = useEffectEvent(async () => {
-    try {
-      setPreise(await fetchPhonedocsPreise())
-    } catch {
-      setFehler(true)
-    } finally {
-      setLaedt(false)
-    }
-  })
-
-  useEffect(() => {
-    ladePreise()
-  }, [])
 
   const herstellerOptionen = useMemo(
     () =>
@@ -85,7 +78,7 @@ export default function PhonedocsPreise() {
               setModell("")
               setFilter("")
             }}
-            disabled={laedt || fehler}
+            disabled={laedt || fehler != null}
             className="h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
           >
             <option value="">Bitte auswählen</option>
