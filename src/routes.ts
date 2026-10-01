@@ -6,6 +6,11 @@ const element = (importer: () => Promise<{ default: ComponentType }>) =>
 
 export type RouteHandle = {
   sitemap?: boolean
+  seo?: {
+    title: string
+    description: string
+    index?: boolean
+  }
 }
 
 export const appRoutes: RouteObject[] = [
@@ -17,6 +22,12 @@ export const appRoutes: RouteObject[] = [
         element: element(() => import("@/Pages/Start")),
         handle: {
           sitemap: true,
+          seo: {
+            title:
+              "IT-Dienstleister & Computerservice in Kassel | Computer Extra",
+            description:
+              "Computer Extra in Kassel: IT-Service, IT-Sicherheit, Netzwerke, PC- und Notebook-Systeme, Telekom, Webdesign und Reparaturen.",
+          },
         } satisfies RouteHandle,
       },
     ],
@@ -51,6 +62,13 @@ export const appRoutes: RouteObject[] = [
       {
         path: "Erfolg",
         element: element(() => import("@/Pages/Erfolg")),
+        handle: {
+          seo: {
+            title: "Erfolg | Computer Extra",
+            description: "Bestätigung Ihrer Anfrage.",
+            index: false,
+          },
+        } satisfies RouteHandle,
       },
       {
         path: "Fehler",
