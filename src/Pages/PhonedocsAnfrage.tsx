@@ -96,7 +96,6 @@ export default function PhonedocsAnfrage() {
 
   return (
     <div className="container mx-auto my-5 max-w-3xl">
-      <title>Computer Extra GmbH | PhoneDocs Anfrage</title>
       <GradientHeader>PhoneDocs Reparaturanfrage</GradientHeader>
       <p className="mt-4 text-lg leading-7">
         Beschreiben Sie Ihr Gerät und den Fehler. Wir melden uns zeitnah bei

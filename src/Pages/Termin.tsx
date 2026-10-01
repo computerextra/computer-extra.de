@@ -6,8 +6,6 @@ import { NavLink } from "react-router"
 const Termin = () => {
   return (
     <div className="container mx-auto mt-5">
-      <title>Computer Extra GmbH | Termin</title>
-
       <Button asChild size={"xl"}>
         <a href="https://my.meetergo.com/comp_ex/beratung" target="_blank">
           Jetzt einen Termin buchen* <ExternalLink />

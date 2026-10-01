@@ -124,7 +124,6 @@ function Form() {
       html.offsetHeight
     )
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMinHeigt(height)
   }, [BlankoVertrag, BlankoAnlageA, BlankoAnlageB])
 

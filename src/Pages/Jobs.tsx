@@ -62,13 +62,11 @@ const Jobs = () => {
   })
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     getJobs()
   }, [])
 
   return (
     <div className="container mx-auto mt-5">
-      <title>Computer Extra GmbH | Jobs</title>
       <section>
         {/* Jobs */}
         <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
@@ -127,7 +125,6 @@ function JobCard({ Job }: { Job: Job | undefined }) {
   })
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     getCount()
   }, [])
 

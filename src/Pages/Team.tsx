@@ -54,7 +54,6 @@ const Team = () => {
 
   return (
     <div className={"container mx-auto mt-5"}>
-      <title>Computer Extra GmbH | Team</title>
       {Mitarbeiter && Abteilungen && (
         <div className="container mx-auto px-4 py-8">
           {/* Search and Filter */}

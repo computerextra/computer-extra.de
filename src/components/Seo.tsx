@@ -1,25 +1,28 @@
 import type { RouteHandle } from "@/routes"
+import { appRoutes } from "@/routes"
 import { useEffect } from "react"
-import { useMatches } from "react-router"
+import { matchRoutes, useLocation } from "react-router"
 
 const BASE_URL = "https://computer-extra.de"
 
 export default function Seo() {
-  const matches = useMatches()
+  const location = useLocation()
 
   useEffect(() => {
-    const match = [...matches]
-      .reverse()
-      .find((match) => (match.handle as RouteHandle | undefined)?.seo)
+    const matches = matchRoutes(appRoutes, location)
 
-    const handle = match?.handle as RouteHandle | undefined
+    const match = [...(matches ?? [])]
+      .reverse()
+      .find((match) => (match.route.handle as RouteHandle | undefined)?.seo)
+
+    const handle = match?.route.handle as RouteHandle | undefined
     const seo = handle?.seo
 
     if (!seo) return
 
     document.title = seo.title
 
-    const canonicalUrl = new URL(window.location.pathname, BASE_URL).toString()
+    const canonicalUrl = new URL(location.pathname, BASE_URL).toString()
 
     setMeta("description", seo.description)
     setMeta(
@@ -34,7 +37,7 @@ export default function Seo() {
     setProperty("og:site_name", "Computer Extra GmbH")
 
     setCanonical(canonicalUrl)
-  }, [matches])
+  }, [location])
 
   return null
 }

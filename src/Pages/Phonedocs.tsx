@@ -115,8 +115,6 @@ const faqs = [
 export default function Phonedocs() {
   return (
     <div className="container mx-auto mt-5">
-      <title>Computer Extra GmbH | PhoneDocs</title>
-
       <section className="mb-16 grid gap-10 lg:grid-cols-2">
         <div className="self-center">
           <img

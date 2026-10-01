@@ -28,7 +28,6 @@ export default function PhonedocsPreise() {
   })
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     ladePreise()
   }, [])
 
@@ -74,7 +73,6 @@ export default function PhonedocsPreise() {
 
   return (
     <div className="container mx-auto my-5 max-w-4xl">
-      <title>Computer Extra GmbH | PhoneDocs Preise</title>
       <GradientHeader>PhoneDocs Reparaturpreise</GradientHeader>
 
       <div className="mt-8 grid gap-4 rounded-xl border p-6 shadow-sm md:grid-cols-2">

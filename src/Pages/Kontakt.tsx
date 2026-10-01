@@ -29,7 +29,6 @@ const formSchema = z.object({
 const Kontakt = () => {
   return (
     <div className="container mx-auto my-5">
-      <title>Computer Extra GmbH | Kontakt</title>
       <div className="mb-4">
         <div className="mb-6 max-w-3xl text-center sm:text-center md:mx-auto md:mb-12"></div>
       </div>

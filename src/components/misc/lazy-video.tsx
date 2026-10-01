@@ -37,18 +37,15 @@ const LazyVideo = ({
     try {
       await videoRef.current.play()
       videoRef.current.playbackRate = playbackRate
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
       // do nothing
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const stopVideoOnMove = useCallback(() => {
     if (videoRef.current == null) return
     try {
       videoRef.current.pause()
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
       // do nothing
     }

@@ -30,7 +30,6 @@ const Partner = () => {
   })
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     getPartner()
   }, [])
 
@@ -40,7 +39,6 @@ const Partner = () => {
         "container mx-auto mt-5 grid grid-cols-2 justify-items-center gap-10 lg:grid-cols-4"
       }
     >
-      <title>Computer Extra GmbH | Partner</title>
       {Partner?.sort(sortBy("name")).map((p) => {
         return (
           <Card key={p.id}>

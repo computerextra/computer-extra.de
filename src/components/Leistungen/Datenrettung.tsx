@@ -8,8 +8,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { useEffect, useState } from "react"
 import Autoplay from "embla-carousel-autoplay"
+import { useEffect, useState } from "react"
 
 const imgs: string[] = [
   "01_BoardLogo.webp",
@@ -39,7 +39,7 @@ const Datenrettung = () => {
     if (!api) {
       return
     }
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+
     setCount(api.scrollSnapList().length)
     setCurrent(api.selectedScrollSnap() + 1)
     api.on("select", () => {

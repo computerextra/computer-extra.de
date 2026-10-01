@@ -5,7 +5,6 @@ import { NavLink } from "react-router"
 const Datenschutz = () => {
   return (
     <div className={"container mx-auto mt-5"}>
-      <title>Computer Extra GmbH | Datenschutz</title>
       <Button asChild variant={"default"} size={"xl"} className={"my-5"}>
         <NavLink to={"/Auftragsdaten"}>
           Auftragsdatenverarbeitungsvertrag

@@ -1,6 +1,14 @@
-import { type CSSProperties, lazy, useEffect, useEffectEvent, useLayoutEffect, useRef, useState, } from "react"
-import { Outlet, useLocation } from "react-router"
 import ScrollToTopButton from "@/components/misc/ScrollToTopButton.tsx"
+import {
+  type CSSProperties,
+  lazy,
+  useEffect,
+  useEffectEvent,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react"
+import { Outlet, useLocation } from "react-router"
 
 const Navigation = lazy(() => import("@/components/Navigation"))
 const LazyVideo = lazy(() => import("@/components/misc/lazy-video"))
@@ -67,7 +75,7 @@ export default function LeistungenLayout() {
   useLayoutEffect(() => {
     const title = getTitle(location.pathname)
     const sub_title = getSubtitle(title)
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+
     setTitle(title)
     setSubtitle(sub_title)
   }, [location])

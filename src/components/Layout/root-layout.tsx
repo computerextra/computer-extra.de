@@ -95,7 +95,7 @@ export default function RootLayout() {
   useLayoutEffect(() => {
     const title = getTitle(location.pathname)
     const sub_title = getSubtitle(location.pathname)
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+
     setTitle(title)
     setSubtitle(sub_title)
   }, [location])

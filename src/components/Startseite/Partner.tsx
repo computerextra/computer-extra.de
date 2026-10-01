@@ -25,7 +25,6 @@ export default function Partner() {
   })
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     getPartner()
   }, [])
 
@@ -34,7 +33,6 @@ export default function Partner() {
 
     if (p) {
       for (let i = 0; i < anzahl; i++) {
-        // eslint-disable-next-line react-hooks/purity
         const random = Math.floor(Math.random() * p.length)
         if (!tmp.includes(p[random])) tmp.push(p[random])
         else i--

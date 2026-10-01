@@ -1,9 +1,15 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
 import { Button } from "@/components/ui/button.tsx"
-import { NavLink } from "react-router"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card.tsx"
 import axios from "axios"
 import { useEffect, useEffectEvent, useState } from "react"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card.tsx"
+import { NavLink } from "react-router"
 
 type Referenz = {
   id: string
@@ -27,7 +33,6 @@ const Webdesign = () => {
   })
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     getReferenzen()
   }, [])
 

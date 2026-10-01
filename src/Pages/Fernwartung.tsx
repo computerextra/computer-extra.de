@@ -10,8 +10,6 @@ const DL_VALUE = 30
 const Fernwartung = () => {
   return (
     <div className="container mx-auto mt-5">
-      <title>Computer Extra GmbH | Fernwartung</title>
-
       <GradientHeader>Hinweis:</GradientHeader>
       <p className="leading-7 not-first:mt-6">
         Mir ist bekannt, dass die Unterstützung kostenpflichtig ist!

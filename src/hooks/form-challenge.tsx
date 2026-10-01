@@ -26,7 +26,6 @@ const Seven = ["７", "𐓒", "𝈒", "𝟕", "𝟟", "𝟩", "𝟳", "𝟽"]
 const Eight = ["Ȣ", "ȣ", "৪", "８", "𐌚", "𝟖", "𝟠", "𝟪", "𝟴", "𝟾"]
 const Nine = ["৭", "੧", "୨", "൭", "Ⳋ", "Ꝯ", "９", "𝟗", "𝟡", "𝟫", "𝟵", "𝟿"]
 
-// eslint-disable-next-line react-refresh/only-export-components
 const ExchangeNumber = (n: number): string => {
   switch (n) {
     case 1:
@@ -63,7 +62,6 @@ export default function useFormChallenge() {
   const [result, setResult] = useState(0)
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setFirstNumber(Math.floor(Math.random() * 9) + 1)
     setSecondNumber(Math.floor(Math.random() * 9) + 1)
   }, [])
@@ -76,7 +74,6 @@ export default function useFormChallenge() {
 
   useEffect(() => {
     if (firstNumber && secondNumber)
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       generateChallenge(firstNumber, secondNumber)
   }, [firstNumber, secondNumber])
 

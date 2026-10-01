@@ -12,7 +12,6 @@ const Partner = lazy(() => import("@/components/Startseite/Partner"))
 export default function Startseite() {
   return (
     <div className="container mx-auto">
-      <title>Computer Extra GmbH</title>
       <section
         id={"Hero"}
         className={"mb-10 grid w-full gap-10 lg:grid-cols-2"}
@@ -26,14 +25,14 @@ export default function Startseite() {
             Ob IT-Infrastruktur, Security oder Kommunikation, Computer Extra hat
             die passenden Produkte und Services verfügbar. Privat-, Office- und
             Gaming-PCs und Notebooks werden direkt auf Ihre Bedürfnisse
-            zugeschnitten. Die
-            exklusive Partnerschaft mit der Telekom für Business- und
-            Privattarife runden das Gesamtpaket ab. Webdesign und -entwicklung
-            sowie das passende Hosting von Webseiten und Mails darf dabei nicht
-            fehlen. Wenn doch einmal etwas schiefläuft, sind die kompetenten
-            Techniker per Fernwartung schnell am Start und können viele Probleme
-            in kürzester Zeit aus der Ferne lösen. Falls das Problem größer oder
-            komplexer wird, fahren die Kollegen auch gerne vor Ort.
+            zugeschnitten. Die exklusive Partnerschaft mit der Telekom für
+            Business- und Privattarife runden das Gesamtpaket ab. Webdesign und
+            -entwicklung sowie das passende Hosting von Webseiten und Mails darf
+            dabei nicht fehlen. Wenn doch einmal etwas schiefläuft, sind die
+            kompetenten Techniker per Fernwartung schnell am Start und können
+            viele Probleme in kürzester Zeit aus der Ferne lösen. Falls das
+            Problem größer oder komplexer wird, fahren die Kollegen auch gerne
+            vor Ort.
           </p>
         </div>
         <div className="hidden motion-safe:animate-bounce lg:grid xl:relative">
