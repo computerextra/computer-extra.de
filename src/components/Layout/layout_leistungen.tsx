@@ -50,6 +50,8 @@ export default function LeistungenLayout() {
           src="/videos/LeistungenBg.webm"
           poster="/videos/LeistungenBg-poster.webp"
           desktopOnly
+          posterWidth={1000}
+          posterHeight={562}
           posterFetchPriority="high"
           playbackRate={0.3}
           style={style}

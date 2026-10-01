@@ -50,7 +50,7 @@ ErrorDocument 404 /404.html
 </IfModule>
 
 <IfModule mod_headers.c>
-  <FilesMatch "\\.(css|js|mjs)$">
+  <FilesMatch "\\.(css|js|mjs|woff|woff2)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 

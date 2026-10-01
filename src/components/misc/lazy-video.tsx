@@ -20,6 +20,8 @@ type VideoComponentProps = {
   desktopOnly?: boolean
   desktopBreakpoint?: number
   posterFetchPriority?: "high" | "low" | "auto"
+  posterWidth?: number
+  posterHeight?: number
 }
 
 const getVideoType = (src: string) => {
@@ -70,6 +72,8 @@ const LazyVideo = ({
   desktopOnly = false,
   desktopBreakpoint = 768,
   posterFetchPriority = "auto",
+  posterHeight,
+  posterWidth,
 }: VideoComponentProps) => {
   const { isVisible, targetRef } = useIsVisible(
     {
@@ -156,6 +160,8 @@ const LazyVideo = ({
             fetchPriority={posterFetchPriority}
             className={cn("block h-full w-full object-cover", className)}
             style={style}
+            width={posterWidth}
+            height={posterHeight}
           />
         )
       )}

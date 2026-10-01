@@ -55,6 +55,8 @@ export default function RootLayout() {
           desktopOnly
           posterFetchPriority="high"
           playbackRate={0.3}
+          posterWidth={1000}
+          posterHeight={562}
           style={style}
           className="fixed -z-1 flex h-auto min-h-[50vh] w-auto max-w-screen min-w-full items-center justify-center backdrop-hue-rotate-90"
         />

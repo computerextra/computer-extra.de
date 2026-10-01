@@ -107,6 +107,8 @@ const Layout = () => {
           src="/videos/bg.webm"
           poster="/videos/bg-poster.webp"
           desktopOnly
+          posterWidth={1000}
+          posterHeight={562}
           posterFetchPriority="high"
           playbackRate={0.3}
           style={style}
