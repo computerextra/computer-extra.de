@@ -7,28 +7,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx"
+import { fetchReferenzen } from "@/lib/apiClient"
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
 import AppNavLink from "../AppNavLink"
-
-type Referenz = {
-  id: string
-  Name: string
-  Webseite: string
-  Bild: string
-  Online: number
-}
 
 const Webdesign = () => {
   const { data: Referenzen } = useQuery({
     queryKey: ["Referenzen"],
-    queryFn: async () => {
-      const res = await axios.get<{ success: boolean; data: Referenz[] }>(
-        "https://api.computer-extra.de/referenzen.php"
-      )
-
-      return res.data.data
-    },
+    queryFn: ({ signal }) => fetchReferenzen(signal),
   })
 
   return (

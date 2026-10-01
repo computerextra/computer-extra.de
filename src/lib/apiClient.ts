@@ -42,12 +42,14 @@ const apiMultiPartClient = axios.create({
 export const apiRequest = async <T>(
   url: string,
   method: "GET" | "POST" | "PUT" | "DELETE",
-  data?: unknown
+  data?: unknown,
+  signal?: AbortSignal
 ): Promise<T> => {
   const response: AxiosResponse<T> = await apiClient({
     method,
     url,
     data,
+    signal,
   })
 
   return response.data
@@ -209,10 +211,14 @@ const formatiereService = (service: string) => {
   return text.charAt(0).toLocaleUpperCase("de") + text.slice(1)
 }
 
-export const fetchPhonedocsPreise = async (): Promise<PhonedocsPreis[]> => {
+export const fetchPhonedocsPreise = async (
+  signal?: AbortSignal
+): Promise<PhonedocsPreis[]> => {
   const res = await apiRequest<PhonedocsPreiseResponse>(
     "/phonedocspreise.php",
-    "GET"
+    "GET",
+    undefined,
+    signal
   )
   if (!res.success) return []
 
@@ -232,4 +238,151 @@ export const fetchPhonedocsPreise = async (): Promise<PhonedocsPreis[]> => {
         preis: String(preis),
       }))
   })
+}
+
+export type Job = {
+  id: string
+  name: string
+  online: number
+  Aufgaben: string
+  Beschreibung: string | null
+  Profil: string | null
+  isAusbilung: number
+}
+
+type JobsResponse = {
+  success: boolean
+  data: Job[]
+}
+
+export const fetchJobs = async (signal?: AbortSignal): Promise<Job[]> => {
+  const res = await apiRequest<JobsResponse>(
+    "/jobs.php",
+    "GET",
+    undefined,
+    signal
+  )
+
+  return res.data
+}
+
+export const fetchMitarbeiterCount = async (
+  signal?: AbortSignal
+): Promise<number> => {
+  const res = await apiRequest<MitarbeiterResponse>(
+    "/mitarbeiter.php",
+    "GET",
+    undefined,
+    signal
+  )
+
+  return res.count
+}
+
+export type Partner = {
+  id: string
+  name: string
+  link: string
+  image: string
+}
+
+type PartnerResponse = {
+  success: boolean
+  data: Partner[]
+}
+
+export const fetchPartner = async (
+  signal?: AbortSignal
+): Promise<Partner[]> => {
+  const res = await apiRequest<PartnerResponse>(
+    "/partner.php",
+    "GET",
+    undefined,
+    signal
+  )
+
+  return res.data
+}
+
+export const fetchStartseitePartner = async (
+  signal?: AbortSignal
+): Promise<Partner[]> => {
+  const res = await apiRequest<PartnerResponse>(
+    "/parnter.php",
+    "GET",
+    undefined,
+    signal
+  )
+
+  const items = [...res.data]
+
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[items[i], items[j]] = [items[j], items[i]]
+  }
+
+  return items.slice(0, 5)
+}
+
+export type Angebot = {
+  id: string
+  title: string
+  subtitle: string
+  date_start: string
+  date_stop: string
+  link: string
+  image: string
+  anzeigen: number
+}
+
+type AngeboteResponse = {
+  success: boolean
+  data: Angebot[]
+}
+
+export const fetchAngebote = async (
+  signal?: AbortSignal
+): Promise<Angebot[]> => {
+  const res = await apiRequest<AngeboteResponse>(
+    "/angebote.php",
+    "GET",
+    undefined,
+    signal
+  )
+
+  return res.data
+}
+
+export type Referenz = {
+  id: string
+  Name: string
+  Webseite: string
+  Bild: string
+  Online: number
+}
+
+type ReferenzenResponse = {
+  success: boolean
+  data: Referenz[]
+}
+
+export const fetchReferenzen = async (
+  signal?: AbortSignal
+): Promise<Referenz[]> => {
+  const res = await apiRequest<ReferenzenResponse>(
+    "/referenzen.php",
+    "GET",
+    undefined,
+    signal
+  )
+
+  return res.data
+}
+
+export const submitKontakt = async (data: FormData): Promise<void> => {
+  await apiMultiPartRequest("/kontaktformular.php", "POST", data)
+}
+
+export const submitBewerbung = async (data: FormData): Promise<void> => {
+  await apiMultiPartRequest("/bewerbung.php", "POST", data)
 }

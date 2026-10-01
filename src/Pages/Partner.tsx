@@ -6,8 +6,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx"
+import { fetchPartner } from "@/lib/apiClient"
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
 import sortBy from "sort-by"
 
 type Partner = {
@@ -20,12 +20,7 @@ type Partner = {
 const Partner = () => {
   const { data: Partner } = useQuery({
     queryKey: ["Partner"],
-    queryFn: async () => {
-      const res = await axios.get<{ success: true; data: Partner[] }>(
-        "https://api.computer-extra.de/partner.php"
-      )
-      return res.data.data
-    },
+    queryFn: ({ signal }) => fetchPartner(signal),
   })
 
   return (

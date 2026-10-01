@@ -1,39 +1,17 @@
 import AppNavLink from "@/components/AppNavLink"
 import useScrollSpy from "@/hooks/useScrollSpy.tsx"
+import { fetchJobs } from "@/lib/apiClient"
 import { navigationRoutes, type NavigationRoute } from "@/lib/routes"
 import { cn } from "@/lib/utils.ts"
-import axios from "axios"
-import { Fragment, useEffect, useState } from "react"
-
-type Job = {
-  online: number | string
-}
+import { useQuery } from "@tanstack/react-query"
+import { Fragment, useState } from "react"
 
 const Navigation = () => {
-  const [hasAvailableJobs, setHasAvailableJobs] = useState(false)
-
-  useEffect(() => {
-    const controller = new AbortController()
-
-    axios
-      .get<{ success: boolean; data?: Job[] }>(
-        "https://api.computer-extra.de/jobs.php",
-        { signal: controller.signal }
-      )
-      .then((response) => {
-        setHasAvailableJobs(
-          response.data.success === true &&
-            response.data.data?.some((job) => Number(job.online) === 1) === true
-        )
-      })
-      .catch((error: unknown) => {
-        if (!axios.isCancel(error)) {
-          setHasAvailableJobs(false)
-        }
-      })
-
-    return () => controller.abort()
-  }, [])
+  const { data: hasAvailableJobs = false } = useQuery({
+    queryKey: ["Jobs"],
+    queryFn: ({ signal }) => fetchJobs(signal),
+    select: (jobs) => jobs.some((job) => Number(job.online) === 1),
+  })
 
   const visibleRoutes = navigationRoutes.filter(
     (route) => !route.requiresAvailableJobs || hasAvailableJobs

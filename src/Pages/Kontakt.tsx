@@ -13,9 +13,11 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import useFormChallenge from "@/hooks/form-challenge"
+import { submitKontakt } from "@/lib/apiClient"
 import { href } from "@/lib/routes"
 import { useForm } from "@tanstack/react-form"
-import axios from "axios"
+import { useMutation } from "@tanstack/react-query"
+import { useNavigate } from "react-router"
 import z from "zod"
 
 const formSchema = z.object({
@@ -158,6 +160,18 @@ export default Kontakt
 
 function ContactForm() {
   const { firstAscii, secondAscii, CheckResult } = useFormChallenge()
+  const navigate = useNavigate()
+
+  const kontaktMutation = useMutation({
+    mutationFn: submitKontakt,
+    onSuccess: () => {
+      navigate(href("/erfolg"))
+    },
+    onError: () => {
+      navigate(href("/fehler"))
+    },
+  })
+
   const form = useForm({
     validators: {
       onSubmit: formSchema,
@@ -181,25 +195,13 @@ function ContactForm() {
     },
     onSubmit: async ({ value }) => {
       const formData = new FormData()
+
       formData.append("Name", value.Name)
       formData.append("Mail", value.Mail)
       formData.append("Telefon", value.Telefon)
       formData.append("Nachricht", value.Nachricht)
 
-      const res = await axios.post(
-        "https://api.computer-extra.de/kontaktformular.php",
-        formData
-      )
-
-      if (res) {
-        if (res.status === 200) {
-          // Navigate to "ERFOLG"
-          href("/erfolg")
-        } else {
-          // Navigate to "FEHLER"
-          href("/fehler")
-        }
-      }
+      await kontaktMutation.mutateAsync(formData)
     },
   })
   return (

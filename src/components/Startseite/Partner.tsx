@@ -1,6 +1,6 @@
 import { LoadingSpinner } from "@/components/misc/LoadingSpinner.tsx"
+import { fetchStartseitePartner } from "@/lib/apiClient"
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
 import sortBy from "sort-by"
 
 type Partner = { id: string; name: string; link: string; image: string }
@@ -8,20 +8,7 @@ type Partner = { id: string; name: string; link: string; image: string }
 export default function Partner() {
   const { data: partner, isPending: loading } = useQuery({
     queryKey: ["StartseitePartner"],
-    queryFn: async () => {
-      const res = await axios.get<{ success: boolean; data: Partner[] }>(
-        "https://api.computer-extra.de/parnter.php"
-      )
-
-      const items = [...res.data.data]
-
-      for (let i = items.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1))
-        ;[items[i], items[j]] = [items[j], items[i]]
-      }
-
-      return items.slice(0, 5)
-    },
+    queryFn: ({ signal }) => fetchStartseitePartner(signal),
   })
 
   if (loading) return <LoadingSpinner />

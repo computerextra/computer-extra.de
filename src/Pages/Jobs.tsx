@@ -27,10 +27,15 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import useFormChallenge from "@/hooks/form-challenge"
+import {
+  fetchJobs,
+  fetchMitarbeiterCount,
+  submitBewerbung,
+} from "@/lib/apiClient"
 import { href } from "@/lib/routes"
 import { useForm } from "@tanstack/react-form"
-import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
+import { useMutation, useQuery } from "@tanstack/react-query"
+import { useNavigate } from "react-router"
 import z from "zod"
 
 type Job = {
@@ -55,12 +60,7 @@ const formSchema = z.object({
 const Jobs = () => {
   const { data: Jobs, isPending: loading } = useQuery({
     queryKey: ["Jobs"],
-    queryFn: async () => {
-      const res = await axios.get<{ success: boolean; data: Job[] }>(
-        "https://api.computer-extra.de/jobs.php"
-      )
-      return res.data.data
-    },
+    queryFn: ({ signal }) => fetchJobs(signal),
   })
 
   if (loading) return <LoadingSpinner />
@@ -115,12 +115,7 @@ export default Jobs
 function JobCard({ Job }: { Job: Job | undefined }) {
   const { data: count = 0 } = useQuery({
     queryKey: ["MitarbeiterCount"],
-    queryFn: async () => {
-      const res = await axios.get<{ success: boolean; count: number }>(
-        "https://api.computer-extra.de/mitarbeiter.php"
-      )
-      return res.data.count
-    },
+    queryFn: ({ signal }) => fetchMitarbeiterCount(signal),
   })
 
   if (Job != null) {
@@ -328,6 +323,17 @@ function QuoteBox({ wer, quote }: { wer: string; quote: string }) {
 
 function JobForm({ Job }: { Job: Job }) {
   const { firstAscii, secondAscii, CheckResult } = useFormChallenge()
+  const navigate = useNavigate()
+
+  const bewerbungMutation = useMutation({
+    mutationFn: submitBewerbung,
+    onSuccess: () => {
+      navigate(href("/erfolg"))
+    },
+    onError: () => {
+      navigate(href("/fehler"))
+    },
+  })
 
   const form = useForm({
     validators: {
@@ -373,21 +379,7 @@ function JobForm({ Job }: { Job: Job }) {
         (document.querySelector("#Zeugnisse") as HTMLFormElement).files[0]
       )
 
-      const res = await axios.post(
-        "https://api.computer-extra.de/bewerbung.php",
-        formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
-      )
-
-      if (res) {
-        if (res.status === 200) {
-          // Navigate to "ERFOLG"
-          href("/erfolg")
-        } else {
-          // Navigate to "FEHLER"
-          href("/fehler")
-        }
-      }
+      await bewerbungMutation.mutateAsync(formData)
     },
   })
 

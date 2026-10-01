@@ -9,9 +9,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx"
+import { fetchAngebote } from "@/lib/apiClient"
 import { cn } from "@/lib/utils.ts"
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
 import sortBy from "sort-by"
 
 type Angebot = {
@@ -45,12 +45,7 @@ const getDate = (date: string) => {
 export default function Angebote() {
   const { data: a, isPending: loading } = useQuery({
     queryKey: ["Angebote"],
-    queryFn: async () => {
-      const res = await axios.get<{ success: boolean; data: Angebot[] }>(
-        "https://api.computer-extra.de/angebote.php"
-      )
-      return res.data.data
-    },
+    queryFn: ({ signal }) => fetchAngebote(signal),
   })
 
   const isDisabled = (start: string, end: string) => {
