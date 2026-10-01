@@ -10,12 +10,6 @@ import "./index.css"
 
 const queryClient = new QueryClient()
 
-// Initialize PostHog
-posthog.init(env.VITE_PUBLIC_POSTHOG_PROJECT_TOKEN, {
-  api_host: env.VITE_PUBLIC_POSTHOG_HOST,
-  defaults: "2026-05-30",
-})
-
 const root = document.getElementById("root")
 
 if (!root) {
@@ -36,3 +30,19 @@ hydrateRoot(
     </PostHogProvider>
   </StrictMode>
 )
+
+const initializePostHog = async () => {
+  const { default: posthog } = await import("posthog-js")
+
+  posthog.init(env.VITE_PUBLIC_POSTHOG_PROJECT_TOKEN, {
+    api_host: env.VITE_PUBLIC_POSTHOG_HOST,
+    defaults: "2026-05-30",
+    capture_performance: false,
+  })
+}
+
+if ("requestIdleCallback" in window) {
+  window.requestIdleCallback(() => void initializePostHog())
+} else {
+  globalThis.setTimeout(() => void initializePostHog(), 0)
+}
