@@ -48,11 +48,10 @@ export default function LeistungenLayout() {
       >
         <LazyVideo
           src="/videos/LeistungenBg.webm"
-          fallbackSrc="/videos/LeistungenBg.webm"
           poster="/videos/LeistungenBg-poster.webp"
           desktopOnly
           posterFetchPriority="high"
-          playbackRate={1}
+          playbackRate={0.3}
           style={style}
           className="fixed -z-1 flex h-auto min-h-[50vh] w-auto max-w-screen min-w-full items-center justify-center backdrop-hue-rotate-90"
         />

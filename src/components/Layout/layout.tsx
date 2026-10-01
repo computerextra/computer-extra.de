@@ -105,7 +105,6 @@ const Layout = () => {
       >
         <LazyVideo
           src="/videos/bg.webm"
-          fallbackSrc="/videos/bg.webm"
           poster="/videos/bg-poster.webp"
           desktopOnly
           posterFetchPriority="high"
