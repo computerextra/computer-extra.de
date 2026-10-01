@@ -203,7 +203,9 @@ export default function Phonedocs() {
               className="transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               <CardHeader>
-                <CardTitle>{service.title}</CardTitle>
+                <CardTitle>
+                  <h3>{service.title}</h3>
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="leading-7">{service.summary}</p>

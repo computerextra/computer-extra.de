@@ -38,7 +38,7 @@ const Kontakt = () => {
       <div className="flex items-stretch justify-center">
         <div className="grid md:grid-cols-2">
           <div className="h-full pr-6">
-            <p className="text-5xl font-semibold">Let´s Chat!</p>
+            <h2 className="text-5xl font-semibold">Let&apos;s Chat!</h2>
             <p className="mt-3 mb-12 text-3xl">
               Erzählen Sie uns von Ihren Wünschen
             </p>
