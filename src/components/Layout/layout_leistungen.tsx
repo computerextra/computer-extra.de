@@ -47,7 +47,7 @@ export default function LeistungenLayout() {
         className="flex h-fit min-h-[50vh] items-center justify-center overflow-hidden bg-blue-600/50"
       >
         <LazyVideo
-          src="/videos/LeistungenBg.mp4"
+          src="/videos/LeistungenBg.webm"
           playbackRate={1}
           style={style}
           className="fixed -z-1 flex h-auto min-h-[50vh] w-auto max-w-screen min-w-full items-center justify-center backdrop-hue-rotate-90"

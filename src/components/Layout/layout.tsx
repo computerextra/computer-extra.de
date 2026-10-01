@@ -104,7 +104,7 @@ const Layout = () => {
         className={"h-fit min-h-[50vh] overflow-hidden bg-blue-600/50"}
       >
         <LazyVideo
-          src={"/videos/bg.mp4"}
+          src={"/videos/bg.webm"}
           playbackRate={0.3}
           style={style}
           className={
