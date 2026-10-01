@@ -1,6 +1,4 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import posthog from "posthog-js"
-import { PostHogErrorBoundary, PostHogProvider } from "posthog-js/react"
 import { StrictMode } from "react"
 import { hydrateRoot } from "react-dom/client"
 import { BrowserRouter } from "react-router"
@@ -19,15 +17,11 @@ if (!root) {
 hydrateRoot(
   root,
   <StrictMode>
-    <PostHogProvider client={posthog}>
-      <PostHogErrorBoundary>
-        <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </QueryClientProvider>
-      </PostHogErrorBoundary>
-    </PostHogProvider>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </QueryClientProvider>
   </StrictMode>
 )
 
