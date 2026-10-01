@@ -5,7 +5,6 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card.tsx"
 import { queries } from "@/lib/queries"
 import { useQuery } from "@tanstack/react-query"
@@ -18,9 +17,9 @@ const Webdesign = () => {
     <div>
       <GradientHeader>Webentwicklung & Hosting</GradientHeader>
       <p className="leading-7 text-blue-700 not-first:mt-6">
-        Wir liefern innovative Konzepte für von modernen und optimierte
-        Webseiten nach Ihren Wünschen, setzen diese für Sie um und kümmern uns
-        auf Wunsch auch um das Hosting der Webseite, Emails & Domains.
+        Wir liefern innovative Konzepte für moderne und optimierte Webseiten
+        nach Ihren Wünschen, setzen diese für Sie um und kümmern uns auf Wunsch
+        auch um das Hosting der Webseite, E-Mails und Domains.
       </p>
       <div className="my-16 grid grid-cols-1 gap-10">
         <p className="leading-7 not-first:mt-6">
@@ -50,9 +49,9 @@ const Webdesign = () => {
       <div className="my-16 grid grid-cols-1 gap-10">
         <p className="leading-7 not-first:mt-6">
           Sie benötigen einen leistungsstarken, sicheren und für Sie
-          wartungsfreien Ort für Ihrer Webseite (Webspace), auf den Nutzer
+          wartungsfreien Ort für Ihre Webseite (Webspace), auf den Nutzer
           jederzeit zugreifen können. Wir übernehmen Einrichtung, Konfiguration
-          und Auslieferung der Webseite (Webhosting), Ihrer E-Mail Adressen und
+          und Auslieferung der Webseite (Webhosting), Ihrer E-Mail-Adressen und
           die Domain-Verwaltung für Sie.
         </p>
         <div className="cList">
@@ -93,8 +92,11 @@ const Webdesign = () => {
             return (
               <Card key={item.id}>
                 <CardHeader>
-                  <CardTitle>{item.Name}</CardTitle>
+                  <h3 className="font-heading text-base leading-snug font-medium">
+                    {item.Name}
+                  </h3>
                 </CardHeader>
+
                 <CardContent>
                   <img
                     alt="Screenshot"

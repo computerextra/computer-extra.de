@@ -1,15 +1,18 @@
 import { cn } from "@/lib/utils.ts"
+import type { ReactNode } from "react"
 
 interface Props {
+  as?: "h2" | "h3" | "h4"
   from?: string
   to?: string
   fontSize?: string
   padding?: string
   className?: string
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export const GradientHeader = ({
+  as: Component = "h2",
   from = "from-blue-900",
   to = "to-blue-500",
   fontSize = "text-4xl",
@@ -18,7 +21,7 @@ export const GradientHeader = ({
   children,
 }: Props) => {
   return (
-    <h2
+    <Component
       className={cn(
         fontSize,
         "font-bold",
@@ -30,6 +33,6 @@ export const GradientHeader = ({
       )}
     >
       {children}
-    </h2>
+    </Component>
   )
 }

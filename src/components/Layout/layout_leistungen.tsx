@@ -61,9 +61,9 @@ export default function LeistungenLayout() {
           </h1>
 
           {subtitle && (
-            <h2 className="mt-5 scroll-m-20 pb-2 text-center text-2xl font-semibold tracking-tight text-slate-100">
+            <p className="mt-5 pb-2 text-center text-2xl font-semibold tracking-tight text-slate-100">
               {subtitle}
-            </h2>
+            </p>
           )}
         </div>
       </div>

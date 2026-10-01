@@ -14,7 +14,7 @@ const Kommunikation = () => {
           <span className="font-semibold underline">Auerswald</span>,{" "}
           <span className="font-semibold underline">Bintec Elmeg</span> und{" "}
           <span className="font-semibold underline">Agfeo</span> bieten wir
-          Ihnen erstklassige Beratung, schnelle installation und qualifizierten
+          Ihnen erstklassige Beratung, schnelle Installation und qualifizierten
           Service. Auf Kundenwunsch installieren wir die neue Telefonanlage
           lokal vor Ort oder in der Cloud. Kontaktieren Sie uns jetzt für eine{" "}
           <AppNavLink to="/kontakt" className={"text-blue-600 underline"}>
@@ -50,9 +50,9 @@ const Kommunikation = () => {
           width={900}
         />
       </div>
-      <h2 className="scroll-m-20 pb-2 text-xl font-semibold tracking-tight text-blue-700 first:mt-0">
+      <h3 className="scroll-m-20 pb-2 text-xl font-semibold tracking-tight text-blue-700">
         Was bieten wir Ihnen?
-      </h2>
+      </h3>
       <div className="cList">
         <ul className="grid grid-cols-1 items-center gap-10 leading-snug md:grid-cols-2 2xl:grid-cols-4">
           <li>

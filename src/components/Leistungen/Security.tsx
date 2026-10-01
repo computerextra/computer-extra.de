@@ -13,13 +13,17 @@ const Security = () => {
       <p className="leading-7 not-first:mt-6">
         Nutzen Sie unsere Expertise und unser Know-how für den richtigen Schutz.
       </p>
-      <h3>IT-Security Lösungen</h3>
+      <h3 className="mt-6 text-xl font-semibold text-blue-700">
+        IT-Security-Lösungen
+      </h3>
       <p className="leading-7 not-first:mt-6">
         Geben Sie Cyberkriminalität keine Chance! Schützen Sie sich, Ihre
         Mitarbeiter und Ihr Unternehmen. Wir sichern Ihre Firewall, Notebooks,
         PCs und auch Server.
       </p>
-      <GradientHeader className={"mt-5"}>G Data</GradientHeader>
+      <GradientHeader as="h3" fontSize="text-3xl" className="mt-5">
+        G DATA
+      </GradientHeader>
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div>
           <p className="leading-7 not-first:mt-6">
@@ -77,7 +81,9 @@ const Security = () => {
           </li>
         </ul>
       </div>
-      <GradientHeader className={"mt-5"}>Securepoint</GradientHeader>
+      <GradientHeader as="h3" fontSize="text-3xl" className="mt-5">
+        Securepoint
+      </GradientHeader>
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div>
           <p className="leading-7 not-first:mt-6">
@@ -93,7 +99,7 @@ const Security = () => {
         </div>
         <img
           src="https://bilder.computer-extra.de/data/Website/Securepoint.webp"
-          alt="G Data Logo"
+          alt="Securepoint Firewall und IT-Security"
           className="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
         />
       </div>
@@ -123,7 +129,9 @@ const Security = () => {
           </li>
         </ul>
       </div>
-      <GradientHeader className={"mt-5"}>Mailstore</GradientHeader>
+      <GradientHeader as="h3" fontSize="text-3xl" className="mt-5">
+        MailStore
+      </GradientHeader>
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div>
           <p className="leading-7 not-first:mt-6">
@@ -163,7 +171,9 @@ const Security = () => {
           </ul>
         </div>
       </div>
-      <GradientHeader className={"mt-5"}>Shadowprotect</GradientHeader>
+      <GradientHeader as="h3" fontSize="text-3xl" className="mt-5">
+        ShadowProtect
+      </GradientHeader>
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div>
           <p className="leading-7 not-first:mt-6">

@@ -102,9 +102,9 @@ const Datenrettung = () => {
           </a>
         </Button>
       </div>
-      <p className="mt-0 text-xl font-semibold text-blue-700">
+      <h3 className="mt-0 text-xl font-semibold text-blue-700">
         Professionelle Datenrettung mit Ontrack
-      </p>
+      </h3>
       <p className="py-2 text-xl">
         Ontrack verfügt über jahrzehntelange Erfahrung in der
         Datenwiederherstellung für alle Medien, Hersteller und Modelle und
@@ -113,9 +113,9 @@ const Datenrettung = () => {
       {/* SERVER */}
       <div className="my-10 grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div>
-          <p className="mt-0 text-xl font-semibold text-blue-700">
+          <h3 className="mt-0 text-xl font-semibold text-blue-700">
             Benötigen Sie eine Server-Wiederherstellung?
-          </p>
+          </h3>
           <p className="py-2 text-xl">
             Hardware-Ausfälle, menschliche Fehler, fehlende Daten, Malware,
             Cyber-Angriffe und Naturkatastrophen.
@@ -149,9 +149,9 @@ const Datenrettung = () => {
       {/* SD KArte */}
       <div className="my-10 grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div>
-          <p className="mt-0 text-xl font-semibold text-blue-700">
+          <h3 className="mt-0 text-xl font-semibold text-blue-700">
             Wertvolle digitale Erinnerungen gelöscht?
-          </p>
+          </h3>
           <p className="py-2 text-xl">
             Wir kümmern uns um die Datenwiederherstellung von Digitalkameras,
             USB-Sticks, Memory Cards oder Flash-Drives.
@@ -179,9 +179,9 @@ const Datenrettung = () => {
           className="rounded-lg border object-cover transition-all duration-300 ease-in-out hover:scale-105"
         />
       </div>
-      <p className="mt-0 text-xl font-semibold text-blue-700">
+      <h3 className="mt-0 text-xl font-semibold text-blue-700">
         Wie schnell benötigen Sie Ihre Daten?
-      </p>
+      </h3>
       <p className="py-5 text-xl">
         Zeit ist ein wichtiger Faktor bei der Datenrettung. Wir haben für jeden
         Anspruch den richtigen Service.

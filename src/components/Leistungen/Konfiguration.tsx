@@ -1,11 +1,6 @@
 import { GradientHeader } from "@/components/misc/gradient-header.tsx"
 import { Button } from "@/components/ui/button.tsx"
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card.tsx"
+import { Card, CardContent, CardHeader } from "@/components/ui/card.tsx"
 import AppNavLink from "../AppNavLink"
 
 const Konfiguration = () => {
@@ -50,13 +45,15 @@ const Konfiguration = () => {
           className="col-span-2 w-full rounded-lg object-cover"
         />
       </div>
-      <h4 className="mt-5 py-2 text-xl font-semibold text-blue-700">
+      <h3 className="mt-5 py-2 text-xl font-semibold text-blue-700">
         Versicherungsvorteile von WERTGARANTIE auf einen Blick
-      </h4>
+      </h3>
       <div className="my-3 grid grid-cols-1 gap-10 md:grid-cols-3">
         <Card>
           <CardHeader>
-            <CardTitle>Jederzeit erreichbar</CardTitle>
+            <h4 className="font-heading text-base leading-snug font-medium">
+              Jederzeit erreichbar
+            </h4>
           </CardHeader>
           <CardContent>
             WERTGARANTIE ist für Sie zu jeder Zeit da und hilft Ihnen stets
@@ -66,7 +63,9 @@ const Konfiguration = () => {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Sorgenfreier Schutz</CardTitle>
+            <h4 className="font-heading text-base leading-snug font-medium">
+              Sorgenfreier Schutz
+            </h4>
           </CardHeader>
           <CardContent>
             Ihre Lieblingsgeräte sind mit WERTGARANTIE jederzeit und weltweit
@@ -75,7 +74,9 @@ const Konfiguration = () => {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>JZuverlässiger Service</CardTitle>
+            <h4 className="font-heading text-base leading-snug font-medium">
+              Zuverlässiger Service
+            </h4>
           </CardHeader>
           <CardContent>
             Wir bearbeiten Schäden schnell und unkompliziert. Bereits mehr als 7

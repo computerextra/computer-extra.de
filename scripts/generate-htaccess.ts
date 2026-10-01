@@ -50,12 +50,20 @@ ErrorDocument 404 /404.html
 </IfModule>
 
 <IfModule mod_headers.c>
+  <FilesMatch "\\.(css|js|mjs)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
   <FilesMatch "\\.(ico|jpg|jpeg|gif|png|pdf|mp3|mp4|webp)$">
     Header set Cache-Control "public, max-age=31536000, no-transform"
   </FilesMatch>
 
-  <FilesMatch "\\.(html|htm|xml|txt|xsl)$">
-    Header set Cache-Control "public, max-age=7200, must-revalidate"
+  <FilesMatch "\\.(html|htm)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  <FilesMatch "\\.(xml|txt|xsl)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
   </FilesMatch>
 </IfModule>
 ${betaHeaders}
