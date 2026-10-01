@@ -51,6 +51,10 @@ export default function RootLayout() {
       >
         <LazyVideo
           src="/videos/VideoBg.webm"
+          fallbackSrc="/videos/VideoBg.webm"
+          poster="/videos/VideoBg-poster.webp"
+          desktopOnly
+          posterFetchPriority="high"
           playbackRate={1}
           style={style}
           className="fixed -z-1 flex h-auto min-h-[50vh] w-auto max-w-screen min-w-full items-center justify-center backdrop-hue-rotate-90"

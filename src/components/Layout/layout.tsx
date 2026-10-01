@@ -104,12 +104,14 @@ const Layout = () => {
         className={"h-fit min-h-[50vh] overflow-hidden bg-blue-600/50"}
       >
         <LazyVideo
-          src={"/videos/bg.webm"}
+          src="/videos/bg.webm"
+          fallbackSrc="/videos/bg.webm"
+          poster="/videos/bg-poster.webp"
+          desktopOnly
+          posterFetchPriority="high"
           playbackRate={0.3}
           style={style}
-          className={
-            "fixed -z-1 flex h-auto min-h-[50vh] w-auto max-w-screen min-w-full items-center justify-center backdrop-hue-rotate-90"
-          }
+          className="fixed -z-1 flex h-auto min-h-[50vh] w-auto max-w-screen min-w-full items-center justify-center backdrop-hue-rotate-90"
         />
         <div className={"container mx-auto"}>
           <Navigation />
