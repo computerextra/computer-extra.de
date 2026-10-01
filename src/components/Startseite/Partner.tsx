@@ -10,7 +10,9 @@ export default function Partner() {
     queries.startseitePartner()
   )
 
-  if (loading) return <LoadingSpinner />
+  if (loading) {
+    return <LoadingSpinner className="min-h-52" />
+  }
 
   return (
     <div className="mb-10 grid grid-cols-2 justify-items-center gap-10 lg:grid-cols-5">
@@ -20,6 +22,8 @@ export default function Partner() {
             src={`https://bilder.computer-extra.de/data/Partner/${p.image}`}
             height={200}
             width={200}
+            loading="lazy"
+            decoding="async"
             className="scale-100 rounded-full ring-2 grayscale-0 transition-all duration-300 ease-in-out hover:scale-[1.2] hover:shadow-xl hover:grayscale-0 xl:grayscale"
             alt={p.name}
           />

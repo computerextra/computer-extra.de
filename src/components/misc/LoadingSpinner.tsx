@@ -6,10 +6,15 @@ import {
   EmptyTitle,
 } from "@/components/ui/empty.tsx"
 import { Spinner } from "@/components/ui/spinner.tsx"
+import { cn } from "@/lib/utils"
 
-export const LoadingSpinner = () => {
+type LoadingSpinnerProps = {
+  className?: string
+}
+
+export const LoadingSpinner = ({ className }: LoadingSpinnerProps) => {
   return (
-    <Empty className="w-full">
+    <Empty className={cn("w-full", className)}>
       <EmptyHeader>
         <EmptyMedia variant="icon">
           <Spinner />

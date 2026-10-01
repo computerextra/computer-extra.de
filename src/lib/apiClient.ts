@@ -320,7 +320,7 @@ export const fetchStartseitePartner = async (
   signal?: AbortSignal
 ): Promise<Partner[]> => {
   const res = await apiRequest<PartnerResponse>(
-    "/parnter.php",
+    "/partner.php",
     "GET",
     undefined,
     signal

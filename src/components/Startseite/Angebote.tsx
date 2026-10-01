@@ -39,7 +39,9 @@ export default function Angebote() {
     return new Date(start) > new Date()
   }
 
-  if (loading) return <LoadingSpinner />
+  if (loading) {
+    return <LoadingSpinner className="min-h-96" />
+  }
 
   return (
     <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 2xl:grid-cols-4">
@@ -86,6 +88,8 @@ export default function Angebote() {
                   )}
                   src={`https://bilder.computer-extra.de/data/Angebote/${Angebot.image}`}
                   alt={Angebot.title}
+                  loading="lazy"
+                  decoding="async"
                 />
               </CardContent>
               <CardFooter>
