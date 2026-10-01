@@ -60,7 +60,9 @@ if (!notFoundHandle?.seo) {
 const notFoundPath = "/404"
 const content = await serverModule.render("/__not-found__")
 
-const html = createHtml(template, content, notFoundPath, notFoundHandle.seo)
+const html = createHtml(template, content, notFoundPath, notFoundHandle.seo, {
+  canonical: false,
+})
 
 await writeFile(path.join(distDirectory, "404.html"), html, "utf8")
 
@@ -85,9 +87,13 @@ function createHtml(
   template: string,
   content: string,
   routePath: string,
-  seo: NonNullable<StaticRoute["handle"]["seo"]>
+  seo: NonNullable<StaticRoute["handle"]["seo"]>,
+  options: {
+    canonical?: boolean
+  } = {}
 ): string {
   const canonicalUrl = new URL(routePath, BASE_URL).toString()
+  const includeCanonical = options.canonical !== false
 
   let html = template.replace(
     '<div id="root"></div>',
@@ -104,12 +110,16 @@ function createHtml(
     `<meta name="robots" content="${
       seo.index === false ? "noindex, nofollow" : "index, follow"
     }" />`,
-    `<link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`,
+    ...(includeCanonical
+      ? [`<link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`]
+      : []),
     `<meta property="og:title" content="${escapeHtml(seo.title)}" />`,
     `<meta property="og:description" content="${escapeHtml(
       seo.description
     )}" />`,
-    `<meta property="og:url" content="${escapeHtml(canonicalUrl)}" />`,
+    ...(includeCanonical
+      ? [`<meta property="og:url" content="${escapeHtml(canonicalUrl)}" />`]
+      : []),
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="Computer Extra GmbH" />`,
   ].join("\n    ")

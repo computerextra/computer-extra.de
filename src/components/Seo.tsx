@@ -1,7 +1,6 @@
-import type { RouteHandle } from "@/routes"
-import { appRoutes } from "@/routes"
+import { appRoutes, type RouteHandle } from "@/routes"
 import { useEffect } from "react"
-import { matchRoutes, useLocation } from "react-router"
+import { matchRoutes, useLocation, type RouteObject } from "react-router"
 
 const BASE_URL = "https://computer-extra.de"
 
@@ -9,11 +8,13 @@ export default function Seo() {
   const location = useLocation()
 
   useEffect(() => {
-    const matches = matchRoutes(appRoutes, location)
+    const matches = matchRoutes(appRoutes as RouteObject[], location)
 
     const match = [...(matches ?? [])]
       .reverse()
-      .find((match) => (match.route.handle as RouteHandle | undefined)?.seo)
+      .find(
+        (match) => (match.route.handle as RouteHandle | undefined)?.seo != null
+      )
 
     const handle = match?.route.handle as RouteHandle | undefined
     const seo = handle?.seo
