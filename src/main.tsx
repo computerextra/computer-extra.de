@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { StrictMode } from "react"
-import { hydrateRoot } from "react-dom/client"
+import { createRoot, hydrateRoot } from "react-dom/client"
 import { BrowserRouter } from "react-router"
 import App from "./App.tsx"
 import { env } from "./env.ts"
@@ -14,8 +14,7 @@ if (!root) {
   throw new Error("Root element not found")
 }
 
-hydrateRoot(
-  root,
+const app = (
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
@@ -24,6 +23,12 @@ hydrateRoot(
     </QueryClientProvider>
   </StrictMode>
 )
+
+if (root.hasChildNodes()) {
+  hydrateRoot(root, app)
+} else {
+  createRoot(root).render(app)
+}
 
 const initializePostHog = async () => {
   const { default: posthog } = await import("posthog-js")

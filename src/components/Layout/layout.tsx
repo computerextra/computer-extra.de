@@ -234,9 +234,9 @@ const Layout = () => {
                   finden, aber sich nicht durch unzählige Optionen kämpfen? Wir
                   helfen Ihnen dabei - persönlich und unkompliziert.
                 </p>
-                <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+                <p className="scroll-m-20 text-xl font-semibold tracking-tight">
                   Schnell. Einfach. Individuell.
-                </h3>
+                </p>
 
                 <Button
                   asChild

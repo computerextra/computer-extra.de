@@ -171,7 +171,7 @@
     url("/fonts/Envision.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 
 .envision {
@@ -442,5 +442,16 @@
 
   .cList ul li:hover::before {
     transform: scaleX(1);
+  }
+}
+
+@keyframes typing-cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
   }
 }

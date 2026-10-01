@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/refs */
 "use client"
 
-import { gsap } from "gsap"
 import {
   createElement,
   type ElementType,
@@ -59,7 +58,6 @@ const TypingText = ({
   const [isDeleting, setIsDeleting] = useState(false)
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(!startOnVisible)
-  const cursorRef = useRef<HTMLSpanElement>(null)
   const containerRef = useRef<HTMLElement>(null)
 
   const textArray = useMemo(() => (Array.isArray(text) ? text : [text]), [text])
@@ -98,19 +96,6 @@ const TypingText = ({
     observer.observe(containerRef.current)
     return () => observer.disconnect()
   }, [startOnVisible])
-
-  useEffect(() => {
-    if (showCursor && cursorRef.current) {
-      gsap.set(cursorRef.current, { opacity: 1 })
-      gsap.to(cursorRef.current, {
-        opacity: 0,
-        duration: cursorBlinkDuration,
-        repeat: -1,
-        yoyo: true,
-        ease: "power2.inOut",
-      })
-    }
-  }, [showCursor, cursorBlinkDuration])
 
   useEffect(() => {
     if (!isVisible) {
@@ -202,12 +187,16 @@ const TypingText = ({
     </span>,
     showCursor && (
       <span
-        className={`inline-block opacity-100 ${shouldHideCursor ? "hidden" : ""} ${
+        className={`inline-block opacity-100 ${
+          shouldHideCursor ? "hidden" : ""
+        } ${
           cursorCharacter === "|"
             ? `h-5 w-px translate-y-1 bg-foreground ${cursorClassName}`
             : `ml-1 ${cursorClassName}`
         }`}
-        ref={cursorRef}
+        style={{
+          animation: `typing-cursor-blink ${cursorBlinkDuration * 2}s ease-in-out infinite`,
+        }}
       >
         {cursorCharacter === "|" ? "" : cursorCharacter}
       </span>
