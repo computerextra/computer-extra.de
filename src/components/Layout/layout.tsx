@@ -42,44 +42,36 @@ const Words = [
   "Webhosting",
 ]
 
-const getDay = () => {
-  const today = new Date().getDay()
+const getDay = (date: Date) =>
+  new Intl.DateTimeFormat("de-DE", {
+    timeZone: "Europe/Berlin",
+    weekday: "long",
+  }).format(date)
 
-  switch (today) {
-    case 1:
-      return "Montag"
-    case 2:
-      return "Dienstag"
-    case 3:
-      return "Mittwoch"
-    case 4:
-      return "Donnerstag"
-    case 5:
-      return "Freitag"
-    case 6:
-      return "Samstag"
-    case 7:
-      return "Sonntag"
-    default:
-      return "FEHLER"
-  }
-}
+const isWorkingHour = (date: Date) => {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Europe/Berlin",
+    weekday: "short",
+    hour: "numeric",
+    hourCycle: "h23",
+  }).formatToParts(date)
+  const weekday = parts.find((part) => part.type === "weekday")?.value
+  const hour = Number(parts.find((part) => part.type === "hour")?.value)
 
-const isWorkingHour = () => {
-  const now = new Date()
   return (
-    now.getDay() <= 5 &&
-    ((now.getHours() >= 9 && now.getHours() < 13) ||
-      (now.getHours() >= 14 && now.getHours() < 18))
+    weekday !== "Sat" &&
+    weekday !== "Sun" &&
+    ((hour >= 9 && hour < 13) || (hour >= 14 && hour < 18))
   )
 }
 
 const Layout = () => {
   const headerRef = useRef<HTMLDivElement | null>(null)
   const [style, setStyle] = useState<CSSProperties | undefined>(undefined)
+  const [now, setNow] = useState<Date | null>(null)
 
-  const isOpen = isWorkingHour()
-  const day = getDay()
+  const isOpen = now !== null && isWorkingHour(now)
+  const day = now === null ? null : getDay(now)
 
   const setHeight = useEffectEvent(() => {
     if (headerRef.current == null) return
@@ -96,6 +88,14 @@ const Layout = () => {
       window.removeEventListener("resize", setHeight)
     }
   }, [headerRef])
+
+  useEffect(() => {
+    const updateNow = () => setNow(new Date())
+    updateNow()
+    const interval = window.setInterval(updateNow, 60_000)
+
+    return () => window.clearInterval(interval)
+  }, [])
 
   return (
     <div className={"flex min-h-screen flex-col"}>
